@@ -1,0 +1,152 @@
+[
+        {
+          "id": "getting_started",
+          "name": "Getting Started",
+          "icon": "getting-started-icon",
+          "children": [
+            {
+              "name": "SaaS Mode",
+              "id": "saasmode"
+            },
+            {
+              "name": "On Prem Saas",
+              "id": "onpremsaas"
+            },
+            {
+              "name": "Snappyflow Components",
+              "id": "snappyflowcomponents"
+            }
+          ]
+        },
+        {
+          "id": "log_management",
+          "name": "Log Management",
+          "icon": "log-management-icon",
+          "children": [
+              {
+                  "id": "logoverview",
+                  "name": "Log Overview Search"
+              },
+              {
+                  "id": "featureextraction",
+                  "name": "Feature Extraction"
+                  
+              },
+              {
+                  "id": "archival",
+                  "name": "Archival"
+                  
+              },
+              {
+                  "id": "logsignatures",
+                  "name": "Log Signatures"
+              },
+              {
+                  "id": "eltjobs",
+                  "name": "ELT Jobs"
+              }
+          ]
+        },
+          {
+            "id": "sf_tracing",
+            "name": "Tracing",
+            "icon": "tracing-icon",
+            "children": [
+              {
+                  "id": "java",
+                  "name": "Java"
+
+              },
+              {
+                  "id": "python",
+                  "name": "Python"
+              },
+              {
+                  "id": "ruby",
+                  "name": "Ruby"
+              },
+              {
+                  "id": "nodeJS",
+                  "name": "NodeJS"
+              },
+              {
+                  "id": "go",
+                  "name": "Go"
+              },
+              {
+                  "id": "c#",
+                  "name": "C#"
+              }
+            ]
+          },
+          {
+            "id": "dashboards",
+            "name": "Dashboards",
+            "icon": "dashboards-icon",
+            "children":  [
+              {
+                  "id": "gettingstarted",
+                  "name": "Getting Started"
+              },
+              {
+                  "id": "dashboardmanagement",
+                  "name": "Dashboard Management"
+              }
+            ]
+          },
+          {
+            "id": "sf_integrations",
+            "name": "Integrations",
+            "icon": "integrations-icon",
+            "children":  [
+              {
+                  "id": "cloud",
+                  "name": "Cloud"
+              },
+              {
+                  "id": "apptier",
+                  "name": "App Tier"
+              },
+              {
+                  "id": "webtier",
+                  "name": "Web Tier"
+              },
+              {
+                  "id": "databases",
+                  "name": "Databases"
+              },
+              {
+                  "id": "kubernets",
+                  "name": "Kubernets"
+              },
+              {
+                  "id": "services",
+                  "name": "Services"
+              }
+            ]
+          },
+          {
+            "id": "alerts_notifications",
+            "name": "Alerts & Notifications",
+            "icon": "alerts-notification-icon",
+            "children":  [
+              {
+                "id": "gettingstarted",
+                "name": "Getting Started"
+              },
+              {
+                  "id": "alertmanagement",
+                  "name": "Alert Management"
+              },
+              {
+                  "id": "integrationwithnotificationsolutions",
+                  "name": "Integration with notification solutions"
+              },
+              {
+                  "id": "slo",
+                  "name": "SLO"
+              }
+            ]
+          }
+          
+      ]
