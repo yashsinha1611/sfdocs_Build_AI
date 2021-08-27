@@ -19,6 +19,69 @@
           ]
         },
         {
+          "id": "sf_tracing",
+          "name": "Tracing",
+          "icon": "tracing-icon",
+          "children": [
+            {
+                "id": "java",
+                "name": "Java"
+
+            },
+            {
+                "id": "python",
+                "name": "Python"
+            },
+            {
+                "id": "ruby",
+                "name": "Ruby"
+            },
+            {
+                "id": "nodeJS",
+                "name": "NodeJS"
+            },
+            {
+                "id": "go",
+                "name": "Go"
+            },
+            {
+                "id": "c#",
+                "name": "C#"
+            }
+          ]
+        },
+        {
+          "id": "sf_integrations",
+          "name": "Integrations",
+          "icon": "integrations-icon",
+          "children":  [
+            {
+                "id": "cloud",
+                "name": "Cloud"
+            },
+            {
+                "id": "apptier",
+                "name": "App Tier"
+            },
+            {
+                "id": "webtier",
+                "name": "Web Tier"
+            },
+            {
+                "id": "databases",
+                "name": "Databases"
+            },
+            {
+                "id": "kubernets",
+                "name": "Kubernets"
+            },
+            {
+                "id": "services",
+                "name": "Services"
+            }
+          ]
+        },
+        {
           "id": "log_management",
           "name": "Log Management",
           "icon": "log-management-icon",
@@ -42,43 +105,11 @@
                   "name": "Log Signatures"
               },
               {
-                  "id": "eltjobs",
-                  "name": "ELT Jobs"
+                  "id": "etljobs",
+                  "name": "ETL Jobs"
               }
           ]
         },
-          {
-            "id": "sf_tracing",
-            "name": "Tracing",
-            "icon": "tracing-icon",
-            "children": [
-              {
-                  "id": "java",
-                  "name": "Java"
-
-              },
-              {
-                  "id": "python",
-                  "name": "Python"
-              },
-              {
-                  "id": "ruby",
-                  "name": "Ruby"
-              },
-              {
-                  "id": "nodeJS",
-                  "name": "NodeJS"
-              },
-              {
-                  "id": "go",
-                  "name": "Go"
-              },
-              {
-                  "id": "c#",
-                  "name": "C#"
-              }
-            ]
-          },
           {
             "id": "dashboards",
             "name": "Dashboards",
@@ -91,37 +122,6 @@
               {
                   "id": "dashboardmanagement",
                   "name": "Dashboard Management"
-              }
-            ]
-          },
-          {
-            "id": "sf_integrations",
-            "name": "Integrations",
-            "icon": "integrations-icon",
-            "children":  [
-              {
-                  "id": "cloud",
-                  "name": "Cloud"
-              },
-              {
-                  "id": "apptier",
-                  "name": "App Tier"
-              },
-              {
-                  "id": "webtier",
-                  "name": "Web Tier"
-              },
-              {
-                  "id": "databases",
-                  "name": "Databases"
-              },
-              {
-                  "id": "kubernets",
-                  "name": "Kubernets"
-              },
-              {
-                  "id": "services",
-                  "name": "Services"
               }
             ]
           },
@@ -147,6 +147,5 @@
                   "name": "SLO"
               }
             ]
-          }
-          
+          }   
       ]
