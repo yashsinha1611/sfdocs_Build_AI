@@ -81,11 +81,11 @@ Go to “Scratchpad” pane
 
 Click on ‘Export API Endpoint’ option in the component and create component  URL for all 3 components for interval, say Last 5 mins. 
 
-![Picture1](Picture1.png)
+![Picture1](assets/images/documentation/log_management/etl_jobs/Picture1.png)
 
 Click on the ‘API Endpoints’ option for the project to view the API List. Copy the URL’s for the 3 components and the Authentication token. These need to be provided in Step 4
 
-![Picture2](Picture2.png)
+![Picture2](assets/images/documentation/log_management/etl_jobs/Picture2.png)
 
 ## Step 4: Run summarization script as a cronjob
 
@@ -103,4 +103,5 @@ Install the pip utility from the below link. Refer to the link for Installation 
 
 You will now see the summarized data in dashboard under etlReport for job, stage and tasks. Select a particular job and choose a timeline to see job duration trends over the selected time period. Clicking on a particular job id provides a drilled down view of stages and tasks within that job. 
 
-![Picture3](Picture3.png)
+![Picture3](assets/images/documentation/log_management/etl_jobs/Picture3.png)
+
