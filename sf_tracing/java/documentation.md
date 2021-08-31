@@ -1,29 +1,19 @@
 # TRACING JAVA APPLICATIONS
-
 **Supported Versions**
-
 sfTrace Java Agent automatically instruments various APIs,  frameworks and application servers. Currently, sfTrace supports the following:   
-
 **Supported Java versions**
-
-Oracle JDK: 7u60+, 8u40+, 9, 10, 11 
-Open JDK: 7u60+, 8u40+, 9, 10, 11​ 
-
+Oracle JDK: 7u60+, 8u40+, 9, 10, 11
+Open JDK: 7u60+, 8u40+, 9, 10, 11
 **Supported Web Frameworks**
-
-Spring Web MVC 4.x, 5.x 
-Spring Boot 1.5+, 2.x supports embedded Tomcat​ 
-JAX-RS 2.x ​ 
-JAX-WS ​ 
-
+Spring Web MVC 4.x, 5.x
+Spring Boot 1.5+, 2.x supports embedded Tomcat
+JAX-RS 2.x
+JAX-WS
 **Supported Application Servers**
-
 Tomcat 7.x, 8.5.x, 9.x 
-Wildfly 8-16​ 
-JBoss EAP 6.4, 7.0, 7.1, 7.2​
-
+Wildfly 8-16 
+JBoss EAP 6.4, 7.0, 7.1, 7.2
 ### Choose your platform
-
 <ul class="icon_list">
 <li><A target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
 <li><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></li>
@@ -35,7 +25,6 @@ JBoss EAP 6.4, 7.0, 7.1, 7.2​
 <div id="javaInstance"></div>
 
 ## Instances
-
 Install sfAgent which automatically installs sfTrace agent as well.
 
 Link the application with sfTrace Java Agent 
