@@ -25,18 +25,12 @@ JBoss EAP 6.4, 7.0, 7.1, 7.2​
 ### Choose your platform
 
 <ul class="icon_list">
-
-​                <li><A target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li> 
-
-​                <li><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></li>
-
-​                <li><img src="images/docker-logo.png"> <div>Docker</div></li> 
-
-​                <li><img src="images/amazon-ecs-logo.png"> <div>ECS</div></li> 
-
-​                <li ><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></li>
-
-​        </ul>  
+<li><A target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></li>
+<li><img src="images/docker-logo.png"> <div>Docker</div></li>
+<li><img src="images/amazon-ecs-logo.png"> <div>ECS</div></li>
+<li ><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></li>
+</ul>  
 
 <div id="javaInstance"></div>
 
