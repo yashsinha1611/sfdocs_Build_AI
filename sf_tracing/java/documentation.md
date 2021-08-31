@@ -15,15 +15,14 @@ Wildfly 8-16
 JBoss EAP 6.4, 7.0, 7.1, 7.2
 ### Choose your platform
 <ul class="icon_list">
-<li><A target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
-<li><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></li>
-<li><img src="images/docker-logo.png"> <div>Docker</div></li>
-<li><img src="images/amazon-ecs-logo.png"> <div>ECS</div></li>
-<li ><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></li>
+<li><a target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><a target="#javakubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
+<li><a target="#javadocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
+<li><a target="#javaecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
+<li ><a target="#javalambda"><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></a></li>
 </ul>  
 
-<div id="javaInstance"></div>
-
+<div id="javaInstance">&nbsp</div>
 ## Instances
 Install sfAgent which automatically installs sfTrace agent as well.
 
@@ -101,7 +100,7 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 –Delastic.apm.use_path_as_transaction_name=true 
 –Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
-
+<div id="javadocker">&nbsp</div>
 ## Docker
 
 Refer to [java_Dockerfile](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_Dockerfile) . Look at sections with SFTRACE-CONFIG description. 
@@ -109,7 +108,7 @@ Refer to [java_Dockerfile](https://github.com/snappyflow/website-artefacts/blo
 Installation steps are provided. copy the trace agent to the container and start the container by attaching the agent to the application. Additionally, user has to add SnappyFlow configurations for profile_key, projectName, appName to the docker file 
 
 Once updated, build and start the container.
-
+<div id="javakubernetes">&nbsp</div>
 ## Kubernetes
 
 sfTrace is run as an initContainer in the application pod. User can deploy this either using a manifest yaml or a Helm chart. 
@@ -123,7 +122,7 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 **Update values.yaml**: Refer to [java_k8s_with_helm_chart_values.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_values.yaml)  to configure agent specific properties. Look at sections with SFTRACE-CONFIG description 
 
 **Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with SFTRACE-CONFIG description 
-
+<div id="javaecs">&nbsp</div>
 ## ECS 
 
 - Create the Task definition - Open Amazon ECS, in navigation pane, choose task definition and click on Create New Task Definition and select the launch type as EC2 or  Fargate, click on Next step. 
@@ -135,7 +134,7 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 mkdir /sfagent && wget -O /sfagent/sftrace-agent.tar.gz
 https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz && cd /sfagent && tar -xvzf sftrace-agent.tar.gz && java -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar -jar <your_jar_name>
 ```
-
+<div id="javalambda">&nbsp</div>
 ## Lambda functions
 
 coming soon !
