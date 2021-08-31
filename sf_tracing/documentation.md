@@ -5,18 +5,11 @@ SnappyFlow supports distributed tracing compliant with Opentracing  standard. Tr
 #### Select your language
 
 <ul class="icon_list">
-
-​                <li><a routerLink="" routerLinkActive="navigation_link"><img src="images/java-logo.png"></a></li> 
-
-​                <li><a routerLink="" routerLinkActive="navigation_link"><img src="images/python-logo.png"></a></li>
-
-​                <li><img src="images/ruby-logo.png"></li> 
-
-​                <li ><a routerLink="" routerLinkActive="navigation_link"><img src="images/nodejs-logo.png"></a></li>
-
-​                <li ><img src="images/go-logo.png"></li>
-
-​                <li><img src="images/c-sharp-logo.png"></li>
-
+<li><a routerLink="" routerLinkActive="navigation_link"><img src="images/java-logo.png"></a></li>
+<li><a routerLink="" routerLinkActive="navigation_link"><img src="images/python-logo.png"></a></li>
+<li><img src="images/ruby-logo.png"></li>
+<li ><a routerLink="" routerLinkActive="navigation_link"><img src="images/nodejs-logo.png"></a></li>
+<li ><img src="images/go-logo.png"></li>
+<li><img src="images/c-sharp-logo.png"></li>
 </ul>
 
