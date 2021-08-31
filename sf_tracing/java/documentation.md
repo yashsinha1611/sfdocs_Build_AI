@@ -13,6 +13,7 @@ JAX-WS
 Tomcat 7.x, 8.5.x, 9.x 
 Wildfly 8-16 
 JBoss EAP 6.4, 7.0, 7.1, 7.2
+
 ### Choose your platform
 <ul class="icon_list">
 <li><A target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
@@ -126,7 +127,10 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 
 ## ECS 
 
-- Create the Task definition - Open Amazon ECS, in navigation pane, choose task definition and click on Create New Task Definition and select the launch type as EC2 or  Fargate, click on Next step. 
+##### Create the Task definition
+
+- Open Amazon ECS, in navigation pane, choose task definition and click on Create New Task Definition and select the launch type as EC2 or  Fargate, click on Next step. 
+
 - Give the Task definition Name 
 - Task Role, choose an IAM role that provides permissions for containers in  your task to make calls to AWS APIs on your behalf and Network Mode
 - Click on Add containers. Give a Container name, and give the Image of your Java Application. Set Memory limit and port mappings as per your task requirements. In the environment section, for Entry Point give sh , -c For Command paste the following lines 
@@ -135,6 +139,39 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 mkdir /sfagent && wget -O /sfagent/sftrace-agent.tar.gz
 https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz && cd /sfagent && tar -xvzf sftrace-agent.tar.gz && java -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar -jar <your_jar_name>
 ```
+
+**Note:**
+
+Some EC2 task definitions may be running on host containers that don’t recoginise the wget command in such case, add below lines in the above  command, apt update && apt -y upgrade .
+
+Add the following Environment Variables:-
+
+```
+SFTRACE_PROJECT_NAME <project_name>
+SFTRACE_APP_NAME <app_name>
+SFTRACE_SERVICE_NAME <service_name>
+SFTRACE_PROFILE_KEY <profile_key>
+```
+
+The below environment variables are only applicable for springmvc and optional.
+
+```
+ELASTIC_APM_DISABLE_INSTRUMENTATIONS spring-mvc
+ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
+```
+
+##### Create the Cluster
+
+- In the Navigation pane, select Clusters and click on Create Cluster
+- Select the template as per your requirement
+- Give a Cluster name and give instance, networking Configurations IAM role as per your task requirements
+
+##### Create the Service
+
+- Click on the Cluster Name you created in the step2
+- Click on Create , Select the Launch type matching to your task definition.  Select the Task Definition Name and Version in the Drop down matching to the task definition you created in step 1
+- Give a Service Name and select other requirements as per your task compatibility
+- Click on next step and start your service
 
 ## Lambda functions
 
