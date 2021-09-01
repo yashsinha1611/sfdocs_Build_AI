@@ -1,3 +1,5 @@
+
+
 # Log Onboarding
 
 SnappyFlow uses Elasticsearch as its datastore for logs, metrics and traces.  SnappyFlow has built a search language which is simple and easy to use  for analyzing logs , extracting metadata from unstructured logs and enhancing the logs with extracted metadata.
@@ -126,11 +128,115 @@ Note that in the above tokenization, character  “:” and character “.” Ar
 {"message": "ArithmeticException(…)"}
 ```
 
-| Search Query                                   | Result                     | Results explained                                            |
-| ---------------------------------------------- | -------------------------- | ------------------------------------------------------------ |
-| "disconnected from"                            | Matches documents 1 and 2. | Get all documents that contain the terms *disconnected* and *from*. The terms should appear together in the same order in the document. Notice that in document 1, the word *disconnected* appears as *Disconnected*. Since search is always case-insensitive, document 1 is also matched. |
-| message: (disconnected && from && port)        | Matches document 1         | Get all documents that contain the words *disconnected* and *from* and *port*. Note: words need not appear together and they may appear in any order. |
-| message: (disconnect\* port)                   | Matches documents 1 and 2. | Get all documents that contain word starting with *disconnect* or a word *port*. This is interpreted as*message: (disconnect\* // port). *disconnect** matches all terms which start with the word disconnect and have zero or more characters after it i.e. disconnecting, disconnected and disconnect |
-| message: (disconnected && -port)               | Matches document 2         | Get all documents that has term *disconnected* and does not have the term *port*. |
-| responseCode: 400 \|\| message: (\*exception\* | Matches 3, 5 and 6         | \*exception\* matches any word that contains the string exception and similarly \*error\*. The term \*ArithmeticException(...)\* matches \*exception\* and *ValueError(...)* matches \*error\* |
+**Examples**
+
+```
+Search Query:
+"disconnected from"
+Get all documents that contain the terms disconnected and from. The terms should appear together in the same order in the document.
+
+Results and explanation:
+Matches documents 1 and 2.
+
+Notice that in document 1, the word disconnected appears as Disconnected. Since search is always case-insensitive, document 1 is also matched.
+```
+
+```
+Search Query:
+message: (disconnected && from && port)
+Get all documents that contain the words disconnected and from and port
+
+Results and explanation:
+Matches document 1
+
+Note: words need not appear together and they may appear in any order.
+```
+
+```
+Search Query:
+message: (disconnect* port)
+Get all documents that contain word starting with disconnect or a word port.
+
+Results and explanation:
+Matches documents 1 and 2.
+
+This is interpreted asmessage: (disconnect* || port)
+disconnect* matches all terms which start with the word disconnect and have zero or more characters after it i.e. disconnecting, disconnected and disconnect
+```
+
+```
+Search Query:
+message: (disconnected && -port)
+Get all documents that has term disconnected and does not have the term port
+
+Results and explanation:
+Matches document 2
+
+-(responseCode: 400 ||
+message: (*exception* || *error*))
+2 This is a complete negation of the above search i.e. NOT operator is applied to above search
+```
+
+```
+Search Query:
+responseCode: 400 || message: (*exception* || *error*)
+
+Results and explanation:
+Matches 3, 5 and 6
+
+*exception* matches any word that contains the string exception and similarly *error*.
+The term ArithmeticException(...) matches *exception* and ValueError(...) matches *error*
+```
+
+```
+Search Query:
+-(responseCode: 400 || message: (*exception* || *error*))
+This search is a total negation of the previous search.
+
+Results and explanation:
+Matches document 4
+```
+
+### Regex Patterns
+
+**Datastore contains following documents**
+
+```
+{"message": "No identification string for 118.24.197.243"}
+{"message": "No identification string for 119:25.200.255"}
+{"message": "Received bad request from 119:25.200.255"}
+{"message": "pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=203.195.182.3"}
+{"message": "Authentication failure for user admin"}
+```
+
+**Examples**
+
+```
+Search Query:
+message: /[0-9]+.[0-9]+.[0-9]+.[0-9]+/
+
+Get all documents where message field contains an IP address pattern.
+Results and explanation:
+
+Matches documents 1,2,3,4
+
+Search Query:
+(message: /119.25.[0-9]+.[0-9]+/)
+
+Get all documents where message field contains an IP Address pattern with a network address 119.25
+
+Results and explanation:
+Matches document 2 and 3
+auth* && failure &&-/[0-9]+.[0-9]+.[0-9]+.[0-9]+/ 5
+Any key’s value needs to consist of auth*, failure but not an IP i.e. [0-9]+.[0-9]+.[0-9]+.[0- 9]+
+
+Search Query:
+auth* && failure && -/[0-9]+.[0-9]+.[0-9]+.[0-9]+/
+
+Get all documents where an IP address pattern is NOT present in any of the fields and contains a word starting with auth in any of the fields AND contains the word failure in any of the fields.
+
+Results and explanation:
+
+Matches documents 5
+```
 
