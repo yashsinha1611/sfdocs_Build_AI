@@ -952,6 +952,5 @@
 
    1. Add the environment variable SF_PROFILE_KEY and set the value to your profile key copied from SnappyFlow. 
    2. Add environment variables APP_NAME and PROJECT_NAME with appropriate values. 
-
-![](images/python_aws_picture1.png)
+   ![](images/python_aws_picture1.png)
 
