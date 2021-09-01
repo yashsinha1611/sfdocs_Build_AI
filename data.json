@@ -24,6 +24,11 @@
           "icon": "tracing-icon",
           "children": [
             {
+                "id": "overview",
+                "name": "Overview"
+
+            },
+            {
                 "id": "java",
                 "name": "Java"
 
