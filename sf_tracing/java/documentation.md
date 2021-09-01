@@ -25,6 +25,7 @@ JBoss EAP 6.4, 7.0, 7.1, 7.2
 
 <div id="javaInstance">&nbsp</div>
 ## Instances
+
 Install sfAgent which automatically installs sfTrace agent as well.
 
 Link the application with sfTrace Java Agent 
@@ -76,12 +77,14 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 ```
 <div id="javadocker">&nbsp</div>
 ## Docker
+
 Refer to [java_Dockerfile](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_Dockerfile) . Look at sections with SFTRACE-CONFIG description. 
 Installation steps are provided. copy the trace agent to the container and start the container by attaching the agent to the application. Additionally, user has to add SnappyFlow configurations for profile_key, projectName, appName to the docker file 
 Once updated, build and start the container.
 
 <div id="javakubernetes">&nbsp</div>
 ## Kubernetes
+
 sfTrace is run as an initContainer in the application pod. User can deploy this either using a manifest yaml or a Helm chart. 
 ###### Example of Manifest yaml 
 [java_k8s_standalone_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_standalone_deployment.yaml)  
