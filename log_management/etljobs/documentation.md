@@ -4,8 +4,9 @@ Analytics processing usually requires user to run a sequence of database reads/w
 
 SnappyFlow provides an easy yet powerful tool to analyze ETL Jobs. The approach is explained in the following video
 <div style="width: 98%">
-         <iframe width="100%" height="463" src="https://www.youtube.com/watch?v=lFLXyMfq6jY" showinfo="0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <iframe width="100%" height="463" src="https://www.youtube.com/watch?v=lFLXyMfq6jY&ab_channel=SnappyFlow" showinfo="0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+
 
 ## Step 1: Drop logs from ETL Jobs
 
