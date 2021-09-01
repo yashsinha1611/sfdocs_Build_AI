@@ -78,7 +78,7 @@
             },
             {
                 "id": "kubernets",
-                "name": "Kubernets"
+                "name": "Kubernetes"
             },
             {
                 "id": "services",
