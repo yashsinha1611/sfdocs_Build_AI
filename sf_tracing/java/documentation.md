@@ -1,27 +1,34 @@
 # TRACING JAVA APPLICATIONS
-**Supported Versions**
-sfTrace Java Agent automatically instruments various APIs,  frameworks and application servers. Currently, sfTrace supports the following:   
-**Supported Java versions**
-Oracle JDK: 7u60+, 8u40+, 9, 10, 11
-Open JDK: 7u60+, 8u40+, 9, 10, 11
-**Supported Web Frameworks**
-Spring Web MVC 4.x, 5.x
-Spring Boot 1.5+, 2.x supports embedded Tomcat
-JAX-RS 2.x
-JAX-WS
-**Supported Application Servers**
-Tomcat 7.x, 8.5.x, 9.x 
-Wildfly 8-16 
-JBoss EAP 6.4, 7.0, 7.1, 7.2
+<div class="commandDiv">
+	<b>Supported Versions</b>
+	<p>sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
+	</p>
+	<b>Supported Java versions</b> 
+	<p>
+		Oracle JDK: 7u60+, 8u40+, 9, 10, 11 <br/>
+	Open JDK: 7u60+, 8u40+, 9, 10, 11 </p>
+	<b>Supported Web Frameworks</b>
+	<p>
+		Spring Web MVC 4.x, 5.x <br/>
+	Spring Boot 1.5+, 2.x supports embedded Tomcat <br/>
+	JAX-RS 2.x  <br/>
+	JAX-WS  <br/>
+	</p>
+	<b>Supported Application Servers</b>
+	<p>Tomcat 7.x, 8.5.x, 9.x <br/>
+	Wildfly 8-16 <br/>
+	JBoss EAP 6.4, 7.0, 7.1, 7.2</p>
+</div>
 
 ### Choose your platform
-<ul class="icon_list">
-<li><a target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
-<li><a target="#javakubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
-<li><a target="#javadocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
-<li><a target="#javaecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
-<li ><a target="#javalambda"><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></a></li>
+<ul class="icon_list lang">
+<li><a href="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><a href="#javakubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
+<li><a href="#javadocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
+<li><a href="#javaecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
+<li ><a href="#javalambda"><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></a></li>
 </ul>  
+
 
 <div id="javaInstance">&nbsp</div>
 ## Instances
@@ -93,6 +100,7 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 **Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with SFTRACE-CONFIG description 
 <div id="javaecs">&nbsp</div>
 ## ECS 
+
 ##### Create the Task definition
 
 - Open Amazon ECS, in navigation pane, choose task definition and click on Create New Task Definition and select the launch type as EC2 or  Fargate, click on Next step. 
