@@ -5,15 +5,15 @@
 ### Choose your platform
 
 <ul class="icon_list">
-<li><a target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
-<li><a target="#javakubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
-<li><a target="#javadocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
-<li><a target="#javaecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
-<li ><a target="#javalambda"><img src="images/lambda-functions-logo.png"> <div>AWS <br/>Lambda</div></a></li>
+<li><a href="#pythoninstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><a href="#pythonkubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
+<li><a href="#pythondocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
+<li><a href="#pythonecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
+<li ><a href="#pythonlambda"><img src="images/lambda-functions-logo.png"> <div>AWS <br/>Lambda</div></a></li>
 </ul> 
 
 ## Instance
-
+<div id="pythoninstance"/>
 ### Django
 
 1. Add 
@@ -274,7 +274,7 @@
 
 
 ## Kubernetes
-
+<div id="pythonkubernetes"/>
 ### Django
 
 1. Add
@@ -482,7 +482,7 @@
    https://github.com/snappyflow/tracing-reference-apps/blob/master/ref-celery/tasks.py 
 
 ## Docker
-
+<div id="pythondocker" />
 ### Django
 
 1. Add
@@ -702,7 +702,7 @@
    https://github.com/snappyflow/tracing-reference-apps/blob/master/ref-celery/tasks.py 
 
 ## ECS
-
+<div id="pythonecs"/>
 ### Django
 
 1. Add  
@@ -899,7 +899,7 @@
    https://github.com/snappyflow/tracing-reference-apps/blob/master/ref-celery/tasks.py 
 
 ## AWS Lambda
-
+<div id="pythonlambda"/>
 ### Script
 
 1.  Add these python libraries in requirements.txt file. Follow the AWS lambda doc on adding runtime dependency to lambda function. 
@@ -958,5 +958,5 @@
    1. Add the environment variable SF_PROFILE_KEY and set the value to your profile key copied from SnappyFlow. 
    2. Add environment variables APP_NAME and PROJECT_NAME with appropriate values. 
 
-![](images\python_aws_picture1.png)
+![](images/python_aws_picture1.png)
 
