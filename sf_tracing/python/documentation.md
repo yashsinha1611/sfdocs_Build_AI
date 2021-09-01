@@ -5,15 +5,14 @@
 ### Choose your platform
 
 <ul class="icon_list">
-<li><a href="#pythoninstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
-<li><a href="#pythonkubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
-<li><a href="#pythondocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
-<li><a href="#pythonecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
-<li ><a href="#pythonlambda"><img src="images/lambda-functions-logo.png"> <div>AWS <br/>Lambda</div></a></li>
+<li><a href="#header0"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><a href="#header1"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
+<li><a href="#header2"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
+<li><a href="#header3"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
+<li ><a href="#header4"><img src="images/lambda-functions-logo.png"> <div>AWS <br/>Lambda</div></a></li>
 </ul> 
 
 ## Instance
-<div id="pythoninstance"/>
 ### Django
 
 1. Add 
@@ -253,9 +252,9 @@
        sf.init(profile_key, project_name, app_name) 
        # End of manual configuration 
        SFTRACE_CONFIG = sf.get_trace_config() 
-   apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing                        server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-                           global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-                           verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')) 
+   apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+    global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+      verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')) 
        register_exception_tracking(apm_client) 
        register_instrumentation(apm_client) 
    except Exception as error: 
@@ -274,7 +273,6 @@
 
 
 ## Kubernetes
-<div id="pythonkubernetes"/>
 ### Django
 
 1. Add
@@ -482,7 +480,6 @@
    https://github.com/snappyflow/tracing-reference-apps/blob/master/ref-celery/tasks.py 
 
 ## Docker
-<div id="pythondocker" />
 ### Django
 
 1. Add
@@ -702,7 +699,6 @@
    https://github.com/snappyflow/tracing-reference-apps/blob/master/ref-celery/tasks.py 
 
 ## ECS
-<div id="pythonecs"/>
 ### Django
 
 1. Add  
@@ -899,7 +895,6 @@
    https://github.com/snappyflow/tracing-reference-apps/blob/master/ref-celery/tasks.py 
 
 ## AWS Lambda
-<div id="pythonlambda"/>
 ### Script
 
 1.  Add these python libraries in requirements.txt file. Follow the AWS lambda doc on adding runtime dependency to lambda function. 
