@@ -57,29 +57,33 @@ The Extract-Value (EV) construct, uses 4 parameters, *field, pattern, type, name
 
 **Example 1**
 
-*EV(message, /\d+\.\d+\.\d+\.\d+/, string, ip_addr)*
+```swift
+EV(message, /\d+\.\d+\.\d+\.\d+/, string, ip_addr)
+```
 
 Extract IP address from field message.
 
-1. {"message": "DHCPACK from 172.31.32.1 (xid=0x381e913e)",“ip_addr”: “172.31.32.1”}
-2. {"message": "DHCPREQUEST on eth0 to 172.31.32.1 port 67 (xid=0x381e913e)", “ip_addr”:“172.31.32.1”}
-3. {"message": "Received disconnect from 167.114.226.137 port 47545:11: [preauth]", “ip_addr”:“167.114.226.137”}
-4. {"message": "Disconnected from 167.71.217.175 port 46180 [preauth]",“ip_addr”: “167.71.217.175”}
-5. {"message": "Received disconnect from 51.91.159.46 port 33914:11: [preauth]",“ip_addr”:“51.91.159.46”}
-
-
+```swift
+{"message": "DHCPACK from 172.31.32.1 (xid=0x381e913e)",“ip_addr”: “172.31.32.1”}
+{"message": "DHCPREQUEST on eth0 to 172.31.32.1 port 67 (xid=0x381e913e)", “ip_addr”:“172.31.32.1”}
+{"message": "Received disconnect from 167.114.226.137 port 47545:11: [preauth]", “ip_addr”:“167.114.226.137”}
+{"message": "Disconnected from 167.71.217.175 port 46180 [preauth]",“ip_addr”: “167.71.217.175”}
+{"message": "Received disconnect from 51.91.159.46 port 33914:11: [preauth]",“ip_addr”:“51.91.159.46”}
+```
 
 **Example 2**
 
+```swift
 EV(log_msg, /\d+(.\d+)*(?=ms)/, float, delay)
+```
 
 Extract delay values from the field “log_msg”. Delay value is identified by the pattern (a) one digit string, immediately followed by string “ms” OR (b) two digit strings, each separated by “.” and second digit string is immediately followed by string “ms”. Save extracted value in field named delay.
 
-- {" log_msg": "Received request from 10.11.100.29 and re-directed to 33.229.79.17 in 10.34ms", “delay”: 10.34}
-- {"log_msg": "Latency time is 5ms",“delay”: 5}
-- {"log_msg": "Process 2131 completed in 50s"} – *nothing is extracted from this message*
-
-
+```swift
+{" log_msg": "Received request from 10.11.100.29 and re-directed to 33.229.79.17 in 10.34ms", “delay”: 10.34}
+{"log_msg": "Latency time is 5ms",“delay”: 5}
+{"log_msg": "Process 2131 completed in 50s"} – *nothing is extracted from this message*
+```
 
 **Example 3**
 
@@ -87,7 +91,11 @@ Extract delay values from the field “log_msg”. Delay value is identified by 
 
 Extract IP addresses from log_msg field. Skip the first extraction and save the second extraction to field named *rd_ip_addr*.
 
-- {"log_msg": "Received request from 10.11.100.29 and re-directed to 33.229.79.17 in 10.34ms",“rd_ip_addr”: "33.229.79.17”}
+```swift
+{"log_msg": "Received request from 10.11.100.29 and re-directed to 33.229.79.17 in 10.34ms",“rd_ip_addr”: "33.229.79.17”}
+```
+
+
 
 ### Extract Group
 
@@ -109,11 +117,15 @@ Examples - coming soon
 
 Applications often use logs to dump their internal statistics for debugging purposes. Most often, such logs will contain expressions like:
 
-**<name1>:<value1>, <name2>:<value2>, …..** 
+```swift
+<name1>:<value1>, <name2>:<value2>, …..
+```
 
 OR
 
-**<name1>=<value1>; <name2>=<value2>;…..**
+```swift
+<name1>=<value1>; <name2>=<value2>;….
+```
 
 In such logs, the field-value pairs can be identified with a value *separator* and a pair *delimiter*. In the first example value separator is “:” and pair delimiter is “,”; whereas in the second example, value separator is “=” and pair delimiter is “;”.
 

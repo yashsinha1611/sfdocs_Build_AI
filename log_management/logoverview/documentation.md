@@ -97,10 +97,14 @@ Note that in the above tokenization, character  “:” and character “.” Ar
 
 **Datastore has following documents**
 
-1.  { "pid": 3245, "upstream_response_time": 10, "URL": "https://www.elastic.co/guide/en/elasticsearch/reference"}
-2.  {"pid": 2445, "upstream_response_time": 4, "URL": "https://www.elastic.co/guide/en/machine-learning" }
-3.  {"pid": 3246, "upstream_response_time": 2, "URL": "https://docker-hub/pricing"}
-4.  {"message": "docker image built", "pid": 1000}
+```swift
+{ "pid": 3245, "upstream_response_time": 10, "URL": "https://www.elastic.co/guide/en/elasticsearch/reference"}
+{"pid": 2445, "upstream_response_time": 4, "URL": "https://www.elastic.co/guide/en/machine-learning" }
+{"pid": 3246, "upstream_response_time": 2, "URL": "https://docker-hub/pricing"}
+{"message": "docker image built", "pid": 1000}
+```
+
+
 
 | Search Query & Logic                       | Result                     | Results explained                                            |
 | :----------------------------------------- | -------------------------- | ------------------------------------------------------------ |
@@ -113,12 +117,14 @@ Note that in the above tokenization, character  “:” and character “.” Ar
 
 **Datastore contains following documents**
 
-1. {"message": "Disconnected from 118.24.197.243 port 35662 [preauth]"}
-2. {"message": "Unregistered Authentication Agent for unix-session:7  (system bus name :1.89, object path  /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_IN)  (disconnected from bus)"}
-3. {"responseCode": "400", "responseMessage": Null}
-4. {"message": "request received from IP1 and redirected to IP2", "responseCode": "200"}
-5. {"message": "ValueError(…)"}
-6. {"message": "ArithmeticException(…)"}
+```swift
+{"message": "Disconnected from 118.24.197.243 port 35662 [preauth]"}
+{"message": "Unregistered Authentication Agent for unix-session:7  (system bus name :1.89, object path  /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_IN)  (disconnected from bus)"}
+{"responseCode": "400", "responseMessage": Null}
+{"message": "request received from IP1 and redirected to IP2", "responseCode": "200"}
+{"message": "ValueError(…)"}
+{"message": "ArithmeticException(…)"}
+```
 
 | Search Query                                   | Result                     | Results explained                                            |
 | ---------------------------------------------- | -------------------------- | ------------------------------------------------------------ |
