@@ -22,16 +22,15 @@
 
 ### Choose your platform
 <ul class="icon_list lang">
-<li><a href="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
-<li><a href="#javadocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
-<li><a href="#javakubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
-<li><a href="#javaecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
-<li ><a href="#javalambda"><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></a></li>
+<li><a href="#header0"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><a href="#header1"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
+<li><a href="#header2"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
+<li><a href="#header3"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
+<li ><a href="#header4"><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></a></li>
 </ul>  
 
 
 ## Instances
-<div id="javaInstance"/>
 Install sfAgent which automatically installs sfTrace agent as well.
 
 Link the application with sfTrace Java Agent 
@@ -90,7 +89,6 @@ Once updated, build and start the container.
 
 
 ## Kubernetes
-<div id="javakubernetes"/>
 sfTrace is run as an initContainer in the application pod. User can deploy this either using a manifest yaml or a Helm chart. 
 ###### Example of Manifest yaml 
 [java_k8s_standalone_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_standalone_deployment.yaml)  
@@ -99,7 +97,6 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 **Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with SFTRACE-CONFIG description 
 
 ## ECS 
-<div id="javaecs"/>
 ##### Create the Task definition
 
 - Open Amazon ECS, in navigation pane, choose task definition and click on Create New Task Definition and select the launch type as EC2 or  Fargate, click on Next step. 
@@ -136,6 +133,5 @@ ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
 - Click on next step and start your service
 
 ## Lambda functions
-<div id="javalambda"/>
 coming soon !
 
