@@ -109,9 +109,67 @@ EG construct uses, following parameters:
 | pattern     | REGEX pattern which identifies the extraction groups. Pattern is enclosed in a pair of “/”. In the REGEX pattern the group to be extracted is enclosed in parenthesis “()”. |
 | name:<type> | a comma separated list of name:type tuples which specify name of the extracted group and its type. Type can be int, float or string. If no type is specified, it is assumed to be string. |
 
+**Example 1**
 
+```
+EG(message, /(\d+.\d+.\d+.\d+) - \[(.*)\] "(\w+) ([^\s]+) ([^\s"]+)" (\d+) (\d+) "-" "(.*)" "-"/, host, httpd_timestamp, method, path, header, code:int, size:int, agent)
+```
 
-Examples - coming soon
+The example illustrates extracting information from an nginx access log, which contains the host sending the request, time at which the request was received, HTTP method, request Path, header version, response code, size and the agent making request. The response code, and size are integer values, whereas the other extractions are string type values. Patterns corresponding to these groups are highlighted in the above EG construct.
+
+Note: the group REGEX patterns are enclosed in “()”, strings matching each of those patterns are extracted and placed in the field name provided in the same order they appear.
+
+```
+{
+"message": "172.31.31.45 - [06/May/2020:11:44:41] \"GET /owners/2 HTTP/1.1\" 200 4964
+\"-\" \"Apache-HttpClient/4.5.7 (Java/1.8.0_242)\" \"-\" rt=14.717 uct=0.000 uht=14.716
+urt=14.716",
+"host": “172.31.31.45”,
+"httpd_timestamp": "06/May/2020:11:44:41",
+"method": "GET",
+"path": "/owners/2",
+"header": "HTTP/1.1",
+"code": 302,
+"size": 4964,
+"agent": "Apache-HttpClient/4.5.7 (Java/1.8.0_242)"
+}
+{
+"message": "172.31.81.81 - [06/May/2020:11:44:41] \"POST /owners/new HTTP/1.1\" 201
+24 \"-\" \"Mozilla/5.0 (Windows NT 10.0; WOW64)\" \"-\" rt=1.088 uct=0.000 uht=1.088
+urt=1.088",
+"host": “172.31.81.81”, 
+"httpd_timestamp": "06/May/2020:11:44:41",
+"method": "POST",
+"path": "/owners/new",
+"header": "HTTP/1.1",
+"code": 201,
+"size": 24,
+"agent": "Mozilla/5.0 (Windows NT 10.0; WOW64)"
+}
+```
+
+**Example 2**
+
+```
+EG(message, /TTY=\w+ ; PWD=([^\s]+) ; USER=(\w+) ; COMMAND=(.*)$/, path, username, cmd)
+```
+
+```
+{
+"message": "root : TTY=unknown ; PWD=/home/centos ; USER=root ; COMMAND=/bin/rm –rf
+jmeter.log",
+"pwd": "/home/centos",
+"username": "root",
+"cmd": "/bin/rm -rf jmeter.log"
+}
+{
+"message": "centos : TTY=unknown ; PWD=/home/kevin ; USER=adam ; COMMAND=/bin/rm -
+rf jmeter.log ",
+"pwd": "/home/kevin",
+"username": "adam",
+"cmd": "/bin/rm -rf jmeter.log"
+}
+```
 
 ### Extract Pair
 
@@ -142,4 +200,231 @@ General syntax used in Extract Pairs is:
 | include=[]      | if only selected fields from the extraction are to be added to the log document, list those field names. **Note:** include and exclude lists can not both be present at the same time. An optional field and can be omitted. |
 | exclude=[]      | if selected fields from the extraction are not to be added to the log document, list those field names. **Note:** include and exclude lists can not both be present at the same time. An optional field and can be omitted. |
 
+
+
+**Example 1**
+
+```
+EP(message, /,/, /=/, convert=[price:int])
+```
+
+From the field message, extract field-value pairs where pair_delimiter is “,” and value separator is “=”. Convert the value for field “price” to integer.
+
+```
+{
+"message": "name=Kevin,user_id=3212,order_id=234,price=240.56",
+"name": "Kevin", 
+"user_id": "3212", 
+"order_id": "234", 
+"price": 241
+}
+{
+"message": "name=larry,user_id=1111,order_id=100,price=123",
+"name": "larry",
+"user_id": "1111",
+"order_id": "100",
+"price": 123
+}
+{
+"message": "process completed in 20s, and details=HEXA3413",
+"and details": "HEXA3413"
+}
+```
+
+**Note:** in the above example
+
+- Field “price”, if present is converted to Integer. In the 3 rd message field, “price” is not present
+- In the 3 rd message, notice that the field name is taken as “and details”. This is because the pair delimiter was specified as “,” and anything between “,” (pair delimiter) and “=” (value separator) is taken as a field name
+
+**Example 2**
+
+```
+EP(message, /,|(.*,\s+and)/, /=/, exclude=[name], convert=[price:float, order_id])
+```
+
+```
+From the field message, extract field-value pairs delimited by text matching the pattern /,|(.*,\s+and)/ and has a value separator “=”. Note that the pair delimiter has a REGEX pattern which defines multiple delimiters. Each delimiter is separated by “|”.
+
+Options specified here are:
+“,” – comma
+
+OR
+
+“.*,\s+and’ - a string with any number of characters(.*), followed by a “,” followed by any number of white space characters(\s+) and followed by the string “and”.
+```
+
+Following log messages will illustrate the use of this extraction
+
+```
+{
+"message": "name=Kevin,user_id=3212,order_id=234,price=240.56",
+"user_id": "3212",
+"order_id": 234,
+"price": 240.56
+}
+{
+"message": "name=larry,user_id=1111,order_id=100,price=123",
+"user_id": "1111", 
+"order_id": 100,
+"price": 123
+}
+{
+"message": "process completed in 20s, and details=HEXA3413",
+"details": "HEXA3413"
+}
+```
+
+- In the 1 st and 2 nd example messages, pair delimiter used was “,”.
+- In the 3 rd example message, the pair delimiter is “process completed in 20s, and”
+- Also note, in messages 1 and 2, the field “name” was extracted, but was not added to the output document, because of the “exclude” option.
+
+**Example 3**
+
+```
+message: (user_id && price) with EP(message, /,/, /=/, include=[price])
+```
+
+```
+{
+"message": "name=Kevin,user_id=3212,order_id=234,price=240.56",
+"price": “240.56”
+}
+{
+"message": "name=larry,user_id=1111,order_id=100,price=123",
+"price": “123”
+}
+{
+"message": "process completed in 20s, and details=HEXA3413"
+}
+```
+
+Since **include** option had the field “price”, only those documents where field “price” was found were updated. 3 rd document though matched the delimiter and separator, did not have the field “price”.
+
+**Example 4**
+
+```
+EP(message, /(.*PID.*?(?=\w+=))|(\})|(\{)|(\s(?=\w+=))/, /=/, exclude=[ startTime, endTime], convert=[count, minimum: float, mean: float, maximum: float])
+```
+
+Another example using a complex delimiter, with exclude option and convert options.
+Multiple pair delimiters are used.
+
+```
+{
+"message": "StatisticsLogTask - PID1 - context=Execution Fill {subContext=Order Update section=Top Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=3
+minimum=1.0 mean=5.0 maximum=21.0",
+"context": "Execution Fill", "subContext": "Order Update",
+"section": "Top Level", "count": 3,
+"minimum": 1, "maximum": 21, "mean": 5
+}
+{
+"message": "StatisticsLogTask - PID2 - context=Execution Fill {subContext=Order Placed section=Mid Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00 count=6
+minimum=0.813 mean=7.9 maximum=13.0}",
+"context": "Execution Fill", "subContext": "Order Placed",
+"section": "Mid Level", "count": 6,
+"minimum": 0.813, "maximum": 13, "mean": 7.9
+}
+```
+
+In the extraction, multiple pair delimiters were specified
+
+```
+/(.*PID.*?(?=\w+=))|(\})|(\{)|(\s(?=\w+=))/
+```
+
+```
+StatisticsLogTask - PID1 - context=Execution Fill (subContext=Order Update section=Top Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=3 minimum=1.0 mean=5.0 maximum=21.0 
+
+StatisticsLogTask - PID2 - context=Execution Fill (subContext=Order Place section=Mid Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=6 minimum=0.813 mean=7.3 maximum=13.0 
+```
+
+Value pairs identified by the pair delimiter pattern is shown in the above picture.
+
+Though startTime and endTime are extracted, but they are excluded.
+
 ### Tools and Tips
+
+Java REGEX testing tools can be used to validate the REGEX patterns used for extractions. A web tool like https://www.freeformatter.com/java-regex-tester.html can be used for this.
+
+Pattern used in extract values (EV) should match the sub-strings you intend to extract. For example, to extract the timestamps from the following message, a pattern like below can be used
+
+```
+/\d+-\d+- \d+\s+\d+:\d+/
+```
+
+**Extract Value Pattern**
+
+```
+\d+-\d+-\d+\s+\d+:\d+
+```
+
+```
+String: StatisticsLogTask - PID1 - context=Execution Fill {subContext=Order Update section=Top Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=3 minimum=1.0 mean=5.0 maximum=21.0
+```
+
+```
+StatisticsLogTask - PID2 - Context = Execution Fill (subContext=Order Place section=Mid Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00 count=6 minimum=0.813 mean=7.9 maximum=13.0
+```
+
+| Match # | Group index | Start index | End index | Group content    |
+| ------- | ----------- | ----------- | --------- | ---------------- |
+| 1       | 0           | 103         | 119       | 2019-12-17 23:59 |
+| 2       | 0           | 128         | 144       | 2019-12-20 00:00 |
+
+Extract Group allows to apply a REGEX to the field and extract only the groups identified (i.e. patterns enclosed in parentheses). As an example the following group REGEX when applied to the string below will result in the following groups.
+
+**Extract group pattern**
+
+```
+(\d+\.\d+\.\d+\.\d+) - - \[[^\]]* \+\d+\] \\\\\\\"POST \/topics\/(\w+)-(\w+) HTTP/1.0\\\\\\\"(\d+) (\d+) (\d+)
+```
+
+```
+String: 10.233.117.0 - - [26/Oct/2020:22:30:00 +0000] \\\"POST /topics/metric-grqqwwi7 HTTP/1.0\\\"200 12602 12 (io.confluent.rest-utils.requests)
+```
+
+Copy the pattern and string to the java-regex-tester. Observe the resultant matches and groups. In Extract Group, the values extracted in non-zero group index are used.
+
+```
+10.233.177.0 - - [26/Oct/2020:22:30:00 +0000]  \\\"Post  /topica/metric-grqqwwi7  HTTP/1.0\\\"  200  12602  12(io.confluent.reat-utile.requests)
+```
+
+| Match # | Group index | Start index | End index | Group content                                                |
+| ------- | ----------- | ----------- | --------- | ------------------------------------------------------------ |
+| 1       | 0           | 0           | 106       | 10.233.117.0--[26/Oct/2000:22:30:00 +0000] \\\"POST /topics/metric-grqqwwi7 HTTP/1.0\\\\* 200 1260212 |
+| 1       | 1           | 0           | 12        | 10.233.117.0                                                 |
+| 1       | 2           | 63          | 69        | metric                                                       |
+| 1       | 3           | 70          | 78        | grqqwwi7                                                     |
+| 1       | 4           | 92          | 95        | 200                                                          |
+| 1       | 5           | 96          | 101       | 12602                                                        |
+| 1       | 6           | 103         | 106       | 12                                                           |
+
+- To extract value pairs, pair-delimiter should match the boundaries and all other symbols which are needed to split the string into an array of pairs. Each pair is again split, based on value- separator pattern
+
+- SnappyFlow provides following built-in regex patterns, these built-in patterns can be used in place of a REGEX required in EV, EP or EG feature extraction constructs. Built-in pattern names are encapsulated in “$” 
+
+  ```
+      $hostname$ - hostname string, e.g.apmmanager.snappyflow.io
+      $url$ - URL, e.g. https://apmmanager.snappyflow.io
+      $file_path$ - UNIX file path, e.g. /usr/share/nginx/html/theme-chrome.js
+      $float$ - floating point number, e.g.31.45
+      $integer$ - integer number, e.g. 19345
+      $alphanumeric$ - alpha-numeric characters, e.g. admin1
+      $alphanumericspecial$ - alpha-numeric with hyphen and underscore, e.g. date_time
+      $string$ - a string encapsulated in ‘ (single quote) or “ (double quote)
+      $date$ - date string, e.g. 02-04-2020
+      $datetime$ - date with time string, e.g. 02-04-20 21:41:59
+      $time$ - time string, e.g. 21:41:59
+      $ipv4addr$ - IPv4 Address, e.g. 172.31.22.98
+  ```
+
+- Example extraction with built-in regex patterns
+
+  ```
+  message: "*72281 open() "/usr/share/nginx/html/theme-chrome.js" failed (2: No such file or directory), client: 172.31.22.98, server: _, request: "GET /theme-chrome.js HTTP/1.1", host: "apmmanager.snappyflow.io", referrer: “https://apmmanager.snappyflow.io/”
+  
+  Extraction
+  message:"No such file or directory" with EG(message,/($integer$) open\(\) \"($file_path$)\" failed \(2: No such file or directory\), client: ($ipv4addr$), server: ([^,]*), request: \"([^\"]*)\", host: \"($hostname$)\", referrer: \"($url$)\"/,m_size:int, m_file, m_client, m_server, m_request, m_host, m_referrer)
+  
+  The extraction operation above will extract the fields m_size: 72281, m_file: /usr/share/nginx/html/theme-chrome.js, m_client: 172.31.22.98, m_server: _, m_request: GET /theme-chrome.js HTTP/1.1, m_host: apmmanager.snappyflow.io and m_referrer: https://apmmanager.snappyflow.io/
+  ```
