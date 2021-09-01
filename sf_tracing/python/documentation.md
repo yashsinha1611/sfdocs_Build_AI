@@ -958,5 +958,5 @@
    1. Add the environment variable SF_PROFILE_KEY and set the value to your profile key copied from SnappyFlow. 
    2. Add environment variables APP_NAME and PROJECT_NAME with appropriate values. 
 
-![](E:\Documents\GitHub\sfdocs\sf_tracing\nodeJS\images\nodejs_lambda_1.png)
+![](images\nodejs_lambda_1.png)
 
