@@ -30,7 +30,6 @@
 </ul>  
 
 
-<div id="javaInstance">&nbsp</div>
 ## Instances
 
 Install sfAgent which automatically installs sfTrace agent as well.
@@ -82,14 +81,14 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 –Delastic.apm.use_path_as_transaction_name=true 
 –Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
-<div id="javadocker">&nbsp</div>
+
 ## Docker
 
 Refer to [java_Dockerfile](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_Dockerfile) . Look at sections with SFTRACE-CONFIG description. 
 Installation steps are provided. copy the trace agent to the container and start the container by attaching the agent to the application. Additionally, user has to add SnappyFlow configurations for profile_key, projectName, appName to the docker file 
 Once updated, build and start the container.
 
-<div id="javakubernetes">&nbsp</div>
+
 ## Kubernetes
 
 sfTrace is run as an initContainer in the application pod. User can deploy this either using a manifest yaml or a Helm chart. 
@@ -98,7 +97,7 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 ###### Example of a Helm chart 
 **Update values.yaml**: Refer to [java_k8s_with_helm_chart_values.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_values.yaml)  to configure agent specific properties. Look at sections with SFTRACE-CONFIG description 
 **Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with SFTRACE-CONFIG description 
-<div id="javaecs">&nbsp</div>
+
 ## ECS 
 
 ##### Create the Task definition
@@ -135,7 +134,7 @@ ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
 - Click on Create , Select the Launch type matching to your task definition.  Select the Task Definition Name and Version in the Drop down matching to the task definition you created in step 1
 - Give a Service Name and select other requirements as per your task compatibility
 - Click on next step and start your service
-<div id="javalambda">&nbsp</div>
+
 ## Lambda functions
 
 coming soon !
