@@ -3,13 +3,12 @@
  Available platforms
 
 <ul class="icon_list">
-<li><a href="#rubyInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
-<li><a href="#rubykubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
+<li><a href="#header0"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><a href="#header1"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
 </ul>  
 
 ## Instances
 
-<div id="rubyInstance" />
 sfTrace Ruby Agent automatically instruments applications, based on web frameworks Ruby on Rails and other Rack-compatible applications. It uses the hooks and signals provided by these frameworks to trace the application.
 
 ###### Installation steps
@@ -23,7 +22,7 @@ sfTrace Ruby Agent automatically instruments applications, based on web framewor
 2. Add the agent configuration file in application’s config folder. Refer to application.rb for tracing specific configuration. Search for **SFTRACE-CONFIG** in sample application.rb 
 
 ## Kubernetes
-<div id="rubykubernetes"/>
+
  Follow the steps below to enable tracing in Ruby on Rails applications running as a Kubernetes pod
 
 1. Follow the first 2 steps in **Trace setup for Ruby on Rails Applications** to update the application with agent specific configuration.

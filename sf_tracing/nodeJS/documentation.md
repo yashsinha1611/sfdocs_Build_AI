@@ -16,19 +16,20 @@
 
 1. Install nodejs dependencies and save it in package.json using
 
-```
-npm install --save elastic-apm-node
-npm install --save sf-apm-lib
-```
+   ```
+   install --save elastic-apm-node
+   npm install --save sf-apm-lib
+   ```
 
-​	or update package.json file with following entries
+   or update package.json file with following entries
 
-```
-"elastic-apm-node": "^3.17.0"
-"sf-apm-lib": "^1.0.0" 
-```
+   ```
+   "elastic-apm-node": "^3.17.0"
+   "sf-apm-lib": "^1.0.0" 
+   ```
 
-​	And run ‘npm install’ to install dependencies
+2. And run ‘npm install’ to install dependencies
+
 
 2. Provide PROJECT_NAME, APP_NAME, SF_PROFILE_KEY as an environment variable in .env file and load it using require('dotenv').config() and access it in code using process.env.<ENV_VAR>
 
@@ -115,7 +116,7 @@ npm install --save sf-apm-lib
       let sfTraceConfig = sfObj.getTraceConfig(); 
       ```
 
-   2. ​    Initialize apm object using
+   2. Initialize apm object using
 
       ```
       var apm; 
@@ -390,7 +391,7 @@ npm install --save sf-apm-lib
       } 
       ```
 
-   3. Attach apm object to globals – This is required so we can use apm variable in other files as part of global sails object. 
+   3. Attach apm object to globals – This is required so we can use apm variable in other files as part of global sails object
 
       ```
       module.exports.globals = { 
@@ -403,7 +404,7 @@ npm install --save sf-apm-lib
       }; 
       ```
 
-   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code.
+   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code
 
       ```
       module.exports.http = {
@@ -562,7 +563,7 @@ npm install --save sf-apm-lib
       let sfTraceConfig = sfObj.getTraceConfig(); 
       ```
 
-   2. ​    Initialize apm object using
+   2.  Initialize apm object using
 
       ```
       var apm; 
@@ -764,7 +765,7 @@ npm install --save sf-apm-lib
       } 
       ```
 
-   3. Attach apm object to globals – This is required so we can use apm variable in other files as part of global sails object. 
+   3. Attach apm object to globals – This is required so we can use apm variable in other files as part of global sails object
 
       ```
       module.exports.globals = { 
@@ -777,7 +778,7 @@ npm install --save sf-apm-lib
       }; 
       ```
 
-   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code. 
+   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code
 
       ```
       module.exports.http = { 
@@ -817,7 +818,7 @@ npm install --save sf-apm-lib
 
 ## AWS Lambda
 
-1. Install dependency libraries in the node_modules directory using the npm install command. 
+1. Install dependency libraries in the node_modules directory using the npm install command
 
    ```
    npm install sf-apm-lib@^1.0.2 
