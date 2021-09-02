@@ -4,7 +4,7 @@ SnappyFlow supports distributed tracing compliant with Opentracing  standard. Tr
 
 #### Select your language
 
-<ul class="icon_list">
+<ul class="icon_list javalang">
 <li><a routerLink="" routerLinkActive="navigation_link"><img src="images/java-logo.png"></a></li>
 <li><a routerLink="" routerLinkActive="navigation_link"><img src="images/python-logo.png"></a></li>
     <li><a routerLink="" routerLinkActive="navigation_link"><img src="images/ruby-logo.png"></a></li>
