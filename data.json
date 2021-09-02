@@ -1,12 +1,12 @@
 [
         {
-          "id": "getting_started",
-          "name": "Getting Started",
+          "id": "quick_start_guide",
+          "name": "Quick Start Guide",
           "icon": "getting-started-icon",
           "children": [
             {
-              "name": "Overview",
-              "id": "overview"
+              "name": "Getting Started",
+              "id": "getting_started"
             }
           ]
         },
