@@ -21,7 +21,7 @@
 </div>
 
 ### Choose your platform
-<ul class="icon_list lang">
+<ul class="icon_list javalang">
 <li><a href="#header0"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
 <li><a href="#header1"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
 <li><a href="#header2"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
