@@ -3,11 +3,11 @@
 ### Choose your platform
 
 <ul class="icon_list">
-<li><a target="#javaInstance"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
-<li><a target="#javakubernetes"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
-<li><a target="#javadocker"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
-<li><a target="#javaecs"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
-<li ><a target="#javalambda"><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></a></li>
+<li><a href="#header0"><img src="images/instances-logo.png" > <div>Instance</div></a></li>
+<li><a href="#header1"><img src="images/kubernetes-logo.png"> <div>Kubernetes</div></a></li>
+<li><a href="#header2"><img src="images/docker-logo.png"> <div>Docker</div></a></li>
+<li><a href="#header3"><img src="images/amazon-ecs-logo.png"> <div>ECS</div></a></li>
+<li ><a href="#header4"><img src="images/lambda-functions-logo.png"> <div>Lambda <br/>Function</div></a></li>
 </ul> 
 
 ## Instance
