@@ -12,41 +12,41 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
 <div><b>Log format for a Job:</b></div>
 
 ```json
-{ 
-   "jobName": <Job-name>, 
-   "jobId": <Unique JobId>, 
-   "time": <Time in epoch milliseconds format> 
-   "type": "job", 
-   "status": <status: started, success, failed, aborted> 
+{
+    "jobName": <Job-name>,
+    "jobId": <Unique JobId>,
+    "time": <Time in epoch milliseconds format>
+    "type": "job",
+    "status": <status: started, success, failed, aborted> 
  } 
 ```
 
 <div><b>Log format for a Stage:</b></div>
 
 ```json
- { 
-  "jobName": <Job-name>, 
-  "jobId": <Unique JobId>, 
-  “stageId”: <stageId>, 
-  “stageName”: <stageName> 
-  "time": <Time in epoch milliseconds format> 
-  "type": "stage", 
-  "status": <status can be started, success, failed, aborted> 
+ {
+     "jobName": <Job-name>,
+     "jobId": <Unique JobId>,
+     “stageId”: <stageId>,
+     “stageName”: <stageName>
+     "time": <Time in epoch milliseconds format>
+     "type": "stage", 
+     "status": <status can be started, success, failed, aborted>
  } 
 ```
 
 <div><b>Log format for a Task:</b></div>
 
 ```json
-{ 
-  "jobName": <Job-name>, 
-  "jobId": <Unique JobId>, 
-  “stageId”: <staged>, 
-  “stageName”: <stageName> 
-  "time": <Time in epoch milliseconds format> 
-  "type": "task", 
-  "status": <status can be started, success, failed, aborted> 
- } 
+{
+    "jobName": <Job-name>,
+    "jobId": <Unique JobId>,
+    “stageId”: <staged>,
+    “stageName”: <stageName>
+    "time": <Time in epoch milliseconds format>
+    "type": "task",
+    "status": <status can be started, success, failed, aborted>
+} 
 ```
 
 ## Step 2: Forward logs to SnappyFlow
@@ -55,11 +55,11 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
 
 ```yaml
 logging:
-  plugins: 
-  - name: etlRaw 
-    enabled: true 
-    config: 
-      log_path: <log file path>
+  plugins:
+    - name: etlRaw
+      enabled: true
+        config:
+          log_path: <log file path>
 ```
 
 <div> Restart sfAgent with the new configuration.</div>
