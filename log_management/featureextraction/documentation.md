@@ -332,11 +332,9 @@ In the extraction, multiple pair delimiters were specified
 /(.*PID.*?(?=\w+=))|(\})|(\{)|(\s(?=\w+=))/
 ```
 
-```
 StatisticsLogTask - PID1 - context=Execution Fill (subContext=Order Update section=Top Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=3 minimum=1.0 mean=5.0 maximum=21.0 
 
 StatisticsLogTask - PID2 - context=Execution Fill (subContext=Order Place section=Mid Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=6 minimum=0.813 mean=7.3 maximum=13.0 
-```
 
 Value pairs identified by the pair delimiter pattern is shown in the above picture.
 
