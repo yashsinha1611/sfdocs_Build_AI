@@ -9,7 +9,7 @@ SnappyFlow provides an easy yet powerful tool to analyze ETL Jobs. The approach 
 
 SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task. Logs in JSON format have to be dropped whenever a job/stage/task is started, completed or terminated. This log can be parsed using SnappyFlow’s ETL parser. 
 
-**Log format for a Job:**  
+<div><b>Log format for a Job:</b></div>
 
 ```json
 { 
@@ -21,7 +21,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
  } 
 ```
 
-**Log format for a Stage:** 
+<div><b>Log format for a Stage:</b></div>
 
 ```json
  { 
@@ -35,7 +35,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
  } 
 ```
 
-**Log format for a Task:** 
+<div><b>Log format for a Task:</b></div>
 
 ```json
 { 
@@ -51,7 +51,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
 
 ## Step 2: Forward logs to SnappyFlow
 
-Add the following log parser to logging section of sfAgent’s config.yaml:        
+<div>Add the following log parser to logging section of sfAgent’s config.yaml: </div>       
 
 ```yaml
 logging:
@@ -62,7 +62,7 @@ logging:
       log_path: <log file path>
 ```
 
- Restart sfAgent with the new configuration.
+<div> Restart sfAgent with the new configuration.</div>
 
 ```
 service sfagent restart
