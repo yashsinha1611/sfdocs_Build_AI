@@ -2,8 +2,12 @@
 
 ######  SnappyFlow is offered in 2 modes: 
 
-- SaaS: Monitoring end-points send data securely to SnappyFlow SaaS 
-- On-Prem SaaS: SnappyFlow is deployed within user’s account and all data is retained within the account itself. Features are identical to SaaS 
+
+<ul class="icon_list lang">
+<li><a href="#header0"><img src="images/saas.png" > <div>Monitoring end-points send data securely to SnappyFlow SaaS</div></a></li>
+<li><a href="#header1"><img src="images/onpremsaas.png"> <div>SnappyFlow is deployed within user’s account and all data is retained within the account itself. Features are identical to SaaS</div></a></li>
+</ul>  
+
 
 ##  Setup SaaS Account 
 
@@ -29,8 +33,9 @@
 
  
 
-| sfAgent          | Lightweight agent installed on VMs to collect metrics, logs and tracing data.  Procedure for sfAgent on Linux  Procedure for sfAgent on Windows |
+| Terminology      |                                                              |
 | ---------------- | ------------------------------------------------------------ |
+| sfAgent          | Lightweight agent installed on VMs to collect metrics, logs and tracing data.  Procedure for sfAgent on Linux  Procedure for sfAgent on Windows |
 | sfPoller         | Poller appliance installed within user’s account and can used for the following functions: Monitor cloud services such as RDS, ELB, Lamba, ECS, Azure App Service etc. Monitor Databases Perform Synthetic Monitoring of APIs using postman like collections Stream logs from applications to sfPoller, apply parsing rules and forward logs to SnappyFlow Procedure for sfPoller setup |
 | sfPod            | Daemon set installed on Kubernetes cluster and monitors the following elements: Host, Pod & Container metrics Resources such as deployments, Daemon Sets etc. Kubernetes core services metrics Cluster logs Monitor Prometheus exporters running on any of the application pods |
 | sfKubeAgent      | sfAgent equivalent and installed as a side-car container within a Kubernetes  pod and can be configured to monitor metrics and logs of other  containers running on pods. Procedure for setting up sfKubeAgent |
