@@ -18,7 +18,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
     "time": <Time in epoch milliseconds format>
     "type": "job",
     "status": <status: started, success, failed, aborted> 
- } 
+ }
 ```
 
 <div><b>Log format for a Stage:</b></div>
@@ -27,8 +27,8 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
  {
      "jobName": <Job-name>,
      "jobId": <Unique JobId>,
-     “stageId”: <stageId>,
-     “stageName”: <stageName>
+    "stageId": <stageId>,
+    "stageName": <stageName>
      "time": <Time in epoch milliseconds format>
      "type": "stage", 
      "status": <status can be started, success, failed, aborted>
@@ -64,8 +64,7 @@ logging:
 
 <div> Restart sfAgent with the new configuration.</div>
 
-```
-service sfagent restart
+```service sfagent restart
 ```
 
 Check if documents have been received in SnappyFlow. You will find 3 documents under metrics with plugin name as “etlRaw” and documentType as “job”, “stage” and “task” depending on your hierarchy. 
