@@ -48,37 +48,6 @@
           ]
         },
         {
-          "id": "sf_integrations",
-          "name": "Integrations",
-          "icon": "integrations-icon",
-          "children":  [
-            {
-                "id": "cloud",
-                "name": "Cloud"
-            },
-            {
-                "id": "apptier",
-                "name": "App Tier"
-            },
-            {
-                "id": "webtier",
-                "name": "Web Tier"
-            },
-            {
-                "id": "databases",
-                "name": "Databases"
-            },
-            {
-                "id": "kubernetes",
-                "name": "Kubernetes"
-            },
-            {
-                "id": "services",
-                "name": "Services"
-            }
-          ]
-        },
-        {
           "id": "log_management",
           "name": "Log Management",
           "icon": "log-management-icon",
