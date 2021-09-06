@@ -11,7 +11,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
 
 <div><b>Log format for a Job:</b></div>
 
-```json
+```
 {
     "jobName": <Job-name>,
     "jobId": <Unique JobId>,
@@ -23,7 +23,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
 
 <div><b>Log format for a Stage:</b></div>
 
-```json
+```
  {
      "jobName": <Job-name>,
      "jobId": <Unique JobId>,
@@ -37,7 +37,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
 
 <div><b>Log format for a Task:</b></div>
 
-```json
+```
 {
     "jobName": <Job-name>,
     "jobId": <Unique JobId>,
@@ -64,7 +64,8 @@ logging:
 
 <div> Restart sfAgent with the new configuration.</div>
 
-```service sfagent restart
+```
+service sfagent restart
 ```
 
 Check if documents have been received in SnappyFlow. You will find 3 documents under metrics with plugin name as “etlRaw” and documentType as “job”, “stage” and “task” depending on your hierarchy. 
