@@ -181,7 +181,5 @@ config:
 `monitorThreadDumps` Flag used to enable/disable threaddump monitoring.
 `threadDumpInterval` Polling interval for threaddump monitoring.
 
-## Linux
-
 
 
