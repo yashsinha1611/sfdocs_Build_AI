@@ -1,10 +1,10 @@
-# Java 
+# Java
+
+JVM plugin is available for multiple platforms and provides JVM related metrics, traces and logs.
 
 ## Kubernetes
 
 ### Prometheus
-
-Plugin provides JVM related metrics for the Java based applications hosted in kubernetes.
 
 ###### Prerequisites
 
