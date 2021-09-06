@@ -47,6 +47,25 @@
             }
           ]
         },
+		{
+          "id": "sf_integrations",
+          "name": "Integrations",
+          "icon": "integrations-icon",
+          "children":  [
+            {
+                "id": "overview",
+                "name": "Overview"
+            },
+			{
+                "id": "jvm",
+                "name": "JVM"
+            },
+			{
+                "id": "mysql",
+                "name": "mySQL"
+            }
+		]
+		},
         {
           "id": "log_management",
           "name": "Log Management",
