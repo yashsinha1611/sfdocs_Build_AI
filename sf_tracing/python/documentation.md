@@ -18,7 +18,7 @@
 1. Add 
 
    ```
-   elastic-apm==6.3.3
+   sf-elastic-apm==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -29,7 +29,7 @@
    Install through CLI using 
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -39,48 +39,48 @@
 
    1. Add import statement 
 
-      ```
+      ```python
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
    2. Add following entry in INSTALLED_APPS
 
-      ```
-       'elasticapm.contrib.django'
+      ```python
+      'elasticapm.contrib.django'
       ```
 
    3. Add following entry in MIDDLEWARE
 
-      ```
+      ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
       ```
 
    4. Add this entry for instrumenting Django app
 
-      ```
+      ```python
       try: 
-          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+         sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
           # Add below part to manually configure the initialization 
-          project_name = os.getenv('SF_PROJECT_NAME') 
-          app_name = os.getenv('SF_APP_NAME') 
-          profile_key = os.getenv('SF_PROFILE_KEY') 
-          sf.init(profile_key, project_name, app_name) 
-          # End of manual configuration 
-          SFTRACE_CONFIG = sf.get_trace_config() 
-           ELASTIC_APM={ 
-              'SERVICE_NAME': "<Service name>" , //Specify your service name for tracing 
-              'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-              'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-              'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-              'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-              'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-              'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-              'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
-              'CENTRAL_CONFIG': False, 
-              'DEBUG': True 
-          } 
-       except Exception as error: 
-          print("Error while fetching snappyflow tracing configurations", error) 
+         SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+         SF_APP_NAME = os.getenv('SF_APP_NAME') 
+         profile_key = os.getenv('SF_PROFILE_KEY') 
+         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         # End of manual configuration 
+         SFTRACE_CONFIG = sf.get_trace_config() 
+         ELASTIC_APM={ 
+            'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
+            'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+            'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+            'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+            'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+            'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+            'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+            'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
+            'CENTRAL_CONFIG': False, 
+            'DEBUG': True 
+         } 
+      except Exception as error: 
+         print("Error while fetching snappyflow tracing configurations", error) 
       ```
 
 4. Once your server is up and running you can check trace in Snappyflow Server. 
@@ -97,8 +97,8 @@
 
 1. Add 
 
-   ```
-   elastic-apm[flask]==6.3.3
+   ```python
+   sf-elastic-apm[flask]==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -109,7 +109,7 @@
    Install through CLI using
 
    ```
-   pip install elastic-apm[flask]==6.3.3 
+   pip install sf-elastic-apm[flask]==6.3.4 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -119,29 +119,31 @@
 
    1. Add imports statement
 
-      ```
+      ```python
       from elasticapm.contrib.flask import ElasticAPM 
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
    2. Get trace config
 
-      ```
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+      ```python
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+
       # Add below part to manually configure the initialization 
-      project_name = os.getenv('SF_PROJECT_NAME') 
-      app_name = os.getenv('SF_APP_NAME') 
+      SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+      SF_APP_NAME = os.getenv('SF_APP_NAME') 
       profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, project_name, app_name) 
-      # End of manual configuration 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      # End of manual configuration
+
       SFTRACE_CONFIG = sf.get_trace_config() 
       ```
 
    3. Initialize elastic apm and instrument it to flask app
 
-      ```
+      ```python
       app.config['ELASTIC_APM'] = { 
-          'SERVICE_NAME': '<SERVICE_NAME>', //Specify your service name for tracing 
+          'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
           'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
           'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
           'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
@@ -165,28 +167,32 @@
 1. Install following requirements
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install sf-apm-lib==0.1.1 
    ```
 
 2. Add following code at start of script file to setup elastic apm client
 
-   ```
+   ```python
    import elasticapm 
    from sf_apm_lib.snappyflow import Snappyflow 
-   sf = Snappyflow() # Initialize Snappyflow. By default intialization will pick profileKey, projectName and appName from sfagent config.yaml. 
+
+   sf = Snappyflow() # Initialize Snappyflow. By default intialization will pick profileKey, projectName and appName from sfagent config.yaml.
+   
    # Add below part to manually configure the initialization 
-   project_name = '<Snappyflow Project Name>' 
-   app_name = '<Snappyflow App Name>' 
+   SF_PROJECT_NAME = '<Snappyflow Project Name>' 
+   SF_APP_NAME = '<Snappyflow App Name>' 
    profile_key = '<Snappyflow Profile Key>' 
-   sf.init(profile_key, project_name, app_name) 
-   # End of manual configuration 
+   sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+   # End of manual configuration
+
    trace_config = sf.get_trace_config() # Returns trace config 
-   client = elasticapm.Client(service_name="<Service name> ",# Specify service name for tracing 
-           server_url=trace_config['SFTRACE_SERVER_URL'], 
-           verify_cert=trace_config['SFTRACE_VERIFY_SERVER_CERT'], 
-           global_labels=trace_config['SFTRACE_GLOBAL_LABELS'] 
-       ) 
+   client = elasticapm.Client(
+      service_name="<Service name> ",# Specify service name for tracing 
+      server_url=trace_config['SFTRACE_SERVER_URL'], 
+      verify_cert=trace_config['SFTRACE_VERIFY_SERVER_CERT'], 
+      global_labels=trace_config['SFTRACE_GLOBAL_LABELS'] 
+   ) 
    elasticapm.instrument()  # Only call this once, as early as possible. 
    ```
 
@@ -194,7 +200,7 @@
 
    Example
 
-   ```
+   ```python
    def main(): 
        sess = requests.Session() 
        for url in [ 'https://www.elastic.co', 'https://benchmarks.elastic.co' ]: 
@@ -231,34 +237,42 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```
+   ```python
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
    from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
+
    instrument() 
+
    try: 
-       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-       # Add below part to manually configure the initialization 
-       project_name = '<PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
-       app_name = '<APP_NAME>’ # Replace with appropriate Snappyflow app name 
-       profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-       sf.init(profile_key, project_name, app_name) 
-       # End of manual configuration 
-       SFTRACE_CONFIG = sf.get_trace_config() 
-   apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-    global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-      verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')) 
-       register_exception_tracking(apm_client) 
-       register_instrumentation(apm_client) 
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+
+      # Add below part to manually configure the initialization 
+      SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
+      SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
+      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      # End of manual configuration 
+
+      SFTRACE_CONFIG = sf.get_trace_config() 
+      apm_client = Client(
+         service_name= '<Service_Name>', # Specify service name for tracing
+         server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+         global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+         verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')
+      )
+
+      register_exception_tracking(apm_client) 
+      register_instrumentation(apm_client) 
    except Exception as error: 
-       print("Error while fetching snappyflow tracing configurations", error) 
+      print("Error while fetching snappyflow tracing configurations", error) 
    ```
 
 3. Once instrumentation is done and celery worker is running we can see trace for each celery task in Snappyflow server. 
@@ -277,8 +291,8 @@
 
 1. Add
 
-   ```
-   elastic-apm==6.3.3
+   ```python
+   sf-elastic-apm==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -289,7 +303,7 @@
    Install through CLI using
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -297,51 +311,51 @@
 
    1. Add import statement 
 
-      ```
+      ```python
       from sf_apm_lib.snappyflow import Snappyflow
       ```
 
    2. Add following entry in INSTALLED_APPS
 
-      ```
+      ```python
       'elasticapm.contrib.django'
       ```
 
    3. Add following entry in MIDDLEWARE
 
-      ```
+      ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
       ```
 
    4. Add this entry for instrumenting Django app
 
-      ```
+      ```python
       try: 
          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-          # Add below part to manually configure the initialization 
-          project_name = os.getenv('SF_PROJECT_NAME') 
-          app_name = os.getenv('SF_APP_NAME') 
-          profile_key = os.getenv('SF_PROFILE_KEY') 
-          sf.init(profile_key, project_name, app_name) 
-          # End of manual configuration 
-          SFTRACE_CONFIG = sf.get_trace_config() 
-          ELASTIC_APM={ 
-              'SERVICE_NAME': "<Service name>" , //Specify your service name for tracing 
-              'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-              'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-              'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-              'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-              'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-              'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-              'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
-              'CENTRAL_CONFIG': False, 
-              'DEBUG': True 
-          } 
+         # Add below part to manually configure the initialization 
+         SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+         SF_APP_NAME = os.getenv('SF_APP_NAME') 
+         profile_key = os.getenv('SF_PROFILE_KEY') 
+         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         # End of manual configuration 
+         SFTRACE_CONFIG = sf.get_trace_config() 
+         ELASTIC_APM={ 
+            'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
+            'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+            'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+            'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+            'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+            'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+            'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+            'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
+            'CENTRAL_CONFIG': False, 
+            'DEBUG': True 
+         } 
       except Exception as error: 
-          print("Error while fetching snappyflow tracing configurations", error)
+         print("Error while fetching snappyflow tracing configurations", error)
       ```
 
-3. Provide PROJECT_NAME, APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
+3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
 
    https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
 
@@ -365,8 +379,8 @@
 
 1. Add 
 
-   ```
-   elastic-apm[flask]==6.3.3
+   ```python
+   sf-elastic-apm[flask]==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -376,8 +390,8 @@
 
    Install through CLI using 
 
-   ```
-   RUN pip install elastic-apm[flask]==6.3.3 
+   ```docker
+   RUN pip install sf-elastic-apm[flask]==6.3.4 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -385,41 +399,43 @@
 
    1. Add imports statement
 
-      ```
+      ```python
       from elasticapm.contrib.flask import ElasticAPM 
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
    2. Get trace config
 
-      ```
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+      ```python
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+
       # Add below part to manually configure the initialization 
-      project_name = os.getenv('SF_PROJECT_NAME') 
-      app_name = os.getenv('SF_APP_NAME') 
+      SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+      SF_APP_NAME = os.getenv('SF_APP_NAME') 
       profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, project_name, app_name) 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration 
+
       SFTRACE_CONFIG = sf.get_trace_config()
       ```
 
    3. Initialize elastic apm and instrument it to flask app
 
-      ```
+      ```python
       app.config['ELASTIC_APM'] = { 
-          'SERVICE_NAME': '<SERVICE_NAME>', //Specify your service name for tracing 
-          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-          'DEBUG': True 
+         'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
+         'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+         'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+         'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+         'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+         'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+         'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+         'DEBUG': True 
       } 
       apm = ElasticAPM(app) 
       ```
 
-3. Provide PROJECT_NAME, APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
+3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
 
    https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
 
@@ -439,34 +455,41 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```
+   ```python
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
    from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
-   instrument() 
+
+   instrument()
+
    try: 
-       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-       # Add below part to manually configure the initialization 
-       project_name = '<PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
-       app_name = '<APP_NAME>’ # Replace with appropriate Snappyflow app name 
-       profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-       sf.init(profile_key, project_name, app_name) 
-       # End of manual configuration 
-       SFTRACE_CONFIG = sf.get_trace_config() 
-   apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing                        server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-                           global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-                           verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')) 
-       register_exception_tracking(apm_client) 
-       register_instrumentation(apm_client) 
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+      
+      # Add below part to manually configure the initialization 
+      SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
+      SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
+      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      # End of manual configuration 
+
+      SFTRACE_CONFIG = sf.get_trace_config() 
+      apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing
+         server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+         global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+         verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')
+      )
+
+      register_exception_tracking(apm_client) 
+      register_instrumentation(apm_client) 
    except Exception as error: 
-       print("Error while fetching snappyflow tracing configurations", error) 
+      print("Error while fetching snappyflow tracing configurations", error) 
    ```
 
 3. Once instrumentation is done and celery worker is running we can see trace for each celery task in Snappyflow server. 
@@ -484,8 +507,8 @@
 
 1. Add
 
-   ```
-   elastic-apm==6.3.3
+   ```python
+   sf-elastic-apm==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -495,8 +518,8 @@
 
    Install through CLI using
 
-   ```
-   RUN pip install elastic-apm==6.3.3 
+   ```docker
+   RUN pip install sf-elastic-apm==6.3.4 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -504,51 +527,53 @@
 
    1. Add import statement 
 
-      ```
+      ```python
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
    2. Add following entry in INSTALLED_APPS
 
-      ```
+      ```python
       'elasticapm.contrib.django'  
       ```
 
    3. Add following entry in MIDDLEWARE
 
-      ```
+      ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
       ```
 
    4. Add this entry for instrumenting Django app
 
-      ```
+      ```python
       try: 
-          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-          # Add below part to manually configure the initialization 
-          project_name = os.getenv('SF_PROJECT_NAME') 
-          app_name = os.getenv('SF_APP_NAME') 
-          profile_key = os.getenv('SF_PROFILE_KEY') 
-          sf.init(profile_key, project_name, app_name) 
-          # End of manual configuration 
-          SFTRACE_CONFIG = sf.get_trace_config() 
-          ELASTIC_APM={ 
-              'SERVICE_NAME': "<Service name>" , //Specify your service name for tracing 
-              'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-              'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-              'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-              'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-              'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-              'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-              'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
-              'CENTRAL_CONFIG': False, 
-              'DEBUG': True 
-          } 
+         sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+
+         # Add below part to manually configure the initialization 
+         SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+         SF_APP_NAME = os.getenv('SF_APP_NAME') 
+         profile_key = os.getenv('SF_PROFILE_KEY') 
+         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         # End of manual configuration 
+         
+         SFTRACE_CONFIG = sf.get_trace_config() 
+         ELASTIC_APM={ 
+            'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
+            'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+            'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+            'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+            'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+            'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+            'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+            'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
+            'CENTRAL_CONFIG': False, 
+            'DEBUG': True 
+         } 
       except Exception as error: 
-          print("Error while fetching snappyflow tracing configurations", error)
+         print("Error while fetching snappyflow tracing configurations", error)
       ```
 
-3. Provide PROJECT_NAME, APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
+3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
 
    Eg: 
 
@@ -556,9 +581,9 @@
 
    Docker RUN: 
 
-   ```
-   docker run -d -t -i -e PROJECT_NAME='' \  
-   -e APP_NAME='' \ 
+   ```docker
+   docker run -d -t -i -e SF_PROJECT_NAME='' \  
+   -e SF_APP_NAME='' \ 
    -e SF_PROFILE_KEY='' \ 
    -p 80:80 \ 
    --link redis:redis \   
@@ -577,8 +602,8 @@
 
 1. Add 
 
-   ```
-   elastic-apm[flask]==6.3.3
+   ```python
+   sf-elastic-apm[flask]==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -588,8 +613,8 @@
 
    Install through CLI using
 
-   ```
-   RUN pip install elastic-apm[flask]==6.3.3 
+   ```docker
+   RUN pip install sf-elastic-apm[flask]==6.3.4 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -604,34 +629,36 @@
 
    2. Get trace config
 
-      ```
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+      ```python
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+
       # Add below part to manually configure the initialization 
-      project_name = os.getenv('SF_PROJECT_NAME') 
-      app_name = os.getenv('SF_APP_NAME') 
+      SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+      SF_APP_NAME = os.getenv('SF_APP_NAME') 
       profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, project_name, app_name) 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration 
+
       SFTRACE_CONFIG = sf.get_trace_config() 
       ```
 
    3. Initialize elastic apm and instrument it to flask app
 
-      ```
+      ```python
       app.config['ELASTIC_APM'] = { 
-          'SERVICE_NAME': '<SERVICE_NAME>', //Specify your service name for tracing 
-          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-          'DEBUG': True 
+         'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
+         'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+         'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+         'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+         'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+         'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+         'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+         'DEBUG': True 
       } 
       apm = ElasticAPM(app) 
       ```
 
-3. Provide PROJECT_NAME, APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
+3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
 
    Eg: 
 
@@ -639,9 +666,9 @@
 
    Docker run cli command: 
 
-   ```
-   docker run -d -t -i -e PROJECT_NAME='<Project name>' \  
-   -e APP_NAME='<app_name>' \ 
+   ```docker
+   docker run -d -t -i -e SF_PROJECT_NAME='<SF_PROJECT_NAME>' \  
+   -e SF_APP_NAME='<SF_APP_NAME>' \ 
    -e SF_PROFILE_KEY='<snappyflow profile key>' \ 
    --name <container_name>  <dockerhub_id/image_name> 
    ```
@@ -658,34 +685,42 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```
+   ```python
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
-   from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
-   instrument() 
+   from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation
+
+   instrument()
+
    try: 
-       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-       # Add below part to manually configure the initialization 
-       project_name = '<PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
-       app_name = '<APP_NAME>’ # Replace with appropriate Snappyflow app name 
-       profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-       sf.init(profile_key, project_name, app_name) 
-       # End of manual configuration 
-       SFTRACE_CONFIG = sf.get_trace_config() 
-   apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing                        server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-                           global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-                           verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')) 
-       register_exception_tracking(apm_client) 
-       register_instrumentation(apm_client) 
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+
+      # Add below part to manually configure the initialization 
+      SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
+      SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
+      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      # End of manual configuration 
+
+      SFTRACE_CONFIG = sf.get_trace_config() 
+      apm_client = Client(
+         service_name= '<Service_Name>', # Specify service name for tracing
+         server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+         global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+         verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')
+      )
+
+      register_exception_tracking(apm_client) 
+      register_instrumentation(apm_client) 
    except Exception as error: 
-       print("Error while fetching snappyflow tracing configurations", error) 
+      print("Error while fetching snappyflow tracing configurations", error) 
    ```
 
 3. Once instrumentation is done and celery worker is running we can see trace for each celery task in Snappyflow server. 
@@ -703,8 +738,8 @@
 
 1. Add  
 
-   ```
-   elastic-apm==6.3.3
+   ```python
+   sf-elastic-apm==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -715,7 +750,7 @@
    Install through CLI using
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -723,51 +758,53 @@
 
    1. Add import statement
 
-      ```
+      ```python
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
    2. Add following entry in INSTALLED_APPS
 
-      ```
+      ```python
       'elasticapm.contrib.django' 
       ```
 
    3. Add following entry in MIDDLEWARE:
 
-      ```
+      ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
       ```
 
    4. Add this entry for instrumenting Django app
 
-      ```
+      ```python
       try: 
-          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-          # Add below part to manually configure the initialization 
-          project_name = os.getenv('SF_PROJECT_NAME') 
-          app_name = os.getenv('SF_APP_NAME') 
-          profile_key = os.getenv('SF_PROFILE_KEY') 
-          sf.init(profile_key, project_name, app_name) 
-          # End of manual configuration 
-          SFTRACE_CONFIG = sf.get_trace_config() 
-          ELASTIC_APM={ 
-              'SERVICE_NAME': "<Service name>" , //Specify your service name for tracing 
-              'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-              'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-              'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-              'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-              'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-              'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-              'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
-              'CENTRAL_CONFIG': False, 
-              'DEBUG': True 
-          } 
+         sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+         
+         # Add below part to manually configure the initialization 
+         SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+         SF_APP_NAME = os.getenv('SF_APP_NAME') 
+         profile_key = os.getenv('SF_PROFILE_KEY') 
+         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         # End of manual configuration
+
+         SFTRACE_CONFIG = sf.get_trace_config() 
+         ELASTIC_APM={ 
+            'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
+            'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+            'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+            'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+            'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+            'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+            'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+            'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
+            'CENTRAL_CONFIG': False, 
+            'DEBUG': True 
+         } 
       except Exception as error: 
-          print("Error while fetching snappyflow tracing configurations", error) 
+         print("Error while fetching snappyflow tracing configurations", error) 
       ```
 
-2. Provide PROJECT_NAME, APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
+2. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
 
    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 
@@ -785,8 +822,8 @@
 
 1. Add 
 
-   ```
-   elastic-apm[flask]==6.3.3
+   ```python
+   sf-elastic-apm[flask]==6.3.4
    sf-apm-lib==0.1.1
    ```
 
@@ -796,8 +833,8 @@
 
    Install through CLI using
 
-   ```
-   RUN pip install elastic-apm[flask]==6.3.3 
+   ```docker
+   RUN pip install sf-elastic-apm[flask]==6.3.4 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -805,41 +842,43 @@
 
    1. Add imports statement
 
-      ```
+      ```python
       from elasticapm.contrib.flask import ElasticAPM 
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
    2. Get trace config
 
-      ```
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+      ```python
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+
       # Add below part to manually configure the initialization 
-      project_name = os.getenv('SF_PROJECT_NAME') 
-      app_name = os.getenv('SF_APP_NAME') 
+      SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+      SF_APP_NAME = os.getenv('SF_APP_NAME') 
       profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, project_name, app_name) 
-      # End of manual configuration 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      # End of manual configuration
+
       SFTRACE_CONFIG = sf.get_trace_config() 
       ```
 
    3. Initialize elastic apm and instrument it to flask app
 
-      ```
+      ```python
       app.config['ELASTIC_APM'] = { 
-          'SERVICE_NAME': '<SERVICE_NAME>', //Specify your service name for tracing 
-          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-          'DEBUG': True 
+         'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
+         'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+         'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+         'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+         'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+         'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+         'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+         'DEBUG': True 
       } 
       apm = ElasticAPM(app)
       ```
 
-3. Provide PROJECT_NAME, APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
+3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
 
    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
 
@@ -854,34 +893,42 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install elastic-apm==6.3.3 
+   pip install sf-elastic-apm==6.3.4 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```
+   ```python
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
-   from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
-   instrument() 
+   from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation
+
+   instrument()
+
    try: 
-       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-       # Add below part to manually configure the initialization 
-       project_name = '<PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
-       app_name = '<APP_NAME>’ # Replace with appropriate Snappyflow app name 
-       profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-       sf.init(profile_key, project_name, app_name) 
-       # End of manual configuration 
-       SFTRACE_CONFIG = sf.get_trace_config() 
-   apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing                        server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-                           global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-                           verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')) 
-       register_exception_tracking(apm_client) 
-       register_instrumentation(apm_client) 
+      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+
+      # Add below part to manually configure the initialization 
+      SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
+      SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
+      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      # End of manual configuration
+
+      SFTRACE_CONFIG = sf.get_trace_config() 
+      apm_client = Client(
+            service_name= '<Service_Name>', # Specify service name for tracing
+            server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+            global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+            verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')
+      )
+
+      register_exception_tracking(apm_client) 
+      register_instrumentation(apm_client) 
    except Exception as error: 
-       print("Error while fetching snappyflow tracing configurations", error) 
+      print("Error while fetching snappyflow tracing configurations", error) 
    ```
 
 3. Once instrumentation is done and celery worker is running we can see trace for each celery task in Snappyflow server. 
@@ -899,9 +946,9 @@
 
 1.  Add these python libraries in requirements.txt file. Follow the AWS lambda doc on adding runtime dependency to lambda function. 
 
-   ```
+   ```python
    sf-apm-lib==0.1.1 
-   elastic-apm==6.3.3 
+   sf-elastic-apm==6.3.4 
    ```
 
    Ref: https://docs.aws.amazon.com/lambda/latest/dg/python-package-create.html#python-package-create-with-dependency 
@@ -910,35 +957,35 @@
 
    1. Import Libraries
 
-      ```
+      ```python
       import elasticapm 
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
    2. Add code to get SnappyFlow Trace config, outside lambda handler method. 
 
-      ```
-      sf = Snappyflow() 
-      project_name = os.environ['PROJECT_NAME'] 
-      app_name = os.environ['APP_NAME'] 
+      ```python
+      sf = Snappyflow()
+      SF_PROJECT_NAME = os.environ['SF_PROJECT_NAME'] 
+      SF_APP_NAME = os.environ['SF_APP_NAME'] 
       profile_key = os.environ['SF_PROFILE_KEY'] 
-      sf.init(profile_key, project_name, app_name) 
+      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
       trace_config = snappyflow.get_trace_config() 
       ```
 
    3. Add custom instrumentation in lambda handler function
 
-      ```
+      ```python
       def lambda_handler(event, context): 
-          client = elasticapm.Client(service_name="<SERVICE_NAME_CHANGEME> ", 
-              server_url=trace_config['SFTRACE_SERVER_URL'], 
-              verify_cert=trace_config['SFTRACE_VERIFY_SERVER_CERT'], 
-              global_labels=trace_config['SFTRACE_GLOBAL_LABELS'] 
-              ) 
-          elasticapm.instrument()  
-          client.begin_transaction(transaction_type="script") 
-          # DO SOME WORK. No return statements. 
-          client.end_transaction(name=__name__, result="success") 
+         client = elasticapm.Client(service_name="<SERVICE_NAME_CHANGEME>", 
+            server_url=trace_config['SFTRACE_SERVER_URL'], 
+            verify_cert=trace_config['SFTRACE_VERIFY_SERVER_CERT'], 
+            global_labels=trace_config['SFTRACE_GLOBAL_LABELS'] 
+            ) 
+         elasticapm.instrument()  
+         client.begin_transaction(transaction_type="script") 
+         # DO SOME WORK. No return statements. 
+         client.end_transaction(name=__name__, result="success") 
          # RETURN STATEMENT e.g. return response 
       ```
 
@@ -951,6 +998,6 @@
 4. Configure Lambda function before trigger/invoke. 
 
    1. Add the environment variable SF_PROFILE_KEY and set the value to your profile key copied from SnappyFlow. 
-   2. Add environment variables APP_NAME and PROJECT_NAME with appropriate values. 
+   2. Add environment variables SF_APP_NAME and SF_PROJECT_NAME with appropriate values. 
    ![](images/python_aws_picture1.png)
 
