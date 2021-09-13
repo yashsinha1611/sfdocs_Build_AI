@@ -81,7 +81,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
-.react-toggle{
+.react-toggle,
+.theme-doc-footer{
   display: none;
 }
 .heroBanner_src-pages-index-module{
