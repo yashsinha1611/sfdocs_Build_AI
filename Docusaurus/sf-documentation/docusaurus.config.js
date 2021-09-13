@@ -67,6 +67,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           {
             type: 'doc', 
             href: '/',
+            docId:'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'DOCS',
