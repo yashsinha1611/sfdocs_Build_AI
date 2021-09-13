@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_label: Java
 ---
 # TRACING JAVA APPLICATIONS
 <div class="commandDiv">

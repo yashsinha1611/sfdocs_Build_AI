@@ -1,4 +1,6 @@
-
+---
+sidebar_label: Log Overview Search
+---
 
 # Log Onboarding
 

@@ -1,3 +1,6 @@
+---
+sidebar_label: Feature Extraction
+---
 # Feature Extraction
 
 Feature Extraction allows processing of  unstructured logs and enhances it by adding metadata extracted from the  log. Users can provide extractions rules for specific logs using REGEX  patterns. Search patterns as explained in the Log Overview Search  section, are used to uniquely identify the logs, to which a specific  extraction rule is applied.

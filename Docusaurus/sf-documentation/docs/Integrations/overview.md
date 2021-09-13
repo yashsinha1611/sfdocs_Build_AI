@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
+sidebar_label: Overview
 ---
-# Overview
-## SnappyFlow Integrations
+# SnappyFlow Integrations
 
 SnappyFlow supports a wide range of built-in integrations to help you get started quickly.
 
