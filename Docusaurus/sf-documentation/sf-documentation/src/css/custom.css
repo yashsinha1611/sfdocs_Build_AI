@@ -1,0 +1,94 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #009dd0;
+  --ifm-color-primary-dark: #009dd0;
+  --ifm-color-primary-darker: #009dd0;
+  --ifm-color-primary-darkest: #009dd0;
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.footer--dark{
+  background: #2A383B;
+  padding: 10px;
+}
+.icon_list{
+  padding: 0px;
+  overflow: hidden;
+}
+.icon_list li{
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 22px;
+  width: 19%;
+  font-size: 13px;
+  margin-bottom: 10px;
+  margin-top: 0px !important;
+  text-align: center;
+  position: relative;
+  float: left; 
+  list-style-type: none;
+  height: 90px;
+  margin-right: 5px;
+}
+.icon_list li div{
+  line-height: 13px;
+  position: relative; 
+  top: 3px;
+  font-size: 13px;
+  color: #333;
+}
+.icon_list.javalang li img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.integration li:first-child img{
+  width: 35px;
+}
+.integration li:last-child img{
+  width: 90px;
+}
+.menu__link{
+  font-weight: normal;
+}
+.hero--primary{
+    background: #246dbd url('../../static/img/blog_banner.jpg') no-repeat;
+    width: 100%;
+    position: relative;
+    height: 100px;
+}
+.padLR{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.react-toggle{
+  display: none;
+}
+.heroBanner_src-pages-index-module{
+  padding:2rem 0 !important;
+}
+.heroBanner_src-pages-index-module h1{
+  font-size: 2rem;
+  margin-bottom: 8px;
+  text-align: left;
+}
