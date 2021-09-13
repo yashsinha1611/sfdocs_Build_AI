@@ -4,7 +4,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
-  title: 'SnappyFlow',
+  title: 'Documentation',
   tagline: 'Dinosaurs are cool',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
@@ -42,14 +42,32 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     ({
       navbar: {
         title: '',
+        // logo: { 
+        //   alt: 'SnappyFlow',
+        //   type: 'doc',
+        //   docId: 'Tracing/overview',
+        //   src: 'img/logo-new.png',
+        // },
+        // items: [
+        //   {
+        //     type: 'doc',
+        //     href: '/',
+        //     position: 'left',
+        //     label: 'DOCS',
+        //     target:'_self',
+        //   }
+        // ],
         logo: {
           alt: 'SnappyFlow',
           src: 'img/logo-new.png',
+          href: 'https://www.snappyflow.io/',
+          target: '_self',
         },
         items: [
           {
-            type: 'doc',
-            docId: 'Tracing/overview',
+            type: 'doc', 
+            href: '/',
+            target: '_self',
             position: 'left',
             label: 'DOCS',
           }

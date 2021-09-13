@@ -93,3 +93,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   margin-bottom: 8px;
   text-align: left;
 }
+.navbar__inner a:last-child svg{
+  display: none;
+}
