@@ -1,7 +1,9 @@
 # TRACING JAVA APPLICATIONS
+
+sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
+
 <div class="commandDiv">
-	<b>Supported Versions</b>
-	<p>sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
+	<p>
 	</p>
 	<b>Supported Java versions</b> 
 	<p>
@@ -19,6 +21,7 @@
 	Wildfly 8-16 <br/>
 	JBoss EAP 6.4, 7.0, 7.1, 7.2</p>
 </div>
+
 
 ### Choose your platform
 <ul class="icon_list lang">
