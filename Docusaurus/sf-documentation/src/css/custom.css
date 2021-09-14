@@ -179,11 +179,21 @@ nav .navbar__inner{
 
 .tabs_java .tabs__item--active {
   outline-style:none;
-  background-color: #009dd0;
+  background-color: lightskyblue;
   color: white;
   font-size: 22px;
 }
 
 .tabs_instance .tabs__item--active {
   font-size: 21px;
+}
+
+.tab_header_label {
+  margin-left: 10px;
+}
+
+.tab_header_image {
+  width: 30px;
+  height: 30px;
+  align-self: center;
 }
