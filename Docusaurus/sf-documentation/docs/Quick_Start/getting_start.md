@@ -3,11 +3,28 @@
 ######  SnappyFlow is offered in 2 modes: 
 
 
-<ul class="icon_list lang">
+<!-- <ul class="icon_list lang">
 <li><a href="#header0"><img src="images/saas.png" /> <div>Monitoring end-points send data securely to SnappyFlow SaaS</div></a></li>
 <li><a href="#header1"><img src="images/onpremsaas.png"/> <div>SnappyFlow is deployed within user’s account and all data is retained within the account itself. Features are identical to SaaS</div></a></li>
-</ul>  
-
+</ul>   -->
+<div class="panel_container row">
+<div class='col col--5'>
+   <div class="innerText"> 
+   <a href="#setup-saas-account">
+        <img src="../../static/img/saas.png" /> 
+        <div>Monitoring end-points send data securely to SnappyFlow SaaS</div>
+        </a>
+   </div>
+</div>
+<div class='col col--5'>
+  <div class="innerText"> 
+  <a href="#setup-on-prem-saas">
+    <img src="../../static/img/onpremsaas.png"/> 
+    <div>SnappyFlow is deployed within user’s account and all data is retained within the account itself. Features are identical to SaaS</div>
+    </a>
+  </div>
+</div>
+</div>
 
 ##  Setup SaaS Account 
 

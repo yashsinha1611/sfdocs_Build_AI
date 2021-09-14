@@ -47,7 +47,7 @@
   color: #0ba2d0;
   position: relative;
   top: 13px;
-  font-size: 1.04vw;
+  font-size: 16px;
   cursor: pointer;
 }
 .treeView a:hover{
@@ -64,7 +64,7 @@
   border: 1px solid #ddd;
   border-radius: 3px;
   padding: 15px;
-  margin: 0px auto; 
+  /* margin: 0px auto;  */
   box-shadow: 1px 1px 4px #efefef;
 }
 .docContainer h4{ 

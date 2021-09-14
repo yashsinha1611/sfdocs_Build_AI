@@ -24,7 +24,7 @@ export default function Home() {
       title={`${siteConfig.title}`}
       description="<head />">
       <HomepageHeader />
-      <main>
+      <main className="container">
         <HomepageFeatures />
       </main>
     </Layout>
