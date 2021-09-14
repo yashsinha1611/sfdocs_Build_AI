@@ -130,7 +130,7 @@ function Feature({ Png, title, list }) {
             {
               list.map((items) => (
                 <li>
-                  <div className={styles.brd_left_line}></div>
+                  {/* <div className={styles.brd_left_line}></div> */}
                   <a href={items.url}>{items.label}</a>
                 </li>
               ))
@@ -146,7 +146,7 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className={styles.docContainer}>
-        <h4><img src="../../static/img/documentation-big-icon.png" /> <span>Documentation</span></h4>
+        {/* <h4><img src="../../static/img/documentation-big-icon.png" /> <span>Documentation</span></h4> */}
         <div className="container">
           <div className="row">
             {FeatureList.map((props, idx) => (

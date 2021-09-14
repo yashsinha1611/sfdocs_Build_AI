@@ -230,6 +230,6 @@ nav .navbar__inner{
   .hero--primary{
     background: #246dbd url('../../static/img/mobile-view-banner.svg') no-repeat; 
     height: 390px; 
-    background-size: cover; 
+    background-size: cover;  
   }
 }
