@@ -6,10 +6,6 @@ sidebar_label: Ruby
 
  Available platforms
 
-<ul class="icon_list">
-<li><a href="#header0"><img src="images/instances-logo.png" /> <div>Instance</div></a></li>
-<li><a href="#header1"><img src="images/kubernetes-logo.png"/> <div>Kubernetes</div></a></li>
-</ul>  
 
 ## Instances
 

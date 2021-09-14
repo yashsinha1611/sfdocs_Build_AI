@@ -6,13 +6,6 @@ sidebar_label: NodeJS
 
 ### Choose your platform
 
-<ul class="icon_list">
-<li><a href="#instance"><img src="images/instances-logo.png" /> <div>Instance</div></a></li>
-<li><a href="#kubernetes"><img src="images/kubernetes-logo.png"/> <div>Kubernetes</div></a></li>
-<li><a href="#docker"><img src="images/docker-logo.png"/> <div>Docker</div></a></li>
-<li><a href="#ecs"><img src="images/amazon-ecs-logo.png"/> <div>ECS</div></a></li>
-<li ><a href="#aws-lambda"><img src="images/lambda-functions-logo.png"/> <div>AWS <br/>Lambda</div></a></li>
-</ul> 
 
 ## Instance
 

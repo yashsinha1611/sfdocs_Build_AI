@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="60" viewBox="0 0 82 60">
+  <defs>
+    <clipPath id="clip-platform-ecs">
+      <rect width="82" height="60"/>
+    </clipPath>
+  </defs>
+  <g id="platform-ecs" clip-path="url(#clip-platform-ecs)">
+    <g id="amazon-ecs-icon" transform="translate(18 9)">
+      <g id="Group_76" data-name="Group 76">
+        <path id="Path_99" data-name="Path 99" d="M2.425,40.633l9.56-17.613L2.425,3.992,0,5.193V39.431Zm23.218-27.81L9.8,10.161l3.579-5.039,16.013,7.112Zm.188,18.909L7.041,34.816l3.932,5.416,18.415-7.959Z" transform="translate(0 -1.166)" fill="#9d5125"/>
+        <path id="Path_100" data-name="Path 100" d="M9.077,5.287V39.314L3.426,40.633V3.992Z" transform="translate(-1.001 -1.166)" fill="#f58534"/>
+        <path id="Path_101" data-name="Path 101" d="M10.185,42.292,7.218,40.808V1.484L10.185,0l5.581,23.524ZM31.5,11.067l-3.767.589V30.518l3.767.589,3.438-9.584Z" transform="translate(-2.108)" fill="#9d5125"/>
+        <g id="Group_74" data-name="Group 74" transform="translate(8.077)">
+          <path id="Path_102" data-name="Path 102" d="M17.179,1.649V40.667L11.41,42.292V0Z" transform="translate(-11.41)" fill="#f58534"/>
+          <path id="Path_103" data-name="Path 103" d="M36.653,35.157v-4.78L11.41,35.063v7.229ZM36.7,7.182v4.639L11.41,7.017V0Z" transform="translate(-11.41)" fill="#f58534"/>
+          <path id="Path_104" data-name="Path 104" d="M41.513,38.761V8.549l4.05,1.106v28Z" transform="translate(-20.203 -2.497)" fill="#f58534"/>
+        </g>
+        <path id="Path_105" data-name="Path 105" d="M54.216,12.507,57.937,21.1l-10.856.518-3.838-.259Z" transform="translate(-12.631 -3.653)" fill="#6b3b19"/>
+        <path id="Path_106" data-name="Path 106" d="M43.243,14.3v7.064l10.973-.636V12.507Z" transform="translate(-12.631 -3.653)" fill="#9d5125"/>
+        <path id="Path_107" data-name="Path 107" d="M33.891,19.745l-5.251-.353L39.778,8.183l5.651,10.832Z" transform="translate(-8.366 -2.39)" fill="#6b3b19"/>
+        <g id="Group_75" data-name="Group 75" transform="translate(20.274 5.793)">
+          <path id="Path_108" data-name="Path 108" d="M28.64,10.773v8.619l11.138-.942V8.183ZM38.978,34.2V27.139l14.694.236-3.721,8.595Z" transform="translate(-28.64 -8.183)" fill="#9d5125"/>
+          <path id="Path_109" data-name="Path 109" d="M28.64,44.544V35.925l16.789.377L39.778,47.133Z" transform="translate(-28.64 -16.286)" fill="#9d5125"/>
+        </g>
+        <path id="Path_110" data-name="Path 110" d="M33.891,35.184l-5.251.353,11.138.942,5.651-.565Zm16.06.282,3.721-.377L42.816,34.6l-3.838.259Z" transform="translate(-8.366 -10.105)" fill="#fcbf92"/>
+        <path id="Path_111" data-name="Path 111" d="M54.547,11.244v8.218l3.721.377V12.351ZM50.025,9.878v9.136l-5.651-.565V8.183ZM54.547,35.97V27.751l3.721-.377v7.488Zm-4.521,1.366V28.2l-5.651.565V39.03Z" transform="translate(-12.961 -2.39)" fill="#f58534"/>
+      </g>
+    </g>
+  </g>
+</svg>

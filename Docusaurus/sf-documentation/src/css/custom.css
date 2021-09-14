@@ -196,7 +196,30 @@ nav .navbar__inner{
   background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.2rem; 
   opacity: 0.7;
 }
+.tabs_main .tabs__item--active {
+  outline-style:none;
+  background-color: #FAFAFA;
+  color: #525860;
+}
 
+.tabs_sub .tabs__item {
+  outline-style:none;
+  background-color: #FAFAFA;
+  color: #525860;
+  font-size: small;
+  height: 45px;
+}
+
+.tab_header_label {
+  margin-left: 10px;
+  align-self: center;
+}
+
+.tab_header_image {
+  width: 30px;
+  height: 30px;
+  align-self: center;
+}
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
   .panel_container .col--5 .innerText{
     height: 300px;
@@ -207,6 +230,6 @@ nav .navbar__inner{
   .hero--primary{
     background: #246dbd url('../../static/img/mobile-view-banner.svg') no-repeat; 
     height: 390px; 
+    background-size: cover; 
   }
-  
 }
