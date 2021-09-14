@@ -73,8 +73,9 @@ Make the file executable using chmod +x bin/setenv.sh and start the server
 <TabItem value="jboss_eap">
 
 ###### Standalone Mode 
+
 Add the agent configuration in standalone.conf file and start the server 
-Refer to [JBOSS_standalone.conf](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_standalone.conf" /t "_blank)   for tracing specific configuration. Copy from section with “SFTRACE-CONFIG” in comments 
+Refer to [JBOSS_standalone.conf](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_standalone.conf) for tracing specific configuration. Copy from section with “SFTRACE-CONFIG” in comments 
 ###### Domain Mode
 Add the agent configuration in domain.xml and start the server 
 Refer to [JBOSS_domain.xml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_domain.xml)  for tracing specific configuration. Copy from section with “SFTRACE-CONFIG” in comments 
@@ -114,9 +115,11 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 </TabItem>
 <TabItem value="docker">
 	<div id="javadocker"></div>
-Refer to [java_Dockerfile](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_Dockerfile) . Look at sections with SFTRACE-CONFIG description. 
+
+Refer to [java_Dockerfile](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_Dockerfile). Look at sections with SFTRACE-CONFIG description. 
 Installation steps are provided. copy the trace agent to the container and start the container by attaching the agent to the application. Additionally, user has to add SnappyFlow configurations for profile_key, projectName, appName to the docker file 
 Once updated, build and start the container.
+
 </TabItem>
 <TabItem value="aws_lambda">coming soon !</TabItem>
 <TabItem value="kubernetes">
