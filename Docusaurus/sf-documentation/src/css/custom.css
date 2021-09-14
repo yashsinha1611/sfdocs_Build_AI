@@ -177,19 +177,23 @@ nav .navbar__inner{
   }
 }
 
-.tabs_java .tabs__item--active {
+.tabs_main .tabs__item--active {
   outline-style:none;
-  background-color: lightskyblue;
-  color: white;
-  font-size: 22px;
+  background-color: #FAFAFA;
+  color: #525860;
 }
 
-.tabs_instance .tabs__item--active {
-  font-size: 21px;
+.tabs_sub .tabs__item {
+  outline-style:none;
+  background-color: #FAFAFA;
+  color: #525860;
+  font-size: small;
+  height: 45px;
 }
 
 .tab_header_label {
   margin-left: 10px;
+  align-self: center;
 }
 
 .tab_header_image {

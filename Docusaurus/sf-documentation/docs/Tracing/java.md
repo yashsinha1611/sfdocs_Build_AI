@@ -30,7 +30,7 @@ import TabItem from '@theme/TabItem';
 import {JAVA_MAIN_TABS, INSTANCE_SUB_TABS} from './constants';
 
 <Tabs
-  className="tabs_java"
+  className="tabs_main"
   defaultValue="instance"
   values={JAVA_MAIN_TABS}>
 <TabItem value="instance">
@@ -39,7 +39,7 @@ Install sfAgent which automatically installs sfTrace agent as well.
 Link the application with sfTrace Java Agent
 
 <Tabs
-  className="tabs_instance"
+  className="tabs_sub"
   defaultValue="command_line"
   values={INSTANCE_SUB_TABS}>
 <TabItem value="command_line">
