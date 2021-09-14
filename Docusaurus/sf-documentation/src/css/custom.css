@@ -176,3 +176,14 @@ nav .navbar__inner{
     height: 300px;
   }
 }
+
+.tabs_java .tabs__item--active {
+  outline-style:none;
+  background-color: #009dd0;
+  color: white;
+  font-size: 22px;
+}
+
+.tabs_instance .tabs__item--active {
+  font-size: 21px;
+}
