@@ -220,6 +220,9 @@ nav .navbar__inner{
   height: 30px;
   align-self: center;
 }
+.searchSection{
+  text-align: right;
+}
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
   .panel_container .col--5 .innerText{
     height: 300px;
@@ -231,5 +234,9 @@ nav .navbar__inner{
     background: #246dbd url('../../static/img/mobile-view-banner.svg') no-repeat; 
     height: 390px; 
     background-size: cover;  
+  }
+  .searchSection{
+    text-align: left !important;
+    margin-left: 16px;
   }
 }
