@@ -203,23 +203,25 @@ nav .navbar__inner{
 }
 
 .tabs_sub .tabs__item {
-  outline-style:none;
-  background-color: #FAFAFA;
-  color: #525860;
   font-size: small;
   height: 45px;
 }
 
+.tabs_sub .tabs__item--active {
+  outline-style:none;
+  background-color: #FAFAFA;
+  color: #525860;
+}
+
 .tab_header_label {
-  margin-left: 10px;
   align-self: center;
 }
 
 .tab_header_image {
-  width: 30px;
-  height: 30px;
+  width: 45px;
   align-self: center;
 }
+
 .searchSection{
   text-align: right;
 }
