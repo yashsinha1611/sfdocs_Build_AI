@@ -9,10 +9,10 @@ SnappyFlow supports distributed tracing compliant with Opentracing  standard. Tr
 #### Select your language
 
 <ul className="icon_list javalang">
-<li><a  href="/docs/Tracing/java"><img src="images/java-logo.png"/></a></li>
-<li><a  href="/docs/Tracing/python"><img src="images/python-logo.png"/></a></li>
-<li><a  href="/docs/Tracing/ruby"><img src="images/ruby-logo.png" /></a></li>
-<li><a  href="/docs/Tracing/nodejs"><img src="images/nodejs-logo.png"/></a></li>
-<li><a  href="javascript:void(0)"><img src="images/go-logo.png"/></a></li>
-<li><a  href="/docs/Tracing/csharp"><img src="images/c-sharp-logo.png"/></a></li>
+<li><a  href="/docs/Tracing/java"><img src="/img/java-logo.png"/></a></li>
+<li><a  href="/docs/Tracing/python"><img src="/img/python-logo.png"/></a></li>
+<li><a  href="/docs/Tracing/ruby"><img src="/img/ruby-logo.png" /></a></li>
+<li><a  href="/docs/Tracing/nodejs"><img src="/img/nodejs-logo.png"/></a></li>
+<li><a  href="javascript:void(0)"><img src="/img/go-logo.png"/></a></li>
+<li><a  href="/docs/Tracing/csharp"><img src="/img/c-sharp-logo.png"/></a></li>
 </ul>

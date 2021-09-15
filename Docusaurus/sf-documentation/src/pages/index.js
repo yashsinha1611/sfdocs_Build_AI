@@ -15,7 +15,7 @@ function HomepageHeader() {
         <div className="col col--6"><h1 className="hero__title">{siteConfig.title}</h1></div>
         <div className="col col--6 searchSection">
 									<input className={styles.search} name="" placeholder="Search documentation" type="search" />
-									<img className={styles.searchIcon} name="" src="../../static/img/search.svg" />
+									<img className={styles.searchIcon} name="" src="/img/search.svg" />
 				</div>
         </div>
       </div>
