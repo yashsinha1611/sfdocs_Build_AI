@@ -4,7 +4,7 @@ export const JAVA_MAIN_TABS = [
   {
     label: (
       <>
-        <img className="tab_header_image" src="/static/img/platform-instance.svg" />
+        <img className="tab_header_image" src="/img/platform-instance.svg" />
         <span className="tab_header_label">Instance</span>
       </>
     ),
@@ -13,7 +13,7 @@ export const JAVA_MAIN_TABS = [
   {
     label: (
       <>
-        <img className="tab_header_image" src="/static/img/platform-kubernetes.svg" />
+        <img className="tab_header_image" src="/img/platform-kubernetes.svg" />
         <span className="tab_header_label">Kubernetes</span>
         </>
     ),
@@ -22,7 +22,7 @@ export const JAVA_MAIN_TABS = [
   {
     label: (
       <>
-        <img className="tab_header_image" src="/static/img/platform-docker.svg" />
+        <img className="tab_header_image" src="/img/platform-docker.svg" />
         <span className="tab_header_label">Docker</span>
       </>
     ),
@@ -31,7 +31,7 @@ export const JAVA_MAIN_TABS = [
   {
     label: (
       <>
-        <img className="tab_header_image" src="/static/img/platform-ecs.svg" />
+        <img className="tab_header_image" src="/img/platform-ecs.svg" />
         <span className="tab_header_label">ECS</span>
         </>
       ),
@@ -40,7 +40,7 @@ export const JAVA_MAIN_TABS = [
   {
     label: (
       <>
-        <img className="tab_header_image" src="/static/img/platform-aws-lambda.svg" />
+        <img className="tab_header_image" src="/img/platform-aws-lambda.svg" />
         <span className="tab_header_label">AWS Lambda</span>
       </>
     ),
