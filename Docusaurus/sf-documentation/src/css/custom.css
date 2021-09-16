@@ -341,7 +341,7 @@ nav .navbar__inner{
   border: 1px solid #7ba5d0;
   border-radius: 0px;
 }
-main .col:first-child{
+main .padding-bottom--lg .col:first-child{
   padding: 0 6rem 0rem;
 }
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
