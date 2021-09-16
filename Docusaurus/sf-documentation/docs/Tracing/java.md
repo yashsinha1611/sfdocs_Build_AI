@@ -2,11 +2,10 @@
 sidebar_position: 2
 sidebar_label: Java
 ---
-# TRACING JAVA APPLICATIONS
-<div class="commandDiv">
-	<b>Supported Versions</b>
-	<p>sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
-	</p>
+# Tracing Java Applications
+sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
+<div class="blue_textbox">
+ 
 	<b>Supported Java versions</b> 
 	<p>
 		Oracle JDK: 7u60+, 8u40+, 9, 10, 11 <br/>
@@ -24,70 +23,130 @@ sidebar_label: Java
 	JBoss EAP 6.4, 7.0, 7.1, 7.2</p>
 </div>
 
-#### Choose your platform
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import {JAVA_MAIN_TABS, INSTANCE_SUB_TABS} from './constants';
+## Available Platforms
+## Instance
 
-<Tabs
-  className="tabs_main"
-  defaultValue="instance"
-  values={JAVA_MAIN_TABS}>
-<TabItem value="instance">
 Install sfAgent which automatically installs sfTrace agent as well.
 
 Link the application with sfTrace Java Agent
 
-<Tabs
-  className="tabs_sub"
-  defaultValue="command_line"
-  values={INSTANCE_SUB_TABS}>
-<TabItem value="command_line">
+### Command Line
+
 Use the following arguments while starting your application using java –jar command, in IDE, Maven or Gradle script: 
 
 ```
 java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar -Dsftrace.service_name=<my-service> -jar <application jar> 
 ```
 Note: If service_name is not provided, an auto discovered service name will be added. Service_name is used to identify and filter the traces related to an application and should be named appropriately to distinctly identify it. Service name must only contain characters from the ASCII alphabet, numbers, dashes, underscores and spaces.
-</TabItem>
-<TabItem value="apache_tomcat">
 
-Add the agent configuration in setenv.sh. If this file is not present,  create the file in below folder
-```
-<tomcat installation path>/bin
-```
-Refer to [tomcat_setenv.sh](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/tomcat_setenv.sh)  for tracing specific configuration that needs to be copied to setenv.sh file. 
-Make the file executable using chmod +x bin/setenv.sh and start the server
+#### Additional features available for Spring Boot Applications
 
-</TabItem>
-<TabItem value="apache_tomcat">
-
-Add the agent configuration in setenv.sh. If this file is not present,  create the file in below folder
-```
-<tomcat installation path>/bin
-```
-Refer to [tomcat_setenv.sh](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/tomcat_setenv.sh)  for tracing specific configuration that needs to be copied to setenv.sh file. 
-Make the file executable using chmod +x bin/setenv.sh and start the server
-
-</TabItem>
-<TabItem value="jboss_eap">
-
-###### Standalone Mode 
-
-Add the agent configuration in standalone.conf file and start the server 
-Refer to [JBOSS_standalone.conf](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_standalone.conf) for tracing specific configuration. Copy from section with “SFTRACE-CONFIG” in comments 
-###### Domain Mode
-Add the agent configuration in domain.xml and start the server 
-Refer to [JBOSS_domain.xml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_domain.xml)  for tracing specific configuration. Copy from section with “SFTRACE-CONFIG” in comments 
-After updating the configuration, restart the application. 
-##### Additional features available for Spring Boot Applications
 By default, transaction names of unsupported Servlet API-based frameworks are in the form of $method unknown route. To modify this and to report the transactions names in the form of $method $path, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
 
 ```
 -Delastic.apm.disable_instrumentations=spring-mvc  
 -Delastic.apm.use_path_as_transaction_name=true 
 ```
-###### Normalizing Transaction URLs
+
+#### Normalizing Transaction URLs
+
+If your URLs contain path parameters like /user/$userId, it can lead to an explosion of transaction types. This can be avoided by using URL groups.
+For example, if the application supports urls like: 
+
+```
+/owners, /owners/<owner_id>, /owners/<owner_id>/edit, /owners/<owner_id>/pets, 
+```
+
+then url groups would be configured as: 
+
+```
+url_groups=/owners/*,/owner/*/edit,/owners/*/pets 
+```
+
+#### Example of running java application via command line using these parameters
+
+```
+java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
+
+-Dsftrace.service_name=my-service 
+-Delastic.apm.disable_instrumentations=spring-mvc 
+-Delastic.apm.use_path_as_transaction_name=true 
+-Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
+```
+
+
+
+### Apache Tomcat
+
+Add the agent configuration in setenv.sh. If this file is not present,  create the file in below folder
+```
+<tomcat installation path>/bin
+```
+Refer to [tomcat_setenv.sh](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/tomcat_setenv.sh)  for tracing specific configuration that needs to be copied to setenv.sh file. 
+Make the file executable using chmod +x bin/setenv.sh and start the server
+
+Add the agent configuration in setenv.sh. If this file is not present,  create the file in below folder
+```
+<tomcat installation path>/bin
+```
+Refer to [tomcat_setenv.sh](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/tomcat_setenv.sh)  for tracing specific configuration that needs to be copied to setenv.sh file. 
+Make the file executable using chmod +x bin/setenv.sh and start the server
+
+#### Additional features available for Spring Boot Applications
+
+By default, transaction names of unsupported Servlet API-based frameworks are in the form of $method unknown route. To modify this and to report the transactions names in the form of $method $path, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
+
+```
+-Delastic.apm.disable_instrumentations=spring-mvc  
+-Delastic.apm.use_path_as_transaction_name=true 
+```
+
+#### Normalizing Transaction URLs
+
+If your URLs contain path parameters like /user/$userId, it can lead to an explosion of transaction types. This can be avoided by using URL groups.
+For example, if the application supports urls like: 
+
+```
+/owners, /owners/<owner_id>, /owners/<owner_id>/edit, /owners/<owner_id>/pets, 
+```
+
+then url groups would be configured as: 
+
+```
+url_groups=/owners/*,/owner/*/edit,/owners/*/pets 
+```
+
+#### Example of running java application via command line using these parameters
+
+```
+java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
+
+-Dsftrace.service_name=my-service 
+-Delastic.apm.disable_instrumentations=spring-mvc 
+-Delastic.apm.use_path_as_transaction_name=true 
+-Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
+```
+
+
+
+### JBOSS EAP
+
+#### Standalone Mode 
+
+Add the agent configuration in standalone.conf file and start the server 
+Refer to [JBOSS_standalone.conf](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_standalone.conf) for tracing specific configuration. Copy from section with “SFTRACE-CONFIG” in comments 
+#### Domain Mode
+Add the agent configuration in domain.xml and start the server 
+Refer to [JBOSS_domain.xml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_domain.xml)  for tracing specific configuration. Copy from section with “SFTRACE-CONFIG” in comments 
+After updating the configuration, restart the application. 
+#### Additional features available for Spring Boot Applications
+By default, transaction names of unsupported Servlet API-based frameworks are in the form of $method unknown route. To modify this and to report the transactions names in the form of $method $path, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
+
+```
+-Delastic.apm.disable_instrumentations=spring-mvc  
+-Delastic.apm.use_path_as_transaction_name=true 
+```
+#### Normalizing Transaction URLs
 If your URLs contain path parameters like /user/$userId, it can lead to an explosion of transaction types. This can be avoided by using URL groups.
 For example, if the application supports urls like: 
 
@@ -99,7 +158,7 @@ then url groups would be configured as:
 ```
 url_groups=/owners/*,/owner/*/edit,/owners/*/pets 
 ```
-###### Example of running java application via command line using these parameters
+#### Example of running java application via command line using these parameters
 
 ```
 java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
@@ -108,34 +167,30 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -Delastic.apm.disable_instrumentations=spring-mvc 
 -Delastic.apm.use_path_as_transaction_name=true 
 -Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
-
 ```
-</TabItem>
-</Tabs>
-</TabItem>
-<TabItem value="docker">
-	<div id="javadocker"></div>
+
+
+## Docker
 
 Refer to [java_Dockerfile](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_Dockerfile). Look at sections with SFTRACE-CONFIG description. 
 Installation steps are provided. copy the trace agent to the container and start the container by attaching the agent to the application. Additionally, user has to add SnappyFlow configurations for profile_key, projectName, appName to the docker file 
 Once updated, build and start the container.
 
-</TabItem>
-<TabItem value="aws_lambda">coming soon !</TabItem>
-<TabItem value="kubernetes">
+## Kubernetes
+
 sfTrace is run as an initContainer in the application pod. User can deploy this either using a manifest yaml or a Helm chart.
 
-###### Example of Manifest yaml
+### Example of Manifest yaml
 [java_k8s_standalone_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_standalone_deployment.yaml)  
 
-###### Example of a Helm chart 
+### Example of a Helm chart
 **Update values.yaml**: Refer to [java_k8s_with_helm_chart_values.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_values.yaml)  to configure agent specific properties. Look at sections with SFTRACE-CONFIG description 
 
 **Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with SFTRACE-CONFIG description
-</TabItem>
-<TabItem value="ecs">
 
-##### Create the Task definition
+## ECS
+
+### Create the Task definition
 
 - Open Amazon ECS, in navigation pane, choose task definition and click on Create New Task Definition and select the launch type as EC2 or  Fargate, click on Next step. 
 
@@ -160,16 +215,15 @@ The below environment variables are only applicable for springmvc and optional.
 ELASTIC_APM_DISABLE_INSTRUMENTATIONS spring-mvc
 ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
 ```
-##### Create the Cluster
+### Create the Cluster
 - In the Navigation pane, select Clusters and click on Create Cluster
 - Select the template as per your requirement
 - Give a Cluster name and give instance, networking Configurations IAM role as per your task requirements
-##### Create the Service
+### Create the Service
 - Click on the Cluster Name you created in the step2
 - Click on Create , Select the Launch type matching to your task definition.  Select the Task Definition Name and Version in the Drop down matching to the task definition you created in step 1
 - Give a Service Name and select other requirements as per your task compatibility
 - Click on next step and start your service
 
-</TabItem>
-</Tabs>
+
 

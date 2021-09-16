@@ -11,12 +11,12 @@ sidebar_label: Ruby
 
 sfTrace Ruby Agent automatically instruments applications, based on web frameworks Ruby on Rails and other Rack-compatible applications. It uses the hooks and signals provided by these frameworks to trace the application.
 
-###### Installation steps
+##### Installation steps
 
 1. Install sfAgent (if not already installed)
 2. Confirm that /opt/sfagent/config.yaml is configured with correct profile key and tags.
 
-###### Trace setup for Ruby on Rails Applications
+##### Trace setup for Ruby on Rails Applications
 
 1. Install sftrace agent by either adding the gem to Gemfile gem '**sftrace-agent**' and then execute the command **bundle install** or install the agent yourself using the command **gem install sftrace-agent**.
 2. Add the agent configuration file in application’s config folder. Refer to application.rb for tracing specific configuration. Search for **SFTRACE-CONFIG** in sample application.rb 
@@ -29,13 +29,13 @@ sfTrace Ruby Agent automatically instruments applications, based on web framewor
 
 2. sfTrace ruby agent configuration can be set to the application running in Kubernetes pod. This can be done in 2 ways:
 
-###### **Option 1:  manifest deployment**
+##### **Option 1:  manifest deployment**
 
 Refer to ruby[_k8s_manifest_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/nodejs/nodejs_k8s_standalone_deployment.yaml)  to copy trace agent configuration to the application container and start the container with trace agent configurations. Search for **SFTRACE-CONFIG** in sample deployment yaml file
 
 Once updated, deploy the pod.
 
-###### **Option 2: Deploy using helm chart**
+##### **Option 2: Deploy using helm chart**
 
 Step 1: Update values.yaml
 
