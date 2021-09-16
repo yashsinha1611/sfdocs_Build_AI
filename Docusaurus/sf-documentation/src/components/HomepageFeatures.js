@@ -119,6 +119,16 @@ const FeatureList = [
       }
     ]
   },
+  {
+    title: 'sfAgent Installation',
+    Png: require('../../static/img/alerts-notification-icon.png').default,
+    list: [
+      {
+        label: "sfAgent Installation in Linux",
+        url: '/docs/sfAgent_Linux/sfAgent_installation_in_Linux'
+      } 
+    ]
+  },
 ];
 function Feature({ Png, title, list }) {
   return (

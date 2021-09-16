@@ -45,6 +45,11 @@ module.exports = {
     label: 'Alerts & Notifications',
     items:['Alerts_notifications/getting_started', 'Alerts_notifications/alert_management', 'Alerts_notifications/slo'],
   },
+  {
+    type: 'category',
+    label: 'sfAgent Installation',
+    items:['sfAgent_Linux/sfAgent_installation_in_Linux'],
+  },
    //   [{doc:'Tracing/overview', label: 'Overview'}, {doc:'Tracing/java', label: 'Java'}],
     //},
   ],

@@ -4,31 +4,31 @@
  * work well for content-centric websites.
  */
  @font-face {
-  font-family: Lato-Regular;
-  src: url(../../static/fonts/Lato-Regular.ttf);
+  font-family: AmazonEmber_Rg;
+  src: url(../../static/fonts/AmazonEmber_Rg.ttf);
 }
 @font-face {
-  font-family: Lato-Medium;
-  src: url(../../static/fonts/Lato-Medium.ttf);
+  font-family: Amazon-Ember-Medium;
+  src: url(../../static/fonts/Amazon-Ember-Medium.ttf);
 }
-@font-face {
+/* @font-face {
   font-family: Lato-Semibold;
   src: url(../../static/fonts/Lato-Semibold.ttf);
-}
+} */
 @font-face {
-  font-family: Lato-Bold;
-  src: url(../../static/fonts/Lato-Bold.ttf);
+  font-family: AmazonEmber_Bd;
+  src: url(../../static/fonts/AmazonEmber_Bd.ttf);
 }
 
 @font-face {
-  font-family: Lato-Light;
-  src: url(../../static/fonts/Lato-Light.ttf);
+  font-family: AmazonEmber_Lt;
+  src: url(../../static/fonts/AmazonEmber_Lt.ttf);
 }
-@font-face {
+/* @font-face {
   font-family: Lato-Black;
   src: url(../../static/fonts/Lato-Black.ttf);
-}
-
+} */
+ 
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #009dd0;
@@ -39,18 +39,48 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
+  /* font-size: 14px; */
 }
 body{
-  font-family: Lato-Regular;
+  font-family: AmazonEmber_Rg;
 }
-h1,h2,h3,h4,h5,b,strong{ 
-  font-family: Lato-Bold;
+h1{
+  font-size: 2.25em;
+  line-height: 1.226em;
+  font-weight: 300;
+  font-family: AmazonEmber_Lt !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding: 0;
 }
-p,div,a,span{
-  font-family: Lato-Regular;
+h2{
+  font-size: 1.525em !important;
+  font-weight: 600;
+  margin-top: 1em !important;
+  padding: 1em 0 0;
+  font-family: AmazonEmber_Lt !important;
+  border-top: 1px solid #d5dbdb;
 }
+
+pre{ 
+    margin: 1.6rem 0;
+    border: 1px solid #aab7b8; 
+    border-radius: 5px !important;
+    padding: 0;
+    word-wrap: normal;
+    font-size: 0.9em;
+    box-shadow: none !important;
+    background: #f9f9f9 !important;
+    font-family: Monaco,Menlo,Consolas,Courier Prime,Courier,Courier New,monospace !important;
+}
+h3,h4,h5,b,strong{ 
+  font-family: AmazonEmber_Bd;
+}
+/* p,div,a,span{
+  font-family: AmazonEmber_Rg;
+} */
 table th{
-  font-family: Lato-Semibold;
+  font-family: Amazon-Ember-Medium;
 }
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
@@ -58,25 +88,108 @@ table th{
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
-p{
+/* p,ul li,ol li{
   font-size: 14px;
+} */
+main .container{
+  padding: 0px !important;
 }
-h1,h2,h3{
-  font-family: Lato-Light;
+main ul,ol{
+  padding-left: 1.5rem;
+}
+main ul li, ol li{
+  padding-top: .5em;
+  line-height: 1.5em;
+  font-weight: 400;
+  margin-top: 0px !important;
+}
+main ul li p{
+  margin-bottom: 0px !important;
+}
+main ul li ul{
+  padding-top: 0.5rem !important;
+}
+main ul li:first-child,main  ol li:first-child{
+  padding-top: 0px !important;
+}
+main ul li p{
+  margin-top: 0px !important;
+}
+.admonition-note{
+  border: 1px solid rgba(0,115,187,.35);
+  background-color: rgba(241,250,255,.8);
+  border-radius: 0px;
+}
+.admonition-note .admonition-icon svg{
+  width: 18px;
+  height: 18px;
+}
+.admonition-note .admonition-icon svg path{
+  fill: #0073bb;
+}
+.admonition-content p{
+  margin-top: 0.5em !important; 
+  margin-bottom: 0px !important;
+  padding-left: 1.5em;
+}
+.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-next-theme-CodeBlock-styles-module {
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  margin-bottom: 1rem !important;
+  margin-top: 1em !important;
+}
+.token.function{
+  font-weight: bold;
+}
+.token.key{
+  color: #333 !important
+}
+.token.number,
+.token.boolean,
+.token.plain{
+  color: #0b6125 !important
+}
+main .pagination-nav{
+    border: 1px solid rgb(123, 165, 208);
+    padding: 0.8rem 0px; 
+    margin-bottom: 1rem;
+}
+main .pagination-nav .pagination-nav__item:first-child{
+  border-right: 1px solid #d8d8d8; 
+}
+main .pagination-nav  .pagination-nav__link{
+  padding: 0.5rem 1rem;
+  border: 0px;
+}
+.pagination-nav__label{
+  font-weight: normal;
+}
+
+
+
+
+
+
+
+h2,h3{
+  font-family: AmazonEmber_Lt;
 }
 h6{
-  font-family: 'Lato-Semibold';
+  font-family: Amazon-Ember-Medium;
   font-weight: normal;
   font-size: 16px;
 }
-h1{
-  font-size: 2.5rem;
-}
+ 
 h2{
   font-size: 2rem;
 }
 h3{
   font-size: 1.4rem;
+}
+p{
+    line-height: 1.5em;
+    font-weight: 400;
+    margin: 1em 0 !important;
 }
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
@@ -124,8 +237,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   width: 90px;
 }
 .menu__link{
-  font-weight: normal;
-  font-size: 14px;
+  font-weight: normal; 
 }
 .hero--primary{
     background: #246dbd url('../../static/img/regular-desktop-banner.svg') no-repeat;
@@ -224,6 +336,13 @@ nav .navbar__inner{
 
 .searchSection{
   text-align: right;
+}
+.pagination-nav__link{
+  border: 1px solid #7ba5d0;
+  border-radius: 0px;
+}
+main .col:first-child{
+  padding: 0 6rem 0rem;
 }
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
   .panel_container .col--5 .innerText{
