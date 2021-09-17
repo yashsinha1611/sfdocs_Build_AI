@@ -47,6 +47,11 @@ module.exports = {
   },
   {
     type: 'category',
+    label: 'New Pages',
+      items: ['New_Pages/kubernetes_monitoring_with_sfpod', 'New_Pages/monitoring_application_pod_in_kubernetes_using_prometheus_exporter'],
+  },
+  {
+    type: 'category',
     label: 'sfAgent Installation',
     items:['sfAgent_Linux/sfAgent_installation_in_Linux'],
   },
