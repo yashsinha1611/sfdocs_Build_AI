@@ -116,7 +116,7 @@ sfAgent can be either configured or manually. In an automatic configuration step
 
 Follow the steps below for automatic discovery & configuration
 
-<iframe width="570" height="321" src="https://www.snappyflow.io/assets/images/RemoteMode-production.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  allowtransparency="true"></iframe>
+<iframe width="570" height="321" src="https://www.youtube.com/watch?v=9CvPvMd3udk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  allowtransparency="true"></iframe>
 
 - Run following commands to discover services and generate config:
 
