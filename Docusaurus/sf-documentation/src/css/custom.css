@@ -285,6 +285,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   margin-bottom: 8px;
   text-align: left;
   position: relative;
+  margin-top: 0px !important;
     top: 8px;
 }
 .navbar__inner a:last-child svg{
@@ -437,6 +438,12 @@ main .container:first-child{
     height: auto;
     margin-right: 15px;
     width: 100%;
+  }
+}
+@media screen and (max-width: 996px) and (min-width: 768px) {  
+  header .row .col.col{
+    text-align: left !important;
+    padding-left: 45px;
   }
 }
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
