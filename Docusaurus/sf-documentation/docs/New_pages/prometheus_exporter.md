@@ -1,4 +1,4 @@
-# Monitoring Application Pod in Kubernetes using Prometheus Exporter 
+# Prometheus Exporter 
 
 ## Overview
 
@@ -46,7 +46,7 @@
 
    
 
- List of Prometheus exporters supported by sfPod.
+ ## List of Prometheus exporters supported by sfPod
 
 | Plugins          | Exporter Links                                               | service_discovery_regex                                      | Docker image                                                 |
 | ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |

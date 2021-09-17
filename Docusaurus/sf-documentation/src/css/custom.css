@@ -95,6 +95,9 @@ pre{
     background: #f9f9f9 !important;
     font-family: Monaco,Menlo,Consolas,Courier Prime,Courier,Courier New,monospace !important;
 }
+table{
+  padding-top: 20px;
+}
 table thead tr{
   border-bottom-width: 1px;
 }
