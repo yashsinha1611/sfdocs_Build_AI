@@ -60,7 +60,6 @@ Note that in the above tokenization, character  “:” and character “.” Ar
 | Operator  | Description                       | Example                                                  | Explanation                                                  |
 | --------- | --------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
 | :         | Search for a value within a field | level:info                                               | Get all documents where field “level” has value “info”       |
-|           |                                   |                                                          |                                                              |
 | &&        | AND operation                     | info && ident:sshd                                       | Get all documents where value “info” is present in any of the fields AND “ident” field has value “sshd” |
 | \|\|      | OR operation                      | level:warn \|\| level:error                              | Get all documents where “level” field has value “warn” or “level” field has value “error” |
 | ""        | Phrase searches                   | message: "Invalid                                        | Get all documents where “message” field has a phrase “Invalid user”. Note: searches are case insensitive. “Invalid user” will match only if token “Invalid” and token “user” are present in the string in the same order. |
