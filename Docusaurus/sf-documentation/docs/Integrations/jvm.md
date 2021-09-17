@@ -236,7 +236,7 @@ config:
 
   Reference: [Prometheus JMX Exporter](https://github.com/prometheus/jmx_exporter/blob/master/README.md)
 
-Documents:
+**Documents:**
 
 Plugin Type kube-prom-jmx contains the metrics organized into following document type
 

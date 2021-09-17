@@ -311,13 +311,17 @@ EP(message, /(.*PID.*?(?=\w+=))|(\})|(\{)|(\s(?=\w+=))/, /=/, exclude=[ startTim
 Another example using a complex delimiter, with exclude option and convert options.
 Multiple pair delimiters are used.
 
-```
+```json
 {
 "message": "StatisticsLogTask - PID1 - context=Execution Fill {subContext=Order Update section=Top Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=3
 minimum=1.0 mean=5.0 maximum=21.0",
-"context": "Execution Fill", "subContext": "Order Update",
-"section": "Top Level", "count": 3,
-"minimum": 1, "maximum": 21, "mean": 5
+"context": "Execution Fill", 
+"subContext": "Order Update",
+"section": "Top Level", 
+"count": 3,
+"minimum": 1,
+"maximum": 21,
+"mean": 5
 }
 {
 "message": "StatisticsLogTask - PID2 - context=Execution Fill {subContext=Order Placed section=Mid Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00 count=6
@@ -404,23 +408,23 @@ Copy the pattern and string to the java-regex-tester. Observe the resultant matc
 - SnappyFlow provides following built-in regex patterns, these built-in patterns can be used in place of a REGEX required in EV, EP or EG feature extraction constructs. Built-in pattern names are encapsulated in “$” 
 
   ```
-      $hostname$ - hostname string, e.g.apmmanager.snappyflow.io
-      $url$ - URL, e.g. https://apmmanager.snappyflow.io
-      $file_path$ - UNIX file path, e.g. /usr/share/nginx/html/theme-chrome.js
-      $float$ - floating point number, e.g.31.45
-      $integer$ - integer number, e.g. 19345
-      $alphanumeric$ - alpha-numeric characters, e.g. admin1
-      $alphanumericspecial$ - alpha-numeric with hyphen and underscore, e.g. date_time
-      $string$ - a string encapsulated in ‘ (single quote) or “ (double quote)
-      $date$ - date string, e.g. 02-04-2020
-      $datetime$ - date with time string, e.g. 02-04-20 21:41:59
-      $time$ - time string, e.g. 21:41:59
-      $ipv4addr$ - IPv4 Address, e.g. 172.31.22.98
+$hostname$ - hostname string, e.g.apmmanager.snappyflow.io
+$url$ - URL, e.g. https://apmmanager.snappyflow.io
+$file_path$ - UNIX file path, e.g. /usr/share/nginx/html/theme-chrome.js
+$float$ - floating point number, e.g.31.45
+$integer$ - integer number, e.g. 19345
+$alphanumeric$ - alpha-numeric characters, e.g. admin1
+$alphanumericspecial$ - alpha-numeric with hyphen and underscore, e.g. date_time
+$string$ - a string encapsulated in ‘ (single quote) or “ (double quote)
+$date$ - date string, e.g. 02-04-2020
+$datetime$ - date with time string, e.g. 02-04-20 21:41:59
+$time$ - time string, e.g. 21:41:59
+$ipv4addr$ - IPv4 Address, e.g. 172.31.22.98
   ```
 
 - Example extraction with built-in regex patterns
 
-  ```
+  ```json
   message: "*72281 open() "/usr/share/nginx/html/theme-chrome.js" failed (2: No such file or directory), client: 172.31.22.98, server: _, request: "GET /theme-chrome.js HTTP/1.1", host: "apmmanager.snappyflow.io", referrer: “https://apmmanager.snappyflow.io/”
   
   Extraction

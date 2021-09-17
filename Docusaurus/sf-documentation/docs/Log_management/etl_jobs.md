@@ -54,7 +54,7 @@ SnappyFlow allows for a job to have up to a 3-level hierarchy- Job, Stage, Task.
 
 ## Step 2: Forward logs to SnappyFlow
 
-<div>Add the following log parser to logging section of sfAgent’s config.yaml: </div>       
+Add the following log parser to logging section of sfAgent’s config.yaml:    
 
 ```yaml
 logging:
@@ -65,7 +65,7 @@ logging:
           log_path: <log file path>
 ```
 
-<div> Restart sfAgent with the new configuration.</div>
+Restart sfAgent with the new configuration.
 
 ```
 service sfagent restart
