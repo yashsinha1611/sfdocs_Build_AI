@@ -6,11 +6,11 @@
 
 - If a pod is tagged with SnappyFlow labels, sfPod then looks for standard Prometheus annotations 
 
-  | Label                | Default  | Required                                                     |
-  | -------------------- | -------- | ------------------------------------------------------------ |
-  | prometheus.io/scrape | true     | true - the pod is considered for Prometheus scraping else it is excluded. |
-  | prometheus.io/port   | empty    | Define a list of ports that sfPod will scan. sfPod will also apply the appropriate parser. If this label is empty, sfPod will scan all exposed container ports. |
-  | prometheus.io/path   | /metrics | /metrics                                                     |
+  | Label                | Value                                                        |
+  | -------------------- | ------------------------------------------------------------ |
+  | prometheus.io/scrape | If true, the pod is considered for Prometheus scraping, else it is excluded. |
+  | prometheus.io/port   | This label defines a list of ports that sfPod will scan. sfPod will also apply the appropriate parser. If this label is empty, sfPod scans all exposed container ports. Default value is empty. |
+  | prometheus.io/path   | Define the path as /metrics                                  |
 
 - If sfPod finds data on these ports, the data is scanned, parsed and sent to SnappyFlow 
 
@@ -50,20 +50,20 @@
 
 | Plugins          | Exporter Links                                               | service_discovery_regex                                      | Docker image                                                 |
 | ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| apache           | [apache_exporter/README.md at master · Lusitaniae/apache_exporter (github.com)](https://github.com/Lusitaniae/apache_exporter/blob/master/README.md) | `["apache_accesses_total","apache_+"]`                       | https://hub.docker.com/r/lusotycoon/apache-exporter/         |
-| elasticsearch    | [https://hub.docker.com/r/justwatch/elasticsearch_exporter](https://github.com/prometheus-community/elasticsearch_exporter/blob/master/README.md) | `["elasticsearch_+"]`                                        | https://hub.docker.com/r/justwatch/elasticsearch_exporter    |
-| haproxy          | [https://hub.docker.com/r/bitnami/jmx-exporter/](https://bitnami.com/stack/jmx-exporter) | `["haproxy_+"]`                                              | https://hub.docker.com/r/bitnami/jmx-exporter/               |
-| jmx              | [https://hub.docker.com/r/bitnami/jmx-exporter/](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["jmx_exporter_build_info","jmx_+","java_lang_+"]`          | https://hub.docker.com/r/bitnami/jmx-exporter/               |
-| kafka-connect-j9 | [https://hub.docker.com/r/bitnami/jmx-exporter/](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_connect+","java_lang_+","java_lang_memorymanager_valid_j9+"]` | [https://hub.docker.com/r/bitnami/jmx-exporter//](https://hub.docker.com/r/bitnami/jmx-exporter/) |
-| kafka-connect    | [https://hub.docker.com/r/bitnami/jmx-exporter/](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_connect+","java_lang_+","java_lang_garbagecollector_collectiontime_g1_young_generation"]` | https://hub.docker.com/r/bitnami/jmx-exporter/               |
-| kafka-jmx        | [https://hub.docker.com/r/bitnami/jmx-exporter/](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_server_+","kafka_network_+","java_lang_+"]`         | https://hub.docker.com/r/bitnami/jmx-exporter/               |
-| kafka-rest-j9    | [https://hub.docker.com/r/bitnami/jmx-exporter/](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_rest+","java_lang_+","java_lang_memorymanager_valid_j9+"]` | https://hub.docker.com/r/bitnami/jmx-exporter/               |
-| kafka-rest       | https://hub.docker.com/r/bitnami/jmx-exporter/               | `["kafka_rest+","java_lang_+","java_lang_garbagecollector_collectiontime_g1_young_generation"]` | https://hub.docker.com/r/bitnami/jmx-exporter/               |
-| kafka            | [https://hub.docker.com/r/bitnami/jmx-exporter/](https://hub.docker.com/r/danielqsj/kafka-exporter/dockerfile) | `["kafka_topic_+"]`                                          | https://hub.docker.com/r/bitnami/jmx-exporter/               |
-| linux            | https://github.com/prometheus/node_exporter                  | `["node_cpu_+","node_disk_+","node_procs_+"]`                | https://hub.docker.com/r/prom/node-exporter/                 |
-| mongod           | https://github.com/dcu/mongodb_exporter                      | `["mongodb_+"]`                                              |                                                              |
-| mysql            | https://github.com/prometheus/mysqld_exporter/blob/master/README.md | `["mysql_global_+","mysql_version_+"]`                       | https://hub.docker.com/r/prom/mysqld-exporter/               |
-| nginx            | https://github.com/nginxinc/nginx-prometheus-exporter/blob/master/README.md | `["nginx_+"]`                                                | https://hub.docker.com/r/nginx/nginx-prometheus-exporter     |
+| apache           | [Exporter Link](https://github.com/Lusitaniae/apache_exporter/blob/master/README.md) | `["apache_accesses_total","apache_+"]`                       | [Docker image](https://hub.docker.com/r/lusotycoon/apache-exporter/) |
+| elasticsearch    | [Exporter Link](https://github.com/prometheus-community/elasticsearch_exporter/blob/master/README.md) | `["elasticsearch_+"]`                                        | [Docker image](https://hub.docker.com/r/justwatch/elasticsearch_exporter) |
+| haproxy          | [Exporter Link](https://bitnami.com/stack/jmx-exporter)      | `["haproxy_+"]`                                              | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| jmx              | [Exporter Link](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["jmx_exporter_build_info","jmx_+","java_lang_+"]`          | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| kafka-connect-j9 | [Exporter Link](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_connect+","java_lang_+","java_lang_memorymanager_valid_j9+"]` | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| kafka-connect    | [Exporter Link](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_connect+","java_lang_+","java_lang_garbagecollector_collectiontime_g1_young_generation"]` | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| kafka-jmx        | [Exporter Link](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_server_+","kafka_network_+","java_lang_+"]`         | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| kafka-rest-j9    | [Exporter Link](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["kafka_rest+","java_lang_+","java_lang_memorymanager_valid_j9+"]` | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| kafka-rest       | [Exporter Link](https://hub.docker.com/r/bitnami/jmx-exporter) | `["kafka_rest+","java_lang_+","java_lang_garbagecollector_collectiontime_g1_young_generation"]` | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| kafka            | [Exporter Link](https://hub.docker.com/r/danielqsj/kafka-exporter/dockerfile) | `["kafka_topic_+"]`                                          | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
+| linux            | [Exporter Link](https://github.com/prometheus/node_exporter) | `["node_cpu_+","node_disk_+","node_procs_+"]`                | [Docker image](https://hub.docker.com/r/prom/node-exporter/) |
+| mongod           | [Exporter Link](https://github.com/dcu/mongodb_exporter)     | `["mongodb_+"]`                                              | Docker image                                                 |
+| mysql            | [Exporter Link](https://github.com/prometheus/mysqld_exporter/blob/master/README.md) | `["mysql_global_+","mysql_version_+"]`                       | [Docker image](https://hub.docker.com/r/prom/mysqld-exporter/) |
+| nginx            | [Exporter Link](https://github.com/nginxinc/nginx-prometheus-exporter/blob/master/README.md) | `["nginx_+"]`                                                | [Docker image](https://hub.docker.com/r/nginx/nginx-prometheus-exporter) |
 | nodejs           | No exporter. Using code instrumentation                      | `["nodejs_+"]`                                               |                                                              |
-| postgres         | https://github.com/prometheus-community/postgres_exporter/blob/master/README.md | `"pg_stat_+"`                                                | [https://hub.docker.com/r/prometheuscommunity/postgres-exporter](https://hub.docker.com/r/prometheuscommunity/postgres-exporter/tags?page=1&ordering=last_updated) |
-| zookeeper-jmx    | https://github.com/prometheus/jmx_exporter/blob/master/README.md | `["zookeeper_+","java_lang_"]`                               | https://hub.docker.com/r/bitnami/jmx-exporter/               |
+| postgres         | [Exporter Link](https://github.com/prometheus-community/postgres_exporter/blob/master/README.md) | `"pg_stat_+"`                                                | [Docker image](https://hub.docker.com/r/prometheuscommunity/postgres-exporter) |
+| zookeeper-jmx    | [Exporter Link](https://github.com/prometheus/jmx_exporter/blob/master/README.md) | `["zookeeper_+","java_lang_"]`                               | [Docker image](https://hub.docker.com/r/bitnami/jmx-exporter/) |
