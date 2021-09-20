@@ -513,6 +513,15 @@ main .container:first-child{
   margin-top: 1.5em;
 }
 @media screen and (max-width: 767px) and (min-width: 320px) {
+  .box_size{
+    width: 164px;
+  }
+  .buttonList dd{
+    margin-bottom: 5px;
+  }
+  .searchContrainer input{
+    width: 88%;
+  }
   article button:first-child{
     margin-top: 15px;
   }
