@@ -10,34 +10,45 @@
   | -------------------- | ------------------------------------------------------------ |
   | prometheus.io/scrape | If true, the pod is considered for Prometheus scraping, else it is excluded. |
   | prometheus.io/port   | This label defines a list of ports that sfPod will scan. sfPod will also apply the appropriate parser. If this label is empty, sfPod scans all exposed container ports. Default value is empty. |
-  | prometheus.io/path   | Define the path as /metrics                                  |
+  | prometheus.io/path   | Define the path as /metrics. Empty by default.               |
 
 - If sfPod finds data on these ports, the data is scanned, parsed and sent to SnappyFlow 
 
 ## Monitoring pods using Prometheus exporter
 
-1. Pre-requisites 
-   1. Ensure sfPod is running and has access privileges to namespace in which application pod is running  
-   2. Ensure sfPod has access to ports exposing Prometheus exporters  
+### Pre-requisites
 
-2. Add Prometheus exporter container as a sidecar in the application pod. Pls see example below for Prometheus exporter pod. sfPod needs to access the Prometheus exporter on the exported port, which should be exposed in pod’s service 
+1. Ensure sfPod is running and has access privileges to namespace in which application pod is running  
+2. Ensure sfPod has access to ports exposing Prometheus exporters  
 
-   [PostgreSQL Statefulset YAML](https://github.com/snappyflow/website-artefacts/blob/master/yaml_deployments/prometheus/postgresql/statefullset.yaml) 
+### Enable access to Prometheus exporter 
 
-   [PostgreSQL Service YAML](https://github.com/snappyflow/website-artefacts/blob/master/yaml_deployments/prometheus/postgresql/service.yaml) 
+Add Prometheus exporter container as a sidecar in the application pod. Pls see example below for Prometheus exporter pod. sfPod needs to access the Prometheus exporter on the exported port, which should be exposed in pod’s service 
 
-   After setup of Prometheus exporter container, please verify connectivity using:
+[PostgreSQL Statefulset YAML](https://github.com/snappyflow/website-artefacts/blob/master/yaml_deployments/prometheus/postgresql/statefullset.yaml) 
 
-   ```properties
-   curl service_ip: 9187 
-   curl service_ip: 5432 
-   ```
+[PostgreSQL Service YAML](https://github.com/snappyflow/website-artefacts/blob/master/yaml_deployments/prometheus/postgresql/service.yaml) 
 
-3. Add labels snappyflow/projectName and snappyflow/appName which are mandatory labels for SnappyFlow monitoring. The monitored endpoint is organized in the hierarchy project/ application inside SnappyFlow
+After setup of Prometheus exporter container, please verify connectivity using:
+
+```properties
+curl service_ip: 9187 
+curl service_ip: 5432 
+```
+
+### Tag applications with Labels
+
+:::note
+
+Applying labels are key to monitoring in SnappyFLow. Endpoints are organized in a hierarchy as per the labels defined.
+
+:::
+
+1. Add labels snappyflow/projectName and snappyflow/appName 
 
    1. if the application pods are already running, use the following kubectl commands to tag your application pods with the appropriate tags:
 
-      ```properties
+      ```
       kubectl label pods <pod_name> snappyflow/projectname=<project_name> --namespace<appnamespace>
       kubectl label pods <pod_name> snappyflow/appname=<app_name> --namespace<appnamespace>
       ```
