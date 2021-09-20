@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="55" viewBox="0 0 90 55">
+  <defs>
+    <clipPath id="clip-public-cloud-elbs">
+      <rect width="90" height="55"/>
+    </clipPath>
+  </defs>
+  <g id="public-cloud-elbs" clip-path="url(#clip-public-cloud-elbs)">
+    <rect width="90" height="55" fill="#fff"/>
+    <g id="A_5" data-name="A 5" transform="translate(-78.217 -304.57)">
+      <g id="Group_57" data-name="Group 57" transform="translate(96.217 304.57)">
+        <path id="Path_1793" data-name="Path 1793" d="M96.217,335.768c0-14.634,12.265-26.415,27.5-26.415s27.5,11.781,27.5,26.415-12.265,26.415-27.5,26.415S96.217,350.4,96.217,335.768Z" transform="translate(-96.217 -307.183)" fill="#9d5025" fill-rule="evenodd"/>
+        <path id="Path_1794" data-name="Path 1794" d="M96.217,330.985c0-14.634,12.265-26.415,27.5-26.415s27.5,11.781,27.5,26.415-12.265,26.415-27.5,26.415S96.217,345.618,96.217,330.985Z" transform="translate(-96.217 -304.57)" fill="#f58536" fill-rule="evenodd"/>
+        <path id="Path_1795" data-name="Path 1795" d="M105.877,348.538h9.986V333.122h-9.986Zm31.91-17.387H146.7v-8.559h-8.911Zm0,13.958H146.7V336.55h-8.911Zm0,13.968H146.7v-8.559h-8.911Z" transform="translate(-101.494 -314.415)" fill="#fff" fill-rule="evenodd"/>
+        <path id="Path_1796" data-name="Path 1796" d="M144.371,347.477l1.482-.7.976-.46-.976-.469-1.319-.625-3.976-1.884v1.884H128.619l13.565-8.342,1.075,1.6,2.25-3.646.659-1.077.66-1.059-1.265.148-1.437.156-4.247.477,1.021,1.51L124.263,345.22l-1.835,1.129,2.187,1.336L140.9,357.712l-1.021,1.51,4.247.477,1.437.156,1.265.148-.66-1.059-.659-1.077-2.25-3.646-1.075,1.6-13.565-8.342h11.938v1.814l3.813-1.814Z" transform="translate(-110.536 -319.934)" fill="#fff" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+</svg>

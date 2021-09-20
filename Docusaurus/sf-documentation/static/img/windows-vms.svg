@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="55" viewBox="0 0 90 55">
+  <defs>
+    <clipPath id="clip-windows-vms">
+      <rect width="90" height="55"/>
+    </clipPath>
+  </defs>
+  <g id="windows-vms" clip-path="url(#clip-windows-vms)">
+    <rect width="90" height="55" fill="#fff"/>
+    <path id="Path_1732" data-name="Path 1732" d="M291.96,130.6l22.408-3.052.009,21.614-22.4.127-.021-18.69Zm22.4,21.052.017,21.633-22.4-3.079V151.5l22.381.145Zm2.716-24.5,29.71-4.336v26.074l-29.71.236V127.146Zm29.718,24.707-.007,25.957-29.71-4.193-.042-21.812Z" transform="translate(-273.96 -122.81)" fill="#00adef"/>
+  </g>
+</svg>
