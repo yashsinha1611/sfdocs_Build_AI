@@ -456,6 +456,9 @@ main .container:first-child{
     border: 1px solid #009dd0;
     color: #fff;
 }
+.buttonList dd{
+  margin-bottom: 5px;
+}
 .btn-primarys{
 	border: 1px solid #d7d7d6;
     border-radius: 5px;
@@ -516,9 +519,7 @@ main .container:first-child{
   .box_size{
     width: 164px;
   }
-  .buttonList dd{
-    margin-bottom: 5px;
-  }
+ 
   .searchContrainer input{
     width: 88%;
   }
@@ -558,6 +559,9 @@ main .container:first-child{
   }
   article button:first-child{
     margin-top: 15px;
+  }
+  .searchContrainer input{
+    width: 88%;
   }
 }
 
