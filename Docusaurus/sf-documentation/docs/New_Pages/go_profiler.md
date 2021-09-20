@@ -1,6 +1,6 @@
-# sf-go-profiler
+# SnappyFlow GO Profiler
 
-sf-apm-profiler enables collecting supported profiles types by golang along with runtime metrics
+sf-go-profiler enables collecting supported profiles types by golang along with runtime metrics
 and sends them to snappyflow-apm for further visualization and analysis.
 
 supported profiles: cpu, heap, block, mutex, goroutine, threadcreate
@@ -89,31 +89,4 @@ this sets block profile rate to **DefaultBlockProfileRate** and mutex profile fr
 ```go
     // enable all supported profiles
     profile.EnableAllProfiles()
-```
-
-## sample runtime metrics collected
-
-- reference: <https://pkg.go.dev/runtime#MemStats>
-
-```json
-{
-  "alloc_mb": 8.4275,
-  "frees": 28575,
-  "gc_cpu_fraction": 0.0001,
-  "go_version": "go1.16.4",
-  "interval": 60,
-  "last_gc": 1631099627396,
-  "live_objects": 27146,
-  "mallocs": 27361,
-  "max_pause_gc_ms": 0.1033,
-  "min_pause_gc_ms": 0.0366,
-  "num_cpu": 2,
-  "num_gc": 2,
-  "num_goroutines": 23,
-  "pid": 23201,
-  "sys_mb": 71.5791,
-  "time": 1631099686505,
-  "total_alloc_mb": 8.8994,
-  "total_pause_gc_ms": 0.14,
-}
 ```
