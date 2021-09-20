@@ -52,8 +52,8 @@ module.exports = {
   },
   {
     type: 'category',
-    label: 'Kubernetes',
-    items: ['New_pages/kubernetes_monitoring_with_sfPod', 'New_pages/prometheus_exporter'],
+    label: 'NewPages',
+    items: ['New_pages/kubernetes_monitoring_with_sfPod', 'New_pages/prometheus_exporter', 'New_pages/go_profiler'],
   },
    //   [{doc:'Tracing/overview', label: 'Overview'}, {doc:'Tracing/java', label: 'Java'}],
     //},
