@@ -49,8 +49,8 @@ It is a lightweight agent installed on VMs to collect metrics, logs and tracing 
 
 **Installation procedures**
 
-- For [sfAgent on Linux](/docs/sfAgent_Linux/sfAgent_installation_in_Linux) 
-- For [sfAgent on Windows](/docs/New_pages/monitoring_windows_instances)
+- For [sfAgent on Linux](/docs/New_pages/sfagent_linux) 
+- For [sfAgent on Windows](/docs/New_pages/sfagent_windows)
 
 ## sfPoller
 
