@@ -19,16 +19,18 @@ module.exports = {
       type: 'category',
       label: 'Quick Start Guide',
       items: ['Quick_Start/getting_start'],
+      collapsed: false,
     },
     {
       type: 'category',
       label: 'Tracing',
-        items: ['Tracing/overview', 'Tracing/java', 'Tracing/java_v2', 'Tracing/python', 'Tracing/ruby', 'Tracing/nodejs', 'Tracing/csharp'],
+      items: ['Tracing/overview', 'Tracing/java', 'Tracing/java_v2', 'Tracing/python', 'Tracing/ruby', 'Tracing/nodejs', 'Tracing/csharp'],
   },
   {
     type: 'category',
     label: 'Integrations',
-    items:['Integrations/overview', 'Integrations/jvm', 'Integrations/mysql'],
+    collapsed: false,
+    items: ['Integrations/overview', 'Integrations/java_instance', 'Integrations/java_kubernetes', 'Integrations/nginx_instance', 'Integrations/nginx_kubernetes', 'Integrations/jvm', 'Integrations/mysql'],
   },
   {
     type: 'category',
@@ -52,8 +54,9 @@ module.exports = {
   },
   {
     type: 'category',
-    label: 'New Pages',
-      items: ['New_pages/kubernetes_monitoring_with_sfPod', 'New_pages/prometheus_exporter', 'New_pages/go_profiler', 'New_pages/sfkubeagent_installation', 'New_pages/centralized_logging_of_application_pod_logs', 'New_pages/sfagent_windows', 'New_pages/sfagent_linux','New_pages/sfpoller_setup'],
+      label: 'New Pages',
+      collapsed: false,
+      items: ['New_pages/kubernetes_monitoring_with_sfPod', 'New_pages/prometheus_exporter', 'New_pages/go_profiler', 'New_pages/sfkubeagent_installation', 'New_pages/centralized_logging_of_application_pod_logs', 'New_pages/sfagent_windows', 'New_pages/sfagent_linux', 'New_pages/sfpoller_setup'],
   },
    //   [{doc:'Tracing/overview', label: 'Overview'}, {doc:'Tracing/java', label: 'Java'}],
     //},
