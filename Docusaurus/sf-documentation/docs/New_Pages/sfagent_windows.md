@@ -22,22 +22,12 @@ Monitoring of Windows based application requires installation of a lightweight a
 
 1. Download the sfAgent executable from the link below
 
-   <html>
-   <body>
-
-   <p><a href="https://github.com/snappyflow/apm-agent-windows/releases/latest/download/SfagentSetup.exe">Dowload sfAgent</a></p>
-   </body>
-   </html>
-
+   <a href="https://github.com/snappyflow/apm-agent-windows/releases/latest/download/SfagentSetup.exe">Dowload sfAgent</a>
 
 2. Run sfAgent.exe executable with Administrator privileges and complete the installation
-
-   ![img](/img/sfagent_windows/1.png)
-
-   ![img](/img/sfagent_windows/2.png)
-
-   ![img](/img/sfagent_windows/3.png)
-
+   <img src="/img/sfagent_windows/1.png" />
+   <img src="/img/sfagent_windows/2.png" /> 
+   <img src="/img/sfagent_windows/3.png" /> 
 
 ## Configure sfAgent on Windows
 
