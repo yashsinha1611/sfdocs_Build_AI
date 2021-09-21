@@ -1,9 +1,11 @@
 ---
-sidebar_label: sfAgent Installation in Linux
+sidebar_label: Monitoring Linux Instances
 sidebar_postion: 7
 ---
 
-# sfAgent Installation in Linux
+# Monitoring Linux Instances
+
+## Overview
 
 Monitoring of applications running on VM or bare-metal requires installation of a lightweight sfAgent. sfAgent provides following features: 
 
@@ -20,7 +22,7 @@ Monitoring of applications running on VM or bare-metal requires installation of 
 - centos 7 
 - RHEL 7
 
-## Installation
+## Instal sfAgent on Linux
 
 Run the following commands to install sfAgent on VMs: 
 
@@ -70,7 +72,7 @@ sfAgent requires certain pre-requisites for monitoring. Common pre-requisites ar
 
   
 
-## Configure sfAgent
+## Configure sfAgent on Linux
 
 sfAgent is configured through its config.yaml file. There are sections for metrics and logs where appropriate plugins with their configurations have to added to these sections. Below is an example: 
 
@@ -116,7 +118,11 @@ sfAgent can be either configured or manually. In an automatic configuration step
 
 Follow the steps below for automatic discovery & configuration
 
-<iframe width="570" height="321" src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="570" height="321" src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen" 
+        msallowfullscreen="msallowfullscreen" 
+        oallowfullscreen="oallowfullscreen" 
+        webkitallowfullscreen="webkitallowfullscreen"></iframe>
 
 - Run following commands to discover services and generate config:
 
@@ -138,7 +144,7 @@ Follow the steps below for automatic discovery & configuration
   service sfagent restart 
   ```
 
-## Upgrade sfAgent
+## Upgrade sfAgent on Linux
 
 Run following commands to upgrade sfAgent:
 
