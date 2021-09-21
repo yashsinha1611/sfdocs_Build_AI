@@ -99,7 +99,7 @@ pre{
 }
 table{
   padding-top: 20px;
-  display: unset;
+  /* display: unset; */
   max-width: 100%;
   min-width: 100%;
   table-layout: fixed;
