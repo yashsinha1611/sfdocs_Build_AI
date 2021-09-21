@@ -99,9 +99,20 @@ pre{
 }
 table{
   padding-top: 20px;
+  display: unset;
+  max-width: 100%;
+  min-width: 100%;
+  table-layout: fixed;
+}
+table tr th{
+  text-align: left;
+  white-space: nowrap;
 }
 table thead tr{
   border-bottom-width: 1px;
+}
+table tr td{
+  word-break: break-all;
 }
 table tr:nth-child(2n){
   background: transparent;
@@ -515,6 +526,10 @@ main .container:first-child{
 .marTop20{
   margin-top: 1.5em;
 }
+iframe{
+  width: 100%;
+  height: 60vh;
+} 
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .box_size{
     width: 164px;
@@ -531,9 +546,7 @@ main .container:first-child{
     height: 390px; 
     background-size: cover;  
   }
-  iframe{
-    width: 100%;
-  }
+
   .searchSection{
     text-align: left !important;
     margin-left: 16px;

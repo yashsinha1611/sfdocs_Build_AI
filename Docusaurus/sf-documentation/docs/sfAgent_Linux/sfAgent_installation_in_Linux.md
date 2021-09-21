@@ -116,7 +116,7 @@ sfAgent can be either configured or manually. In an automatic configuration step
 
 Follow the steps below for automatic discovery & configuration
 
-<iframe width="570" height="321" src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe  src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0&theme=light" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="background:red"></iframe>
 
 - Run following commands to discover services and generate config:
 
