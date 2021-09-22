@@ -99,7 +99,7 @@ pre{
 }
 table{
   padding-top: 20px;
-  /* display: unset; */
+  display: inline-table;
   max-width: 100%;
   min-width: 100%;
   table-layout: fixed;
@@ -116,6 +116,9 @@ table tr td{
 }
 table tr:nth-child(2n){
   background: transparent;
+}
+main p + table{
+  margin-top: 20px;
 }
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
@@ -602,19 +605,29 @@ iframe{
   main .padding-bottom--lg .col:first-child{
     max-width: 82% !important;
   }
+ 
 }
 @media only screen and (max-width: 3000px) and (min-width: 2501px) {
   main .padding-bottom--lg .col:first-child{
     max-width: 86% !important;
   }
+
 }
 @media only screen and (max-width: 3500px) and (min-width: 3001px) {
   main .padding-bottom--lg .col:first-child{
     max-width: 90% !important;
   }
+ 
 }
 @media only screen and (max-width: 4000px) and (min-width: 3501px) {
   main .padding-bottom--lg .col:first-child{
     max-width: 94% !important;
   }
+
+}
+@media only screen and (max-width: 5000px) and (min-width: 4001px) {
+  main .padding-bottom--lg .col:first-child{
+    max-width: 96% !important;
+  }
+ 
 }
