@@ -73,13 +73,13 @@ Daemon set installed on Kubernetes cluster and monitors the following elements:
 - Cluster logs 
 - Monitor Prometheus exporters running on any of the application pods 
 
-[Procedure for sfPod setup](http://localhost:3000/docs/New_pages/kubernetes_monitoring_with_sfPod)
+[Procedure for sfPod setup](/docs/New_pages/kubernetes_monitoring_with_sfPod)
 
 ## sfKubeAgent
 
 sfAgent equivalent and installed as a side-car container within a Kubernetes  pod and can be configured to monitor metrics and logs of other  containers running on pods. 
 
-[Procedure for setting up sfKubeAgent](http://localhost:3000/docs/New_pages/sfkubeagent_installation)
+[Procedure for setting up sfKubeAgent](/docs/New_pages/sfkubeagent_installation)
 
 
 
@@ -110,17 +110,3 @@ Try out one of the simple exercises to familiarize yourself with the product
 ##### [Monitor a Windows instance](/docs/New_pages/sfagent_windows)
 
 ##### [Trace an application](/docs/Tracing/overview)
-
-
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
