@@ -326,6 +326,16 @@ nav ul.menu__list{
 .tabs_sub li:first-child{
   padding-top: 15px !important;
 }
+.tabs_main .tabs__item--active {
+  background: none !important;
+}
+.tabs_main li:hover{
+background:transparent;
+}
+.tabs_main li{
+  padding-left:0px !important;
+  text-align:left;
+}
 .panel_container .innerText{
   height: 275px;
   width: 280px;
