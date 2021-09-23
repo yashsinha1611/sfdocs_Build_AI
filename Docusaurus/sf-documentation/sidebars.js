@@ -30,7 +30,29 @@ module.exports = {
     type: 'category',
     label: 'Integrations',
     collapsed: false,
-     
+      items: [
+                'Integrations/overview', 
+                {
+                  type: 'category',
+                  label: 'JAVA',
+                  items: [
+                  'Integrations/java/overview',
+                  'Integrations/java/java_instance',
+                  'Integrations/java/java_kubernetes'],
+                },
+                {
+                  type: 'category',
+                  label: 'NGINX',
+                  items: [
+                    'Integrations/nginx/overview',
+                    'Integrations/nginx/nginx_instance',
+                    'Integrations/nginx/nginx_kubernetes']
+                }, 
+                  'Integrations/javasinglepagelinear',
+                  'Integrations/javasinglepagetabbed',
+                  'Integrations/jvm',
+                  'Integrations/mysql'
+              ],
   },
   {
     type: 'category',
