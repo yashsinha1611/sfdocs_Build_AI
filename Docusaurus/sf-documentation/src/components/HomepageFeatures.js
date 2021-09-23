@@ -22,13 +22,29 @@ const FeatureList = [
         url: '/docs/Integrations/overview'
       },
       {
-        label: "JVM",
-        url: '/docs/Integrations/jvm'
-      },
-      {
-        label: "MYSQL",
-        url: '/docs/Integrations/mysql'
-      }
+        label: "JAVA Nested",
+          url: '/docs/Integrations/java/overview'
+       },
+       {
+            label: "JAVA Single Page Linear",
+           url: '/docs/Integrations/javasinglepagelinear'
+       },
+       {
+            label: "JAVA Single Page Tabbed",
+           url: '/docs/Integrations/javasinglepagetabbed'
+       },
+       {
+        label: "Nginx Nested",
+        url: '/docs/Integrations/nginx/overview'
+       },
+       {
+        label: "Nginx Single Page Linear",
+           url: '/docs/Integrations/nginxsinglepagelinear'
+       },
+       {
+        label: "Nginx Single Page Tabbed",
+           url: '/docs/Integrations/nginxsinglepagetabbed'
+       }
     ]
   },
   {

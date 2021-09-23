@@ -33,20 +33,21 @@ module.exports = {
       items: [
                 'Integrations/overview',
           {
-              JAVA: [
+              JAVA_Nested: [
                   'Integrations/java/overview',
                   'Integrations/java/java_instance',
                   'Integrations/java/java_kubernetes'],},
+          'Integrations/javasinglepagelinear',
+          'Integrations/javasinglepagetabbed',
           {
-              NGINX: [
+              NGINX_Nested: [
                   'Integrations/nginx/overview',
                   'Integrations/nginx/nginx_instance',
                   'Integrations/nginx/nginx_kubernetes'],
           },
           'Integrations/nginxsinglepagelinear',
           'Integrations/nginxsinglepagetabbed',
-          'Integrations/javasinglepagelinear',
-          'Integrations/javasinglepagetabbed',
+          
           ],
   },
   {
