@@ -561,6 +561,9 @@ iframe{
 .nav ul li:last-child > ul{
   height: auto !important;
 }
+.tabs-container .tabs li{
+  padding: 1rem !important;
+}
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .box_size{
     width: 164px;

@@ -56,7 +56,7 @@ Jcmd has to be installed in the instance
 
 
 
-#Monitoring JAVA on Kubernetes
+# Monitoring JAVA on Kubernetes
 
 ## Overview
 
