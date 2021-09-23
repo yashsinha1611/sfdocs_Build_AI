@@ -1,4 +1,6 @@
-# JAVA single page tabbed
+# JAVA Single Page Tabbed
+
+
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -6,9 +8,6 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="Instances" label="Instances" default>
     
-
-
-# Monitoring JAVA on Instances
 
 ## Overview
 
@@ -51,12 +50,12 @@ Jcmd has to be installed in the instance
 
   </TabItem>
   <TabItem value="Kubernetes" label="Kubernetes">
-  
 
 
 
 
-# Monitoring JAVA on Kubernetes
+
+
 
 ## Overview
 
@@ -280,7 +279,7 @@ sfPod can access Prometheus exporter at Service IP: `userDefinedPrometheusPort`
 
   </TabItem>
 
-</Tabs>;
+</Tabs>
 
 
 
