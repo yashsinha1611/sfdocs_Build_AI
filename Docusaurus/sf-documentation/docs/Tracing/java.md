@@ -25,10 +25,10 @@ sfTrace Java Agent automatically instruments various APIs, frameworks and applic
 
 ## Available Platforms
 <ul className="icon_list javalang">
-<li><a  href="java#instance"><img src="/img/instance.svg"/></a></li>
-<li><a  href="#docker"><img src="/img/docker.svg"/></a></li>
-<li><a  href="#kubernetes"><img src="/img/kubernetes.svg"/></a></li>
-<li><a  href="#ecs"><img src="/img/ecs.svg"/></a></li>
+<li><a  href="#instance"><img src="/img/platform-instance.svg"/><div>Instance</div></a></li>
+<li><a  href="#docker"><img src="/img/platform-docker.svg"/><div>Docker</div></a></li>
+<li><a  href="#kubernetes"><img src="/img/platform-kubernetes.svg"/><div>Kubernetes</div></a></li>
+<li><a  href="#ecs"><img src="/img/platform-ecs.svg"/><div>ECS</div></a></li>
 </ul>
 
 ## Instance

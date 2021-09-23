@@ -262,10 +262,21 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 .icon_list.javalang li img{
   position: absolute;
-  top: 50%;
+  top: 38%;
   left: 50%;
   transform: translate(-50%,-50%);
 } 
+.icon_list.javalang li div{
+    line-height: 13px;
+    top: unset;
+    position: absolute;
+    bottom: 11px;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
 .menu__link{
   font-weight: normal; 
 }
