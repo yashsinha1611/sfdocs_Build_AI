@@ -110,3 +110,17 @@ Try out one of the simple exercises to familiarize yourself with the product
 ##### [Monitor a Windows instance](/docs/New_pages/sfagent_windows)
 
 ##### [Trace an application](/docs/Tracing/overview)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
