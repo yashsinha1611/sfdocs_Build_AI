@@ -471,6 +471,7 @@ main .container:first-child{
 	border: 0px;
 	box-shadow: none;
 	width: 94%;
+  outline: none;
 	float: left;
   height: 34px;
 	margin: 0px;
