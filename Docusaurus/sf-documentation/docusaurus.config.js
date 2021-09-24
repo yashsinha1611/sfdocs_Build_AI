@@ -121,9 +121,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        theme: require('prism-react-renderer/themes/github'),
-        darkTheme: require('prism-react-renderer/themes/dracula'),
+        darkTheme: darkCodeTheme, 
        themes: ['@docusaurus/theme-live-codeblock'], 
       }, 
     }),
