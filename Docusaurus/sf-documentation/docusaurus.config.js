@@ -122,7 +122,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        // additionalLanguages: ['powershell'],
+        theme: require('prism-react-renderer/themes/github'),
+        darkTheme: require('prism-react-renderer/themes/dracula'),
+       themes: ['@docusaurus/theme-live-codeblock'], 
       },
+      sidebarCollapsible: false,
     }),
 });

@@ -100,7 +100,7 @@ Note that in the above tokenization, character  “:” and character “.” Ar
 
 **Datastore has following documents**
 
-```swift
+```json
 { "pid": 3245, "upstream_response_time": 10, "URL": "https://www.elastic.co/guide/en/elasticsearch/reference"}
 {"pid": 2445, "upstream_response_time": 4, "URL": "https://www.elastic.co/guide/en/machine-learning" }
 {"pid": 3246, "upstream_response_time": 2, "URL": "https://docker-hub/pricing"}
@@ -120,7 +120,7 @@ Note that in the above tokenization, character  “:” and character “.” Ar
 
 **Datastore contains following documents**
 
-```swift
+```json
 {"message": "Disconnected from 118.24.197.243 port 35662 [preauth]"}
 {"message": "Unregistered Authentication Agent for unix-session:7  (system bus name :1.89, object path  /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_IN)  (disconnected from bus)"}
 {"responseCode": "400", "responseMessage": Null}
@@ -190,7 +190,7 @@ Matches document 4
 
 **Datastore contains following documents**
 
-```
+```json
 {"message": "No identification string for 118.24.197.243"}
 {"message": "No identification string for 119:25.200.255"}
 {"message": "Received bad request from 119:25.200.255"}

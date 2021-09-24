@@ -59,13 +59,13 @@ The Extract-Value (EV) construct, uses 4 parameters, *field, pattern, type, name
 
 **Example 1**
 
-```swift
+```javascript
 EV(message, /\d+\.\d+\.\d+\.\d+/, string, ip_addr)
 ```
 
 Extract IP address from field message.
 
-```swift
+```json
 {"message": "DHCPACK from 172.31.32.1 (xid=0x381e913e)",“ip_addr”: “172.31.32.1”}
 {"message": "DHCPREQUEST on eth0 to 172.31.32.1 port 67 (xid=0x381e913e)", “ip_addr”:“172.31.32.1”}
 {"message": "Received disconnect from 167.114.226.137 port 47545:11: [preauth]", “ip_addr”:“167.114.226.137”}
@@ -75,13 +75,13 @@ Extract IP address from field message.
 
 **Example 2**
 
-```swift
+```javascript
 EV(log_msg, /\d+(.\d+)*(?=ms)/, float, delay)
 ```
 
 Extract delay values from the field “log_msg”. Delay value is identified by the pattern (a) one digit string, immediately followed by string “ms” OR (b) two digit strings, each separated by “.” and second digit string is immediately followed by string “ms”. Save extracted value in field named delay.
 
-```swift
+```json
 {" log_msg": "Received request from 10.11.100.29 and re-directed to 33.229.79.17 in 10.34ms", “delay”: 10.34}
 {"log_msg": "Latency time is 5ms",“delay”: 5}
 {"log_msg": "Process 2131 completed in 50s"} – *nothing is extracted from this message*
@@ -93,7 +93,7 @@ Extract delay values from the field “log_msg”. Delay value is identified by 
 
 Extract IP addresses from log_msg field. Skip the first extraction and save the second extraction to field named *rd_ip_addr*.
 
-```swift
+```json
 {"log_msg": "Received request from 10.11.100.29 and re-directed to 33.229.79.17 in 10.34ms",“rd_ip_addr”: "33.229.79.17”}
 ```
 
@@ -121,7 +121,7 @@ The example illustrates extracting information from an nginx access log, which c
 
 Note: the group REGEX patterns are enclosed in “()”, strings matching each of those patterns are extracted and placed in the field name provided in the same order they appear.
 
-```
+```json
 {
 "message": "172.31.31.45 - [06/May/2020:11:44:41] \"GET /owners/2 HTTP/1.1\" 200 4964
 \"-\" \"Apache-HttpClient/4.5.7 (Java/1.8.0_242)\" \"-\" rt=14.717 uct=0.000 uht=14.716
@@ -156,7 +156,7 @@ urt=1.088",
 EG(message, /TTY=\w+ ; PWD=([^\s]+) ; USER=(\w+) ; COMMAND=(.*)$/, path, username, cmd)
 ```
 
-```
+```json
 {
 "message": "root : TTY=unknown ; PWD=/home/centos ; USER=root ; COMMAND=/bin/rm –rf
 jmeter.log",
@@ -206,13 +206,13 @@ General syntax used in Extract Pairs is:
 
 **Example 1**
 
-```
+```javascript
 EP(message, /,/, /=/, convert=[price:int])
 ```
 
 From the field message, extract field-value pairs where pair_delimiter is “,” and value separator is “=”. Convert the value for field “price” to integer.
 
-```
+```json
 {
 "message": "name=Kevin,user_id=3212,order_id=234,price=240.56",
 "name": "Kevin", 
@@ -240,7 +240,7 @@ From the field message, extract field-value pairs where pair_delimiter is “,�
 
 **Example 2**
 
-```
+```javascript
 EP(message, /,|(.*,\s+and)/, /=/, exclude=[name], convert=[price:float, order_id])
 ```
 
@@ -257,7 +257,7 @@ OR
 
 Following log messages will illustrate the use of this extraction
 
-```
+```json
 {
 "message": "name=Kevin,user_id=3212,order_id=234,price=240.56",
 "user_id": "3212",
@@ -282,11 +282,11 @@ Following log messages will illustrate the use of this extraction
 
 **Example 3**
 
-```
+```javascript
 message: (user_id && price) with EP(message, /,/, /=/, include=[price])
 ```
 
-```
+```json
 {
 "message": "name=Kevin,user_id=3212,order_id=234,price=240.56",
 "price": “240.56”
@@ -304,7 +304,7 @@ Since **include** option had the field “price”, only those documents where f
 
 **Example 4**
 
-```
+```javascript
 EP(message, /(.*PID.*?(?=\w+=))|(\})|(\{)|(\s(?=\w+=))/, /=/, exclude=[ startTime, endTime], convert=[count, minimum: float, mean: float, maximum: float])
 ```
 
@@ -334,7 +334,7 @@ minimum=0.813 mean=7.9 maximum=13.0}",
 
 In the extraction, multiple pair delimiters were specified
 
-```
+```javascript
 /(.*PID.*?(?=\w+=))|(\})|(\{)|(\s(?=\w+=))/
 ```
 
@@ -352,21 +352,21 @@ Java REGEX testing tools can be used to validate the REGEX patterns used for ext
 
 Pattern used in extract values (EV) should match the sub-strings you intend to extract. For example, to extract the timestamps from the following message, a pattern like below can be used
 
-```
+```javascript
 /\d+-\d+- \d+\s+\d+:\d+/
 ```
 
 **Extract Value Pattern**
 
-```
+```javascript
 \d+-\d+-\d+\s+\d+:\d+
 ```
 
-```
+```javascript
 String: StatisticsLogTask - PID1 - context=Execution Fill {subContext=Order Update section=Top Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00} count=3 minimum=1.0 mean=5.0 maximum=21.0
 ```
 
-```
+```javascript
 StatisticsLogTask - PID2 - Context = Execution Fill (subContext=Order Place section=Mid Level startTime=2019-12-17 23:59 endTime=2019-12-20 00:00 count=6 minimum=0.813 mean=7.9 maximum=13.0
 ```
 
@@ -379,11 +379,11 @@ Extract Group allows to apply a REGEX to the field and extract only the groups i
 
 **Extract group pattern**
 
-```
+```javascript
 (\d+\.\d+\.\d+\.\d+) - - \[[^\]]* \+\d+\] \\\\\\\"POST \/topics\/(\w+)-(\w+) HTTP/1.0\\\\\\\"(\d+) (\d+) (\d+)
 ```
 
-```
+```javascript
 String: 10.233.117.0 - - [26/Oct/2020:22:30:00 +0000] \\\"POST /topics/metric-grqqwwi7 HTTP/1.0\\\"200 12602 12 (io.confluent.rest-utils.requests)
 ```
 

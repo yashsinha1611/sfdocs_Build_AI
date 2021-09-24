@@ -44,7 +44,7 @@ To automatically apply right labels for new pods which get created due to variou
 
 Below is one example values.yaml
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
