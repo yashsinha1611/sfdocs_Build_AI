@@ -125,7 +125,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         theme: require('prism-react-renderer/themes/github'),
         darkTheme: require('prism-react-renderer/themes/dracula'),
        themes: ['@docusaurus/theme-live-codeblock'], 
-      },
-      sidebarCollapsible: false,
+      }, 
     }),
 });
