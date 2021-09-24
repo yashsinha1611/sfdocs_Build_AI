@@ -22,29 +22,14 @@ const FeatureList = [
         url: '/docs/Integrations/overview'
       },
       {
-        label: "JAVA Nested",
+        label: "JAVA",
           url: '/docs/Integrations/java/overview'
        },
        {
-            label: "JAVA Single Page Linear",
-           url: '/docs/Integrations/javasinglepagelinear'
-       },
-       {
-            label: "JAVA Single Page Tabbed",
-           url: '/docs/Integrations/javasinglepagetabbed'
-       },
-       {
-        label: "Nginx Nested",
+        label: "Nginx",
         url: '/docs/Integrations/nginx/overview'
        },
-       {
-        label: "Nginx Single Page Linear",
-           url: '/docs/Integrations/nginxsinglepagelinear'
-       },
-       {
-        label: "Nginx Single Page Tabbed",
-           url: '/docs/Integrations/nginxsinglepagetabbed'
-       }
+     
     ]
   },
   {
