@@ -87,6 +87,7 @@ Root user has these permissions by default 
 
 :::
 
+
 ## Configuration 
 
 Refer to [sfAgent](/docs/Quick_Start/getting_start#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/ directory`  
