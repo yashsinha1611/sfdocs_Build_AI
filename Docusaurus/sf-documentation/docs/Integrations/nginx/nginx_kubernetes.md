@@ -17,7 +17,7 @@ Nginx monitoring involves monitoring of the following elements:
 - [Prometheus Exporter](/docs/New_pages/prometheus_exporter) 
 - [Centralized Log Monitoring](/docs/New_pages/centralized_logging_of_application_pod_logs) 
 
-Refer to [Nginx monitoring on instances](/docs/Integrations/nginx_instance) for sfAgent configurations 
+Refer to [Nginx monitoring on instances](/docs/Integrations/nginx/nginx_instance) for sfAgent configurations 
 
 ## Configuration 
 
