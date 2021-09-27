@@ -1,4 +1,13 @@
+import IndexJquery from '../../src/pages/index.jquery';
+
 # Getting Started
+<h2>On this page</h2>
+
+import TOCInline from '@theme/TOCInline';
+
+<TOCInline toc={toc} /> 
+<IndexJquery />
+
 SnappyFlow is offered in two modes - SaaS and On-Prem Saas 
 
 
@@ -97,7 +106,7 @@ SnappyFlow mandates that all end-points should be assigned two tags - _tag_proje
 
 
 
-<iframe src="https://www.snappyflow.io/assets/images/Key-Concepts-production.mp4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true" ></iframe>
+<iframe src="https://www.snappyflow.io/assets/images/Key-Concepts-production.mp4" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true" ></iframe>
 
 ## Let's Start Monitoring
 

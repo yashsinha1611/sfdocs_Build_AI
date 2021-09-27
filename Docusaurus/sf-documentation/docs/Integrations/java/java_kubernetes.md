@@ -1,6 +1,3 @@
----
-sidebar_label: Monitoring JAVA on Kubernetes
----
 # Monitoring JAVA on Kubernetes
 
 ## Overview

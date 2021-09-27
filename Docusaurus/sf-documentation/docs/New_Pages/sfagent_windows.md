@@ -1,7 +1,3 @@
----
-sidebar_label: Monitoring Windows Instances
----
-
 # Monitoring Windows Instances
 
 ## Overview

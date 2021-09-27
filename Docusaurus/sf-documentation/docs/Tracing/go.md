@@ -1,6 +1,5 @@
 ---
-sidebar_position: 9
-sidebar_label: Go
+sidebar_position: 9 
 ---
 # Go
 

@@ -1,6 +1,4 @@
 ---
-sidebar_position: 2
-sidebar_label: Dashboard Management
----
+sidebar_position: 2 
 # Dashboard Management
 ## Coming Soon...

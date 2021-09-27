@@ -1,6 +1,3 @@
----
-sidebar_label: Monitoring Nginx on Kubernetes
----
 # Monitoring Nginx on Kubernetes
 
 ## Overview

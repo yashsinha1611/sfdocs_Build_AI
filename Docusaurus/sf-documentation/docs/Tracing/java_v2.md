@@ -1,6 +1,5 @@
 ---
-sidebar_position: 7
-sidebar_label: Javav2
+sidebar_position: 7 
 ---
 # Tracing Java Applications
 sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  

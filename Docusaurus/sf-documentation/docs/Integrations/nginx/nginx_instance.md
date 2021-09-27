@@ -1,6 +1,3 @@
----
-sidebar_label: Monitoring Nginx on Instances
----
 # Monitoring Nginx on Instances
 
 ## Overview

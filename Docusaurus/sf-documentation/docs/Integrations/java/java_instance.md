@@ -1,6 +1,3 @@
----
-sidebar_label: Monitoring JAVA on Instances
----
 # Monitoring JAVA on Instances
 
 ## Overview

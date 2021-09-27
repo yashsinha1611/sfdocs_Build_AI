@@ -580,6 +580,31 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .navbar__items--right > :last-child{
   margin-left: 5px;
 }
+article ul.table-of-contents{
+  padding: 10px 15px;
+}
+article ul.table-of-contents li{
+  list-style-type: decimal;
+  transition: all .2s ease-out;
+  font-size: 0.8rem;
+} 
+article ul.table-of-contents li a{
+  color: var(--ifm-toc-link-color);
+  text-decoration: none;
+}
+article ul.table-of-contents li::marker {
+  color:var(--ifm-toc-link-color);
+}
+.col--3 ul.table-of-contents li{
+  transition: all .2s ease-out;
+}
+.col--3 ul.table-of-contents li:hover,
+article ul.table-of-contents li:hover{
+  transform: translateX(4px);
+}
+article ul.table-of-contents li:hover a{
+  color: var(--ifm-color-primary);
+}
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .box_size{
     width: 164px;
@@ -615,6 +640,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
     text-align: left !important;
     padding-left: 45px;
   }
+  
 }
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
   .panel_container .innerText{

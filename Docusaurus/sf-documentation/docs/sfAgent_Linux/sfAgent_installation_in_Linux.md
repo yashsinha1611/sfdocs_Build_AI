@@ -1,5 +1,4 @@
----
-sidebar_label: sfAgent Installation in Linux
+--- 
 sidebar_postion: 7
 ---
 
@@ -116,7 +115,7 @@ sfAgent can be either configured or manually. In an automatic configuration step
 
 Follow the steps below for automatic discovery & configuration
 
-<iframe width="570" height="321" src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="570" height="321" src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 - Run following commands to discover services and generate config:
 

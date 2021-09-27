@@ -1,7 +1,3 @@
----
-sidebar_label: Centralized Logging of Application Pod Logs
----
-
 # Centralized Logging of Application Pod Logs
 
 

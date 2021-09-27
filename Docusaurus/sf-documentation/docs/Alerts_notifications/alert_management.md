@@ -1,6 +1,5 @@
 ---
-sidebar_position: 2
-sidebar_label: Alert Management
+sidebar_position: 2 
 ---
 # Alert Management
 ## Coming Soon...
