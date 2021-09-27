@@ -1,8 +1,15 @@
 ---
 sidebar_position: 3
 ---
-# Tracing Python Applications
+import IndexJquery from '../../src/pages/index.jquery';
 
+# Tracing Python Applications
+<h2>On this page</h2>
+
+import TOCInline from '@theme/TOCInline';
+
+<TOCInline toc={toc} /> 
+<IndexJquery />
 
 
 ### Choose your platform

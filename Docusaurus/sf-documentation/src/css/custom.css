@@ -588,6 +588,9 @@ article ul.table-of-contents li{
   transition: all .2s ease-out;
   font-size: 0.8rem;
 } 
+article ul.table-of-contents li ul li{
+  list-style-type: disc;
+}
 article ul.table-of-contents li a{
   color: var(--ifm-toc-link-color);
   text-decoration: none;

@@ -1,7 +1,16 @@
 ---
 sidebar_position: 7 
 ---
+import IndexJquery from '../../src/pages/index.jquery';
+
 # Tracing Java Applications
+<h2>On this page</h2>
+
+import TOCInline from '@theme/TOCInline';
+
+<TOCInline toc={toc} /> 
+<IndexJquery />
+
 sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
 <div class="blue_textbox">
 	<b>Supported Java versions</b> 
