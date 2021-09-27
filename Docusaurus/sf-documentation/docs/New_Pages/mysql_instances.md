@@ -81,7 +81,7 @@ grant select on information_schema.* to 'username' identified by 'password';�
 grant select on performance_schema.* to 'username' identified by 'password';  
 ```
 
-::note
+:::note
 
 Root user has these permissions by default  
 
