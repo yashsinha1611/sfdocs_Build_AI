@@ -242,7 +242,22 @@ module.exports = {
           type: 'doc',
           id: 'New_pages/sfpoller_setup',
           label: 'sfPoller Setup',
-         }, 
+          },
+          {
+              type: 'doc',
+              id: 'New_pages/postgres_instances',
+              label: 'Postgres on Instances',
+          },
+          {
+              type: 'doc',
+              id: 'New_pages/postgres_kubernetes',
+              label: 'Postgres on Kubernetes',
+          },
+          {
+              type: 'doc',
+              id: 'New_pages/mysql_instances',
+              label: 'MySQL on Instances',
+          },
       ],
   },
   ],
