@@ -28,7 +28,11 @@ const FeatureList = [
        {
         label: "Nginx",
         url: '/docs/Integrations/nginx/overview'
-       },
+        },
+        {
+            label: "Kubernetes",
+            url: '/docs/Integrations/kubernetes/overview'
+        },
      
     ]
   },

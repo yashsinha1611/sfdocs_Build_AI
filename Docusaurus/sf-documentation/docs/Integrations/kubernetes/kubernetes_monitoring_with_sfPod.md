@@ -1,6 +1,6 @@
 # Kubernetes Monitoring with sfPod 
 
-## sfPOD overview
+## sfPod overview
 
 sfPod is a collector that is installed on Kubernetes and runs as a DaemonSet on each worker node. It monitors the following elements of a Kubernetes environment: 
 
@@ -16,7 +16,7 @@ sfPod is a collector that is installed on Kubernetes and runs as a DaemonSet on 
 - Poll Prometheus Exporters running on application pods 
 - Pod Application Logs 
 
-## sfPOD installation
+## sfPod installation
 
 Below is short video explaining the sfPOD installation steps
 

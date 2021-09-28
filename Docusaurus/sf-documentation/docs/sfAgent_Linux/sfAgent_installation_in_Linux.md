@@ -1,7 +1,3 @@
---- 
-sidebar_postion: 7
----
-
 # sfAgent Installation in Linux
 
 Monitoring of applications running on VM or bare-metal requires installation of a lightweight sfAgent. sfAgent provides following features: 
@@ -34,7 +30,12 @@ sudo ./install.sh
 :::note
 sfAgent executes commands such docas iostat or jcmd to fetch metrics. In order to specific path to sfAgent use -p or --include-paths
 
-<p><b>Example</b>: '"./install.sh -p /opt/jdk1.8.0_211/bin/"'</p>
+**Example**
+
+```
+./install.sh -p /opt/jdk1.8.0_211/bin/
+```
+
 :::
 
 To install sfAgent on multiple end-points using Ansible playbook, refer the following script at https://github.com/snappyflow/apm-agent 
@@ -111,7 +112,7 @@ logging:
         log_path: /var/log/nginx/error.log, /var/log/nginx/error_log 
 ```
 
-sfAgent can be either configured or manually. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Detailed configuration for a specific application types are present in <u>Integrations</u> section.
+sfAgent can be either configured or manually. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Detailed configuration for a specific application types are present in [Integrations](/docs/Integrations/overview) section.
 
 Follow the steps below for automatic discovery & configuration
 
@@ -128,9 +129,9 @@ Follow the steps below for automatic discovery & configuration
 
 - Add the profile key and SnappyFlow tags in the configuration file.
 
-  - Copy profile key from SnappyFlow and update "**key:**" 
-  - Set values for "**Name:**", "**appName:**", "**projectName:**" under "**tags:**" section 
-  - <p>Verify configuration and restart sfAgent</p>
+  - Copy profile key from SnappyFlow and update `key:` 
+  - Set values for `Name:`, `appName:`, `projectName:` under `tags:` section 
+  - Verify configuration and restart sfAgent
 
   ```shell
   ./sfagent -check-config 

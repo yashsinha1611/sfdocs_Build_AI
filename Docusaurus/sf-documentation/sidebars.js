@@ -99,7 +99,7 @@ module.exports = {
               },
           
           {
-              NGINX: [
+              Nginx: [
                 {
                   type: 'doc',
                   id:  'Integrations/nginx/overview',
@@ -116,7 +116,36 @@ module.exports = {
                   label: 'Monitoring Nginx on Kubernetes',
                  },  
            ],
-      },
+          },
+          {
+            Kubernetes: [
+                {
+                    type: 'doc',
+                    id: 'Integrations/kubernetes/overview',
+                    label: 'Overview',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/kubernetes/kubernetes_monitoring_with_sfPod',
+                    label: 'Kubernetes Monitoring with sfPod',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/kubernetes/sfkubeagent_installation',
+                    label: 'Kubernetes Monitoring with sfKubeAgent',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/kubernetes/prometheus_exporter',
+                    label: 'Prometheus Integration',
+                },
+                {
+                      type: 'doc',
+                    id: 'Integrations/kubernetes/centralized_logging_of_application_pod_logs',
+                      label: 'Centralized Logging of Application Pods',
+                },
+            ],
+          },
     ],
   },
   {
@@ -203,30 +232,11 @@ module.exports = {
       label: 'New Pages',
       collapsed: false,
       items: [
-        {
-          type: 'doc',
-          id: 'New_pages/kubernetes_monitoring_with_sfPod',
-          label: 'Kubernetes Monitoring with sfPod',
-         }, 
-         {
-          type: 'doc',
-          id: 'New_pages/prometheus_exporter',
-          label: 'Prometheus Exporter ',
-         }, 
+         
          {
           type: 'doc',
           id: 'New_pages/go_profiler',
           label: 'Go Profiler',
-         }, 
-         {
-          type: 'doc',
-          id: 'New_pages/sfkubeagent_installation',
-          label: 'sfKubeAgent Installation',
-         }, 
-         {
-          type: 'doc',
-          id: 'New_pages/centralized_logging_of_application_pod_logs',
-          label: 'Centralized Logging of Application Pod Logs',
          }, 
          {
           type: 'doc',

@@ -1,15 +1,6 @@
----
-sidebar_position: 1
----
-import IndexJquery from '../../src/pages/index.jquery';
 
 # Tracing in SnappyFlow
-<h2>On this page</h2>
 
-import TOCInline from '@theme/TOCInline';
-
-<TOCInline toc={toc} /> 
-<IndexJquery />
 
 SnappyFlow supports distributed tracing compliant with Opentracing  standard. Tracing allows users to visualize the sequence of steps a  transaction (whether API or non-API such as a Celery job) takes during  its execution. This analysis is extremely powerful and allows  pinpointing the source of problems such as abnormal time being spent on  an execution step or identifying point of failure in a transaction.  SnappyFlow refers to distributed tracing as sfTrace.
 

@@ -43,24 +43,24 @@
 body{
   font-family: AmazonEmber_Rg;
 }
-h1{
-  font-size: 2.25em;
-  line-height: 1.226em;
-  font-weight: 300;
-  font-family: AmazonEmber_Lt !important;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  text-transform: capitalize;
-  padding: 0;
+h1 {
+    font-size: 2.25em;
+    line-height: 1.226em;
+    font-weight: 300;
+    font-family: AmazonEmber_Lt !important;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    /*text-transform: capitalize;*/
+    padding: 0;
 }
-h2{
-  font-size: 1.75em !important;
-  font-weight: 600;
-  margin-top: 1em !important;
-  padding: 1em 0 0;
-  text-transform: capitalize;
-  font-family: AmazonEmber_Lt !important;
-  border-top: 1px solid #d5dbdb;
+h2 {
+    font-size: 1.75em !important;
+    font-weight: 600;
+    margin-top: 1em !important;
+    padding: 1em 0 0;
+    /*text-transform: capitalize;*/
+    font-family: AmazonEmber_Lt !important;
+    border-top: 1px solid #d5dbdb;
 }
 h3{
   font-size: 1.375em;
@@ -111,9 +111,9 @@ table tr th{
 table thead tr{
   border-bottom-width: 1px;
 }
-table tr td{
-  word-break: break-all;
-}
+    table tr td {
+        /*word-break: break-all;*/
+    }
 table tr:nth-child(2n){
   background: transparent;
 }
@@ -605,9 +605,9 @@ article ul.table-of-contents li::marker {
 article ul.table-of-contents li:hover{
   transform: translateX(4px);
 }
-article ul.table-of-contents li:hover a{
+/*article ul.table-of-contents li:hover a{
   color: var(--ifm-color-primary);
-}
+}*/
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .box_size{
     width: 164px;

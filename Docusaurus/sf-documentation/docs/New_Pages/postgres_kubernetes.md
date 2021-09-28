@@ -6,8 +6,8 @@
 
 PostgreSQL running in Kubernetes can be monitored in SnappyFlow using two approaches: 
 
-- [sfKubeAgent](/docs/New_pages/sfkubeagent_installation) as sidecar container
-- [Prometheus exporter](/docs/New_pages/prometheus_exporter) 
+- [sfKubeAgent](/docs/integrations/kubernetes/sfkubeagent_installation) as sidecar container
+- [Prometheus exporter](/docs/integrations/kubernetes/prometheus_exporter) 
 
 ## PostgreSQL monitoring with sfKubeAgent
 
@@ -120,7 +120,7 @@ spec:
 
 ## PostgreSQL monitoring with Prometheus 
 
-Refer to [Prometheus Exporter](/docs/New_pages/prometheus_exporter) overview to understand how SnappyFlow monitors using Prometheus exporters. 
+Refer to [Prometheus Exporter](/docs/integrations/kubernetes/prometheus_exporter) overview to understand how SnappyFlow monitors using Prometheus exporters. 
 
 ### Pre-requisites 
 
@@ -173,7 +173,7 @@ spec:
 
 ## PostgreSQL Pod Centralized Logging 
 
-Pls refer to [Centralized Logging Overview](/docs/New_pages/centralized_logging_of_application_pod_logs) to understand how SnappyFlow implements centralized logging Centralized logging approach requires the application pod to stream logs to stdout, which is achieved by running a busy box container as shown below. 
+Pls refer to [Centralized Logging Overview](/docs/integrations/kubernetes/centralized_logging_of_application_pod_logs) to understand how SnappyFlow implements centralized logging Centralized logging approach requires the application pod to stream logs to stdout, which is achieved by running a busy box container as shown below. 
 
 ```yaml
 kind: Pod

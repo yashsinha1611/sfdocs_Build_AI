@@ -1,17 +1,5 @@
----
-sidebar_position: 4
----
-import IndexJquery from '../../src/pages/index.jquery';
-
 # Tracing Ruby Applications
-<h2>On this page</h2>
-
-import TOCInline from '@theme/TOCInline';
-
-<TOCInline toc={toc} /> 
-<IndexJquery />
-
- Available platforms
+Available platforms
 
 
 ## Instances
