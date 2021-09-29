@@ -112,7 +112,7 @@ table thead tr{
   border-bottom-width: 1px;
 }
     table tr td {
-        word-break: break-all;
+        /*word-break: break-all;*/
     }
 table tr:nth-child(2n){
   background: transparent;
@@ -260,23 +260,23 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-size: 13px;
   color: #333;
 }
-.icon_list.javalang li img{
-  position: absolute;
+    .icon_list.javalang li img {
+        position: absolute;
   top: 38%;
   left: 50%;
   transform: translate(-50%,-50%);
-} 
-.icon_list.javalang li div{
-    line-height: 13px;
-    top: unset;
-    position: absolute;
-    bottom: 11px;
-    font-size: 1rem;
-    color: #333;
-    text-align: center;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    }
+    .icon_list.javalang li div {
+        line-height: 13px;
+        top: unset;
+        position: absolute;
+        bottom: 11px;
+        font-size: 1rem;
+        color: #333;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+         }
 .menu__link{
   font-weight: normal; 
   font-size: 0.8rem;

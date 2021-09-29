@@ -9,7 +9,7 @@ const FeatureList = [
     list: [
       {
         label: "Getting Started",
-        url: '/docs/Quick_Start/getting_start'
+        url: '/docs/Quick_Start/getting_started'
       }
     ]
   },
@@ -25,13 +25,13 @@ const FeatureList = [
         label: "JAVA",
           url: '/docs/Integrations/java/overview'
        },
-       {
-        label: "Nginx",
-        url: '/docs/Integrations/nginx/overview'
-        },
-        {
+      {
             label: "Kubernetes",
             url: '/docs/Integrations/kubernetes/overview'
+        },
+        {
+            label: "More....",
+            url: '/docs/Integrations/overview'
         },
      
     ]
@@ -124,16 +124,7 @@ const FeatureList = [
       }
     ]
   },
-  {
-    title: 'sfAgent Installation',
-    Png: require('../../static/img/alerts-notification-icon.png').default,
-    list: [
-      {
-        label: "sfAgent Installation in Linux",
-        url: '/docs/sfAgent_Linux/sfAgent_installation_in_Linux'
-      } 
-    ]
-  },
+  
 ];
 function Feature({ Png, title, list }) {
   return (

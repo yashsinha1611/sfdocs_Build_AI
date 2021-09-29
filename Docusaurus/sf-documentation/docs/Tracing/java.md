@@ -24,16 +24,20 @@ sfTrace Java Agent automatically instruments various APIs, frameworks and applic
 </div>
 
 
-## Available Platforms
+#### Available Platforms
 
-<ul className="icon_list javalang">
-<li><a  href="java#instance"><img src="/img/instance.svg"/></a></li>
-<li><a  href="#docker"><img src="/img/docker.svg"/></a></li>
-<li><a  href="#kubernetes"><img src="/img/kubernetes.svg"/></a></li>
-<li><a  href="#ecs"><img src="/img/ecs.svg"/></a></li>
-</ul>
+##### [Instances](java#instances)
 
-## Instance
+##### [Docker](java#docker)
+
+##### [Kubernetes](java#kubernetes)
+
+##### [ECS](java#ecs)
+
+
+
+
+## Instances
 
 Install sfAgent which automatically installs sfTrace agent as well.
 
@@ -92,14 +96,9 @@ Add the agent configuration in setenv.sh. If this file is not present,  create t
 <tomcat installation path>/bin
 ```
 Refer to [tomcat_setenv.sh](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/tomcat_setenv.sh)  for tracing specific configuration that needs to be copied to setenv.sh file. 
-Make the file executable using chmod +x bin/setenv.sh and start the server
+Make the file executable using `chmod +x bin/setenv.sh` and start the server
 
-Add the agent configuration in setenv.sh. If this file is not present,  create the file in below folder
-```
-<tomcat installation path>/bin
-```
-Refer to [tomcat_setenv.sh](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/tomcat_setenv.sh)  for tracing specific configuration that needs to be copied to setenv.sh file. 
-Make the file executable using chmod +x bin/setenv.sh and start the server
+
 
 #### Additional features available for Spring Boot Applications
 

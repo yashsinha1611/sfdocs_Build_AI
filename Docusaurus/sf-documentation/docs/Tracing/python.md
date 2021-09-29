@@ -1,11 +1,20 @@
 
 # Tracing Python Applications
 
+#### Available Platforms
 
-### Choose your platform
+##### [Instances](python#instances)
+
+##### [Docker](python#docker)
+
+##### [Kubernetes](python#kubernetes)
+
+##### [ECS](python#ecs)
+
+##### [AWS Lambda](python#aws-lambda)
 
 
-## Instance
+## Instances
 ### Django
 
 1. Add 
@@ -541,7 +550,7 @@
       ```python
       try: 
          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-   
+      
          # Add below part to manually configure the initialization 
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
@@ -779,7 +788,7 @@
          profile_key = os.getenv('SF_PROFILE_KEY') 
          sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration
-   
+      
          SFTRACE_CONFIG = sf.get_trace_config() 
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 

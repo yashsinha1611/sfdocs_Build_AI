@@ -2,10 +2,20 @@
 
 # Tracing node.js applications
 
-### Choose your platform
+#### Available Platforms
+
+##### [Instances](nodejs#instances)
+
+##### [Docker](nodejs#docker)
+
+##### [Kubernetes](nodejs#kubernetes)
+
+##### [ECS](nodejs#ecs)
+
+##### [AWS Lambda](nodejs#aws-lambda)
 
 
-## Instance
+## Instances
 
 ### Node.JS Express
 

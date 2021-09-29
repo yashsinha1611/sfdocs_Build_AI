@@ -13,9 +13,9 @@ Nginx monitoring involves monitoring of the following elements:
 
  Refer to the links below for generic approach to monitoring application metrics and logs in Kubernetes environment 
 
-- [sfKubeAgent](/docs/New_pages/sfkubeagent_installation) 
-- [Prometheus Exporter](/docs/New_pages/prometheus_exporter) 
-- [Centralized Log Monitoring](/docs/New_pages/centralized_logging_of_application_pod_logs) 
+- [sfKubeAgent](/docs/integrations/kubernetes/sfkubeagent_installation) 
+- [Prometheus Exporter](/docs/integrations/kubernetes/prometheus_exporter) 
+- [Centralized Log Monitoring](/docs/integrations/kubernetes/centralized_logging_of_application_pod_logs) 
 
 Refer to [Nginx monitoring on instances](/docs/Integrations/nginx/nginx_instance) for sfAgent configurations 
 
@@ -153,7 +153,7 @@ spec:
 
 ### Centralized logging 
 
-Log monitoring (both access and error logs) can be implemented through [Centralized Logging](/docs/New_pages/centralized_logging_of_application_pod_logs) approach as well which does not require sfKubeAgent. Centralized logging however requires running a busybox container as a sidecar container to stream logs to container’s stdout. 
+Log monitoring (both access and error logs) can be implemented through [Centralized Logging](/docs/integrations/kubernetes/centralized_logging_of_application_pod_logs) approach as well which does not require sfKubeAgent. Centralized logging however requires running a busybox container as a sidecar container to stream logs to container’s stdout. 
 
 Add the label - snappyflow/component: nginx, which signals to apply Nginx to container’s stdout. 
 
