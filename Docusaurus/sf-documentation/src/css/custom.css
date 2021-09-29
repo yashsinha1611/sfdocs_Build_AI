@@ -112,7 +112,7 @@ table thead tr{
   border-bottom-width: 1px;
 }
     table tr td {
-        /*word-break: break-all;*/
+        word-break: break-all;
     }
 table tr:nth-child(2n){
   background: transparent;
@@ -506,6 +506,16 @@ main .container:first-child{
     width: auto !important;
     background: #fff;
 }
+.buttonList dd .btnSelected {
+  background: #009dd0;
+  border: 1px solid #009dd0;
+  color: #fff;
+}
+
+.noIntegrations {
+  text-align: center;
+}
+
 .box_size{
 	border: 1px solid #d7d7d6;
     padding: 13px	 10px;
