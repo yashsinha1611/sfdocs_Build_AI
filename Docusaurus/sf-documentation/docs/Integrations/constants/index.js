@@ -361,10 +361,10 @@ const IntegrationsList = () => {
 	return (
 		<div>
 			SnappyFlow support a wide range of build in integrations to help you get started quickly.
-			<div className="searchContrainer ">
+			<p className="searchContrainer ">
 				<img src="/img/search.png" alt="Search" />
 				<input type="text" className="form-control" value={searchKey} onChange={handleSearchKeyChange} name="" placeholder="Search for SnappyFlow Integrations" />
-			</div>
+			</p>
 			<dl className="buttonList marTop20">
 			{buttonLists.map((val) => (
 				<dd key={val.label}>
