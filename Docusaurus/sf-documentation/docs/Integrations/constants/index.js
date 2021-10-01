@@ -6,19 +6,22 @@ const AGENTS =  [
 		'src':'/img/mysql-logo.svg',
 		'label':'MySQL',
 		'overText': 'MySQL Infrastructure platform is built for enterprises',
-		'category': 'Databases'
+		'category': 'Databases',
+		'link': '/docs/Integrations/mysql/overview'
 	},
 	{
 		'src':'/img/postgres-logo.svg',
 		'label':'Postgres',
 		'overText': 'Postgres Infrastructure platform is built for enterprises',
-		'category': 'Databases'
+		'category': 'Databases',
+		'link': '/docs/Integrations/postgres/overview'
 	},
 	{
 		'src':'/img/java.svg',
 		'label':'Java',
 		'overText': 'Java Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
+		'category': 'App Tier',
+		'link': '/docs/Integrations/java/overview'
 	},
 	{
 		'src':'/img/oracle_1.svg',
@@ -60,13 +63,15 @@ const AGENTS =  [
 		'src':'/img/kubernetes-clusters.svg',
 		'label':'Kubernetes Clusters',
 		'overText': 'Kubernetes clusters Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
+		'category': 'Cloud',
+		'link': '/docs/Integrations/kubernetes/overview'
 	},
 	{
 		'src':'/img/mysql.svg',
 		'label':'MYSQL',
 		'overText': 'MYSQL Infrastructure platform is built for enterprises',
-		'category': 'Databases'
+		'category': 'Databases',
+		'link': '/docs/Integrations/mysql/overview'
 	},
 	{
 		'src':'/img/okta.svg',
@@ -78,7 +83,8 @@ const AGENTS =  [
 		'src':'/img/nginx.svg',
 		'label':'Nginx',
 		'overText': 'Nginx Infrastructure platform is built for enterprises',
-		'category': 'Web Tier'
+		'category': 'Web Tier',
+		'link': '/docs/Integrations/nginx/overview'
 	},
 	{
 		'src':'/img/node-js.svg',
@@ -114,7 +120,8 @@ const AGENTS =  [
 		'src':'/img/postgres-logo.svg',
 		'label':'Postgres',
 		'overText': 'Postgres Infrastructure platform is built for enterprises',
-		'category': 'Databases'
+		'category': 'Databases',
+		'link': '/docs/Integrations/postgres/overview'
 	},
 	{
 		'src':'/img/prometheus.svg',
@@ -148,8 +155,8 @@ const AGENTS =  [
 	},
 	{
 		'src':'/img/stack.svg',
-		'label':'Stack',
-		'overText': 'Stack Infrastructure platform is built for enterprises',
+		'label':'Slack',
+		'overText': 'Slack Infrastructure platform is built for enterprises',
 		'category': 'Alerts & Notifications'
 	},
 	{
@@ -174,7 +181,8 @@ const AGENTS =  [
 		'src':'/img/windows-vms.svg',
 		'label':'Windows VMs',
 		'overText': 'Windows VMs Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
+		'category': 'Cloud',
+		'link': '/docs/Integrations/windows/overview'
 	},
 	{
 		'src':'/img/zenduty.svg',
@@ -348,11 +356,13 @@ const IntegrationsList = () => {
 
 		const finalList = (searchKey.length === 0 && (selectedCategories.length === 0 || selectedCategories.includes('All'))) ? AGENTS : filteredAgents;
 		return finalList.length !== 0 ? finalList.map((items) => (
-			<li key={Math.random()} className="box_size">
-				<label><img src={items.src} /></label>
-				<div>{items.label}</div>
-				<div className="none">{items.overText}</div>
-			</li>
+			<a key={Math.random()} className="lnkIntegration" href={items.link || '#'}>
+				<li className="box_size">
+					<label><img src={items.src} /></label>
+					<div>{items.label}</div>
+					<div className="none">{items.overText}</div>
+				</li>
+			</a>
 		)) : (
 			<h4 className="noIntegrations">No integrations found for selected filters</h4>
 		)

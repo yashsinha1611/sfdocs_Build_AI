@@ -111,9 +111,6 @@ table tr th{
 table thead tr{
   border-bottom-width: 1px;
 }
-    table tr td {
-        /*word-break: break-all;*/
-    }
 table tr:nth-child(2n){
   background: transparent;
 }
@@ -514,6 +511,14 @@ main .container:first-child{
 
 .noIntegrations {
   text-align: center;
+}
+
+.lnkIntegration {
+  color: #2e333a;
+}
+
+.lnkIntegration:hover {
+  color: #2e333a;
 }
 
 .box_size{
