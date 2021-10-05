@@ -199,28 +199,31 @@ module.exports = {
                 ],
         },
         {
-            Linux:
+            'Operating System':
                 [
-                    {
-                        type: 'doc',
-                        id: 'Integrations/linux/sfagent_linux',
-                        label: 'Monitoring Linux Instances',
-                    },
+                  {
+                    Linux:
+                    [
+                        {
+                            type: 'doc',
+                            id: 'Integrations/os/linux/sfagent_linux',
+                            label: 'Monitoring Linux Instances',
+                        },
+                    ],
+                  },
+                  {
+                    Windows:
+                            [
+                                {
+                                    type: 'doc',
+                                    id: 'Integrations/os/windows/sfagent_windows',
+                                    label: 'Monitoring Windows Instances',
+                                },
+                            ],
+                  },
                 ],
-                
-        },
-        {
-            Windows:
-                [
-                    {
-                        type: 'doc',
-                        id: 'Integrations/windows/sfagent_windows',
-                        label: 'Monitoring Windows Instances',
-                    },
-                ],
-                
-        },
-    ],
+        }, 
+    ],  
   },
   {
     type: 'category',
