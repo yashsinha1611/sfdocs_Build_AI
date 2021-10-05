@@ -1,7 +1,3 @@
---- 
-sidebar_postion: 7
----
-
 # Monitoring Linux Instances
 
 ## Overview
@@ -36,14 +32,19 @@ sudo ./install.sh
 :::note
 sfAgent executes commands such docas iostat or jcmd to fetch metrics. In order to specific path to sfAgent use -p or --include-paths
 
-<p><b>Example</b>: '"./install.sh -p /opt/jdk1.8.0_211/bin/"'</p>
+**Example**:
+
+```shell
+./install.sh -p /opt/jdk1.8.0_211/bin/
+```
+
 :::
 
 To install sfAgent on multiple end-points using Ansible playbook, refer the following script at https://github.com/snappyflow/apm-agent 
 
 ## Pre-requisites 
 
-sfAgent requires certain pre-requisites for monitoring. Common pre-requisites are mentioned below. Further, all pre-requisites and configurations needed for monitoring a specific application are mentioned under <u>Integrations</u> section.
+sfAgent requires certain pre-requisites for monitoring. Common pre-requisites are mentioned below. Further, all pre-requisites and configurations needed for monitoring a specific application are mentioned under [Integrations](/docs/integrations/overview) section.
 
 - For Linux OS monitoring, install iostat
 
@@ -73,7 +74,7 @@ sfAgent requires certain pre-requisites for monitoring. Common pre-requisites ar
 
 ## Configure sfAgent on Linux
 
-sfAgent is configured through its config.yaml file. There are sections for metrics and logs where appropriate plugins with their configurations have to added to these sections. Below is an example: 
+sfAgent is configured through its `config.yaml` file. There are sections for metrics and logs where appropriate plugins with their configurations have to added to these sections. Below is an example: 
 
 ```yaml
 key: <add profile key here> 
@@ -113,7 +114,7 @@ logging:
         log_path: /var/log/nginx/error.log, /var/log/nginx/error_log 
 ```
 
-sfAgent can be either configured or manually. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Detailed configuration for a specific application types are present in <u>Integrations</u> section.
+sfAgent can be either configured or manually. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Detailed configuration for a specific application types are present in [Integrations](/docs/integrations/overview) section.
 
 Follow the steps below for automatic discovery & configuration
 
@@ -134,14 +135,16 @@ Follow the steps below for automatic discovery & configuration
 
 - Add the profile key and SnappyFlow tags in the configuration file.
 
-  - Copy profile key from SnappyFlow and update "**key:**" 
-  - Set values for "**Name:**", "**appName:**", "**projectName:**" under "**tags:**" section 
-  - <p>Verify configuration and restart sfAgent</p>
+  - Copy profile key from SnappyFlow and update `key:` 
+  
+  - Set values for `Name:`, `appName:`, `projectName:` under `tags:` section 
 
-  ```shell
-  ./sfagent -check-config 
-  service sfagent restart 
-  ```
+  - Verify configuration and restart sfAgent
+  
+    ```shell
+    ./sfagent -check-config 
+    service sfagent restart 
+    ```
 
 ## Upgrade sfAgent on Linux
 

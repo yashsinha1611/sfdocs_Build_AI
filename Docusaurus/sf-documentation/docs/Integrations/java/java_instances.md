@@ -17,17 +17,25 @@ Jcmd has to be installed in the instance
 
 ## Configuration 
 
-[sfAgent](/docs/Quick_Start/getting_started#sfagent) section provides steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to config.yaml under `/opt/sfagent/` directory 
+[sfAgent](/docs/Quick_Start/getting_started#sfagent) section provides steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory 
 
 ```yaml
-- name: jvm 
-  enabled: true 
-  interval: 60 
-  config: 
-         process: *			#process that needs to be monitored 
-         heapInterval: 3600		# polling interval to collect jvm arguments passed to the process 
-         monitorDeadlocks: false	#enable/disable deadlock monitoring 
-         deadLockMonitoringInterval: 300	#polling interval for deadlock monitoring. 
+key: <profile_key> 
+generate_name: true 
+tags: 
+  Name: <instance name> 
+  appName: <application name> 
+  projectName: <project name> 
+metrics: 
+  plugins: 
+  - name: jvm  
+    enabled: true  
+    interval: 60  
+    config: 
+      process: * 
+      heapinterval: 3600 
+      monitorDeadlocks: false 
+      deadlockMonitoringInterval: 300 
 ```
 
 ## Viewing data and dashboards 

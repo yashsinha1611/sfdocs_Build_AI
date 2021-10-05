@@ -23,7 +23,8 @@ module.exports = {
          type: 'doc',
          id: 'Quick_Start/getting_started',
          label: 'Getting Started',
-        },
+        },       
+       
       ],      
       collapsed: false,
     },
@@ -194,35 +195,72 @@ module.exports = {
                     {
                         type: 'doc',
                         id: 'Integrations/apache/overview',
-                        label: 'Overview',
+                        label: 'Monitoring Apache on Instances',
                     },                    
                 ],
         },
         {
-            'Operating System':
+            'Operating Systems':
                 [
                   {
                     Linux:
                     [
                         {
                             type: 'doc',
+                            id: 'Integrations/os/linux/overview',
+                            label: 'Overview',
+                        },
+                        {
+                            type: 'doc',
                             id: 'Integrations/os/linux/sfagent_linux',
                             label: 'Monitoring Linux Instances',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/os/linux/linux_os',
+                            label: 'Monitoring Linux OS',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/os/linux/psutil',
+                            label: 'PSUtil',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/os/linux/lsof',
+                            label: 'LSOF',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/os/linux/netstat',
+                            label: 'Netstat',
                         },
                     ],
                   },
                   {
                     Windows:
-                            [
-                                {
-                                    type: 'doc',
-                                    id: 'Integrations/os/windows/sfagent_windows',
-                                    label: 'Monitoring Windows Instances',
-                                },
-                            ],
+                          [
+                              {
+                                  type: 'doc',
+                                  id: 'Integrations/os/windows/sfagent_windows',
+                                  label: 'Monitoring Windows Instances',
+                              },
+                              
+                          ],
                   },
                 ],
-        }, 
+        },
+        {
+            Statsd:
+                [
+                    {
+                        type: 'doc',
+                        id: 'Integrations/statsd/custom_monitoring',
+                        label: 'Custom Monitoring using Statsd',
+                    },
+                ],
+
+        },
     ],  
   },
   {
