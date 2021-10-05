@@ -103,7 +103,7 @@ Try out one of the simple exercises to familiarize yourself with the product
 
 ##### [Monitor a Kubernetes Cluster](/docs/integrations/kubernetes/kubernetes_monitoring_with_sfPod)
 
-##### [Monitor a Windows instance](/docs/integrations/kubernetes/sfagent_windows)
+##### [Monitor a Windows instance](/docs/integrations/windows/sfagent_windows)
 
 ##### [Trace an application](/docs/Tracing/overview)
 
