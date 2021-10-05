@@ -547,7 +547,7 @@ main .container:first-child{
     transition: 0.3s;
 }
 .box_size:hover > label{
-	display: none;
+	/* display: none; */
 	transition: 0.3s;
 }
 .form-control {
@@ -623,6 +623,19 @@ article ul.table-of-contents li:hover{
 /*article ul.table-of-contents li:hover a{
   color: var(--ifm-color-primary);
 }*/
+#search_input_react{
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  border-radius: 5px;
+  width: 15rem;
+  margin-left: 1rem;
+} 
+.navbar__logo{
+  height: unset;
+  max-width: unset;
+}
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .box_size{
     width: 164px;
@@ -661,6 +674,9 @@ article ul.table-of-contents li:hover{
   
 }
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
+  .box_size{
+    width: 164px;
+  }
   .panel_container .innerText{
     width: 250px;
   }

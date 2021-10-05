@@ -360,7 +360,7 @@ const IntegrationsList = () => {
 				<li className="box_size">
 					<label><img src={items.src} /></label>
 					<div>{items.label}</div>
-					<div className="none">{items.overText}</div>
+					{/* <div className="none">{items.overText}</div> */}
 				</li>
 			</a>
 		)) : (

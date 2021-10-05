@@ -5,14 +5,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
   title: 'Documentation',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  tagline: 'Simplified Monitoring',
+  url: 'https://docs.snappyflow.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'SnappyFlow', // Usually your GitHub org/user name.
+  projectName: 'Documentation', // Usually your repo name.
   plugins: [require.resolve('docusaurus-lunr-search')],
   presets: [
     [
@@ -22,14 +22,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/ram-dot-kumar/SFwebsite.git',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
-        },
+        // blog: {
+        //   showReadingTime: true, 
+        //   editUrl:
+        //     'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -70,7 +69,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
-            label: 'DOCS',
+            label: 'Docs',
           }
         ],
       },
