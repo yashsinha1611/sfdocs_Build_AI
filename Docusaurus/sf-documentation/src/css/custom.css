@@ -97,6 +97,12 @@ pre{
     background: #f9f9f9 !important;
     font-family: Monaco,Menlo,Consolas,Courier Prime,Courier,Courier New,monospace !important;
 }
+html[data-theme="dark"] pre{
+  background-color: rgb(40, 42, 54) !important;
+}
+html[data-theme="dark"] .hero__title{
+  color: #fff;
+}
 table{
   padding-top: 20px;
   display: inline-table;
