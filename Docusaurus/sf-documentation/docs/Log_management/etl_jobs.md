@@ -6,6 +6,9 @@ sidebar_label: ETL Jobs
 Analytics processing usually requires user to run a sequence of database reads/write jobs and transformation operations. In many cases these jobs are complex and may take a long time to complete. It is a very common need of the users to monitor individual jobs runs, summarize performance of different jobs, compare two runs of a specific job type. 
 
 SnappyFlow provides an easy yet powerful tool to analyze ETL Jobs. The approach is explained in the following video
+
+<iframe src="https://www.snappyflow.io/assets/images/Key-Concepts-production.mp4" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true" autoplay="0" ></iframe>
+
 <picture></picture>
 
 ## Step 1: Drop logs from ETL Jobs
