@@ -251,12 +251,12 @@ module.exports = {
                 ],
         },
         {
-            Statsd:
+            StatsD:
                 [
                     {
                         type: 'doc',
                         id: 'Integrations/statsd/custom_monitoring',
-                        label: 'Custom Monitoring using Statsd',
+                        label: 'Custom Monitoring using StatsD',
                     },
                 ],
 

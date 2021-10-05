@@ -48,7 +48,6 @@ logging:
  
 
 - Data collected by plugins can be viewed in SnappyFlow’s browse data section under metrics or logs or trace depending on the plugin 
-
 - Linux metrics data
 
   - `plugin= linux` 
@@ -59,14 +58,10 @@ logging:
     -  `disk_stats` 
     -  `nic_stats` 
     -  `tcp_stats` 
+- Syslog data
+  - `plugin= linux-syslog` 
+  - `documentType= syslog` 
 
-- Syslog data 
-
-  o    `plugin= linux-syslog` 
-
-  o    `documentType= syslog` 
-
-   
 
 ## Test Matrix
 
@@ -86,5 +81,5 @@ logging:
 - [LSOF](/docs/integrations/os/linux/lsof) 
 - [PSUTIL](/docs/integrations/os/linux/psutil) 
 - [NETSTAT](/docs/integrations/os/linux/netstat) 
-- [Custom plugins using Statsd](/docs/integrations/statsd/custom_monitoring) 
+- [Custom plugins using StatsD](/docs/integrations/statsd/custom_monitoring) 
 - [Prometheus Integration](/docs/Integrations/kubernetes/prometheus_exporter) 

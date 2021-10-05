@@ -2,7 +2,7 @@
 
 ## Overview
 
-Statsd is a popular standard for developing infrastructure and application plugins. A wide suite of standard plugins are available from Statsd community and can be accessed [here](https://github.com/statsd/statsd/wiki#client-implementations)
+StatsD is a popular standard for developing infrastructure and application plugins. A wide suite of standard plugins are available from Statsd community and can be accessed [here](https://github.com/statsd/statsd/wiki#client-implementations)
 
 
 

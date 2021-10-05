@@ -124,6 +124,6 @@ All the traffic related (IPv4, IPv6) file types are combined as *IPv4/6* typ
 - [LSOF](/docs/integrations/os/linux/lsof)
 - [PSUTIL](/docs/integrations/os/linux/psutil)
 - [NETSTAT](/docs/integrations/os/linux/netstat)
-- [Custom plugins using Statsd](/docs/integrations/statsd/custom_monitoring)
+- [Custom plugins using StatsD](/docs/integrations/statsd/custom_monitoring)
 - [Prometheus Integration](/docs/Integrations/kubernetes/prometheus_exporter) 
 

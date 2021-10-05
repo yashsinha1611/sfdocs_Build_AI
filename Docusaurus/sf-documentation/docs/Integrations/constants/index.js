@@ -4,10 +4,10 @@ import $ from 'jquery';
 const AGENTS =  [
 	{
 		'src':'/img/mysql-logo.svg',
-		'label':'MySQL',
+		'label':'Linux',
 		'overText': 'MySQL Infrastructure platform is built for enterprises',
 		'category': 'Databases',
-		'link': '/docs/Integrations/mysql/overview'
+		'link': '/docs/Integrations/os/linux/overview'
 	},
 	{
 		'src':'/img/postgres-logo.svg',
@@ -23,62 +23,62 @@ const AGENTS =  [
 		'category': 'App Tier',
 		'link': '/docs/Integrations/java/overview'
 	},
-	{
-		'src':'/img/oracle_1.svg',
-		'label':'Oracle',
-		'overText': 'Oracle Cloud Infrastructure platform is built for enterprises',
-		'category': 'Databases'
-	},
-	{
-		'src':'/img/mongodb.svg',
-		'label':'MongoDB',
-		'overText': 'MongoDB Infrastructure platform is built for enterprises',
-		'category': 'Databases'
-	},
-	{
-		'src':'/img/oracle.svg',
-		'label':'Microsoft SQL Server',
-		'overText': 'Microsoft Infrastructure platform is built for enterprises',
-		'category': 'Databases'
-	},
-	{
-		'src':'/img/cassandra.svg',
-		'label':'Cassandra',
-		'overText': 'Cassandra Infrastructure platform is built for enterprises',
-		'category': 'Databases'
-	}, 
-	{
-		'src':'/img/kafka.svg',
-		'label':'Kafka',
-		'overText': 'Kafka Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
-	{
-		'src':'/img/ldap.svg',
-		'label':'Ldap',
-		'overText': 'Ldap Infrastructure platform is built for enterprises',
-		'category': 'Authentication'
-	},
+	//{
+	//	'src':'/img/oracle_1.svg',
+	//	'label':'Oracle',
+	//	'overText': 'Oracle Cloud Infrastructure platform is built for enterprises',
+	//	'category': 'Databases'
+	//},
+	//{
+	//	'src':'/img/mongodb.svg',
+	//	'label':'MongoDB',
+	//	'overText': 'MongoDB Infrastructure platform is built for enterprises',
+	//	'category': 'Databases'
+	//},
+	//{
+	//	'src':'/img/oracle.svg',
+	//	'label':'Microsoft SQL Server',
+	//	'overText': 'Microsoft Infrastructure platform is built for enterprises',
+	//	'category': 'Databases'
+	//},
+	//{
+	//	'src':'/img/cassandra.svg',
+	//	'label':'Cassandra',
+	//	'overText': 'Cassandra Infrastructure platform is built for enterprises',
+	//	'category': 'Databases'
+	//},
+	//{
+	//	'src':'/img/kafka.svg',
+	//	'label':'Kafka',
+	//	'overText': 'Kafka Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
+	//{
+	//	'src':'/img/ldap.svg',
+	//	'label':'Ldap',
+	//	'overText': 'Ldap Infrastructure platform is built for enterprises',
+	//	'category': 'Authentication'
+	//},
 	{
 		'src':'/img/kubernetes-clusters.svg',
-		'label':'Kubernetes Clusters',
+		'label':'Kubernetes',
 		'overText': 'Kubernetes clusters Infrastructure platform is built for enterprises',
 		'category': 'Cloud',
 		'link': '/docs/Integrations/kubernetes/overview'
 	},
 	{
 		'src':'/img/mysql.svg',
-		'label':'MYSQL',
+		'label':'MySQL',
 		'overText': 'MYSQL Infrastructure platform is built for enterprises',
 		'category': 'Databases',
 		'link': '/docs/Integrations/mysql/overview'
 	},
-	{
-		'src':'/img/okta.svg',
-		'label':'Okta',
-		'overText': 'Okta Infrastructure platform is built for enterprises',
-		'category': 'Authentication'
-	},
+	//{
+	//	'src':'/img/okta.svg',
+	//	'label':'Okta',
+	//	'overText': 'Okta Infrastructure platform is built for enterprises',
+	//	'category': 'Authentication'
+	//},
 	{
 		'src':'/img/nginx.svg',
 		'label':'Nginx',
@@ -86,182 +86,183 @@ const AGENTS =  [
 		'category': 'Web Tier',
 		'link': '/docs/Integrations/nginx/overview'
 	},
+	//{
+	//	'src':'/img/node-js.svg',
+	//	'label':'NodeJS',
+	//	'overText': 'NodeJS Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
+	//{
+	//	'src':'/img/onelogin.svg',
+	//	'label':'OneLogin',
+	//	'overText': 'OneLogin Infrastructure platform is built for enterprises',
+	//	'category': 'Authentication'
+	//},
+	//{
+	//	'src':'/img/oozie.svg',
+	//	'label':'Oozie',
+	//	'overText': 'Oozie Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
+	//{
+	//	'src':'/img/opsgenie.svg',
+	//	'label':'Opsgenie',
+	//	'overText': 'Opsgenie Infrastructure platform is built for enterprises',
+	//	'category': 'Alerts & Notifications'
+	//},
+	//{
+	//	'src':'/img/pagerduty.svg',
+	//	'label':'Pagerduty',
+	//	'overText': 'Pagerduty Infrastructure platform is built for enterprises',
+	//	'category': 'Alerts & Notifications'
+	//},
 	{
-		'src':'/img/node-js.svg',
-		'label':'NodeJS',
-		'overText': 'NodeJS Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
-	{
-		'src':'/img/onelogin.svg',
-		'label':'OneLogin',
-		'overText': 'OneLogin Infrastructure platform is built for enterprises',
-		'category': 'Authentication'
-	},
-	{
-		'src':'/img/oozie.svg',
-		'label':'Oozie',
-		'overText': 'Oozie Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
-	{
-		'src':'/img/opsgenie.svg',
-		'label':'Opsgenie',
-		'overText': 'Opsgenie Infrastructure platform is built for enterprises',
-		'category': 'Alerts & Notifications'
-	},
-	{
-		'src':'/img/pagerduty.svg',
-		'label':'Pagerduty',
-		'overText': 'Pagerduty Infrastructure platform is built for enterprises',
-		'category': 'Alerts & Notifications'
-	},
-	{
-		'src':'/img/postgres-logo.svg',
-		'label':'Postgres',
+		'src':'/img/apache.svg',
+		'label':'Apache',
 		'overText': 'Postgres Infrastructure platform is built for enterprises',
 		'category': 'Databases',
-		'link': '/docs/Integrations/postgres/overview'
+		'link': '/docs/Integrations/apache/overview'
 	},
-	{
-		'src':'/img/prometheus.svg',
-		'label':'Prometheus',
-		'overText': 'Prometheus Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/public-cloud-elbs.svg',
-		'label':'Public cloud elbs',
-		'overText': 'Public cloud elbs Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/python.svg',
-		'label':'Python',
-		'overText': 'Python Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
-	{
-		'src':'/img/redis.svg',
-		'label':'Redis',
-		'overText': 'Redis Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
-	{
-		'src':'/img/spark.svg',
-		'label':'Spark',
-		'overText': 'Spark Infrastructure platform is built for enterprises',
-		'category': 'Web Tier'
-	},
-	{
-		'src':'/img/stack.svg',
-		'label':'Slack',
-		'overText': 'Slack Infrastructure platform is built for enterprises',
-		'category': 'Alerts & Notifications'
-	},
-	{
-		'src':'/img/teams.svg',
-		'label':'Teams',
-		'overText': 'Teams Infrastructure platform is built for enterprises',
-		'category': 'Alerts & Notifications'
-	},
-	{
-		'src':'/img/saml.svg',
-		'label':'Saml',
-		'overText': 'Saml Infrastructure platform is built for enterprises',
-		'category': 'Authentication'
-	},
-	{
-		'src':'/img/v-center.svg',
-		'label':'vCenter',
-		'overText': 'vCenter Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/windows-vms.svg',
-		'label':'Windows VMs',
-		'overText': 'Windows VMs Infrastructure platform is built for enterprises',
-		'category': 'Cloud',
-		'link': '/docs/Integrations/windows/overview'
-	},
-	{
-		'src':'/img/zenduty.svg',
-		'label':'Zenduty',
-		'overText': 'Zenduty Infrastructure platform is built for enterprises',
-		'category': 'Alerts & Notifications'
-	},
-	{
-		'src':'/img/aws-ecs.svg',
-		'label':'AWS ECS',
-		'overText': 'AWS ECS Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/aws-elastic-beanstalk.svg',
-		'label':'AWS elastic beanstalk',
-		'overText': 'AWS elastic beanstalk Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/c-sharp-net.svg',
-		'label':'C#',
-		'overText': 'C# Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
+	//{
+	//	'src':'/img/prometheus.svg',
+	//	'label':'Prometheus',
+	//	'overText': 'Prometheus Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/public-cloud-elbs.svg',
+	//	'label':'Public cloud elbs',
+	//	'overText': 'Public cloud elbs Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/python.svg',
+	//	'label':'Python',
+	//	'overText': 'Python Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
+	//{
+	//	'src':'/img/redis.svg',
+	//	'label':'Redis',
+	//	'overText': 'Redis Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
+	//{
+	//	'src':'/img/spark.svg',
+	//	'label':'Spark',
+	//	'overText': 'Spark Infrastructure platform is built for enterprises',
+	//	'category': 'Web Tier'
+	//},
+	//{
+	//	'src':'/img/stack.svg',
+	//	'label':'Slack',
+	//	'overText': 'Slack Infrastructure platform is built for enterprises',
+	//	'category': 'Alerts & Notifications'
+	//},
+	//{
+	//	'src':'/img/teams.svg',
+	//	'label':'Teams',
+	//	'overText': 'Teams Infrastructure platform is built for enterprises',
+	//	'category': 'Alerts & Notifications'
+	//},
+	//{
+	//	'src':'/img/saml.svg',
+	//	'label':'Saml',
+	//	'overText': 'Saml Infrastructure platform is built for enterprises',
+	//	'category': 'Authentication'
+	//},
+	//{
+	//	'src':'/img/v-center.svg',
+	//	'label':'vCenter',
+	//	'overText': 'vCenter Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/windows-vms.svg',
+	//	'label':'Windows',
+	//	'overText': 'Windows VMs Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud',
+	//	'link': '/docs/Integrations/os/windows/overview'
+	//},
+	//{
+	//	'src':'/img/zenduty.svg',
+	//	'label':'Zenduty',
+	//	'overText': 'Zenduty Infrastructure platform is built for enterprises',
+	//	'category': 'Alerts & Notifications'
+	//},
+	//{
+	//	'src':'/img/aws-ecs.svg',
+	//	'label':'AWS ECS',
+	//	'overText': 'AWS ECS Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/aws-elastic-beanstalk.svg',
+	//	'label':'AWS elastic beanstalk',
+	//	'overText': 'AWS elastic beanstalk Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/c-sharp-net.svg',
+	//	'label':'C#',
+	//	'overText': 'C# Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
 	{
 		'src':'/img/custom-metrics-using-statsd.svg',
 		'label':'Custom Metrics',
 		'overText': 'Custom Metrics Infrastructure platform is built for enterprises',
-		'category': 'Services'
+		'category': 'Services',
+		'link': '/docs/integrations/statsd/custom_monitoring'
 	},
-	{
-		'src':'/img/elastic-search.svg',
-		'label':'Elastic Search',
-		'overText': 'Elastic Search Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/generic-etl-workflows.svg',
-		'label':'Generic ETL Workflows',
-		'overText': 'Generic ETL Workflows Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
-	{
-		'src':'/img/generic-webhooks.svg',
-		'label':'Generic Webhooks',
-		'overText': 'Generic Webhooks Infrastructure platform is built for enterprises',
-		'category': 'Services'
-	},
-	{
-		'src':'/img/golang.svg',
-		'label':'Golang',
-		'overText': 'Golang Infrastructure platform is built for enterprises',
-		'category': 'App Tier'
-	},
-	{
-		'src':'/img/google-authentication.svg',
-		'label':'Google Authentication',
-		'overText': 'Google Authentication Infrastructure platform is built for enterprises',
-		'category': 'Authentication'
-	},
-	{
-		'src':'/img/ha-proxy.svg',
-		'label':'HA Proxy',
-		'overText': 'HA Proxy Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/iis-server.svg',
-		'label':'IIS Server',
-		'overText': 'IIS Server Infrastructure platform is built for enterprises',
-		'category': 'Cloud'
-	},
-	{
-		'src':'/img/jaeger-for-opentracing.svg',
-		'label':'Jaeger',
-		'overText': 'Jaeger for Opentracing Infrastructure platform is built for enterprises',
-		'category': 'Services'
-	}
+	//{
+	//	'src':'/img/elastic-search.svg',
+	//	'label':'Elastic Search',
+	//	'overText': 'Elastic Search Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/generic-etl-workflows.svg',
+	//	'label':'Generic ETL Workflows',
+	//	'overText': 'Generic ETL Workflows Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
+	//{
+	//	'src':'/img/generic-webhooks.svg',
+	//	'label':'Generic Webhooks',
+	//	'overText': 'Generic Webhooks Infrastructure platform is built for enterprises',
+	//	'category': 'Services'
+	//},
+	//{
+	//	'src':'/img/golang.svg',
+	//	'label':'Golang',
+	//	'overText': 'Golang Infrastructure platform is built for enterprises',
+	//	'category': 'App Tier'
+	//},
+	//{
+	//	'src':'/img/google-authentication.svg',
+	//	'label':'Google Authentication',
+	//	'overText': 'Google Authentication Infrastructure platform is built for enterprises',
+	//	'category': 'Authentication'
+	//},
+	//{
+	//	'src':'/img/ha-proxy.svg',
+	//	'label':'HA Proxy',
+	//	'overText': 'HA Proxy Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/iis-server.svg',
+	//	'label':'IIS Server',
+	//	'overText': 'IIS Server Infrastructure platform is built for enterprises',
+	//	'category': 'Cloud'
+	//},
+	//{
+	//	'src':'/img/jaeger-for-opentracing.svg',
+	//	'label':'Jaeger',
+	//	'overText': 'Jaeger for Opentracing Infrastructure platform is built for enterprises',
+	//	'category': 'Services'
+	//}
 ];
 
 const  buttonLists = [

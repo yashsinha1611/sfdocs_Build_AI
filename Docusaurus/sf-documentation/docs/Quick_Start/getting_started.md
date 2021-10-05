@@ -45,8 +45,8 @@ It is a lightweight agent installed on VMs to collect metrics, logs and tracing 
 
 **Installation procedures**
 
-- For [sfAgent on Linux](/docs/integrations/linux/sfagent_linux) 
-- For [sfAgent on Windows](/docs/integrations/windows/sfagent_windows)
+- For [sfAgent on Linux](/docs/integrations/os/linux/sfagent_linux) 
+- For [sfAgent on Windows](/docs/integrations/os/windows/sfagent_windows)
 
 ## sfPoller
 
@@ -99,11 +99,11 @@ SnappyFlow mandates that all end-points should be assigned two tags - _tag_proje
 
 Try out one of the simple exercises to familiarize yourself with the product 
 
-##### [Monitor a Linux instance](/docs/integrations/linux/sfagent_linux)
+##### [Monitor a Linux instance](/docs/integrations/os/linux/sfagent_linux)
 
 ##### [Monitor a Kubernetes Cluster](/docs/integrations/kubernetes/kubernetes_monitoring_with_sfPod)
 
-##### [Monitor a Windows instance](/docs/integrations/windows/sfagent_windows)
+##### [Monitor a Windows instance](/docs/integrations/os/windows/sfagent_windows)
 
 ##### [Trace an application](/docs/Tracing/overview)
 
