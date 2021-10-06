@@ -20,7 +20,7 @@ sfPod is a collector that is installed on Kubernetes and runs as a DaemonSet on 
 
 Below is short video explaining the sfPOD installation steps
 
-<iframe src="https://www.youtube.com/embed/Q4BiVR2nOn4?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"></iframe>
+<iframe title="sfPOD installation" src="https://www.youtube.com/embed/Q4BiVR2nOn4?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"></iframe>
 
 ### Step 1: Create a Cloud profile 
 

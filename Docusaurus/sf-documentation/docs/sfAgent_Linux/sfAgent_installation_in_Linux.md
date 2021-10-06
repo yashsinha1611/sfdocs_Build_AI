@@ -1,6 +1,4 @@
-# Monitoring Linux Instances
-
-## Overview
+# sfAgent Installation in Linux
 
 Monitoring of applications running on VM or bare-metal requires installation of a lightweight sfAgent. sfAgent provides following features: 
 
@@ -17,7 +15,7 @@ Monitoring of applications running on VM or bare-metal requires installation of 
 - centos 7 
 - RHEL 7
 
-## Instal sfAgent on Linux
+## Installation
 
 Run the following commands to install sfAgent on VMs: 
 
@@ -32,9 +30,9 @@ sudo ./install.sh
 :::note
 sfAgent executes commands such docas iostat or jcmd to fetch metrics. In order to specific path to sfAgent use -p or --include-paths
 
-**Example**:
+**Example**
 
-```shell
+```
 ./install.sh -p /opt/jdk1.8.0_211/bin/
 ```
 
@@ -44,7 +42,7 @@ To install sfAgent on multiple end-points using Ansible playbook, refer the foll
 
 ## Pre-requisites 
 
-sfAgent requires certain pre-requisites for monitoring. Common pre-requisites are mentioned below. Further, all pre-requisites and configurations needed for monitoring a specific application are mentioned under [Integrations](/docs/integrations/overview) section.
+sfAgent requires certain pre-requisites for monitoring. Common pre-requisites are mentioned below. Further, all pre-requisites and configurations needed for monitoring a specific application are mentioned under <u>Integrations</u> section.
 
 - For Linux OS monitoring, install iostat
 
@@ -72,9 +70,9 @@ sfAgent requires certain pre-requisites for monitoring. Common pre-requisites ar
 
   
 
-## Configure sfAgent on Linux
+## Configure sfAgent
 
-sfAgent is configured through its `config.yaml` file. There are sections for metrics and logs where appropriate plugins with their configurations have to added to these sections. Below is an example: 
+sfAgent is configured through its config.yaml file. There are sections for metrics and logs where appropriate plugins with their configurations have to added to these sections. Below is an example: 
 
 ```yaml
 key: <add profile key here> 
@@ -114,15 +112,11 @@ logging:
         log_path: /var/log/nginx/error.log, /var/log/nginx/error_log 
 ```
 
-sfAgent can be either configured or manually. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Detailed configuration for a specific application types are present in [Integrations](/docs/integrations/overview) section.
+sfAgent can be either configured or manually. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Detailed configuration for a specific application types are present in [Integrations](/docs/Integrations/overview) section.
 
 Follow the steps below for automatic discovery & configuration
 
-<iframe title="Automatic discovery & configuration" width="570" height="321" src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="allowFullScreen"
-        mozallowfullscreen="mozallowfullscreen" 
-        msallowfullscreen="msallowfullscreen" 
-        oallowfullscreen="oallowfullscreen" 
-        webkitallowfullscreen="webkitallowfullscreen"></iframe>
+<iframe  title="Automatic discovery & configuration" width="570" height="321" src="https://www.youtube.com/embed/9CvPvMd3udk?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 - Run following commands to discover services and generate config:
 
@@ -136,17 +130,15 @@ Follow the steps below for automatic discovery & configuration
 - Add the profile key and SnappyFlow tags in the configuration file.
 
   - Copy profile key from SnappyFlow and update `key:` 
-  
   - Set values for `Name:`, `appName:`, `projectName:` under `tags:` section 
-
   - Verify configuration and restart sfAgent
-  
-    ```shell
-    ./sfagent -check-config 
-    service sfagent restart 
-    ```
 
-## Upgrade sfAgent on Linux
+  ```shell
+  ./sfagent -check-config 
+  service sfagent restart 
+  ```
+
+## Upgrade sfAgent
 
 Run following commands to upgrade sfAgent:
 

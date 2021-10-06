@@ -5,11 +5,11 @@
  */
  @font-face {
   font-family: AmazonEmber_Rg;
-  src: url(../../static/fonts/AmazonEmber_Rg.ttf);
+  src: local('AmazonEmber_Rg'), url(../../static/fonts/AmazonEmber_Rg.ttf)  format('truetype');
 }
 @font-face {
   font-family: Amazon-Ember-Medium;
-  src: url(../../static/fonts/Amazon-Ember-Medium.ttf);
+  src: local('Amazon-Ember-Medium'), url(../../static/fonts/Amazon-Ember-Medium.ttf)  format('truetype');
 }
 /* @font-face {
   font-family: Lato-Semibold;
@@ -17,12 +17,12 @@
 } */
 @font-face {
   font-family: AmazonEmber_Bd;
-  src: url(../../static/fonts/AmazonEmber_Bd.ttf);
+  src: local('AmazonEmber_Bd'), url(../../static/fonts/AmazonEmber_Bd.ttf)  format('truetype');
 }
 
 @font-face {
   font-family: AmazonEmber_Lt;
-  src: url(../../static/fonts/AmazonEmber_Lt.ttf);
+  src: local('AmazonEmber_Lt'), url(../../static/fonts/AmazonEmber_Lt.ttf)  format('truetype');
 }
 /* @font-face {
   font-family: Lato-Black;
@@ -41,7 +41,7 @@
   --ifm-code-font-size: 95%; 
 }
 body{
-  font-family: AmazonEmber_Rg;
+  font-family: AmazonEmber_Rg,Helvetica Neue,Arial,sans-serif;
 }
 h1 {
     font-size: 2.25em;

@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (module.exports = {
   title: 'Documentation',
   tagline: 'Simplified Monitoring',
-  url: 'https://docs.snappyflow.io/',
+  url: '/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -58,7 +58,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         // ],
         logo: {
           alt: 'SnappyFlow',
-          src: 'img/logo-new.png',
+          src: 'img/logo-new.png', 
           href: 'https://www.snappyflow.io/',
           target: '_self',
         },
