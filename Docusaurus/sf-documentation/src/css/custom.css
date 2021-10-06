@@ -103,11 +103,23 @@ html[data-theme="dark"] pre{
 html[data-theme="dark"] .hero__title{
   color: #fff;
 }
+html[data-theme="dark"] .box_size div,
+html[data-theme="dark"]  .panel_container .innerText a{
+  color: #fff;
+}
+html[data-theme="dark"] .btn-primarys {
+  color: #333;;
+}
+html[data-theme="dark"] .admonition-note,
+html[data-theme="dark"]  .blue_textbox{
+  background-color: #303030;
+}
 table{
   padding-top: 20px;
   display: inline-table;
   max-width: 100%;
   min-width: 100%;
+  width: 100%;
   table-layout: fixed;
 }
 table tr th{
@@ -475,11 +487,12 @@ main .container:first-child{
 .searchContrainer input{
 	border: 0px;
 	box-shadow: none;
-	width: 94%;
+  width: 94.4%;
   outline: none;
-	float: left;
+  float: left;
   height: 34px;
-	margin: 0px;
+  margin: 0px;
+  border-radius: 1px;
 }
 .buttonList{
 	padding: 0px;
