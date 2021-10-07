@@ -1,4 +1,4 @@
-# MySQL on Kubernetes
+# MySQL in Kubernetes
 
 MySQL running in Kubernetes can be monitored in SnappyFlow using two approaches:
 

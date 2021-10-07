@@ -29,36 +29,41 @@ const AGENTS =  [
 	//	'overText': 'Oracle Cloud Infrastructure platform is built for enterprises',
 	//	'category': 'Databases'
 	//},
-	//{
-	//	'src':'/img/mongodb.svg',
-	//	'label':'MongoDB',
-	//	'overText': 'MongoDB Infrastructure platform is built for enterprises',
-	//	'category': 'Databases'
-	//},
+	{
+		'src':'/img/mongodb.svg',
+		'label':'MongoDB',
+		'overText': 'MongoDB Infrastructure platform is built for enterprises',
+		'category': 'Databases',
+		'link': '/docs/integrations/mongodb'
+
+	},
 	//{
 	//	'src':'/img/oracle.svg',
 	//	'label':'Microsoft SQL Server',
 	//	'overText': 'Microsoft Infrastructure platform is built for enterprises',
 	//	'category': 'Databases'
 	//},
-	//{
-	//	'src':'/img/cassandra.svg',
-	//	'label':'Cassandra',
-	//	'overText': 'Cassandra Infrastructure platform is built for enterprises',
-	//	'category': 'Databases'
-	//},
-	//{
-	//	'src':'/img/kafka.svg',
-	//	'label':'Kafka',
-	//	'overText': 'Kafka Infrastructure platform is built for enterprises',
-	//	'category': 'App Tier'
-	//},
-	//{
-	//	'src':'/img/ldap.svg',
-	//	'label':'Ldap',
-	//	'overText': 'Ldap Infrastructure platform is built for enterprises',
-	//	'category': 'Authentication'
-	//},
+	{
+		'src':'/img/apache-activemq-icon.svg',
+		'label':'ActiveMQ',
+		'overText': 'Cassandra Infrastructure platform is built for enterprises',
+		'category': 'Databases',
+		'link': '/docs/integrations/activemq'
+	},
+	{
+		'src':'/img/kafka-icon.svg',
+		'label':'Kafka',
+		'overText': 'Kafka Infrastructure platform is built for enterprises',
+		'category': 'App Tier',
+		'link': '/docs/integrations/kafka'
+	},
+	{
+		'src':'/img/apache-zookeeper-icon.svg',
+		'label':'Zookeper',
+		'overText': 'Ldap Infrastructure platform is built for enterprises',
+		'category': 'Authentication',
+		'link': '/docs/integrations/zookeeper'
+	},
 	{
 		'src':'/img/kubernetes-clusters.svg',
 		'label':'Kubernetes',
@@ -210,7 +215,7 @@ const AGENTS =  [
 	//},
 	{
 		'src':'/img/custom-metrics-using-statsd.svg',
-		'label':'Custom Metrics',
+		'label':'StatsD',
 		'overText': 'Custom Metrics Infrastructure platform is built for enterprises',
 		'category': 'Services',
 		'link': '/docs/integrations/statsd/custom_monitoring'

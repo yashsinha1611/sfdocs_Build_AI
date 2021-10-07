@@ -1,4 +1,4 @@
-# Monitoring JAVA on Instances
+# Monitoring JAVA applications running on Instances
 
 ## Overview
 

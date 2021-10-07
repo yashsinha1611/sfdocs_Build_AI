@@ -1,4 +1,4 @@
-# Monitoring JAVA on Kubernetes
+# Monitoring JAVA applications running in Kubernetes
 
 ## Overview
 
@@ -119,7 +119,7 @@ name: jvm-configmap
 
  
 
-Refer to [Prometheus Exporte](/docs/integrations/kubernetes/prometheus_exporter)r Overview. Prometheus exporter is deployed as a sidecar container in the application pod and connects to the JMX target exposed by the application to scrape the metrics. sfPod polls Prometheus exporter to scrape the metrics. 
+Refer to [Prometheus Exporter](/docs/integrations/kubernetes/prometheus_exporter) Overview. Prometheus exporter is deployed as a sidecar container in the application pod and connects to the JMX target exposed by the application to scrape the metrics. sfPod polls Prometheus exporter to scrape the metrics. 
 
  
 

@@ -1,4 +1,4 @@
-# Monitoring Nginx on Kubernetes
+# Monitoring Nginx in Kubernetes
 
 ## Overview
 

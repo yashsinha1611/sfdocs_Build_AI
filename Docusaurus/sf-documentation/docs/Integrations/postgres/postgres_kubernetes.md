@@ -1,4 +1,4 @@
-# Postgres on Kubernetes
+# Postgres in Kubernetes
 
 ## Overview
 

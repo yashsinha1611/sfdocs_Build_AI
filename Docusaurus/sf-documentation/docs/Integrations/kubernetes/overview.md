@@ -4,7 +4,7 @@ SnappyFlow provides various approaches to monitor Kubernetes applications. Choos
 
 ##### [sfPod](/docs/Integrations/kubernetes/kubernetes_monitoring_with_sfPod)
 
-sfPod is a collector that is installed on Kubernetes and runs as a DaemonSet on each worker node.
+sfPod is a collector that is installed on Kubernetes and runs as a DaemonSet on each worker node.It monitors the following elements of a Kubernetes environment: 
 
 - Host, Pod & Container metrics
 - Resources such as deployments, Daemon Sets etc.

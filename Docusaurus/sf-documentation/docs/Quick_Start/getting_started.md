@@ -41,7 +41,13 @@ SnappyFlow is offered in two modes - SaaS and On-Prem Saas
 
 ## sfAgent
 
-It is a lightweight agent installed on VMs to collect metrics, logs and tracing data.  
+Monitoring of applications running on VM or bare-metal requires installation of a lightweight sfAgent. sfAgent provides following features: 
+
+- Discovery of services
+- Auto-recommendation of monitoring configuration based on discovered services
+- Monitoring of various services based on specified configurations 
+- Log parsing and collection
+- Orchestration of tracing (check out sfTracing for details)
 
 **Installation procedures**
 
@@ -93,13 +99,13 @@ SnappyFlow mandates that all end-points should be assigned two tags - _tag_proje
 
 
 
-<iframe  title="Key Concept" src="https://www.snappyflow.io/assets/images/Key-Concepts-production.mp4" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"  autoplay="0"  ></iframe>
+<iframe title="Key Concepts" src="https://www.snappyflow.io/assets/images/Key-Concepts-production.mp4" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"  autoplay="0"  ></iframe>
 
 ## Let's Start Monitoring
 
 Try out one of the simple exercises to familiarize yourself with the product 
 
-##### [Monitor a Linux instance](/docs/integrations/os/linux/sfagent_linux)
+##### [Monitor a Linux instance](/docs/integrations/os/linux/linux_os)
 
 ##### [Monitor a Kubernetes Cluster](/docs/integrations/kubernetes/kubernetes_monitoring_with_sfPod)
 

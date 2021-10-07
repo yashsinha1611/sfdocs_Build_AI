@@ -1,14 +1,8 @@
-# Monitoring Linux Instances
+# sfAgent Installation on Linux
 
 ## Overview
 
-Monitoring of applications running on VM or bare-metal requires installation of a lightweight sfAgent. sfAgent provides following features: 
-
-- Discovery of services
-- Auto-recommendation of monitoring configuration based on discovered services
-- Monitoring of various services based on specified configurations 
-- Log parsing and collection
-- Orchestration of tracing (check out sfTracing for details)
+It is a lightweight agent installed on VMs to collect metrics, logs and tracing data.
 
 ## Supported Platforms
 
@@ -17,7 +11,7 @@ Monitoring of applications running on VM or bare-metal requires installation of 
 - centos 7 
 - RHEL 7
 
-## Instal sfAgent on Linux
+## Installation
 
 Run the following commands to install sfAgent on VMs: 
 

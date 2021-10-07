@@ -10,7 +10,19 @@ const FeatureList = [
       {
         label: "Getting Started",
         url: '/docs/Quick_Start/getting_started'
-      }
+      },
+      {
+        label: "sfAgent Installation on Linux",
+        url: '/docs/Integrations/os/linux/sfagent_linux'
+      },
+      {
+        label: "sfAgent Installation on Windows",
+        url: '/docs/Integrations/os/windows/sfagent_windows'
+      },
+      {
+        label: "Monitoring Application Pods with sfKubeAgent",
+        url: '/docs/Integrations/kubernetes/sfkubeagent_installation'
+      },
     ]
   },
   {

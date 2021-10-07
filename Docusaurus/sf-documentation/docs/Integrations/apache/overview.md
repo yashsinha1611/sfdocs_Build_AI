@@ -1,4 +1,4 @@
-# Monitoring Apache on Instances
+# Monitoring Apache Server on Instances
 
 ## Overview
 

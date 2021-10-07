@@ -1,4 +1,4 @@
-# Monitoring Linux OS on Instances
+# Monitoring Linux OS
 
 ## Overview
 

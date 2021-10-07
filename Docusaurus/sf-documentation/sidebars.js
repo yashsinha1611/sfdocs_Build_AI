@@ -23,6 +23,21 @@ module.exports = {
          type: 'doc',
          id: 'Quick_Start/getting_started',
          label: 'Getting Started',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/os/linux/sfagent_linux',
+            label: 'sfAgent Installation on Linux',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/os/windows/sfagent_windows',
+            label: 'sfAgent Installation on Windows',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/kubernetes/sfkubeagent_installation',
+            label: 'Monitoring Application Pods with sfKubeAgent',
         },       
        
       ],      
@@ -95,7 +110,7 @@ module.exports = {
                     {
                         type: 'doc',
                         id: 'Integrations/java/java_kubernetes',
-                        label: 'Monitoring JAVA on Kubernetes',
+                        label: 'Monitoring JAVA in Kubernetes',
                     },
                 ],
         },
@@ -115,7 +130,7 @@ module.exports = {
                     {
                         type: 'doc',
                         id: 'Integrations/nginx/nginx_kubernetes',
-                        label: 'Monitoring Nginx on Kubernetes',
+                        label: 'Monitoring Nginx in Kubernetes',
                     },
                 ],
         },
@@ -135,12 +150,12 @@ module.exports = {
                     {
                         type: 'doc',
                         id: 'Integrations/kubernetes/sfkubeagent_installation',
-                        label: 'Kubernetes Monitoring with sfKubeAgent',
+                        label: 'Application Monitoring with sfKubeAgent',
                     },
                     {
                         type: 'doc',
                         id: 'Integrations/kubernetes/prometheus_exporter',
-                        label: 'Prometheus Integration',
+                        label: 'Prometheus Exporter',
                     },
                     {
                         type: 'doc',
@@ -165,7 +180,7 @@ module.exports = {
                     {
                         type: 'doc',
                         id: 'Integrations/postgres/postgres_kubernetes',
-                        label: 'Postgres on Kubernetes',
+                        label: 'Postgres in Kubernetes',
                     },
                 ],
         },
@@ -185,7 +200,7 @@ module.exports = {
                     {
                         type: 'doc',
                         id: 'Integrations/mysql/mysql_kubernetes',
-                        label: 'MySQL on Kubernetes',
+                        label: 'MySQL in Kubernetes',
                     },
                 ],
         },
@@ -195,7 +210,7 @@ module.exports = {
                     {
                         type: 'doc',
                         id: 'Integrations/apache/overview',
-                        label: 'Monitoring Apache on Instances',
+                        label: 'Monitoring Apache Server on Instances',
                     },                    
                 ],
         },
@@ -210,11 +225,7 @@ module.exports = {
                             id: 'Integrations/os/linux/overview',
                             label: 'Overview',
                         },
-                        {
-                            type: 'doc',
-                            id: 'Integrations/os/linux/sfagent_linux',
-                            label: 'Monitoring Linux Instances',
-                        },
+                        
                         {
                             type: 'doc',
                             id: 'Integrations/os/linux/linux_os',
@@ -260,6 +271,26 @@ module.exports = {
                     },
                 ],
 
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/activemq',
+            label: 'ActiveMQ',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/kafka',
+            label: 'Kafka',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/zookeeper',
+            label: 'ZooKeeper',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/mongodb',
+            label: 'MongoDB',
         },
     ],  
   },

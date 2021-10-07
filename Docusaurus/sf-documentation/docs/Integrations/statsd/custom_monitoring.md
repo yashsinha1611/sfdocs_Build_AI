@@ -52,40 +52,77 @@ sudo /opt/sfagent/sfagent -check-config
 
 ## Creating Rules File
 
-```
-type= Topic1, 
-metric= Lag, 
-value= 500, 
-metricType= g(gauge) 
-```
+- statsd metrics are expected in the format shown below
+
+  ```
+  namespace.prefix.[type.]metric:value|metricType
+  ```
+
+  **Example**
+
+  ```
+  ClusterA.Kafka1.Topic1.Lag:500|g
+  ```
+
+  In this case,
+
+  ```
+  namespace= ClusterA,
+  prefix= Kafka1,
+  type= Topic1,
+  metric= Lag,
+  value= 500,
+  metricType= g(gauge)
+  ```
+
+  
 
 - The field `type` is optional. If this field is present, it will enforce a nested json else the resulting json will be flat 
 
-**Example**
+  **Example**
 
-```
-Kafka1.General.numTopic:5|g. In this case, 
-namespace= Kafka1, 
-prefix= General, 
-metric= numTopic, 
-value= 5, 
-metricType= g (gauge) 
-```
+  ```
+  Kafka1.General.numTopic:5|g
+  ```
+
+  In this case,
+
+  ```
+  namespace= Kafka1,
+  prefix= General,
+  metric= numTopic,
+  value= 5,
+  metricType= g (gauge)
+  ```
+
+  `namespace`= `Kafka1`,
+  `prefix`= `General`,
+  `metric`= `numTopic`,
+  `value`= `5`,
+  `metricType`= `g` (gauge)
+
+
 
 :::note
 
-In special cases where namespace is not present and the metrics start directly with prefix, set `namespace`: none. 
+In special cases where namespace is not present and the metrics start directly with prefix, set `namespace`: `none`. 
 
-Supported datatypes are float, double, long, integer. 
+Supported datatypes are `float`, `double`, `long`, `integer`. 
 
 :::
+
+
+
+
+
+
 
 ### Rule to create nested json: "NESTED" 
 
 **Syntax**
 
 ```
-<json_key> = NESTED(namespace: <namespace>, prefix: <prefix_name>, key: <type_key>, metric: [<list of metrics along with datatypes>]) 
+<json_key> = NESTED(namespace: <namespace>, prefix: <prefix_name>, key: <type_key>, metric: [<list of metrics along with datatypes>])
 ```
 
 `<json_key>`: key of the final nested json. 
@@ -205,13 +242,35 @@ sfAgent statsD plugin is capable of parsing and forwarding the tags contained in
 
  
 
-Add TAGTYPE rule in the statsd rules file to enable the parsing. Default TAGTYPE is None i.e. no custom tags present. In each of the formats below, the tags are recognized and passed forward into SnappyFlow documents 
+Add TAGTYPE rule in the statsd rules file to enable the parsing. Default TAGTYPE is **None** i.e. no custom tags present. In each of the formats below, the tags are recognized and passed forward into SnappyFlow documents 
+
+- TAGTYPE = Datadog
+
+  Sample metric:
+
+  ```
+  Cluster1.kafka1.cpuUtil:35|c|#_tag_appName:testApp1,_tag_projectName:apmProject,_documentType:cpuStats
+  ```
+
+- TAGTYPE = Influx
+
+  Sample metric:
+
+  ```
+  Cluster1.Kafka1.cpuUtil,_tag_appName=testApp1,_tag_projectName=apmProject,_documentType=cpuStats:35|c
+  ```
+
+- TAGTYPE = Graphite
+
+  Sample metric:
+
+  ```
+  Cluster1.Kafka1.cpuUtil;_tag_appName=testApp1;_tag_projectName=apmProject;_documentType=cpuStats:35|c
+  ```
+
+  
 
 
-
-```
-Cluster1.Kafka1.cpuUtil;_tag_appName=testApp1;_tag_projectName=apmProject;_documentType=cpuStats:35|c 
-```
 
 ## Sidekiq Use-case
 
@@ -241,27 +300,27 @@ Metrics are generated upon worker activation in the application.
 1. Add endangered worker metrics
 
    ```
-   production.worker.AddEndangeredWorker.processing_time:1113|ms 
-   production.worker.AddEndangeredWorker.success:1|c 
-   production.worker.enqueued:0|g 
-   production.worker.retry_set_size:0|g 
-   production.worker.processed:69|g 
-   production.worker.failed:0|g 
-   production.worker.queues.default.enqueued:0|g 
-   production.worker.queues.default.latency:0|g 
+   production.worker.AddEndangeredWorker.processing_time:1113|ms
+   production.worker.AddEndangeredWorker.success:1|c
+   production.worker.enqueued:0|g
+   production.worker.retry_set_size:0|g
+   production.worker.processed:69|g
+   production.worker.failed:0|g
+   production.worker.queues.default.enqueued:0|g
+   production.worker.queues.default.latency:0|g
    ```
 
 2. Remove endangered worker metrics
 
    ```
-   production.worker.RemoveEndangeredWorker.processing_time:1472|ms 
-   production.worker.RemoveEndangeredWorker.success:1|c 
-   production.worker.enqueued:0|g 
-   production.worker.retry_set_size:0|g 
-   production.worker.processed:107|g 
-   production.worker.failed:0|g 
-   production.worker.queues.default.enqueued:0|g 
-   production.worker.queues.default.latency:0|g 
+   production.worker.RemoveEndangeredWorker.processing_time:1472|ms
+   production.worker.RemoveEndangeredWorker.success:1|c
+   production.worker.enqueued:0|g
+   production.worker.retry_set_size:0|g
+   production.worker.processed:107|g
+   production.worker.failed:0|g
+   production.worker.queues.default.enqueued:0|g
+   production.worker.queues.default.latency:0|g
    ```
 
 ### Rules
@@ -269,15 +328,15 @@ Metrics are generated upon worker activation in the application.
 Follow the Rules User Guide section to understand the rules. 
 
 ```
-TAGTYPE = None 
+TAGTYPE = None
 
-worker = NESTED(namespace: production, prefix: worker, key: worker_name, metric:[processing_time:double, success:float]) 
+worker = NESTED(namespace: production, prefix: worker, key: worker_name, metric:[processing_time:double, success:float])
 
-queues = NESTED(namespace: production, prefix: worker.queues, key: queue_name, metric:[enqueued:float, latency:float]) 
+queues = NESTED(namespace: production, prefix: worker.queues, key: queue_name, metric:[enqueued:float, latency:float])
 
-processedJobs = FLAT(namespace: production, prefix: worker, metric: processed:integer) 
+processedJobs = FLAT(namespace: production, prefix: worker, metric: processed:integer)
 
-RENDER(_documentType: sidekiq, worker, queues, processedJobs) 
+RENDER(_documentType: sidekiq, worker, queues, processedJobs)
 ```
 
 ### sfAgent Configuration
@@ -285,53 +344,53 @@ RENDER(_documentType: sidekiq, worker, queues, processedJobs)
 Content of the `/opt/sfagent/config.yaml`. The rules file is `/opt/sfagent/statsd-rules.txt`
 
 ```yaml
-key: <profile_key> 
-tags: 
-  Name: <instance-name> 
-  appName: <app-name> 
-  projectName: <project-name> 
-metrics: 
-  plugins: 
-  - name: statsd 
-      enabled: true 
-      config: 
-        port: 8125 
-        flushInterval: 10 
-        ruleFile: '/opt/sfagent/statsd-rules.txt' 
+key: <profile_key>
+tags:
+  Name: <instance-name>
+  appName: <app-name>
+  projectName: <project-name>
+metrics:
+  plugins:
+  - name: statsd
+      enabled: true
+      config:
+        port: 8125
+        flushInterval: 10
+        ruleFile: '/opt/sfagent/statsd-rules.txt'
 ```
 
 Output
 
 ```yaml
-{ 
-  "_documentType": "sidekiq", 
-  "_tag_Name": "vm", 
-  "queues": [ 
-    { 
-      "latency": 0, 
-      "queue_name": "default", 
-      "enqueued": 0 
-    } 
-  ], 
-  "_plugin": "statsD", 
-  "processedJobs": 107, 
-  "worker": [ 
-    { 
-      "processing_time": 1472, 
-      "worker_name": "RemoveEndangeredWorker", 
-      "success": 1 
-    }, 
-    { 
-      "processing_time": 1113, 
-      "worker_name": "AddEndangeredWorker", 
-      "success": 1 
-    } 
-  ], 
-  "_tag_projectName": "statsDProject", 
-  "_tag_uuid": "080027957dd8", 
-  "time": 1616132931981, 
-  "_tag_appName": "statsDApp" 
-} 
+{
+  "_documentType": "sidekiq",
+  "_tag_Name": "vm",
+  "queues": [
+    {
+      "latency": 0,
+      "queue_name": "default",
+      "enqueued": 0
+    }
+  ],
+  "_plugin": "statsD",
+  "processedJobs": 107,
+  "worker": [
+    {
+      "processing_time": 1472,
+      "worker_name": "RemoveEndangeredWorker",
+      "success": 1
+    },
+    {
+      "processing_time": 1113,
+      "worker_name": "AddEndangeredWorker",
+      "success": 1
+    }
+  ],
+  "_tag_projectName": "statsDProject",
+  "_tag_uuid": "080027957dd8",
+  "time": 1616132931981,
+  "_tag_appName": "statsDApp"
+}
 ```
 
  

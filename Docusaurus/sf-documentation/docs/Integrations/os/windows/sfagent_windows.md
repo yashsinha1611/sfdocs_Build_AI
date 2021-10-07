@@ -1,4 +1,4 @@
-# Monitoring Windows Instances
+# sfAgent installation on Windows
 
 ## Overview
 
@@ -47,9 +47,11 @@ Monitoring of Windows based application requires installation of a lightweight a
 
 sfAgent for Windows includes plugins and log parsers for a number of standard applications and operating system utilities.
 
+(documentation coming soon!)
+
 | Category                               | Services                                                     |
 | :------------------------------------- | :----------------------------------------------------------- |
-| Windows[Windows Server 2012 and above] | CPU and RAM static and dynamic parameters [Windows](javascript:void(0))[WinPSUtil](javascript:void(0)) |
-| Web Tier                               | [IIS Server](javascript:void(0)) (Server Monitoring, Access & Error Logs) |
-| App Tier                               | [WinJVM](javascript:void(0))[Apache Tomcat](javascript:void(0)) |
-| Database andDataflowElements           | [MySQL](javascript:void(0))[MS-SQL](javascript:void(0))      |
+| Windows[Windows Server 2012 and above] | CPU and RAM static and dynamic parameters, Windows WinPSUtil |
+| Web Tier                               | IIS Server (Server Monitoring, Access & Error Logs)          |
+| App Tier                               | WinJVM, Apache Tomcat                                        |
+| Database andDataflowElements           | MySQL, MS-SQL                                                |

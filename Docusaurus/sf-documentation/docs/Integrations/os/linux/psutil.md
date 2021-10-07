@@ -5,7 +5,8 @@
 PSUtil Metric plugin is an agent-based plugin that collects below data for each process running on the machine
 
 - Process ID
-- Username, CPU (%)
+- Username
+- CPU (%)
 - CPU time
 - Memory (%)
 - Resident Memory (%)
