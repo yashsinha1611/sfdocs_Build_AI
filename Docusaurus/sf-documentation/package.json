@@ -20,6 +20,7 @@
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
+    "docusaurus-lunr-search": "^2.1.14",
     "file-loader": "^6.2.0",
     "jquery": "^3.6.0",
     "prism-react-renderer": "^1.2.1",
