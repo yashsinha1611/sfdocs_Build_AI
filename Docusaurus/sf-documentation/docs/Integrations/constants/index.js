@@ -23,12 +23,13 @@ const AGENTS =  [
 		'category': 'App Tier',
 		'link': '/docs/Integrations/java/overview'
 	},
-	//{
-	//	'src':'/img/oracle_1.svg',
-	//	'label':'Oracle',
-	//	'overText': 'Oracle Cloud Infrastructure platform is built for enterprises',
-	//	'category': 'Databases'
-	//},
+	{
+		'src':'/img/golang.svg',
+		'label':'Go',
+		'overText': 'Oracle Cloud Infrastructure platform is built for enterprises',
+		'category': 'App Tier',
+		'link': '/docs/integrations/go/profiler'
+	},
 	{
 		'src':'/img/mongodb.svg',
 		'label':'MongoDB',

@@ -278,6 +278,16 @@ module.exports = {
             label: 'ActiveMQ',
         },
         {
+            Go:
+                [
+                    {
+                        type: 'doc',
+                        id: 'Integrations/go/profiler',
+                        label: 'Go Profiler',
+                    },                    
+                ],
+        },
+        {
             type: 'doc',
             id: 'Integrations/kafka',
             label: 'Kafka',
