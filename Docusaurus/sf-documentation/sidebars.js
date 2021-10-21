@@ -375,11 +375,11 @@ module.exports = {
         id: 'Alerts_notifications/pager_duty',
         label: 'Pager Duty',
        },
-       //{
-       // type: 'doc',
-       // id: 'Alerts_notifications/slack',
-       // label: 'Slack',
-       //},
+       {
+        type: 'doc',
+        id: 'Alerts_notifications/slack',
+        label: 'Slack',
+       },
       ],
   },
   
