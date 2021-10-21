@@ -48,7 +48,7 @@ const AGENTS =  [
 		'src':'/img/apache-activemq-icon.svg',
 		'label':'ActiveMQ',
 		'overText': 'Cassandra Infrastructure platform is built for enterprises',
-		'category': 'Databases',
+		'category': 'App Tier',
 		'link': '/docs/integrations/activemq'
 	},
 	{
@@ -62,7 +62,7 @@ const AGENTS =  [
 		'src':'/img/apache-zookeeper-icon.svg',
 		'label':'Zookeper',
 		'overText': 'Ldap Infrastructure platform is built for enterprises',
-		'category': 'Authentication',
+		'category': 'App Tier',
 		'link': '/docs/integrations/zookeeper'
 	},
 	{
@@ -126,7 +126,7 @@ const AGENTS =  [
 		'src':'/img/apache.svg',
 		'label':'Apache',
 		'overText': 'Postgres Infrastructure platform is built for enterprises',
-		'category': 'Databases',
+		'category': 'Web Tier',
 		'link': '/docs/Integrations/apache/overview'
 	},
 	//{
@@ -183,13 +183,13 @@ const AGENTS =  [
 	//	'overText': 'vCenter Infrastructure platform is built for enterprises',
 	//	'category': 'Cloud'
 	//},
-	//{
-	//	'src':'/img/windows-vms.svg',
-	//	'label':'Windows',
-	//	'overText': 'Windows VMs Infrastructure platform is built for enterprises',
-	//	'category': 'Cloud',
-	//	'link': '/docs/Integrations/os/windows/overview'
-	//},
+	{
+		'src':'/img/windows-vms.svg',
+		'label':'Windows',
+		'overText': 'Windows VMs Infrastructure platform is built for enterprises',
+		'category': 'Cloud',
+		'link': '/docs/Integrations/os/windows/sfagent_windows'
+	},
 	//{
 	//	'src':'/img/zenduty.svg',
 	//	'label':'Zenduty',
