@@ -116,12 +116,13 @@ const AGENTS =  [
 	//	'overText': 'Opsgenie Infrastructure platform is built for enterprises',
 	//	'category': 'Alerts & Notifications'
 	//},
-	//{
-	//	'src':'/img/pagerduty.svg',
-	//	'label':'Pagerduty',
-	//	'overText': 'Pagerduty Infrastructure platform is built for enterprises',
-	//	'category': 'Alerts & Notifications'
-	//},
+	{
+		'src':'/img/pagerduty.svg',
+		'label':'Pagerduty',
+		'overText': 'Pagerduty Infrastructure platform is built for enterprises',
+		'category': 'Alerts & Notifications',
+		'link': '/docs/alerts_notifications/pager_duty'
+	},
 	{
 		'src':'/img/apache.svg',
 		'label':'Apache',
@@ -159,12 +160,13 @@ const AGENTS =  [
 	//	'overText': 'Spark Infrastructure platform is built for enterprises',
 	//	'category': 'Web Tier'
 	//},
-	//{
-	//	'src':'/img/stack.svg',
-	//	'label':'Slack',
-	//	'overText': 'Slack Infrastructure platform is built for enterprises',
-	//	'category': 'Alerts & Notifications'
-	//},
+	{
+		'src':'/img/stack.svg',
+		'label':'Slack',
+		'overText': 'Slack Infrastructure platform is built for enterprises',
+		'category': 'Alerts & Notifications',
+		'link': '/docs/alerts_notifications/slack'
+	},
 	//{
 	//	'src':'/img/teams.svg',
 	//	'label':'Teams',
