@@ -288,9 +288,23 @@ module.exports = {
                 ],
         },
         {
-            type: 'doc',
-            id: 'Integrations/kafka',
-            label: 'Kafka',
+            Kafka:[
+                {
+                    type: 'doc',
+                    id: 'Integrations/kafka/overview',
+                    label: 'Overview'
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/kafka/kafka_kubernetes',
+                    label: 'Kafka in Kubernetes'
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/kafka/kafka_instances',
+                    label: 'Kafka on Instances',
+                },
+            ]          
         },
         {
             type: 'doc',

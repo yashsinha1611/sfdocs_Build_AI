@@ -6,7 +6,7 @@ const AGENTS =  [
 		'src':'/img/mysql-logo.svg',
 		'label':'Linux',
 		'overText': 'MySQL Infrastructure platform is built for enterprises',
-		'category': 'Databases',
+		'category': 'Cloud',
 		'link': '/docs/Integrations/os/linux/overview'
 	},
 	{
