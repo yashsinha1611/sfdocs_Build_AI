@@ -140,6 +140,12 @@ Follow the steps below for automatic discovery & configuration
     service sfagent restart 
     ```
 
+:::note
+
+sfAgent log file is present in the path `/var/log/sfagent.log`.
+
+:::
+
 ## Upgrade sfAgent on Linux
 
 Run following commands to upgrade sfAgent:

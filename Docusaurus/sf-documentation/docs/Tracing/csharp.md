@@ -1,6 +1,4 @@
-
-
 # C#
 
-## Coming Soon
+Coming Soon
 

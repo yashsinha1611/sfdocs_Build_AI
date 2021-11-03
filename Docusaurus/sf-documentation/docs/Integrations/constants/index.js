@@ -38,12 +38,13 @@ const AGENTS =  [
 		'link': '/docs/integrations/mongodb'
 
 	},
-	//{
-	//	'src':'/img/oracle.svg',
-	//	'label':'Microsoft SQL Server',
-	//	'overText': 'Microsoft Infrastructure platform is built for enterprises',
-	//	'category': 'Databases'
-	//},
+	{
+		'src':'/img/haproxy.svg',
+		'label':'HAProxy',
+		'overText': 'Microsoft Infrastructure platform is built for enterprises',
+		'category': 'Web Tier',
+		'link': '/docs/integrations/haproxy'
+	},
 	{
 		'src':'/img/apache-activemq-icon.svg',
 		'label':'ActiveMQ',
@@ -56,7 +57,7 @@ const AGENTS =  [
 		'label':'Kafka',
 		'overText': 'Kafka Infrastructure platform is built for enterprises',
 		'category': 'App Tier',
-		'link': '/docs/integrations/kafka'
+		'link': '/docs/integrations/kafka/overview'
 	},
 	{
 		'src':'/img/apache-zookeeper-icon.svg',
@@ -148,12 +149,13 @@ const AGENTS =  [
 	//	'overText': 'Python Infrastructure platform is built for enterprises',
 	//	'category': 'App Tier'
 	//},
-	//{
-	//	'src':'/img/redis.svg',
-	//	'label':'Redis',
-	//	'overText': 'Redis Infrastructure platform is built for enterprises',
-	//	'category': 'App Tier'
-	//},
+	{
+		'src':'/img/redis.svg',
+		'label':'Redis',
+		'overText': 'Redis Infrastructure platform is built for enterprises',
+		'category': 'App Tier',
+		'link': '/docs/integrations/redis'
+	},
 	//{
 	//	'src':'/img/spark.svg',
 	//	'label':'Spark',

@@ -63,7 +63,7 @@ Poller appliance is installed within user’s cloud account and can be used to
 - Perform Synthetic Monitoring of APIs using postman like collections 
 - Stream logs from applications to sfPoller, apply parsing rules and forward logs to SnappyFlow. 
 
-[Procedure for sfPoller setup](/docs/New_pages/sfpoller_setup)
+[Procedure for sfPoller setup](/docs/quick_start/sfpoller_setup)
 
 ## sfPod
 

@@ -36,6 +36,11 @@ module.exports = {
         },
         {
             type: 'doc',
+            id: 'Quick_Start/sfpoller_setup',
+            label: 'sfPoller Setup',
+        },
+        {
+            type: 'doc',
             id: 'Integrations/kubernetes/sfkubeagent_installation',
             label: 'Monitoring Application Pods with sfKubeAgent',
         },       
@@ -182,6 +187,11 @@ module.exports = {
                         id: 'Integrations/postgres/postgres_kubernetes',
                         label: 'Postgres in Kubernetes',
                     },
+                    {
+                        type: 'doc',
+                        id: 'Integrations/postgres/postgres_sfpoller',
+                        label: 'Postgres with sfPoller',
+                    },
                 ],
         },
         {
@@ -201,6 +211,11 @@ module.exports = {
                         type: 'doc',
                         id: 'Integrations/mysql/mysql_kubernetes',
                         label: 'MySQL in Kubernetes',
+                    },
+                    {
+                        type: 'doc',
+                        id: 'Integrations/mysql/mysql_sfpoller',
+                        label: 'MySQL with sfPoller',
                     },
                 ],
         },
@@ -315,6 +330,16 @@ module.exports = {
             type: 'doc',
             id: 'Integrations/mongodb',
             label: 'MongoDB',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/redis',
+            label: 'Redis',
+        },
+        {
+            type: 'doc',
+            id: 'Integrations/haproxy',
+            label: 'HAProxy',
         },
     ],  
   },
