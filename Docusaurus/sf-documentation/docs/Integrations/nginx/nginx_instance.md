@@ -4,7 +4,7 @@
 
 Nginx monitoring involves monitoring of the following elements: 
 
-- Nginx Access Logs 
+- Nginx Access Logs
 - Nginx Error Logs 
 
 - Nginx Server Health 
