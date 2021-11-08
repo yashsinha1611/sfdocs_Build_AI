@@ -240,7 +240,11 @@ module.exports = {
                             id: 'Integrations/os/linux/overview',
                             label: 'Overview',
                         },
-                        
+                        {
+                            type: 'doc',
+                            id: 'Integrations/os/linux/sfagent_linux',
+                            label: 'sfAgent Installation on Linux',
+                        },
                         {
                             type: 'doc',
                             id: 'Integrations/os/linux/linux_os',
@@ -269,7 +273,7 @@ module.exports = {
                               {
                                   type: 'doc',
                                   id: 'Integrations/os/windows/sfagent_windows',
-                                  label: 'Monitoring Windows Instances',
+                                  label: 'sfAgent installation on Windows',
                               },
                               
                           ],

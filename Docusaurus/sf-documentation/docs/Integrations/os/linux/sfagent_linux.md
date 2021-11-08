@@ -24,7 +24,7 @@ sudo ./install.sh
 
 
 :::note
-sfAgent executes commands such docas iostat or jcmd to fetch metrics. In order to specific path to sfAgent use -p or --include-paths
+sfAgent executes commands such as iostat or jcmd to fetch metrics. In order to specify path to sfAgent use -p or --include-paths
 
 **Example**:
 

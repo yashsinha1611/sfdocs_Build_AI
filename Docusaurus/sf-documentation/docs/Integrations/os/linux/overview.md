@@ -1,12 +1,12 @@
 # SnappyFlow Linux Integrations
 
+**Setup Guides**
 
+[Setting up sfAgent on Linux Instances](/docs/Integrations/os/linux/sfagent_linux)
 
-With SnappyFlow, you can monitor
+**Monitor**
 
-[Linux Instances with sfAgent](/docs/Integrations/os/linux/sfagent_linux)
-
-[Linux OS running on Instances](/docs/Integrations/os/linux/linux_os)
+[Linux OS](/docs/Integrations/os/linux/linux_os)
 
 [LSOF](/docs/Integrations/os/linux/lsof)
 
