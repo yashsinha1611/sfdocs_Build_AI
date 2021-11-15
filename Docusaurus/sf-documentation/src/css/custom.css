@@ -569,6 +569,9 @@ main .container:first-child{
 	/* display: none; */
 	transition: 0.3s;
 }
+.integrationImg {
+  cursor: pointer;
+}
 .form-control {
   display: block;
   width: 100%;

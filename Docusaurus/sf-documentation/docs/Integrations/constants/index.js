@@ -369,7 +369,7 @@ const IntegrationsList = () => {
 		return finalList.length !== 0 ? finalList.map((items) => (
 			<a key={Math.random()} className="lnkIntegration" href={items.link || '#'}>
 				<li className="box_size">
-					<label><img src={items.src} /></label>
+					<label><img src={items.src} className="integrationImg" /></label>
 					<div>{items.label}</div>
 					{/* <div className="none">{items.overText}</div> */}
 				</li>
