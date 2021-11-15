@@ -246,6 +246,16 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background: #2A383B;
   padding: 10px;
 }
+.integration li > label img{
+  transition: transform 250ms;
+  position:  relative;
+  top: 37%;
+    transform: translateY(-50%);
+}
+.integration li:hover > label img{
+  opacity:  0.9;
+  transform: translateY(-35px);
+}
 .integration li:first-child{
   padding: 10px 22px !important;
 }
@@ -557,7 +567,7 @@ main .container:first-child{
 	line-height: 18px !important;
 	font-size: 15px;
 	position: relative;
-	top: 3px;
+	top: 12px;
 }
 .box_size:hover > .none{
 	display: block;
@@ -658,6 +668,34 @@ article ul.table-of-contents li:hover{
   height: unset;
   max-width: unset;
 }
+@media screen and (max-width: 550px) and (min-width: 320px) {
+  nav.navbar--fixed-top{
+      height: 85px;
+      padding-top: 0px;
+      margin-top: 0px;
+   }
+   nav .navbar__items{
+    position: relative;
+    top: -12px;
+   }
+   nav .navbar__items--right{
+    flex: unset;
+    justify-content: unset;
+    clear: both;
+    width: 93%;
+    display: unset;
+    position: absolute;
+    top: 48px;
+    left: 0px;
+    margin: 0px;
+    align-items: flex-start;
+    padding: 0px;
+   }
+   #search_input_react{
+    width:  100%;
+   }
+}
+
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .box_size{
     width: 164px;
