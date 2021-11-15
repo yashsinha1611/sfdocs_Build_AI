@@ -200,12 +200,12 @@ const AGENTS =  [
 	//	'overText': 'Zenduty Infrastructure platform is built for enterprises',
 	//	'category': 'Alerts & Notifications'
 	//},
-	//{
-	//	'src':'/img/aws-ecs.svg',
-	//	'label':'AWS ECS',
-	//	'overText': 'AWS ECS Infrastructure platform is built for enterprises',
-	//	'category': 'Cloud'
-	//},
+	{
+		'src':'/img/aws_lambda.svg',
+		'label':'AWS Lambda',
+		'overText': 'AWS ECS Infrastructure platform is built for enterprises',
+		'category': 'Cloud'
+	},
 	//{
 	//	'src':'/img/aws-elastic-beanstalk.svg',
 	//	'label':'AWS elastic beanstalk',

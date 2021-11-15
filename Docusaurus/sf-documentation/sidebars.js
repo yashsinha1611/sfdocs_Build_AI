@@ -345,6 +345,11 @@ module.exports = {
             id: 'Integrations/haproxy',
             label: 'HAProxy',
         },
+        {
+            type: 'doc',
+            id: 'Integrations/aws_lambda',
+            label: 'AWS Lambda',
+        },
     ],  
   },
   {
