@@ -677,12 +677,13 @@ article ul.table-of-contents li:hover{
    nav .navbar__items{
     position: relative;
     top: -12px;
+    left: -20px;
    }
    nav .navbar__items--right{
     flex: unset;
     justify-content: unset;
     clear: both;
-    width: 93%;
+    width: 93.5%;
     display: unset;
     position: absolute;
     top: 48px;
@@ -693,9 +694,16 @@ article ul.table-of-contents li:hover{
    }
    #search_input_react{
     width:  100%;
+    margin-left: 10px !important;
    }
 }
-
+@media screen and (max-width: 550px) and (min-width: 451px) {
+ 
+   nav .navbar__items--right{ 
+    width: 94.6%; 
+   }
+    
+}
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .box_size{
     width: 164px;
