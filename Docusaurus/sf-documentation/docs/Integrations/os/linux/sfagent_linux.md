@@ -2,7 +2,7 @@
 
 ## Overview
 
-It is a lightweight agent installed on VMs to collect metrics, logs and tracing data.
+sfAgent is a lightweight agent installed on VMs to collect metrics, logs and tracing data.
 
 ## Supported Platforms
 
@@ -108,7 +108,7 @@ logging:
         log_path: /var/log/nginx/error.log, /var/log/nginx/error_log 
 ```
 
-sfAgent can be either configured or manually. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Detailed configuration for a specific application types are present in [Integrations](/docs/integrations/overview) section.
+sfAgent can be configured automatically or manually. In automatic configuration, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. Users can further modify the configurations as needed. Detailed configuration for specific application types are present in [Integrations](/docs/integrations/overview) section.
 
 Follow the steps below for automatic discovery & configuration
 
@@ -127,7 +127,7 @@ Follow the steps below for automatic discovery & configuration
   cp config-generated.yaml config.yaml
   ```
 
-- Add the profile key and SnappyFlow tags in the configuration file.
+- Add profile key and SnappyFlow tags in the configuration file.
 
   - Copy profile key from SnappyFlow and update `key:` 
   

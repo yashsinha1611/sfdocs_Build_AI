@@ -2,7 +2,7 @@
 
 ## Overview
 
-Poller appliance is installed within user’s cloud account and can be used to
+sfPoller is a poller appliance installed within user’s cloud account. It can be used to
 
 - Monitor cloud services such as RDS, ELB, Lamba, ECS, Azure App Service etc.
 - Monitor Databases
@@ -23,4 +23,3 @@ The video below explains setting up sfPoller along with two use cases
         msallowfullscreen="msallowfullscreen" 
         oallowfullscreen="oallowfullscreen" 
         webkitallowfullscreen="webkitallowfullscreen"></iframe>
-

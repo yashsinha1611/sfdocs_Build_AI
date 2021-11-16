@@ -19,24 +19,24 @@
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0
    npm install --save sf-apm-lib@^1.0.2
    ```
 
-   or update package.json file with following entries
+   or update `package.json` file with following entries
 
    ```javascript
    "elastic-apm-node": "^3.20.0"
    "sf-apm-lib": "^1.0.2" 
    ```
 
-2. And run ‘npm install’ to install dependencies
+   and run `npm install` to install dependencies
 
 
-2. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable in .env file and load it using require('dotenv').config() and access it in code using process.env.<ENV_VAR>
+2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable in `.env` file and load it using `require('dotenv').config()` and access it in code using `process.env.<ENV_VAR>`
 
 3. Add initilization code at start of the file 
 
@@ -74,7 +74,7 @@
       } 
       ```
 
-   3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
+   3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
       https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
 
@@ -92,21 +92,21 @@
 
 ### Node.JS Script
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0  
    npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries: 
+   or update `package.json` file with following entries: 
 
    ```javascript
    "elastic-apm-node": "^3.20.0" 
    "sf-apm-lib": "^1.0.2" 
    ```
 
-   And run ‘npm install’ to install dependencies
+   And run `npm install` to install dependencies
 
 2. Add initilization code at start of the file
 
@@ -166,7 +166,7 @@
 
       https://www.elastic.co/guide/en/apm/agent/nodejs/current/custom-spans.html 
 
-   4. Run you script using node <file_name.js> you should see trace data in Snappyflow server. 
+   4. Run you script using node `file_name.js` you should see trace data in Snappyflow server. 
 
       For viewing trace in Snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
 
@@ -174,30 +174,30 @@
 
    5. Refer sample script file at: 
 
-      https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-		express/node_trace_script.js 
+      [https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-		express/node_trace_script.js](https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-		express/node_trace_script.js ) 
 
 
 ### Node.JS Sails
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0  
    npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries
+   or update `package.json` file with following entries
 
    ```javascript
    "elastic-apm-node": "^3.20.0" 
    "sf-apm-lib": "^1.0.2" 
    ```
 
-   And run ‘npm install’ to install dependencies 
+   And run `npm install` to install dependencies 
 
-2. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable in .env file and load it using require('dotenv').config() and access it in code using process.env.<ENV_VAR>
+2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable in .env file and load it using `require('dotenv').config()` and access it in code using `process.env.<ENV_VAR>`
 
-3. Add initilization code at start of the file in globals.js present in config folder.
+3. Add initilization code at start of the file in `globals.js` present in config folder.
 
    1. Get Snappyflow trace config using:  
 
@@ -247,7 +247,7 @@
       }; 
       ```
 
-   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code. 
+   4. Also add middleware in `http.js` file present in config folder. Which allows to instrument our code. 
 
       ```javascript
       module.exports.http = { 
@@ -283,23 +283,23 @@
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0  
    npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries: 
+   or update `package.json` file with following entries: 
 
    ```javascript
    "elastic-apm-node": "^3.20.0"  
    "sf-apm-lib": "^1.0.2" 
    ```
 
-     And run ‘npm install’ to install dependencies
+     and run `npm install` to install dependencies
 
-2. Add initilization code at start of the file in app.js
+2. Add initilization code at start of the file in `app.js`
 
    1. Get Snappyflow trace config using
 
@@ -335,7 +335,7 @@
       } 
       ```
 
-   3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
+   3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file. 
 
       https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
 
@@ -351,23 +351,23 @@
 
 ### Node.JS Sails
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0  
    npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries: 
+   or update `package.json` file with following entries: 
 
    ```javascript
    "elastic-apm-node": "^3.20.0" 
    "sf-apm-lib": "^1.0.2" 
    ```
 
-   And run ‘npm install’ to install dependencies
+   And run `npm install` to install dependencies
 
-2. Add initilization code at start of the file in globals.js present in config folder. 
+2. Add initilization code at start of the file in `globals.js` present in config folder. 
 
    1. Get Snappyflow trace config using
 
@@ -416,7 +416,7 @@
       }; 
       ```
 
-   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code
+   4. Also add middleware in `http.js` file present in config folder. Which allows to instrument our code
 
       ```javascript
       module.exports.http = {
@@ -436,7 +436,7 @@
       }; 
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file. 
 
    https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
 
@@ -461,23 +461,23 @@
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```docker
    RUN npm install --save elastic-apm-node@^3.20.0 
    RUN npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries: 
+   or update `package.json` file with following entries: 
 
    ```javascript
    "elastic-apm-node": "^3.20.0" 
    "sf-apm-lib": "^1.0.2" 
    ```
 
-    And run ‘npm install’ to install dependencies
+    And run `npm install` to install dependencies
 
-2. Add initilization code at start of the file in app.js
+2. Add initilization code at start of the file in `app.js`
 
    1. Get Snappyflow trace config using
 
@@ -513,7 +513,7 @@
       } 
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in `docker-compose.yml` or docker stack deployment file or at command line when using docker run command for deployment. 
 
    Eg: 
 
@@ -544,14 +544,14 @@
 
 ### Node.JS Sails
 
-1. Install nodejs dependencies and save it in package.json using 
+1. Install nodejs dependencies and save it in `package.json` using 
 
    ```docker
    RUN npm install --save elastic-apm-node@^3.20.0 
    RUN npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries:
+   or update `package.json` file with following entries:
 
    ```javascript
    "elastic-apm-node": "^3.20.0" 
@@ -560,7 +560,7 @@
 
     And run ‘npm install’ to install dependencies
 
-2. Add initilization code at start of the file in globals.js present in config folder. 
+2. Add initilization code at start of the file in `globals.js` present in config folder. 
 
    1. Get Snappyflow trace config using
 
@@ -609,7 +609,7 @@
       }; 
       ```
 
-   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code. 
+   4. Also add middleware in `http.js` file present in config folder. Which allows to instrument our code. 
 
       ```javascript
       module.exports.http = { 
@@ -629,7 +629,7 @@
       }; 
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in `docker-compose.yml` or docker stack deployment file or at command line when using docker run command for deployment. 
 
    Eg: 
 
@@ -660,23 +660,23 @@
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0 
    npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries
+   or update `package.json` file with following entries
 
    ```javascript
    "elastic-apm-node": "^3.20.0" 
    "sf-apm-lib": "^1.0.2" 
    ```
 
-   And run ‘npm install’ to install dependencies 
+   And run `npm install` to install dependencies 
 
-2. Add initilization code at start of the file in app.js
+2. Add initilization code at start of the file in `app.js`
 
    1. Get Snappyflow trace config using:
 
@@ -712,7 +712,7 @@
       } 
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
 
@@ -729,23 +729,23 @@
 
 ### Node.JS Sails
 
-1. Install nodejs dependencies and save it in package.json using
+1. Install nodejs dependencies and save it in `package.json` using
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0  
    npm install --save sf-apm-lib@^1.0.2 
    ```
 
-   or update package.json file with following entries
+   or update `package.json` file with following entries
 
    ```javascript
    "elastic-apm-node": "^3.20.0" 
    "sf-apm-lib": "^1.0.2" 
    ```
 
-   And run ‘npm install’ to install dependencies 
+   And run `npm install` to install dependencies 
 
-2. Add initilization code at start of the file in globals.js present in config folder. 
+2. Add initialization code at start of the file in `globals.js` present in config folder. 
 
    1. Get Snappyflow trace config using
 
@@ -794,7 +794,7 @@
       }; 
       ```
 
-   4. Also add middleware in http.js file present in config folder. Which allows to instrument our code
+   4. Also add middleware in `http.js` file present in config folder. Which allows to instrument our code
 
       ```javascript
       module.exports.http = { 
@@ -814,7 +814,7 @@
       }; 
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
 
@@ -902,9 +902,9 @@
 
    4. Configure Lambda function before trigger/invoke. 
 
-      1. Add the environment variable SF_PROFILE_KEY and set the value to your profile key copied from SnappyFlow. 
+      1. Add the environment variable `SF_PROFILE_KEY` and set the value to your profile key copied from SnappyFlow. 
 
-      2. Add environment variables SF_APP_NAME and SF_PROJECT_NAME with appropriate values. Create this Project and Application in SnappyFlow if not already present. 
+      2. Add environment variables `SF_APP_NAME` and `SF_PROJECT_NAME` with appropriate values. Create this Project and Application in SnappyFlow if not already present. 
 
         <img src="images\nodejs_lambda_1.png" />
 

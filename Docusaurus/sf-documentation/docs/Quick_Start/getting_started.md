@@ -41,13 +41,13 @@ SnappyFlow is offered in two modes - SaaS and On-Prem Saas
 
 ## sfAgent
 
-Monitoring of applications running on VM or bare-metal requires installation of a lightweight sfAgent. sfAgent provides following features: 
+Monitoring of applications running on VM or bare-metal requires installation of a lightweight agent called sfAgent. sfAgent provides following features: 
 
 - Discovery of services
 - Auto-recommendation of monitoring configuration based on discovered services
 - Monitoring of various services based on specified configurations 
 - Log parsing and collection
-- Orchestration of tracing (check out sfTracing for details)
+- Orchestration of tracing (check out [sfTracing](/docs/tracing/overview) for details)
 
 **Installation procedures**
 
@@ -56,9 +56,10 @@ Monitoring of applications running on VM or bare-metal requires installation of 
 
 ## sfPoller
 
-Poller appliance is installed within user’s cloud account and can be used to
+sfPoller is a poller appliance installed within user’s cloud account. It can be used to
 
 - Monitor cloud services such as RDS, ELB, Lamba, ECS, Azure App Service etc. 
+
 - Monitor Databases 
 - Perform Synthetic Monitoring of APIs using postman like collections 
 - Stream logs from applications to sfPoller, apply parsing rules and forward logs to SnappyFlow. 
@@ -93,7 +94,7 @@ Every user account has a unique system generated profile key. Data sent by colle
 
 ## Tagging Approach
 
-SnappyFlow mandates that all end-points should be assigned two tags - _tag_projectName and _tag_appName. These tags have to be added to configuration files of sfAgent or within sfPoller’s UI.  Pls see the video that explains how end-points should be organized hierarchically in SnappyFlow and how tags should be assigned
+SnappyFlow mandates that all end-points should be assigned two tags - `_tag_projectName` and `_tag_appName`. These tags have to be added to configuration files of sfAgent or within sfPoller’s UI.  Pls see the video that explains how end-points should be organized hierarchically in SnappyFlow and how tags should be assigned
 
 
 

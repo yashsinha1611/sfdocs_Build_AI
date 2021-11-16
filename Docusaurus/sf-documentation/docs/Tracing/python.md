@@ -35,7 +35,7 @@
    pip install sf-apm-lib==0.1.1 
    ```
 
-2. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable. 
+2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable. 
 
 3. Add following entries in settings.py
 
@@ -45,13 +45,13 @@
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
-   2. Add following entry in INSTALLED_APPS
+   2. Add following entry in `INSTALLED_APPS`
 
       ```python
       'elasticapm.contrib.django'
       ```
 
-   3. Add following entry in MIDDLEWARE
+   3. Add following entry in `MIDDLEWARE`
 
       ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
@@ -115,9 +115,9 @@
    pip install sf-apm-lib==0.1.1 
    ```
 
-2. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable. 
+2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable. 
 
-3. Add following entries in app.py 
+3. Add following entries in `app.py` 
 
    1. Add imports statement
 
@@ -309,7 +309,7 @@
    pip install sf-apm-lib==0.1.1 
    ```
 
-2. Add following entries in settings.py 
+2. Add following entries in `settings.py` 
 
    1. Add import statement 
 
@@ -317,13 +317,13 @@
       from sf_apm_lib.snappyflow import Snappyflow
       ```
 
-   2. Add following entry in INSTALLED_APPS
+   2. Add following entry in `INSTALLED_APPS`
 
       ```python
       'elasticapm.contrib.django'
       ```
 
-   3. Add following entry in MIDDLEWARE
+   3. Add following entry in `MIDDLEWARE`
 
       ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
@@ -357,13 +357,11 @@
          print("Error while fetching snappyflow tracing configurations", error)
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file. 
 
    https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
 
-   
-
-   If deploying with helm provide above variables in values.yaml and use them in deployment file of charts. 
+   If deploying with helm provide above variables in `values.yaml` and use them in deployment file of charts. 
 
    https://phoenixnap.com/kb/helm-environment-variables 
 
@@ -437,7 +435,7 @@
       apm = ElasticAPM(app) 
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in Kubernetes deployment file. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file. 
 
    https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
 
@@ -533,13 +531,13 @@
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
-   2. Add following entry in INSTALLED_APPS
+   2. Add following entry in `INSTALLED_APPS`
 
       ```python
       'elasticapm.contrib.django'  
       ```
 
-   3. Add following entry in MIDDLEWARE
+   3. Add following entry in `MIDDLEWARE`
 
       ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
@@ -575,7 +573,7 @@
          print("Error while fetching snappyflow tracing configurations", error)
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in `docker-compose.yml` or docker stack deployment file or at command line when using docker run command for deployment.  
 
    Eg: 
 
@@ -660,7 +658,7 @@
       apm = ElasticAPM(app) 
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
 
    Eg: 
 
@@ -764,13 +762,13 @@
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
-   2. Add following entry in INSTALLED_APPS
+   2. Add following entry in `INSTALLED_APPS`
 
       ```python
       'elasticapm.contrib.django' 
       ```
 
-   3. Add following entry in MIDDLEWARE:
+   3. Add following entry in `MIDDLEWARE`
 
       ```python
       'elasticapm.contrib.django.middleware.TracingMiddleware'
@@ -806,7 +804,7 @@
          print("Error while fetching snappyflow tracing configurations", error) 
       ```
 
-2. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
+2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 
@@ -840,7 +838,7 @@
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
-2. Add following entries in app.py 
+2. Add following entries in `app.py` 
 
    1. Add imports statement
 
@@ -880,7 +878,7 @@
       apm = ElasticAPM(app)
       ```
 
-3. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variables in add container section of task definitions. 
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
 
@@ -999,7 +997,7 @@
 
 4. Configure Lambda function before trigger/invoke. 
 
-   1. Add the environment variable SF_PROFILE_KEY and set the value to your profile key copied from SnappyFlow. 
-   2. Add environment variables SF_APP_NAME and SF_PROJECT_NAME with appropriate values. 
+   1. Add the environment variable `SF_PROFILE_KEY` and set the value to your profile key copied from SnappyFlow. 
+   2. Add environment variables `SF_APP_NAME` and `SF_PROJECT_NAME` with appropriate values. 
    ![](images/python_aws_picture1.png)
 

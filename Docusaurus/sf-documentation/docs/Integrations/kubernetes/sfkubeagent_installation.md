@@ -10,9 +10,9 @@ sfKubeAgent is sfAgent packaged as a container and run as a sidecar within a Kub
 
 - Instantiate sfKubeAgent docker image in the pod
 
-- Mount sfKubeAgent config map to the container. Config.yaml file used here is similar to the one used for sfAgent. Configurations for specific applications or log types can be found in Integrations section
+- Mount sfKubeAgent config map to the container. `Config.yaml` file used here is similar to the one used for sfAgent. Configurations for specific applications or log types can be found in Integrations section
 
-- Pass parameters projectName and appName through container’s yaml file.  These are mandatory tags and SnappyFlow uses these tags to organize the end-points in a project/ application hierarchy
+- Pass parameters `projectName` and `appName` through container’s yaml file.  These are mandatory tags and SnappyFlow uses these tags to organize the end-points in a project/ application hierarchy
 
 - Mount log paths that need to be monitored to sfKubeAgent container in the correct path
 

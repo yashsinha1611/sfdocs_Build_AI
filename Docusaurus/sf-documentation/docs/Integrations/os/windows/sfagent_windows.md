@@ -6,7 +6,7 @@ Monitoring of Windows based application requires installation of a lightweight a
 
 - Monitoring of various services based on specified configurations
 - Log parsing and collection
-- Trace Java, Python and Golang applications (check out sfTracing for details)
+- Trace Java, Python and Golang applications (check out [sfTracing](/docs/tracing/overview) for details)
 
 ## Supported Platforms
 
@@ -27,20 +27,20 @@ Monitoring of Windows based application requires installation of a lightweight a
 
 ## Configure sfAgent on Windows
 
-- Navigate to sfAgent installed location (C:\Program Files (x86)\sfAgent)
-- Open file sample.yaml
+- Navigate to sfAgent installation location `C:\Program Files (x86)\sfAgent`
+- Open file `sample.yaml`
 - Add Key and edit configuration for metrics and logger
-- Save it and rename sample.yaml as config.yaml
+- Save the file and rename `sample.yaml` to `config.yaml`
 
 ## Prerequisites
 
-- Powershell.exe must be available in %PATH environment variable
-- For winjvm plugin, java should be installed and java path should be set in %PATH environment variable
+- `Powershell.exe` must be available in `%PATH` environment variable
+- For `winjvm` plugin, java should be installed and java path should be set in `%PATH` environment variable
 
 ## Run sfAgent service
 
 - Open task manager and service tab
-- Search for service “sfAgent” and right click on it and click start to start service
+- Search for service `sfAgent` and right click on it and click start to start service
 - To stop right click on running service and click stop
 
 ## Standard Plugins and Log Parsers
@@ -54,4 +54,4 @@ sfAgent for Windows includes plugins and log parsers for a number of standard ap
 | Windows[Windows Server 2012 and above] | CPU and RAM static and dynamic parameters, Windows WinPSUtil |
 | Web Tier                               | IIS Server (Server Monitoring, Access & Error Logs)          |
 | App Tier                               | WinJVM, Apache Tomcat                                        |
-| Database andDataflowElements           | MySQL, MS-SQL                                                |
+| Database and Data flow Elements        | MySQL, MS-SQL                                                |

@@ -14,7 +14,7 @@ This lightweight extension runs alongside your AWS Lambda functions. Submitting 
 
 - **As Lambda Layer**
 
-  - Add the Lambda Layer for the SnappyFlow extensionyour AWS Lambda function with the following ARN:
+  - Add the Lambda Layer for the SnappyFlow extension to your AWS Lambda function with the following ARN:
 
     ```
     arn:aws:lambda:<AWS_REGION>:106947364898:layer:sf-lambda-extension:3
