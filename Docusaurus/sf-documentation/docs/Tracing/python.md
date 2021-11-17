@@ -3,15 +3,15 @@
 
 #### Available Platforms
 
-##### [Instances](python#instances)
+##### [Instances](python#instances-1)
 
-##### [Docker](python#docker)
+##### [Docker](python#docker-1)
 
-##### [Kubernetes](python#kubernetes)
+##### [Kubernetes](python#kubernetes-1)
 
-##### [ECS](python#ecs)
+##### [ECS](python#ecs-1)
 
-##### [AWS Lambda](python#aws-lambda)
+##### [AWS Lambda](python#aws-lambda-1)
 
 
 ## Instances
