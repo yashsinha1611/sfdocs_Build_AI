@@ -11,62 +11,65 @@ Nginx monitoring involves monitoring of the following elements:
 
 ## Pre-requisites 
 
-1. Ensure Nginx access logs are in format expected by sfAgent parser. Edit nginx conf file `/etc/nginx/nginx.conf` and set log format as follows: 	
+Ensure Nginx access logs are in format expected by sfAgent parser. Edit nginx conf file `/etc/nginx/nginx.conf` and set log format as follows: 	
 
-   ```
-   '$remote_addr $remote_user [$time_local] '  
-   '"$request" $status $body_bytes_sent ' 
-   '"$http_referer" "$http_user_agent" ua="$upstream_addr" ' 
-   'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time'; 
-   ```
+```
+'$remote_addr $remote_user [$time_local]'  
+'"$request" $status $body_bytes_sent' 
+'"$http_referer" "$http_user_agent" ua="$upstream_addr"' 
+'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time'; 
+```
 
-   Sample: 
+Sample: log_format snappyflow 
 
-   ```
-log_format snappyflow  '$remote_addr $remote_user [$time_local] '
-                      '"$request" $status $body_bytes_sent '
-                      '"$http_referer" "$http_user_agent" ua="$upstream_addr" '
-                      'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time';
-   ```
+```
+'$remote_addr $remote_user [$time_local]'
+'"$request" $status $body_bytes_sent'
+'"$http_referer" "$http_user_agent" ua="$upstream_addr"'
+'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time';
+```
 
-   After configuring log format, the expected log entry would be: 
+After configuring log format, the expected log entry would be: 
 
-   ```
-   172.31.72.81 - [01/Jul/2020:03:36:04 +0000] "POST /owners/6/edit HTTP/1.1" 504 167 "-" "Apache-HttpClient/4.5.7 (Java/1.8.0_252)" ua="-" rt=60.004 uct=- uht=- urt=60.004 
-   ```
+```
+172.31.72.81 - [01/Jul/2020:03:36:04 +0000] "POST /owners/6/edit HTTP/1.1" 504 167 "-" "Apache-HttpClient/4.5.7 (Java/1.8.0_252)" ua="-" rt=60.004 uct=- uht=- urt=60.004 
+```
 
-   Description of log fields is as follows: 
-    1. remote_addr:  Client address.
-    2. remote_user:  User name supplied with the Basic authentication.
-    3. time_local:  Time when the log entry is written.
-    4. request:  Full original request line.
-    5. status:  Response status code.
-    6. body_bytes_sent:  Number of bytes sent to a client (not counting the response header).
-    7. http_referer:   Client request header field 'Referer'.
-    8. http_user_agent:  Client request header field 'User-agent'. Useful to get the client host details like OS, browser, Device.
-    9. upstream_addr:  Keeps the IP address and port, or the path to the UNIX-domain socket of the upstream server.
-    10. request_time:  Request processing time in seconds with a milliseconds resolution; time elapsed between the first bytes were read from the client and the log write after the last bytes were sent to the client.
-    11. upstream_connect_time:  Keeps time spent on establishing a connection with the upstream server, in seconds with millisecond resolution.
-    12. upstream_header_time: Keeps time spent on receiving the response header from the upstream server, in seconds with millisecond resolution. 
-    13. upstream_response_time:  Keeps time spent on receiving the response from the upstream server, in seconds with millisecond resolution.
+Description of log fields is as follows: 
 
-    Optional fields supported:
+<ol class="order_list">
+    <li>remote_addr:  Client address.</li>
+    <li>remote_user:  User name supplied with the Basic authentication.</li>
+    <li>time_local:  Time when the log entry is written.</li>
+    <li>request:  Full original request line.</li>
+    <li>status:  Response status code.</li>
+    <li>body_bytes_sent:  Number of bytes sent to a client (not counting the response header).</li>
+    <li>http_referer:   Client request header field 'Referer'.</li>
+    <li>http_user_agent:  Client request header field 'User-agent'. Useful to get the client host details like OS, browser, Device.</li>
+    <li>upstream_addr:  Keeps the IP address and port, or the path to the UNIX-domain socket of the upstream server.</li>
+    <li>request_time:  Request processing time in seconds with a milliseconds resolution; time elapsed between the first bytes were read from the client and the log write after the last bytes were sent to the client.</li>
+    <li>upstream_connect_time:  Keeps time spent on establishing a connection with the upstream server, in seconds with millisecond resolution.</li>
+    <li>upstream_header_time: Keeps time spent on receiving the response header from the upstream server, in seconds with millisecond resolution. </li>
+    <li>upstream_response_time:  Keeps time spent on receiving the response from the upstream server, in seconds with millisecond resolution.</li>
+</ol>
 
-    1. remote_port:  Client port. Add after the remote_addr field as follows:
+ Optional fields supported:
 
-      ```
-log_format snappyflow  '$remote_addr:$remote_port  $remote_user ....
-      ```
+ 1. remote_port:  Client port. Add after the remote_addr field as follows:
 
-    2. request_length:  Request length including request line, header, and request body. Add it in the end after $upstream_response_time as follows:
+log_format snappyflow
+```
+  '$remote_addr:$remote_port  $remote_user ....
+```
+request_length:  Request length including request line, header, and request body. Add it in the end after $upstream_response_time as follows:
 
-      ```
-log_format snappyflow  '$remote_addr $remote_user [$time_local] '
-                        '"$request" $status $body_bytes_sent '
-                        '"$http_referer" "$http_user_agent" ua="$upstream_addr" '
-                        'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time rs=$request_length';
-      ```
-
+log_format snappyflow  
+  ```
+'$remote_addr $remote_user [$time_local]'
+'"$request" $status $body_bytes_sent'
+'"$http_referer" "$http_user_agent" ua="$upstream_addr"'
+'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time rs=$request_length';
+  ```
 2. **Enable Nginx status module:** This is required to monitor Nginx server health 
 
    Open source Nginx exposes several basic metrics about server activity on a simple status page, provided that you have HTTP Stub Status Module enabled. To check if the module is already enabled, run: 

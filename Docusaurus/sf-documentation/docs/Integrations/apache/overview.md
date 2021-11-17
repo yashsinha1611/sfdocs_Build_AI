@@ -16,7 +16,7 @@ Apache Server’s monitoring involves monitoring of the following elements:
    Edit configuration file and set log format as follows: 
 
    ```
-   LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %D"combined  
+   LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %D" combined  
    
    CustomLog "logs/access_log" combined  
    ```

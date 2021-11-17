@@ -1,4 +1,4 @@
-# Sending notifications to PagerDuty
+# Sending notifications to Slack
 
 ## Overview
 
