@@ -59,7 +59,7 @@ Description of log fields is as follows:
 
 log_format snappyflow
 ```
-  '$remote_addr:$remote_port  $remote_user ....
+'$remote_addr:$remote_port  $remote_user ....
 ```
 request_length:  Request length including request line, header, and request body. Add it in the end after $upstream_response_time as follows:
 
