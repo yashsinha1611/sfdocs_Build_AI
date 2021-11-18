@@ -26,13 +26,13 @@ sfTrace Java Agent automatically instruments various APIs, frameworks and applic
 
 #### Available Platforms
 
-##### [Instances](java#instances)
+[**Instances**](java#instances)
 
-##### [Docker](java#docker)
+[**Docker**](java#docker)
 
-##### [Kubernetes](java#kubernetes)
+[**Kubernetes**](java#kubernetes)
 
-##### [ECS](java#ecs)
+[**ECS**](java#ecs)
 
 
 

@@ -1,9 +1,9 @@
 # Tracing Ruby Applications
 #### Available Platforms
 
-##### [Instances](ruby#instances)
+[**Instances**](ruby#instances)
 
-##### [Kubernetes](ruby#kubernetes)
+[**Kubernetes**](ruby#kubernetes)
 
 
 ## Instances
