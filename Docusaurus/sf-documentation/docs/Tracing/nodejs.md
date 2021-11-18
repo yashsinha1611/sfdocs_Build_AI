@@ -4,15 +4,15 @@
 
 #### Available Platforms
 
-##### [Instances](nodejs#instances-1)
+**[Instances](nodejs#instances)**
 
-##### [Docker](nodejs#docker-1)
+**[Docker](nodejs#docker)**
 
-##### [Kubernetes](nodejs#kubernetes-1)
+**[Kubernetes](nodejs#kubernetes)**
 
-##### [ECS](nodejs#ecs-1)
+**[ECS](nodejs#ecs)**
 
-##### [AWS Lambda](nodejs#aws-lambda-1)
+**[AWS Lambda](nodejs#aws-lambda)**
 
 
 ## Instances

@@ -84,7 +84,7 @@ h6{
  b,strong{ 
   font-family: AmazonEmber_Bd;
 }
-.hash-link{
+.hash-link,h2:hover >.hash-link{
   color: #fff;
 }
 pre{  

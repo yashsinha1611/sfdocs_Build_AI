@@ -14,18 +14,18 @@ Nginx monitoring involves monitoring of the following elements:
 Ensure Nginx access logs are in format expected by sfAgent parser. Edit nginx conf file `/etc/nginx/nginx.conf` and set log format as follows: 	
 
 ```
-'$remote_addr $remote_user [$time_local]'  
-'"$request" $status $body_bytes_sent' 
-'"$http_referer" "$http_user_agent" ua="$upstream_addr"' 
+'$remote_addr $remote_user [$time_local] '  
+'"$request" $status $body_bytes_sent ' 
+'"$http_referer" "$http_user_agent" ua="$upstream_addr" ' 
 'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time'; 
 ```
 
 Sample: log_format snappyflow 
 
 ```
-'$remote_addr $remote_user [$time_local]'
-'"$request" $status $body_bytes_sent'
-'"$http_referer" "$http_user_agent" ua="$upstream_addr"'
+'$remote_addr $remote_user [$time_local] '
+'"$request" $status $body_bytes_sent '
+'"$http_referer" "$http_user_agent" ua="$upstream_addr" '
 'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time';
 ```
 
