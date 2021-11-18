@@ -20,13 +20,15 @@ Ensure Nginx access logs are in format expected by sfAgent parser. Edit nginx co
 'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time'; 
 ```
 
-Sample: log_format snappyflow 
+Sample: 
 
 ```
-'$remote_addr $remote_user [$time_local] '
-'"$request" $status $body_bytes_sent '
-'"$http_referer" "$http_user_agent" ua="$upstream_addr" '
-'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time';
+log_format snappyflow '$remote_addr $remote_user [$time_local] '
+                      '"$request" $status $body_bytes_sent '
+                      '"$http_referer" "$http_user_agent" ua="$upstream_addr" '
+                      'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time';
+
+access_log  /var/log/nginx/access.log snappyflow buffer=16k flush=5s;
 ```
 
 After configuring log format, the expected log entry would be: 
@@ -57,19 +59,25 @@ Description of log fields is as follows:
 
  1. remote_port:  Client port. Add after the remote_addr field as follows:
 
-log_format snappyflow
 ```
-'$remote_addr:$remote_port  $remote_user ....
+log_format snappyflow '$remote_addr:$remote_port $remote_user [$time_local] '
+                      '"$request" $status $body_bytes_sent '
+                      '"$http_referer" "$http_user_agent" ua="$upstream_addr" '
+                      'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time';
+                                            
+access_log  /var/log/nginx/access.log snappyflow buffer=16k flush=5s;
 ```
-request_length:  Request length including request line, header, and request body. Add it in the end after $upstream_response_time as follows:
+ 2. request_length:  Request length including request line, header, and request body. Add it in the end after $upstream_response_time as follows:
 
-log_format snappyflow  
-  ```
-'$remote_addr $remote_user [$time_local]'
-'"$request" $status $body_bytes_sent'
-'"$http_referer" "$http_user_agent" ua="$upstream_addr"'
-'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time rs=$request_length';
-  ```
+```
+log_format snappyflow  '$remote_addr $remote_user [$time_local] '
+                    '"$request" $status $body_bytes_sent '
+                    '"$http_referer" "$http_user_agent" ua="$upstream_addr" '
+                    'rt=$request_time uct=$upstream_connect_time uht=$upstream_header_time urt=$upstream_response_time rs=$request_length';
+                                          
+access_log  /var/log/nginx/access.log snappyflow buffer=16k flush=5s;
+```
+
 2. **Enable Nginx status module:** This is required to monitor Nginx server health 
 
    Open source Nginx exposes several basic metrics about server activity on a simple status page, provided that you have HTTP Stub Status Module enabled. To check if the module is already enabled, run: 
