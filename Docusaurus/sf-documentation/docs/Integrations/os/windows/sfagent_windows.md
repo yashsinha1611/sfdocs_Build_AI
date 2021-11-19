@@ -40,7 +40,7 @@ Monitoring of Windows based application requires installation of a lightweight a
 ## Run sfAgent service
 
 - Open task manager and service tab.
-- Search for service “sfAgent” and right click on it and click start to start service.
+- Search for service `sfAgent` and right click on it and click start to start service.
 - To stop, right click on running service and click stop.
 
 ## Standard Plugins and Log Parsers
