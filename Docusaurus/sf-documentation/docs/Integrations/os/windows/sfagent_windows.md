@@ -39,9 +39,9 @@ Monitoring of Windows based application requires installation of a lightweight a
 
 ## Run sfAgent service
 
-- Open task manager and service tab
-- Search for service `sfAgent` and right click on it and click start to start service
-- To stop right click on running service and click stop
+- Open task manager and service tab.
+- Search for service “sfAgent” and right click on it and click start to start service.
+- To stop, right click on running service and click stop.
 
 ## Standard Plugins and Log Parsers
 
@@ -54,4 +54,4 @@ sfAgent for Windows includes plugins and log parsers for a number of standard ap
 | Windows[Windows Server 2012 and above] | CPU and RAM static and dynamic parameters, Windows WinPSUtil |
 | Web Tier                               | IIS Server (Server Monitoring, Access & Error Logs)          |
 | App Tier                               | WinJVM, Apache Tomcat                                        |
-| Database and Data flow Elements        | MySQL, MS-SQL                                                |
+| Database and Dataflow Elements           | MySQL, MS-SQL                                                |

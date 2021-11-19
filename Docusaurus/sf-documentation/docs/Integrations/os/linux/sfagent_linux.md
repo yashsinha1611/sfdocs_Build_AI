@@ -24,7 +24,8 @@ sudo ./install.sh
 
 
 :::note
-sfAgent executes commands such as iostat or jcmd to fetch metrics. In order to specify path to sfAgent use -p or --include-paths
+sfAgent executes commands such as iostat or jcmd to fetch metrics. If the utilities are not included in the PATH variable or not installed in the default location, use -p or --include-paths to add PATH in sfAgent.
+
 
 **Example**:
 
@@ -92,20 +93,6 @@ logging:
           - warning 
           - info        
         log_path: /var/log/auth.log,/var/log/messages,/var/log/secure 
-    - name: nginx-access 
-      enabled: true 
-      config: 
-        geo_info: true 
-        log_path: /var/log/nginx/access.log, /var/log/nginx/access_log 
-        ua_parser: true 
-    - name: nginx-error 
-      enabled: true 
-      config: 
-        log_level: 
-          - emerg 
-          - alert 
-          - error 
-        log_path: /var/log/nginx/error.log, /var/log/nginx/error_log 
 ```
 
 sfAgent can be configured automatically or manually. In automatic configuration, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. Users can further modify the configurations as needed. Detailed configuration for specific application types are present in [Integrations](/docs/integrations/overview) section.
@@ -127,11 +114,11 @@ Follow the steps below for automatic discovery & configuration
   cp config-generated.yaml config.yaml
   ```
 
-- Add profile key and SnappyFlow tags in the configuration file.
+- Add the profile key and SnappyFlow tags in the configuration file (`config.yaml`).
 
   - Copy profile key from SnappyFlow and update `key:` 
   
-  - Set values for `Name:`, `appName:`, `projectName:` under `tags:` section 
+  - Set values for `Name:`, `appName:`, `projectName:` under `tags:` section. `Name:` is the host name and the `projectName:`  and `appName:` are the project name and application name used on the Snappyflow portal.
 
   - Verify configuration and restart sfAgent
   
@@ -142,7 +129,7 @@ Follow the steps below for automatic discovery & configuration
 
 :::note
 
-sfAgent log file is present in the path `/var/log/sfagent.log`.
+sfAgent log file is present in the path `/var/log/sfagent/sfagent.log`.
 
 :::
 
