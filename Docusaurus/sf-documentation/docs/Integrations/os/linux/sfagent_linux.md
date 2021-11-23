@@ -6,36 +6,10 @@ sfAgent is a lightweight agent installed on VMs to collect metrics, logs and tra
 
 ## Supported Platforms
 
-- ubuntu 18 lts 
-- ubuntu 16 lts 
-- centos 7 
+- Ubuntu 18 lts 
+- Ubuntu 16 lts 
+- Centos 7 
 - RHEL 7
-
-## Installation
-
-Run the following commands to install sfAgent on VMs: 
-
-```shell
-wget https://raw.githubusercontent.com/snappyflow/apm-agent/master/install.sh -O install.sh
-chmod +x install.sh
-sudo ./install.sh
-```
-
-
-
-:::note
-sfAgent executes commands such as iostat or jcmd to fetch metrics. If the utilities are not included in the PATH variable or not installed in the default location, use -p or --include-paths to add PATH in sfAgent.
-
-
-**Example**:
-
-```shell
-./install.sh -p /opt/jdk1.8.0_211/bin/
-```
-
-:::
-
-To install sfAgent on multiple end-points using Ansible playbook, refer the following script at https://github.com/snappyflow/apm-agent 
 
 ## Pre-requisites 
 
@@ -65,37 +39,36 @@ sfAgent requires certain pre-requisites for monitoring. Common pre-requisites ar
   sudo yum -y install  java-1.8.0-openjdk-devel-1.8.0*
   ```
 
-  
 
-## Configure sfAgent on Linux
 
-sfAgent is configured through its `config.yaml` file. There are sections for metrics and logs where appropriate plugins with their configurations have to added to these sections. Below is an example: 
+## Installation
 
-```yaml
-key: <add profile key here> 
-generate_name: true 
-tags: 
-  Name: <add name tag> 
-  appName: <add application name tag> 
-  projectName: <add project name tag> 
-metrics: 
-  plugins: 
-    - name: linux 
-      enabled: true 
-      interval: 30 
-logging: 
-  plugins: 
-    - name: linux-syslog 
-      enabled: true 
-      config: 
-        log_level: 
-          - error 
-          - warning 
-          - info        
-        log_path: /var/log/auth.log,/var/log/messages,/var/log/secure 
+Run the following commands to install sfAgent on VMs: 
+
+```shell
+wget https://raw.githubusercontent.com/snappyflow/apm-agent/master/install.sh -O install.sh
+chmod +x install.sh
+sudo ./install.sh
 ```
 
-sfAgent can be configured automatically or manually. In automatic configuration, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. Users can further modify the configurations as needed. Detailed configuration for specific application types are present in [Integrations](/docs/integrations/overview) section.
+
+:::info
+sfAgent executes commands such as iostat or jcmd to fetch metrics. If the utilities are not included in the PATH variable or not installed in the default location, use -p or --include-paths to add PATH in sfAgent.
+
+
+**Example**:
+
+```shell
+./install.sh -p /opt/jdk1.8.0_211/bin/
+```
+
+:::
+
+To install sfAgent on multiple end-points using Ansible playbook, refer the following script at https://github.com/snappyflow/apm-agent 
+
+## Configuration
+
+sfAgent can be either configured manually or automatically. In an automatic configuration step, sfAgent discovers services running in a VM and automatically generates a default configuration for monitoring the discovered services. User can further modify the  configurations as needed. Check [Configuration format](/docs/integrations/os/linux/sfagent_linux#sfagent-configuration-format) for more details. Detailed configuration for a specific application types are present in [Integrations](/docs/integrations/overview) section.
 
 Follow the steps below for automatic discovery & configuration
 
@@ -143,3 +116,45 @@ chmod +x install.sh
 sudo ./install.sh --upgrade 
 ```
 
+
+## sfAgent Configuration Format
+
+sfAgent is configured through its `config.yaml` file. There are sections for metrics and logs where appropriate plugins with their configurations have to added to these sections. sfAgent config is expected in the following format: 
+
+```yaml
+key: <add profile key here> 
+generate_name: true 
+tags: 
+  Name: <add name tag> 
+  appName: <add application name tag> 
+  projectName: <add project name tag> 
+metrics: 
+  plugins: 
+    - name: <metric-plugin> 
+      enabled: true 
+      interval: <time in secs> 
+logging: 
+  plugins: 
+    - name: <logger-plugin>
+      enabled: true 
+      config: 
+        log_level: 
+          - list
+          - of
+          - log
+          - levels 
+        log_path: <comma separated log paths> 
+```
+
+:::info 
+
+### Uninstallation
+Run the following commands to uninstall sfAgent on VMs: 
+
+```shell
+wget https://raw.githubusercontent.com/snappyflow/apm-agent/master/uninstall.sh -O uninstall.sh
+chmod +x uninstall.sh
+sudo ./uninstall.sh
+```
+
+:::

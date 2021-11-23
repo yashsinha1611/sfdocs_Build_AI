@@ -31,9 +31,9 @@ metrics:
     - name: statsd 
       enabled: true 
       config: 
-        port:8125 
-        flushinterval:30 
-        ruleFile: /path/to/rules/file 
+        port: 8125 
+        flushinterval: 30 
+        ruleFile: /path/to/statsd-rules/file 
 ```
 
 **port**: The UDP port on which statsd client sends metrics. sfAgent runs a statsd server listening on this port for the UDP datagrams. Default value is 8125. 
@@ -47,7 +47,7 @@ metrics:
 Validate the statsd configuration and the rules. It is mandatory to run this command after any change is made in the statsd rules file, followed by restarting the sfAgent service. 
 
 ```shell
-sudo /opt/sfagent/sfagent -check-config
+sudo /opt/sfagent/sfagent -check-statsd
 ```
 
 ## Creating Rules File
