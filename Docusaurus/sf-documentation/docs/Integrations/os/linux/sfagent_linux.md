@@ -146,8 +146,9 @@ logging:
         log_path: <comma separated log paths> 
 ```
 
-## Uninstallation
+:::note 
 
+### Uninstallation
 Run the following commands to uninstall sfAgent on VMs: 
 
 ```shell
@@ -155,3 +156,5 @@ wget https://raw.githubusercontent.com/snappyflow/apm-agent/master/uninstall.sh 
 chmod +x uninstall.sh
 sudo ./uninstall.sh
 ```
+
+:::
