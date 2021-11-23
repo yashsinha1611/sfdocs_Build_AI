@@ -252,11 +252,6 @@ module.exports = {
                         },
                         {
                             type: 'doc',
-                            id: 'Integrations/os/linux/netstat',
-                            label: 'Netstat',
-                        },
-                        {
-                            type: 'doc',
                             id: 'Integrations/os/linux/psutil',
                             label: 'PSUtil',
                         },
