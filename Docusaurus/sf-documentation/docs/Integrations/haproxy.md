@@ -2,21 +2,18 @@
 
 ## Overview
 
-HAProxy is a free, very fast and reliable solution offering high availability, load balancing and proxying for TCP and Http-based applications. HA Proxy monitoring involves monitoring of the following aspects: 
+HAProxy is a free, very fast and reliable solution offering high availability, load balancing and proxying for TCP and Http-based applications. HAProxy monitoring involves monitoring of the following aspects: 
 
-- HA Proxy Access Logs 
+- HAProxy Access Logs 
 
-- HA Proxy Logs 
+- HAProxy Logs 
 
-- HA Proxy Metrics  
+- HAProxy Metrics  
 
   
-
-
 ## Prerequisites 
 
  
-
 1. Configure HAProxy Access Logs 
 
 2. Configure HAProxy Stats 
@@ -28,31 +25,28 @@ HAProxy is a free, very fast and reliable solution offering high availabilit
    Example
 
    ```
-   global   
-       
-            stats socket /run/haproxy/admin.sock mode 660 level admin 
-       
-                       log /dev/log    local0 
-   
+   Global   
+    log /dev/log  local0 
+    stats socket /run/haproxy/admin.sock mode 660 level admin 
    ```
 
     
 
 4. Configure the HAProxy in following manner to enable server logs. 
 
-   - Refer link (https://www.digitalocean.com/community/tutorials/how-to-configure-haproxy-logging-with-rsyslog-on-centos-8-quickstart) for configuration of haproxy to send access logs to a log file in centos also configure Rsyslog to collect haproxy logs. 
+   - Refer [link](https://www.digitalocean.com/community/tutorials/how-to-configure-haproxy-logging-with-rsyslog-on-centos-8-quickstart) for configuration of haproxy to send access logs to a log file in centos also configure Rsyslog to collect haproxy logs. 
 
    - Create a directory to run haproxy service using sudo. 
 
-     - `Mkdir /run/harpoxy`
+     - `mkdir /run/haproxy`
 
    - Under listen section add below lines to capture access logs: 
 
-   - ```
+   ```
      Capture request header User-Agent len 128. 
      
      log-format %ci: %cp\ [%tr]\ %ft\ %b/%s\ %TR/%Tw/%Tc/%Tr/%Ta\ %ST\ %B\ %CC\ %CS\ %tsc\ %ac/%fc/%bc/%sc/%rc\ %sq/%bq\ %hr\ %hs\ %{+Q}r
-     ```
+   ```
 
    - Add below line to frontend configuration to capture requests: 
 
@@ -62,7 +56,7 @@ HAProxy is a free, very fast and reliable solution offering high availabilit
 
 ## Configuration 
 
-sfAgent section provides steps to install and automatically generate plugin configurations.  User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory. 
+[sfAgent](/docs/Quick_Start/getting_started#sfagent) section provides steps to install and automatically generate plugin configurations.  User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory. 
 
 ```yaml
 key: <profile key> 
@@ -80,18 +74,18 @@ metrics:
 logging: 
   plugins: 
     - name: haproxy-access 
-          enabled: true 
-          config: 
-          geo_info: false 
-          log_path: /var/log/haproxy.log 
-          ua_parser: false 
-       - name: haproxy-general 
-        enabled: true 
-          config: 
-            log_level:
-            - emerg 
-            - alert 
-            - error 
+      enabled: true 
+      config: 
+        geo_info: true 
+        log_path: /var/log/haproxy.log 
+        ua_parser: false 
+    - name: haproxy-general 
+      enabled: true 
+      config: 
+        log_level:
+          - emerg 
+          - alert 
+          - error 
         log_path: /var/log/haproxy.log 
 ```
 
@@ -99,19 +93,19 @@ logging:
 
 Data collected by plugins can be viewed in SnappyFlow’s browse data section under metrics section 
 
-plugin: lsof 
+`plugin: haproxy, haproxy-access, haproxy-general`
 
-documentType: lsofSummary, lsofstats 
+`documentType: frontEndStats, backEndStats, systemInfo, backEndServerDetails, haproxyAccessLogs, haproxyGeneralLogs` 
 
-Dashboard template: LSOF 
+Dashboard template: `HAProxy_Server, HAProxy_Access`
 
  
 
 **Test Matrix** 
 
-Ubuntu:  HAproxy version (1.6.3) tested 
+Ubuntu:  HAProxy version (1.6.3) 
 
-Centos: HAproxy version (1.5.18) tested 
+Centos: HAProxy version (1.5.18) 
 
 
 
@@ -129,10 +123,3 @@ Centos: HAproxy version (1.5.18) tested
 
 For help with plugins, please reach out to support@snappyflow.io. 
 
- 
-
- 
-
- 
-
- 
