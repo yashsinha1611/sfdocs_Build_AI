@@ -146,7 +146,7 @@ logging:
         log_path: <comma separated log paths> 
 ```
 
-:::note 
+:::info 
 
 ### Uninstallation
 Run the following commands to uninstall sfAgent on VMs: 
