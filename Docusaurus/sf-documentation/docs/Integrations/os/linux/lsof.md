@@ -121,7 +121,6 @@ All the traffic related (IPv4, IPv6) file types are combined as *IPv4/6* typ
  
 
 - [Linux monitoring](/docs/integrations/os/linux/linux_os)
-- [LSOF](/docs/integrations/os/linux/lsof)
 - [PSUTIL](/docs/integrations/os/linux/psutil)
 - [NETSTAT](/docs/integrations/os/linux/netstat)
 - [Custom plugins using StatsD](/docs/integrations/statsd/custom_monitoring)
