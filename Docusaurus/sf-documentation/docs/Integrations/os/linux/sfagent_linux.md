@@ -2,7 +2,7 @@
 
 ## Overview
 
-sfAgent is a lightweight agent installed on VMs to collect metrics, logs and tracing data.
+It is a lightweight agent installed on VMs to collect metrics, logs and tracing data.
 
 ## Supported Platforms
 
