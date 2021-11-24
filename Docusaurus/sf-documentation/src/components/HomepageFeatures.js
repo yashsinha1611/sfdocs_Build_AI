@@ -93,6 +93,20 @@ const FeatureList = [
     ]
   },
   {
+    title: 'Profling',
+    Png: require('../../static/img/tracing-icon.png').default,
+    list: [
+      {
+        label: "JAVA",
+        url: '/docs/Integrations/java/java_profiler_cpu'
+      },
+      {
+        label: "Go",
+        url: '/docs/Integrations/go/profiler'
+      },
+    ]
+  },
+  {
     title: 'Log Management',
     Png: require('../../static/img/log-management-icon.png').default,
     list: [
