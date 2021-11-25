@@ -140,6 +140,34 @@ module.exports = {
                 ],
         },
         {
+            Apache:
+                [
+                    {
+                        type: 'doc',
+                        id: 'Integrations/apache/overview',
+                        label: 'Monitoring Apache Server on Instances',
+                    },                    
+                ],
+        },
+        {
+            Tomcat:[
+                {
+                    type: 'doc',
+                    id: 'Integrations/tomcat/tomcat_windows',
+                    label: 'Tomcat in Windows'
+                },
+            ]          
+        },
+        {
+            IIS:[
+                {
+                    type: 'doc',
+                    id: 'Integrations/iis/iis_windows',
+                    label: 'IIS in Windows'
+                },
+            ]          
+          },
+        {
             Kubernetes:
                 [
                     {
@@ -217,16 +245,6 @@ module.exports = {
                         id: 'Integrations/mysql/mysql_sfpoller',
                         label: 'MySQL with sfPoller',
                     },
-                ],
-        },
-        {
-            Apache:
-                [
-                    {
-                        type: 'doc',
-                        id: 'Integrations/apache/overview',
-                        label: 'Monitoring Apache Server on Instances',
-                    },                    
                 ],
         },
         {
