@@ -11,6 +11,7 @@ Nginx monitoring involves monitoring of the following elements:
 
 ## Pre-requisites 
 
+### Access Log Format
 Ensure Nginx access logs are in format expected by sfAgent parser. Edit nginx conf file `/etc/nginx/nginx.conf` and set log format as follows: 	
 
 ```
@@ -78,7 +79,8 @@ log_format snappyflow  '$remote_addr $remote_user [$time_local] '
 access_log  /var/log/nginx/access.log snappyflow buffer=16k flush=5s;
 ```
 
-2. **Enable Nginx status module:** This is required to monitor Nginx server health 
+### Nginx Status Module
+**Enable Nginx status module:** This is required to monitor Nginx server health 
 
    Open source Nginx exposes several basic metrics about server activity on a simple status page, provided that you have HTTP Stub Status Module enabled. To check if the module is already enabled, run: 
 
@@ -156,7 +158,7 @@ metrics:
       config: 
         port: 80 
         secure: false 
-        location: ‘stats’ 
+        location: stats 
 logging: 
   plugins: 
     - name: nginx-access 
