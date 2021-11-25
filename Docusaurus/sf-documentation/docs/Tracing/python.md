@@ -79,7 +79,8 @@
             'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
             'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
             'CENTRAL_CONFIG': False, 
-            'DEBUG': True 
+            'DEBUG': True,
+            'METRICS_INTERVAL': '0s'
          } 
       except Exception as error: 
          print("Error while fetching snappyflow tracing configurations", error) 
@@ -152,7 +153,8 @@
           'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
           'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
           'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-          'DEBUG': True 
+          'DEBUG': True,
+          'METRICS_INTERVAL': '0s'
       } 
       apm = ElasticAPM(app) 
       ```
@@ -351,7 +353,8 @@
             'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
             'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
             'CENTRAL_CONFIG': False, 
-            'DEBUG': True 
+            'DEBUG': True,
+            'METRICS_INTERVAL': '0s'
          } 
       except Exception as error: 
          print("Error while fetching snappyflow tracing configurations", error)
@@ -430,7 +433,8 @@
          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-         'DEBUG': True 
+         'DEBUG': True,
+         'METRICS_INTERVAL': '0s'
       } 
       apm = ElasticAPM(app) 
       ```
@@ -567,7 +571,8 @@
             'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
             'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
             'CENTRAL_CONFIG': False, 
-            'DEBUG': True 
+            'DEBUG': True,
+            'METRICS_INTERVAL': '0s'
          } 
       except Exception as error: 
          print("Error while fetching snappyflow tracing configurations", error)
@@ -653,7 +658,8 @@
          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-         'DEBUG': True 
+         'DEBUG': True,
+         'METRICS_INTERVAL': '0s'
       } 
       apm = ElasticAPM(app) 
       ```
@@ -798,7 +804,8 @@
             'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
             'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
             'CENTRAL_CONFIG': False, 
-            'DEBUG': True 
+            'DEBUG': True,
+            'METRICS_INTERVAL': '0s'
          } 
       except Exception as error: 
          print("Error while fetching snappyflow tracing configurations", error) 
@@ -873,7 +880,8 @@
          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-         'DEBUG': True 
+         'DEBUG': True,
+         'METRICS_INTERVAL': '0s'
       } 
       apm = ElasticAPM(app)
       ```

@@ -67,7 +67,9 @@
                verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
                active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
                stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-               captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+               captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+               metricsInterval: '0s',
+               usePathAsTransactionName: true
           }) 
       } catch (e) { 
          console.log(e); 
@@ -135,7 +137,10 @@
             	verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
                active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             	stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            	captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            	captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+               metricsInterval: '0s',
+               usePathAsTransactionName: true
+               
           }) 
       } catch (e) { 
           console.log(e); 
@@ -227,7 +232,9 @@
             	verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
                active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             	stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            	captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            	captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+               metricsInterval: '0s',
+               usePathAsTransactionName: true
           }) 
       } catch (e) { 
          console.log(e); 
@@ -328,7 +335,9 @@
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+            metricsInterval: '0s',
+            usePathAsTransactionName: true
          }) 
       } catch (e) { 
          console.log(e); 
@@ -396,7 +405,9 @@
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+            metricsInterval: '0s',
+            usePathAsTransactionName: true
          }) 
       } catch (e) { 
          console.log(e); 
@@ -506,7 +517,9 @@
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+            metricsInterval: '0s',
+            usePathAsTransactionName: true
          }) 
       } catch (e) { 
          console.log(e); 
@@ -589,7 +602,9 @@
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+            metricsInterval: '0s',
+            usePathAsTransactionName: true 
          }) 
       } catch (e) { 
          console.log(e); 
@@ -705,7 +720,9 @@
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+            metricsInterval: '0s',
+            usePathAsTransactionName: true
          }) 
       } catch (e) { 
          console.log(e); 
@@ -774,7 +791,9 @@
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'] 
+            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+            metricsInterval: '0s',
+            usePathAsTransactionName: true
          }) 
       } catch (e) { 
          console.log(e); 
@@ -866,8 +885,10 @@
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'], 
-            captureBody: 'all' 
+            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+            captureBody: 'all' ,
+            metricsInterval: '0s',
+            usePathAsTransactionName: true
         }) 
       } catch (e) { 
          console.log(e) 
