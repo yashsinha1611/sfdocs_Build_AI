@@ -345,6 +345,11 @@ module.exports = {
         },
         {
             type: 'doc',
+            id: 'Integrations/elb/elb_rds',
+            label: 'Elastic Load Balancer',
+        },
+        {
+            type: 'doc',
             id: 'Integrations/zookeeper',
             label: 'ZooKeeper',
         },
