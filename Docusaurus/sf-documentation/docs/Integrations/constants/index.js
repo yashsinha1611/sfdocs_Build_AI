@@ -111,12 +111,13 @@ const AGENTS = [
 	//	'overText': 'Oozie Infrastructure platform is built for enterprises',
 	//	'category': ['App Tier']
 	//},
-	//{
-	//	'src':'/img/opsgenie.svg',
-	//	'label':'Opsgenie',
-	//	'overText': 'Opsgenie Infrastructure platform is built for enterprises',
-	//	'category': ['Alerts & Notifications']
-	//},
+	{
+		'src':'/img/tomcat.svg',
+		'label':'Tomcat',
+		'overText': 'Opsgenie Infrastructure platform is built for enterprises',
+		'category': ['Web Tier'],
+		'link': '/docs/integrations/tomcat/tomcat_windows'
+	},
 	{
 		'src': '/img/pagerduty.svg',
 		'label': 'Pagerduty',
@@ -137,12 +138,13 @@ const AGENTS = [
 	// 	'overText': 'Prometheus Infrastructure platform is built for enterprises',
 	// 	'category': ['Cloud']
 	// },
-	//{
-	//	'src':'/img/public-cloud-elbs.svg',
-	//	'label':'Public cloud elbs',
-	//	'overText': 'Public cloud elbs Infrastructure platform is built for enterprises',
-	//	'category': ['Cloud']
-	//},
+	{
+		'src':'/img/public-cloud-elbs.svg',
+		'label':'Elastic Load Balancer',
+		'overText': 'Public cloud elbs Infrastructure platform is built for enterprises',
+		'category': ['Cloud'],
+		'link': '/docs/Integrations/elb/elb_rds'
+	},
 	//{
 	//	'src':'/img/python.svg',
 	//	'label':'Python',
@@ -261,12 +263,13 @@ const AGENTS = [
 	//	'overText': 'HA Proxy Infrastructure platform is built for enterprises',
 	//	'category': ['Cloud']
 	//},
-	//{
-	//	'src':'/img/iis-server.svg',
-	//	'label':'IIS Server',
-	//	'overText': 'IIS Server Infrastructure platform is built for enterprises',
-	//	'category': ['Cloud']
-	//},
+	{
+		'src':'/img/iis-server.svg',
+		'label':'IIS Server',
+		'overText': 'IIS Server Infrastructure platform is built for enterprises',
+		'category': ['Cloud'],
+		'link': '/docs/Integrations/iis/iis_windows'
+	},
 	//{
 	//	'src':'/img/jaeger-for-opentracing.svg',
 	//	'label':'Jaeger',
