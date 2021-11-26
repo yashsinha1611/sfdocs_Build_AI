@@ -167,6 +167,11 @@ module.exports = {
                     Tomcat: [
                         {
                             type: 'doc',
+                            id: 'Integrations/tomcat/overview',
+                            label: 'Overview'
+                        },
+                        {
+                            type: 'doc',
                             id: 'Integrations/tomcat/tomcat_windows',
                             label: 'Tomcat in Windows'
                         },
