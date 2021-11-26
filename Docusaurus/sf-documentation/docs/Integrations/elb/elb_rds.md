@@ -2,13 +2,13 @@
 
 ## Overview
 
-Amazon Elastic Load Balancer(ELB) is used to automatically distribute incoming app traffic across AWS Instances which may be in different availability zones. ELB monitoring will collect all metrics provided by AWS for all three load balancer types i.e Classic, Network and Application Load Balancer.
+Amazon Elastic Load Balancer(ELB) used to automatically distribute incoming app traffic across AWS Instances which may be in different availability zones. ELB monitoring will collect all metrics provided by AWS for all three load balancer types i.e Classic, Network and Application Load Balancer.
 
 ## Prerequisites
 
 ### CloudWatch Access for IAM Role
 
-Provide Read only access for CloudWatch to the dedicated IAM Role used for APM. You can use AWS managed polices that addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. Attach this AWS policy **CloudWatchReadOnlyAccess** to IAM role to get read access for all CloudWatch else create the below custom policy and attach it to IAM.
+   Provide Read only access for CloudWatch to the dedicated IAM Role used for APM. You can use AWS managed polices that addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. Attach this AWS policy **CloudWatchReadOnlyAccess** to IAM role to get read access for all CloudWatch else create the below custom policy and attach it to IAM.
 
    
 
@@ -39,9 +39,18 @@ Health check interval should be less than 300 Secs, since querying for data is 5
 
 ## sfPoller Configuration
 
-Select *ELB* Endpoint Type in *Add Endpoints* and add the following parameters:
-- Region
-- Instance Name
+Select *ELB* Endpoint Type in *Add Endpoints* and add the load balancer name:
+
+- Add Endpoint
+  ![Add Endpoint](/img/screenshots/sfPoller/sfPollerAddEndpoint.png)
+
+
+- Select ELB Endpoint
+ ![Select ELB](/img/screenshots/sfPoller/sfPollerSelectELB.png)
+
+
+- Enter the loadbalancer name
+ ![Enter Instance](/img/screenshots/sfPoller/sfPollerEnterInstance.png)
 
 Select the plugin from the dropdown under Plugins tab and config the polling interval.
 Plugin configuration for ELB services this includes Classic, Network and Application plugin. You can enable/disable any of the plugin based on your needs and instance support.
@@ -49,6 +58,10 @@ Plugin configuration for ELB services this includes Classic, Network and Applica
 - Cloudwatch-classic - Collects data for classic load balancer 
 - Cloudwatch-network - collects data for Network load balancers
 - Cloudwatch-application - collects data for Application load balancers.
+
+
+*Add the appropriate plugins*
+ ![Select Plugin](/img/screenshots/sfPoller/sfPollerSelectPluginELB.png)
 
 
 ## View Data and Dashboards
