@@ -2,13 +2,13 @@
 
 ## Overview
 
-Amazon Elastic Load Balancer(ELB) used to automatically distribute incoming app traffic across AWS Instances which may be in different availability zones. ELB monitoring will collect all metrics provided by AWS for all three load balancer types i.e Classic, Network and Application Load Balancer.
+Amazon Elastic Load Balancer(ELB) is used to automatically distribute incoming app traffic across AWS Instances which may be in different availability zones. ELB monitoring will collect all metrics provided by AWS for all three load balancer types i.e Classic, Network and Application Load Balancer.
 
 ## Prerequisites
 
 ### CloudWatch Access for IAM Role
 
-   Provide Read only access for CloudWatch to the dedicated IAM Role used for APM. You can use AWS managed polices that addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. Attach this AWS policy **CloudWatchReadOnlyAccess** to IAM role to get read access for all CloudWatch else create the below custom policy and attach it to IAM.
+Provide Read only access for CloudWatch to the dedicated IAM Role used for APM. You can use AWS managed polices that addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. Attach this AWS policy **CloudWatchReadOnlyAccess** to IAM role to get read access for all CloudWatch else create the below custom policy and attach it to IAM.
 
    
 
