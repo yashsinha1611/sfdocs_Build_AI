@@ -184,6 +184,11 @@ module.exports = {
                             id: 'Integrations/iis/iis_windows',
                             label: 'IIS in Windows'
                         },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/iis/iis_setup',
+                            label: 'IIS Web Server and Access Logging Setup'
+                        },
                     ]
                 },
                 {
