@@ -58,7 +58,7 @@ ASP.NET Core application contains Startup class. It is like Global.asax in the t
 
 Below is a example Startup.cs with required code changes highlighted in blue colour.
 #### Startup.cs
-   <img src="/img/dotnet-startup.png" />
+   <img src="/img/dotnet/startup.png" />
 
 Copy the below codes in your Startup.cs file similar to the example above.
 
@@ -97,7 +97,7 @@ ASP.NET Core web application is actually a console project which starts executin
 
 Below is a example Program.cs with required code changes highlighted in blue colour.
 #### Program.cs
-   <img src="/img/dotnet-program.png" />
+   <img src="/img/dotnet/program.png" />
 
 Copy the below codes in your Program.cs file similar to the example above.
 
@@ -218,7 +218,7 @@ The Global. asax file is a special file that contains event handlers for ASP.NET
 Below is a example Global.asax.cs with required code changes highlighted in blue colour. 
 
 #### Global.asax.cs
-<img src="/img/dotnet-global.png" />
+<img src="/img/dotnet/global.png" />
 
 Create object for Sftrace_class and call the method Sftrace_method in Global.asax.cs file. Verify Example  [**Global.asax.cs**](csharp#globalasaxcs) to identify in which place below code should be placed.
 
@@ -241,7 +241,7 @@ Below is a example web.config with required code changes highlighted in blue col
 
 #### web.config
 
-<img src="/img/dotnet-webconfig.png" />
+<img src="/img/dotnet/webconfig.png" />
 
 Add ElasticApm module in **web.config** file. Refer Example [**web.config**](csharp#webconfig) .
 
