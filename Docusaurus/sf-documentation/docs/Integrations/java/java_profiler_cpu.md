@@ -4,66 +4,8 @@
 
 - VirtualBox or an EC2 instance
 - Access to APM Manager … (SnappyFlow Account)
-
-## Common Steps
-
-Install Java - JDK 11 : 
-
-```
-sudo apt update
-sudo apt install openjdk-11-jdk
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-java -version
-```
-
-Install sfAgent on Linux
-
-```
-# For VirtualBox : 
-systemctl list-unit-files | grep -i network
-systemctl restart NetworkManager
-
-# Install sfAgent on VMs : 
-wget https://raw.githubusercontent.com/snappyflow/apm-agent/master/install.sh -O install.sh
-chmod +x install.sh
-sudo ./install.sh
-
-# For Linux OS Monitoring : 
-sudo apt-get install sysstat
-
-# To discover services and generate config : 
-sudo su
-cd /opt/sfagent
-./sfagent -generate-config
-cp config-generated.yaml config.yaml
-
-# Add the profile key and SnappyFlow tags in the config.yaml : 
-# update key, profile, appName, projectName
-vi config.yaml
-
-# To view which java processes are running ... required to send data to SF : 
-jcmd
-
-# Verify configuration and restart agent : 
-service sfagent restart
-service sfagent status
-
-# View Logs : use grep commander to get heap dump status (start & end time)
-tail -f /var/log/sfagent/sfagent.log | grep commander
-exit
-
-# Start Java application : 
-java -jar filename.jar
-
-# For updating the config : 
-
-sudo su
-jcmd
-nano /opt/sfagent/config.yaml
-service sfagent restart
-tail -f /var/log/sfagent/sfagent.log | grep commander
-exit
-```
+- Install Java - JDK 11
+- [Install sfAgent on Linux](https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux)
 
 :::note
 - Add **profile key** and SnappyFlow tags in the config.yaml.
@@ -126,13 +68,29 @@ To view the CPU profiling dashboards :
 
 ### Screenshots
 
-<img src="/img/screenshots/cpu_profiling/1.png" />
-<img src="/img/screenshots/cpu_profiling/2.png" />
-<img src="/img/screenshots/cpu_profiling/4.png" />
-<img src="/img/screenshots/cpu_profiling/5.png" />
-<img src="/img/screenshots/cpu_profiling/6.png" />
-<img src="/img/screenshots/cpu_profiling/7.png" />
-<img src="/img/screenshots/cpu_profiling/8.png" />
-<img src="/img/screenshots/cpu_profiling/9.png" />
-<img src="/img/screenshots/cpu_profiling/10.png" />
-<img src="/img/screenshots/cpu_profiling/11.png" />
+Click on the filter icon to add filters.
+
+<img src="/img/screenshots/cpu_profiling/3.png" /><br />
+
+To add filters, write the thread name by prepending `~` in the Filter column : e.g. `ThreadName ~ Thread-8` and then click on OK.
+
+<img src="/img/screenshots/cpu_profiling/7.png" /><br />
+
+Click the thread from the list.
+
+<img src="/img/screenshots/cpu_profiling/8.png" /><br />
+<img src="/img/screenshots/cpu_profiling/9.png" /><br />
+
+You can modify the start and end time of the thread in the Stats Breakup.
+
+<img src="/img/screenshots/cpu_profiling/10.png" /><br />
+
+You can expand the list item to get more information.
+
+<img src="/img/screenshots/cpu_profiling/11.png" /><br />
+
+Hover over the graphs to get quick summary about Thread States and CPU Util by Thread.
+
+<img src="/img/screenshots/cpu_profiling/4.png" /><br />
+<img src="/img/screenshots/cpu_profiling/5.png" /><br />
+<img src="/img/screenshots/cpu_profiling/6.png" /><br />

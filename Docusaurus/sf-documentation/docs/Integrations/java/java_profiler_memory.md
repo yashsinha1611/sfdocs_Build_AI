@@ -4,71 +4,12 @@
 
 - VirtualBox or an EC2 instance
 - Access to APM Manager … (SnappyFlow Account)
-
-## Common Steps
-
-Install Java - JDK 11 : 
-
-```
-sudo apt update
-sudo apt install openjdk-11-jdk
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-java -version
-```
-
-Install sfAgent on Linux
-
-```
-# For VirtualBox : 
-systemctl list-unit-files | grep -i network
-systemctl restart NetworkManager
-
-# Install sfAgent on VMs : 
-wget https://raw.githubusercontent.com/snappyflow/apm-agent/master/install.sh -O install.sh
-chmod +x install.sh
-sudo ./install.sh
-
-# For Linux OS Monitoring : 
-sudo apt-get install sysstat
-
-# To discover services and generate config : 
-sudo su
-cd /opt/sfagent
-./sfagent -generate-config
-cp config-generated.yaml config.yaml
-
-# Add the profile key and SnappyFlow tags in the config.yaml : 
-# update key, profile, appName, projectName
-vi config.yaml
-
-# To view which java processes are running ... required to send data to SF : 
-jcmd
-
-# Verify configuration and restart agent : 
-service sfagent restart
-service sfagent status
-
-# View Logs : use grep commander to get heap dump status (start & end time)
-tail -f /var/log/sfagent/sfagent.log | grep commander
-exit
-
-# Start Java application : 
-java -jar filename.jar
-
-# For updating the config : 
-
-sudo su
-jcmd
-nano /opt/sfagent/config.yaml
-service sfagent restart
-tail -f /var/log/sfagent/sfagent.log | grep commander
-exit
-```
+- Install Java - JDK 11
+- [Install sfAgent on Linux](https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux)
 
 :::note
 - Add **profile key** and SnappyFlow tags in the config.yaml.
 - For **existing customers**, update SFAgent config.yaml with latest - profile key, if SFAgent is already deployed.
-- Reference for installing **sfAgent** : [Click here](https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux)
 - Name and AppName should always be **unique** (pair).
 - **jcmd equivalent :** Application Dashboard >> Process Name
 :::
@@ -138,21 +79,40 @@ exit
 
 ### Screenshots
 
-<img src="/img/screenshots/heap_analysis/1.png" />
-<img src="/img/screenshots/heap_analysis/2.png" />
-<img src="/img/screenshots/heap_analysis/3.png" />
-<img src="/img/screenshots/heap_analysis/4.png" />
-<img src="/img/screenshots/heap_analysis/5.png" />
-<img src="/img/screenshots/heap_analysis/6.png" />
-<img src="/img/screenshots/heap_analysis/7.png" />
-<img src="/img/screenshots/heap_analysis/8.png" />
-<img src="/img/screenshots/heap_analysis/9.png" />
-<img src="/img/screenshots/heap_analysis/10.png" />
-<img src="/img/screenshots/heap_analysis/11.png" />
-<img src="/img/screenshots/heap_analysis/12.png" />
-<img src="/img/screenshots/heap_analysis/13.png" />
-<img src="/img/screenshots/heap_analysis/14.png" />
-<img src="/img/screenshots/heap_analysis/15.png" />
+List of tags which will be used to filter instances.
+
+<img src="/img/screenshots/heap_analysis/1.png" /><br />
+
+Dashboard >> Profiling >> Configure >> Generate Heap Dump
+
+<img src="/img/screenshots/heap_analysis/12.png" /><br />
+<img src="/img/screenshots/heap_analysis/13.png" /><br />
+<img src="/img/screenshots/heap_analysis/14.png" /><br />
+<img src="/img/screenshots/heap_analysis/15.png" /><br />
+
+Dashboard
+
+<img src="/img/screenshots/heap_analysis/2.png" /><br />
+
+You can filter the process name.
+
+<img src="/img/screenshots/heap_analysis/4.png" /><br />
+
+Profiling >> Reports >> Select the filters from the options.
+
+<img src="/img/screenshots/heap_analysis/5.png" /><br />
+
+Click any heap dump in the graph to see the overview of it.
+
+<img src="/img/screenshots/heap_analysis/6.png" /><br />
+<img src="/img/screenshots/heap_analysis/7.png" /><br />
+<img src="/img/screenshots/heap_analysis/8.png" /><br />
+
+Top Memory leak suspects >> Details
+
+<img src="/img/screenshots/heap_analysis/9.png" /><br />
+<img src="/img/screenshots/heap_analysis/10.png" /><br />
+<img src="/img/screenshots/heap_analysis/11.png" /><br />
 
 ### Note
 
