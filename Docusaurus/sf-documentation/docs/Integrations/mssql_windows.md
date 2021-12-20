@@ -1,4 +1,4 @@
-# Monitoring Ms-SQL databases
+# Monitoring MS SQL databases
 
 ## Overview
 
