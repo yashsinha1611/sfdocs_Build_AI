@@ -125,7 +125,7 @@ module.exports = {
                                     },
                                     {
                                         type: 'doc',
-                                        id: 'Integrations/java/java_profiler_cpu',
+                                        id: 'Integrations/java/java_profiler_memory',
                                         label: 'Memory',
                                     },
                                 ],
@@ -266,10 +266,20 @@ module.exports = {
                             },
                             {
                                 type: 'doc',
+                                id: 'Integrations/mysql/mysql_windows',
+                                label: 'MySQL on Windows',
+                            },
+                            {
+                                type: 'doc',
                                 id: 'Integrations/mysql/mysql_sfpoller',
                                 label: 'MySQL with sfPoller',
                             },
                         ],
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/mssql_windows',
+                    label: 'MS SQL',
                 },
                 {
                     'Operating Systems':
