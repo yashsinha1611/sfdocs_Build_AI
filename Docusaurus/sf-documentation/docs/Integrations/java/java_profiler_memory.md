@@ -2,8 +2,6 @@
 
 ## Pre-requisites
 
-- VirtualBox or an EC2 instance
-- Access to APM Manager … (SnappyFlow Account)
 - Install Java - JDK 11
 - [Install sfAgent on Linux](https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux)
 
