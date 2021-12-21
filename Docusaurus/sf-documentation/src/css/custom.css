@@ -108,7 +108,7 @@ html[data-theme="dark"]  .panel_container .innerText a{
   color: #fff;
 }
 html[data-theme="dark"] .btn-primarys {
-  color: #333;;
+  color: #333;
 }
 html[data-theme="dark"] .admonition-note,
 html[data-theme="dark"]  .blue_textbox{
@@ -124,7 +124,7 @@ table{
 }
 table tr th{
   text-align: left;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 table thead tr{
   border-bottom-width: 1px;
