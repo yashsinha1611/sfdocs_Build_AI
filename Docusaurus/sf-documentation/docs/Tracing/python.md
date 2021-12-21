@@ -62,13 +62,24 @@
       ```python
       try: 
          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
-          # Add below part to manually configure the initialization 
+         # Add below part to manually configure the initialization 
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
-         profile_key = os.getenv('SF_PROFILE_KEY') 
-         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+         sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
-         SFTRACE_CONFIG = sf.get_trace_config() 
+         SFTRACE_CONFIG = sf.get_trace_config()
+
+         # Start Trace to log feature section
+         # Add below line of code to enable Trace to log feature:
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         # Option Configs for trace to log
+         # Add below line to provide custom documentType (Default:"user-input"):
+	      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+         # Add below line to provide destination index (Default:"log"):
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         # End trace to log section
+
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -90,11 +101,13 @@
 
    For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
 
-    Once project and app name is created go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
+   Once project and app name is created go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
 5. For complete code refer sample app refer at: 
 
-   https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django 
+   https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django
+
+6. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Flask
 
@@ -135,11 +148,22 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
-      profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration
 
-      SFTRACE_CONFIG = sf.get_trace_config() 
+      SFTRACE_CONFIG = sf.get_trace_config()
+
+      # Start Trace to log feature section
+      # Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      # Option Configs for trace to log
+      # Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      # Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      # End trace to log section
+
       ```
 
    3. Initialize elastic apm and instrument it to flask app
@@ -163,7 +187,9 @@
 
       For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
 
-      Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
+      Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab
+
+   5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 
 ### Script
@@ -186,8 +212,8 @@
    # Add below part to manually configure the initialization 
    SF_PROJECT_NAME = '<Snappyflow Project Name>' 
    SF_APP_NAME = '<Snappyflow App Name>' 
-   profile_key = '<Snappyflow Profile Key>' 
-   sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+   SF_PROFILE_KEY = '<Snappyflow Profile Key>' 
+   sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
    # End of manual configuration
 
    trace_config = sf.get_trace_config() # Returns trace config 
@@ -261,8 +287,8 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
       SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
-      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration 
 
       SFTRACE_CONFIG = sf.get_trace_config() 
@@ -339,10 +365,21 @@
          # Add below part to manually configure the initialization 
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
-         profile_key = os.getenv('SF_PROFILE_KEY') 
-         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+         sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
-         SFTRACE_CONFIG = sf.get_trace_config() 
+         SFTRACE_CONFIG = sf.get_trace_config()
+
+         # Start Trace to log feature section
+         # Add below line of code to enable Trace to log feature:
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         # Option Configs for trace to log
+         # Add below line to provide custom documentType (Default:"user-input"):
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+         # Add below line to provide destination index (Default:"log"):
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         # End trace to log section
+
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -377,6 +414,8 @@
 5. For complete code refer sample app refer at: 
 
    https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django
+
+6. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Flask
 
@@ -415,11 +454,22 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
-      profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration 
 
       SFTRACE_CONFIG = sf.get_trace_config()
+
+      # Start Trace to log feature section
+      # Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      # Option Configs for trace to log
+      # Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      # Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      # End trace to log section
+
       ```
 
    3. Initialize elastic apm and instrument it to flask app
@@ -453,6 +503,7 @@
 
    Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
+5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Celery
 
@@ -479,8 +530,8 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
       SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
-      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration 
 
       SFTRACE_CONFIG = sf.get_trace_config() 
@@ -556,11 +607,22 @@
          # Add below part to manually configure the initialization 
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
-         profile_key = os.getenv('SF_PROFILE_KEY') 
-         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+         sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
-         
-         SFTRACE_CONFIG = sf.get_trace_config() 
+
+         SFTRACE_CONFIG = sf.get_trace_config()
+
+         # Start Trace to log feature section
+         # Add below line of code to enable Trace to log feature:
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         # Option Configs for trace to log
+         # Add below line to provide custom documentType (Default:"user-input"):
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+         # Add below line to provide destination index (Default:"log"):
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         # End trace to log section
+
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -603,6 +665,8 @@
 
    https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django 
 
+6. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+
 ### Flask
 
 1. Add 
@@ -640,11 +704,22 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
-      profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration 
 
-      SFTRACE_CONFIG = sf.get_trace_config() 
+      SFTRACE_CONFIG = sf.get_trace_config()
+
+      # Start Trace to log feature section
+      # Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      # Option Configs for trace to log
+      # Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      # Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      # End trace to log section
+
       ```
 
    3. Initialize elastic apm and instrument it to flask app
@@ -685,6 +760,7 @@
 
    Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
+5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Celery
 
@@ -711,8 +787,8 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
       SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
-      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration 
 
       SFTRACE_CONFIG = sf.get_trace_config() 
@@ -789,11 +865,22 @@
          # Add below part to manually configure the initialization 
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
-         profile_key = os.getenv('SF_PROFILE_KEY') 
-         sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+         SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+         sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration
       
-         SFTRACE_CONFIG = sf.get_trace_config() 
+         SFTRACE_CONFIG = sf.get_trace_config()
+
+         # Start Trace to log feature section
+         # Add below line of code to enable Trace to log feature:
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         # Option Configs for trace to log
+         # Add below line to provide custom documentType (Default:"user-input"):
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+         # Add below line to provide destination index (Default:"log"):
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         # End trace to log section
+
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -824,6 +911,8 @@
 4. For complete code refer sample app refer at: 
 
    https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django 
+
+5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Flask
 
@@ -862,11 +951,23 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
-      profile_key = os.getenv('SF_PROFILE_KEY') 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration
 
-      SFTRACE_CONFIG = sf.get_trace_config() 
+      SFTRACE_CONFIG = sf.get_trace_config()
+
+      # Start Trace to log feature section
+      # Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      # Option Configs for trace to log
+      # Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      # Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      # End trace to log section
+
+
       ```
 
    3. Initialize elastic apm and instrument it to flask app
@@ -896,6 +997,7 @@
 
    Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
+5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 ### Celery
 
 1. Install following requirements (Following example is based on redis broker)
@@ -921,8 +1023,8 @@
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
       SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
-      profile_key = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration
 
       SFTRACE_CONFIG = sf.get_trace_config() 
@@ -976,8 +1078,8 @@
       sf = Snappyflow()
       SF_PROJECT_NAME = os.environ['SF_PROJECT_NAME'] 
       SF_APP_NAME = os.environ['SF_APP_NAME'] 
-      profile_key = os.environ['SF_PROFILE_KEY'] 
-      sf.init(profile_key, SF_PROJECT_NAME, SF_APP_NAME) 
+      SF_PROFILE_KEY = os.environ['SF_PROFILE_KEY'] 
+      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       trace_config = snappyflow.get_trace_config() 
       ```
 

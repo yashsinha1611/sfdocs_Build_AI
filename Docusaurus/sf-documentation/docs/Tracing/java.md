@@ -91,6 +91,35 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
 
+#### Enable Trace to Log feature
+
+1. Add below system property to enable the feature:
+	```java
+	-Delastic.apm.global_labels="_tag_redact_body=true"
+	```
+
+	We also provide custom document type and destination index configs for this feature.(Optional)
+
+	a. Add below label to provide custom documentType (Default:"log"):
+
+	```java
+	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=metric" // Applicable values(log, metric)
+	```
+	b. Add below label to provide custom documentType (Default:"user-input"):
+	```java
+	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_documentType=<document-type>"
+	```
+	<b>Note </b>: <i>-Delastic.apm.capture_body=all properties needs to added when enabling trace to log feature</i>
+
+	Run Command:
+	```java
+	java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
+	-Dsftrace.service_name=spring-service 
+	-Delastic.apm.use_path_as_transaction_name=true
+	-Delastic.apm.capture_body=all 
+	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=<index_type>,_tag_documentType=<document_type>"
+	-Delastic.apm.metrics_interval=0s -jar target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
+	```
 
 
 ### Apache Tomcat
@@ -139,6 +168,35 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
 
+#### Enable Trace to Log feature
+
+1. Add below system property to enable the feature:
+	```java
+	-Delastic.apm.global_labels="_tag_redact_body=true"
+	```
+
+	We also provide custom document type and destination index configs for this feature.(Optional)
+
+	a. Add below label to provide custom documentType (Default:"log"):
+
+	```java
+	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=metric" // Applicable values(log, metric)
+	```
+	b. Add below label to provide custom documentType (Default:"user-input"):
+	```java
+	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_documentType=<document-type>"
+	```
+	<b>Note </b>: <i>-Delastic.apm.capture_body=all properties needs to added when enabling trace to log feature</i>
+
+	Run Command:
+	```java
+	java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
+	-Dsftrace.service_name=spring-service 
+	-Delastic.apm.use_path_as_transaction_name=true
+	-Delastic.apm.capture_body=all 
+	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=<index_type>,_tag_documentType=<document_type>"
+	-Delastic.apm.metrics_interval=0s -jar target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
+	```
 
 
 ### JBOSS EAP
