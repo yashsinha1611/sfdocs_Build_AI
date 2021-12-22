@@ -1111,3 +1111,118 @@
    2. Add environment variables `SF_APP_NAME` and `SF_PROJECT_NAME` with appropriate values. 
    ![](images/python_aws_picture1.png)
 
+
+
+## Log Correlation
+
+### <b>  For enabling log correlation  follow below instructions. </b>
+
+### <b>  Django  </b>
+
+a.	Add import statement in settings.py
+```python
+from elasticapm.handlers.logging import Formatter
+```
+
+b.	Add following logging configuration in settings.py.
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True, // Disable existing logger
+    'formatters': {
+       'elastic': { // Add elastic formatter
+            'format': '[%(asctime)s] [%(levelname)s] [%(message)s]',
+            'class': 'elasticapm.handlers.logging.Formatter',
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        }
+    },
+    'handlers': {
+        'elasticapm_log': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': '/var/log/trace/django.log', //specify you log file path
+            'formatter': 'elastic'
+        }
+    },
+    'loggers': {
+        'elasticapm': {
+            'handlers': ['elasticapm_log'],
+            'level': 'INFO',
+        }
+    }
+}
+```
+c. Usage:
+```python
+import logging
+log = logging.getLogger('elasticapm')
+
+class ExampleView(APIView):
+   def get(self, request):
+      log.info('Get API called')
+
+```
+Refer code: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-django
+
+### <b>  Flask  </b>
+
+1.	Add following code in app.py after import statements to set logger configuration
+```python
+import logging
+from elasticapm.handlers.logging import Formatter
+fh = logging.FileHandler('/var/log/trace/flask.log') 
+
+# we imported a custom Formatter from the Python Agent earlier 
+formatter = Formatter("[%(asctime)s] [%(levelname)s] [%(message)s]", "%d/%b/%Y %H:%M:%S") 
+fh.setFormatter(formatter) 
+logging.getLogger().addHandler(fh)
+
+# Once logging is configured get log object using following code  
+log = logging.getLogger()
+log.setLevel('INFO')
+
+@app.route('/')
+def home():
+   log.info('Home API called')
+   return 'Welcome to Home'
+```
+Refer code: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-flask/app.py
+
+---
+
+Now once server is up, we can see the trace info embedded inside statement of log file.
+
+To send log correlation data to snappyflow server install sfagent and create config file. Refer: https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux
+
+Add elasticApmLog plugin to sfagent config.yaml and restart sfagent service.
+Eg. Config.yaml
+```yaml
+key: <SF_PROFILE_KEY>
+tags:
+  Name: <any-name>
+  appName: <SF_APP_NAME>
+  projectName: <SF_PROJECT_NAME>
+logging:
+  plugins:
+    - name: elasticApmTraceLog
+      enabled: true
+      config:
+        log_level:
+          - error
+          - warning
+          - info
+        log_path: /var/log/trace/ntrace.log  # Your app log file path
+```
+
+
+For viewing trace and logs in Snappyflow server make sure project and app name is created or discovered.
+Once project and app name is created.
+
+Go to: View App dashboard -> Click on Tracing on left side bar   -> Click on view transaction -> Go to real time tab
+Then click on any trace and go to logs tab to see the correlated logs to trace.
+
+```python
+# Note: To get trace in snappyflow server we need log entries to adhere following log format:
+<date in following format>
+[10/Aug/2021 10:51:16] [<log_level>] [<message>] | elasticapm transaction.id=<transaction_id> trace.id=<trace_id> span.id=<Snap id>
+```
