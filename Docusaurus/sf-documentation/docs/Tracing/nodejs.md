@@ -1031,7 +1031,7 @@
    
 ## Log Correlation
 
-If you are using existing logger in your application then embed transcation id, trace id and span id using elastic apm node client object which was created at the start of the application. For more info refer apm initialization code.
+If you are using existing logger in your application then embed transaction id, trace id and span id using elastic apm node client object which was created at the start of the application. For more info refer apm initialization code.
 
 Eg.
 ```javascript
