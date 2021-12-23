@@ -52,7 +52,18 @@
       let profileKey = process.env.SF_PROFILE_KEY; 
       sfObj.init(profileKey, projectName, appName); // Manual override
 
-      let sfTraceConfig = sfObj.getTraceConfig(); 
+      let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section
+
       ```
 
    2. Initialize apm object using
@@ -90,7 +101,9 @@
 
    5. For complete code refer sample app refer at:
 
-      https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express 
+      https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express
+   
+   6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Node.JS Script
 
@@ -217,7 +230,17 @@
       let profileKey = process.env.SF_PROFILE_KEY; 
       sfObj.init(profileKey, projectName, appName); // Manual override
 
-      let sfTraceConfig = sfObj.getTraceConfig(); 
+      let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section 
       ```
 
    2. Initialize apm object using:
@@ -284,7 +307,9 @@
 
 5. For complete code refer sample app refer at: 
 
-   https://github.com/snappyflow/tracing-reference-apps/tree/master/RefappNodeSail 
+   https://github.com/snappyflow/tracing-reference-apps/tree/master/RefappNodeSail
+
+6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ## Kubernetes
 
@@ -320,7 +345,17 @@
       let profileKey = process.env.SF_PROFILE_KEY; 
       sfObj.init(profileKey, projectName, appName); // Manual override
 
-      let sfTraceConfig = sfObj.getTraceConfig(); 
+      let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section 
       ```
 
    2. Initialize apm object using
@@ -356,7 +391,9 @@
 
    5. For complete code refer sample app refer at: 
 
-      https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express 
+      https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express
+
+   6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Node.JS Sails
 
@@ -390,7 +427,17 @@
       let profileKey = process.env.SF_PROFILE_KEY; 
       sfObj.init(profileKey, projectName, appName); // Manual override
 
-      let sfTraceConfig = sfObj.getTraceConfig(); 
+      let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section
       ```
 
    2. Initialize apm object using
@@ -467,6 +514,7 @@
 
    https://github.com/snappyflow/tracing-reference-apps/tree/master/RefappNodeSail 
 
+6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ## Docker
 
@@ -503,6 +551,17 @@
       sfObj.init(profileKey, projectName, appName); // Manual override
 
       let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section
+
       ```
 
    2. Initialize apm object using
@@ -555,6 +614,7 @@
 
    https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express 
 
+6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 ### Node.JS Sails
 
 1. Install nodejs dependencies and save it in `package.json` using 
@@ -587,7 +647,17 @@
       let profileKey = process.env.SF_PROFILE_KEY; 
       sfObj.init(profileKey, projectName, appName); // Manual override
 
-      let sfTraceConfig = sfObj.getTraceConfig(); 
+      let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section
       ```
 
    2.  Initialize apm object using
@@ -671,6 +741,8 @@
 
    https://github.com/snappyflow/tracing-reference-apps/tree/master/RefappNodeSail 
 
+6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+
 ## ECS
 
 ### Node.JS Express
@@ -705,7 +777,18 @@
       let profileKey = process.env.SF_PROFILE_KEY; 
       sfObj.init(profileKey, projectName, appName); // Manual override
 
-      let sfTraceConfig = sfObj.getTraceConfig(); 
+      let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section
+
       ```
 
    2. Initialize apm object using
@@ -743,6 +826,7 @@
 
    https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express 
 
+6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ### Node.JS Sails
 
@@ -776,7 +860,18 @@
       let profileKey = process.env.SF_PROFILE_KEY; 
       sfObj.init(profileKey, projectName, appName); // Manual override
 
-      let sfTraceConfig = sfObj.getTraceConfig(); 
+      let sfTraceConfig = sfObj.getTraceConfig();
+
+      // Start Trace to log feature section
+      // Add below line of code to enable Trace to log feature:
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      // Option Configs for trace to log
+      // Add below line to provide custom documentType (Default:"user-input"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      // Add below line to provide destination index (Default:"log"):
+      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
+      // End trace to log section
+
       ```
 
    2. Initialize apm object using
@@ -848,6 +943,8 @@
 5. For complete code refer sample app refer at: 
 
     https://github.com/snappyflow/tracing-reference-apps/tree/master/RefappNodeSail 
+
+6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
 
 ## AWS Lambda
 
@@ -929,4 +1026,84 @@
 
         <img src="images\nodejs_lambda_1.png" />
 
-   5. At this point you can trigger lambda function and get tracing data in SnappyFlow. 
+   5. At this point you can trigger lambda function and get tracing data in SnappyFlow.
+
+   
+## Log Correlation
+
+If you are using existing logger in your application then embed transaction id, trace id and span id using elastic apm node client object which was created at the start of the application. For more info refer apm initialization code.
+
+Eg.
+```javascript
+   var traceId = 'None';
+   var transactionId = 'None';
+   var spanId = 'None';
+   if (typeof(apm) !== 'undefined') {
+
+      var apmTraceObj = apm.currentTraceIds; // Apm object having current trace ids
+      transactionId = apmTraceObj['transaction.id'] || 'None';
+      traceId = apmTraceObj['trace.id'] || 'None';
+      spanId = apmTraceObj['span.id'] || 'None';
+   }
+   var msg = `[${moment().format('DD/MMM/YYYY hh:mm:ss')}] [${level}] [${msg}] | elasticapm transaction.id=${transactionId} trace.id=${traceId} span.id=${spanId}\n`
+```
+
+For using Log correlation in application log file refer:
+https://www.elastic.co/guide/en/apm/agent/nodejs/current/log-correlation.html
+
+### If you want to add custom snappyflow logger for log correlation follow below steps:
+
+```javascript
+   //Copy logger file from snappyflow reference app to location where you want to put. Initialize logger in your app using following code:
+
+   const logger = require("./logger").Logger;
+
+   logger.attachAPM(apm);
+   logger.setLogFilePath('/var/log/trace/ntrace.log');  //Put log file in /var/log/trace folder
+   logger.init();
+
+   //Write log 
+   logger.debug('Hello world get api called')
+   logger.info('Hello world get api called')
+   logger.error(‘Some error ocurred')
+```
+For code reference refer: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-express/logger.js
+
+
+### To send log correlation data to snappyflow server install sfagent and create config file.
+
+Refer: https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux
+
+
+Add elasticApmLog plugin to sfagent config.yaml and restart sfagent service.
+Eg. Config.yaml
+```yaml
+key: <SF_PROFILE_KEY>
+tags:
+  Name: <any-name>
+  appName: <SF_APP_NAME>
+  projectName: <SF_PROJECT_NAME>
+logging:
+  plugins:
+    - name: elasticApmTraceLog
+      enabled: true
+      config:
+        log_level:
+          - error
+          - warning
+          - info
+        log_path: /var/log/trace/ntrace.log  # Your app log file path
+```
+
+
+For viewing trace and logs in Snappyflow server make sure project and app name is created or discovered.
+Once project and app name is created.
+
+Go to: View App dashboard -> Click on Tracing on left side bar   -> Click on view transaction -> Go to real time tab
+Then click on any trace and go to logs tab to see the correlated logs to trace.
+
+```javascript
+// Note: To get trace in snappyflow server we need log entries to adhere following log format:
+<date in following format>
+[10/Aug/2021 10:51:16] [<log_level>] [<message>] | elasticapm transaction.id=<transaction_id> trace.id=<trace_id> span.id=<Snap id>
+```
