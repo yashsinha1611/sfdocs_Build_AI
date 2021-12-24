@@ -13,6 +13,8 @@
 
 **[AWS Lambda](python#aws-lambda)**
 
+**For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)**
+
 
 ## Instances
 ### Django
@@ -69,7 +71,7 @@
          sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
          SFTRACE_CONFIG = sf.get_trace_config()
-
+   
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -79,7 +81,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-
+   
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -369,7 +371,7 @@
          sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
          SFTRACE_CONFIG = sf.get_trace_config()
-
+   
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -379,7 +381,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-
+   
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -610,9 +612,9 @@
          SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
          sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
-
+   
          SFTRACE_CONFIG = sf.get_trace_config()
-
+   
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -622,7 +624,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-
+   
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -870,7 +872,7 @@
          # End of manual configuration
       
          SFTRACE_CONFIG = sf.get_trace_config()
-
+   
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -880,7 +882,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-
+   
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -947,16 +949,16 @@
 
       ```python
       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
-
+      
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
       SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
       sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration
-
+      
       SFTRACE_CONFIG = sf.get_trace_config()
-
+      
       # Start Trace to log feature section
       # Add below line of code to enable Trace to log feature:
       sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -1115,9 +1117,9 @@
 
 ## Log Correlation
 
-### <b>  For enabling log correlation  follow below instructions. </b>
+### For enabling log correlation, follow below instructions
 
-### <b>  Django  </b>
+### Django
 
 a.	Add import statement in settings.py
 ```python
@@ -1164,7 +1166,7 @@ class ExampleView(APIView):
 ```
 Refer code: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-django
 
-### <b>  Flask  </b>
+### Flask
 
 1.	Add following code in app.py after import statements to set logger configuration
 ```python
