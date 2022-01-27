@@ -14,6 +14,8 @@
 
 **[AWS Lambda](nodejs#aws-lambda)**
 
+**For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)**
+
 
 ## Instances
 
@@ -1051,7 +1053,7 @@ Eg.
 For using Log correlation in application log file refer:
 https://www.elastic.co/guide/en/apm/agent/nodejs/current/log-correlation.html
 
-### If you want to add custom snappyflow logger for log correlation follow below steps:
+### Adding custom Snappyflow logger for log correlation
 
 ```javascript
    //Copy logger file from snappyflow reference app to location where you want to put. Initialize logger in your app using following code:

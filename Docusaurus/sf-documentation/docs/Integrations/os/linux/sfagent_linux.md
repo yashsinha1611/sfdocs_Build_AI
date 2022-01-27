@@ -4,12 +4,11 @@
 
 sfAgent is a lightweight agent installed on VMs to collect metrics, logs and tracing data.
 
-## Supported Platforms
+## Tested on
 
-- Ubuntu 18 lts 
-- Ubuntu 16 lts 
-- Centos 7 
-- RHEL 7
+- Ubuntu 16 LTS, 18 LTS, 20 LTS 
+- Centos 7, 8 
+- RHEL 7, 8.5
 
 ## Pre-requisites 
 

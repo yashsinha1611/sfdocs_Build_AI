@@ -93,7 +93,7 @@ const FeatureList = [
     ]
   },
   {
-    title: 'Profling',
+    title: 'Profiling',
     Png: require('../../static/img/tracing-icon.png').default,
     list: [
       {

@@ -19,18 +19,34 @@
 
 ### Trigger Heap Dump
 
-- Select the **project** >> **application** where the instance is monitored
-- Go to **Dashboards** >> Click on **Profiling** pane >> Click on **Configure** tab >> **Generate Heap Dump** button
-- Fill the form with following details : 
-  - **Heap Dump Name**
-  - **Add tags :** Provide the tags keys and tags values used to identify the target instance on the which heap dump needs to be triggered.
-  - To drill down on the process on which heap dump has to be triggered provide the process name in the **process name filter**. If nothing is provided heap dump will be triggered on all java process identified by JCMD command.
-  - In **Configure Schedule** section : 
-    - **#Heap Dumps :** indicate the number of heap dumps to be triggered
-    - **Interval between Heap Dumps :** indicates the interval between individual heap dumps
-    - **Max wait time :** indicates the time duration after which if no response is returned from target instances the command is marked invalid
-- The command status can be viewed on expanding the **command**. 
-- In the details views, click on the **Report** icon to view the heap dump report.
+Select the **project** >> **application** where the instance is monitored
+
+Go to **Dashboards** >> Click on **Profiling** pane >> Click on **Configure** tab >> **Generate Heap Dump** button
+
+Fill the form with following details : 
+- **Heap Dump Name**
+- **Add tags :** Provide the tags keys and tags values used to identify the target instance on the which heap dump needs to be triggered.
+- To drill down on the process on which heap dump has to be triggered provide the process name in the **process name filter**. If nothing is provided heap dump will be triggered on all java process identified by JCMD command.
+- In **Configure Schedule** section : 
+  - **#Heap Dumps :** indicate the number of heap dumps to be triggered
+  - **Interval between Heap Dumps :** indicates the interval between individual heap dumps
+  - **Max wait time :** indicates the time duration after which if no response is returned from target instances the command is marked invalid
+
+The command status can be viewed on expanding the **command**. 
+
+In the details views, click on the **Report** icon to view the heap dump report.
+
+### Remote Processing
+
+Eventhough if the user opts for remote processing, if the heapdump hprof file size is smaller than or equal to the default maximum supported file size, parsing of reports will be done by agent and normal workflow prevails.The following are the environment variables which user can use to override the default values.
+
+- **MAXSUPPORTEDSIZEGB**: To override the default maximum supported heapdump filesize(**15 % of  Machine's RAM**)  (eg: **MAXSUPPORTEDSIZEGB**=2 for 2GB and **MAXSUPPORTEDSIZEGB**=2.5 for 2.5GB) in **/opt/sfagent/env.conf**
+
+- **CHUNKSIZEMB**:  To override the default chunksize value (**500MB**)  (eg: **CHUNKSIZEMB**=1000 for 1GB) in **/opt/sfagent/env.conf**
+
+- **MEMORYANALYZERMAXHEAPSIZEGB**: To override the default maxheapsize of memoryanalyser.ini(**50 % of machine's RAM**) (eg: **MEMORYANALYZERMAXHEAPSIZEGB**=2 for 2GB and **MEMORYANALYZERMAXHEAPSIZEGB**=2.5 for 2.5GB) in **/opt/sfagent/env.conf**
+
+- **RHPSCLIENTTIMEOUTSEC**: To override the default RHPS http client timeout (**300 Seconds**) (eg: **RHPSCLIENTTIMEOUTSEC**=500 for 500 seconds)  in **/opt/sfagent/env.conf**
 
 ### Viewing Reports
 

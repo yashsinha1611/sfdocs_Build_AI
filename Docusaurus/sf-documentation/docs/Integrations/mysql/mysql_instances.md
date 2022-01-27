@@ -2,25 +2,28 @@
 
 ## Overview
 
-MySQL on instances is monitored using [sfAgent](/docs/Quick_Start/getting_started#sfagent) configured with MySQL plugin  
+MySQL on instances is monitored using [sfAgent](/docs/Quick_Start/getting_started#sfagent) configured with MySQL plugin .
+
+MySQL plugin has been tested on ubuntu (16.04 and 18.04) and centos 7 with MySQL versions 5.7 and 8.
 
 ### Metrics plugin
 
-Collects metric data organized in following `documentType` under metrics index:  
+Collects metric data organized in following `documentType` under metrics index: 
 
-- serverDetails  
-- databaseDetails 
-- tableDetails 
+- serverDetails
+- databaseDetails
+- tableDetails
+- replicationDetails
 
 ### Logger plugin
 
-collects general logs and slow query logs. General logs are sent to log index whereas slow queries are sent to metrics index under `documentType:mysqlSlowQueryLogs`  
+collects general logs and slow query logs. General logs are sent to log index whereas slow queries are sent to metrics index under `documentType:mysqlSlowQueryLogs` 
 
-## Pre-requisites  
+## Pre-requisites 
 
 ### Enable MySQL configurations
 
-Logging needs to be configured in the `mysql.conf.d/mysqld.cnf` file. In the configuration file uncomment and configure the variables shown below:  
+Logging needs to be configured in the `mysql.conf.d/mysqld.cnf` file. In the configuration file uncomment and configure the variables shown below: 
 
 ```
 show_compatibility_56 = On     #neeeded for metrics 
@@ -30,22 +33,22 @@ general_log_file=/var/log/mysql/mysql.log 
 general_log=1  
 ```
 
-This file can be located by executing the command as shown below:  
+This file can be located by executing the command as shown below: 
 
 ```shell
 mysqld --verbose --help | grep -A 1 "Default options"  
 ```
 
-E.g. output is `/etc/my.cnf /etc/mysql/my.cnf ~/my.cnf`. User needs to check each of the files for the configuration 
+E.g. output is `/etc/my.cnf /etc/mysql/my.cnf ~/my.cnf`. User needs to check each of the files for the configuration
 
-Alternatively, login to mysql with root user and execute below commands  
+Alternatively, login to mysql with root user and execute below commands 
 
 ```sql
 SET GLOBAL general_log = 'ON';  
 SET GLOBAL general_log_file= '/path/filename';  
 ```
 
-### Enable Slow Query Logs   
+### Enable Slow Query Logs  
 
 In `mysqld.cnf` file, uncomment and configure the variables shown below: 
 
@@ -54,7 +57,7 @@ slow_query_log= 1 
 slow_query_log_file=/var/log/mysql/mysql-slow.log  
 ```
 
-Or, login to mysql with root user and execute below commands  
+Or, login to mysql with root user and execute below commands 
 
 ```sql
 SET GLOBAL slow_query_log = 'ON';  
@@ -64,7 +67,7 @@ SET GLOBAL slow_query_log_file = '/path/filename'; 
 
 :::note
 
-By Default `/var/log/mysql` directory is not present in centos, so we must create and provide ownership of that directory as mysql   
+By Default `/var/log/mysql` directory is not present in centos, so we must create and provide ownership of that directory as mysql 
 
 ```shell
 chown -R mysql:mysql /var/log/mysql 
@@ -74,7 +77,7 @@ chown -R mysql:mysql /var/log/mysql 
 
 ### Set access permissions
 
-Username used for DB access should have appropriate permissions  
+Username used for DB access should have appropriate permissions 
 
 ```sql
 grant select on information_schema.* to 'username' identified by 'password';  
@@ -83,14 +86,25 @@ grant select on performance_schema.* to 'username' identified by 'password';�
 
 :::note
 
-Root user has these permissions by default  
+Root user has these permissions by default 
 
 :::
 
+### Enable Replication(optional)
+
+To collect the replication details replication has to be enabled.
+
+Execute the following queries on the slave using the login of the user provided in the config.yaml file:
+
+1)"show slave status"
+
+2)"select * from replication_connection_status"
+
+If the user is able to execute these queries then the replication details can be collected.
 
 ## Configuration 
 
-Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/ directory`  
+Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/ directory` 
 
 ```yaml
 metrics:  
@@ -102,7 +116,8 @@ metrics: 
         documentsTypes:  
           - databaseDetails  
           - serverDetails  
-          - tableDetails  
+          - tableDetails 
+          - replicationDetails 
         host: 127.0.0.1  
         password: USERad@123$  
         port: 3306  
@@ -127,10 +142,7 @@ logging: 
         log_path: /var/lib/mysql/ip-*slow.log, /var/log/mysql/mysql-slow.log  
 ```
 
-**Viewing data and dashboards**   
+**Viewing data and dashboards**   
 
-  
-
-- Data generated by plugin can be viewed in `browse data` page inside the respective application under `plugin=mysql`  and `documentType= serverDetails`  
-
-- Dashboard for this data can be instantiated by Importing dashboard template `MySQL` to the application dashboard  
+- Data generated by plugin can be viewed in`browse data` page inside the respective application under`plugin=mysql`  and `documentType= serverDetails`
+- Dashboard for this data can be instantiated by Importing dashboard template`MySQL` to the application dashboard
