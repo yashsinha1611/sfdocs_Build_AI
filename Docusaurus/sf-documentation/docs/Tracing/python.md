@@ -20,7 +20,7 @@
 1. Add 
 
    ```
-   sf-elastic-apm==6.3.4
+   sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -31,7 +31,7 @@
    Install through CLI using 
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -114,7 +114,7 @@
 1. Add 
 
    ```python
-   sf-elastic-apm[flask]==6.3.4
+   sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -125,7 +125,7 @@
    Install through CLI using
 
    ```
-   pip install sf-elastic-apm[flask]==6.3.4 
+   pip install sf-elastic-apm[flask]==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -197,7 +197,7 @@
 1. Install following requirements
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -267,7 +267,7 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
@@ -322,7 +322,7 @@
 1. Add
 
    ```python
-   sf-elastic-apm==6.3.4
+   sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -333,7 +333,7 @@
    Install through CLI using
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -422,7 +422,7 @@
 1. Add 
 
    ```python
-   sf-elastic-apm[flask]==6.3.4
+   sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -433,7 +433,7 @@
    Install through CLI using 
 
    ```docker
-   RUN pip install sf-elastic-apm[flask]==6.3.4 
+   RUN pip install sf-elastic-apm[flask]==6.7.2 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -510,7 +510,7 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
@@ -563,7 +563,7 @@
 1. Add
 
    ```python
-   sf-elastic-apm==6.3.4
+   sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -574,7 +574,7 @@
    Install through CLI using
 
    ```docker
-   RUN pip install sf-elastic-apm==6.3.4 
+   RUN pip install sf-elastic-apm==6.7.2 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -672,7 +672,7 @@
 1. Add 
 
    ```python
-   sf-elastic-apm[flask]==6.3.4
+   sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -683,7 +683,7 @@
    Install through CLI using
 
    ```docker
-   RUN pip install sf-elastic-apm[flask]==6.3.4 
+   RUN pip install sf-elastic-apm[flask]==6.7.2 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -767,7 +767,7 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
@@ -821,7 +821,7 @@
 1. Add  
 
    ```python
-   sf-elastic-apm==6.3.4
+   sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -832,7 +832,7 @@
    Install through CLI using
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
 
@@ -919,7 +919,7 @@
 1. Add 
 
    ```python
-   sf-elastic-apm[flask]==6.3.4
+   sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
 
@@ -930,7 +930,7 @@
    Install through CLI using
 
    ```docker
-   RUN pip install sf-elastic-apm[flask]==6.3.4 
+   RUN pip install sf-elastic-apm[flask]==6.7.2 
    RUN pip install sf-apm-lib==0.1.1 
    ```
 
@@ -1003,7 +1003,7 @@
 1. Install following requirements (Following example is based on redis broker)
 
    ```
-   pip install sf-elastic-apm==6.3.4 
+   pip install sf-elastic-apm==6.7.2 
    pip install redis 
    pip install sf-apm-lib==0.1.1 
    ```
@@ -1058,7 +1058,7 @@
 
    ```python
    sf-apm-lib==0.1.1 
-   sf-elastic-apm==6.3.4 
+   sf-elastic-apm==6.7.2 
    ```
 
    Ref: https://docs.aws.amazon.com/lambda/latest/dg/python-package-create.html#python-package-create-with-dependency 
@@ -1190,9 +1190,15 @@ Refer code: https://github.com/snappyflow/tracing-reference-apps/blob/master/ref
 
 ---
 
-Now once server is up, we can see the trace info embedded inside statement of log file.
+## Send log correlation data to snappyflow server
 
-To send log correlation data to snappyflow server install sfagent and create config file. Refer: https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux
+Below are the modes for sending log correlated data to snappyflow server
+
+### <b> For Appliance: </b>
+
+Install sfagent and create config file.
+
+Refer: https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux
 
 Add elasticApmLog plugin to sfagent config.yaml and restart sfagent service.
 Eg. Config.yaml
@@ -1207,13 +1213,70 @@ logging:
     - name: elasticApmTraceLog
       enabled: true
       config:
-        log_level:
-          - error
-          - warning
-          - info
-        log_path: /var/log/trace/ntrace.log  # Your app log file path
+         log_level:
+            - error
+            - warning
+            - info
+         log_path: /var/log/trace/ntrace.log  # Your app log file path
 ```
 
+### <b> For Kubernetes: </b>
+
+Specify following values in metadata labels section of deployment file.
+```yaml
+snappyflow/appname: <SF_APP_NAME>
+snappyflow/projectname: <SF_PROJECT_NAME>
+snappyflow/component: gen-elastic-apm-log # This is must for tracing log correlation
+```
+### Sample deployment file
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: python-app
+    snappyflow/appname: '<sf_app_name>'
+    snappyflow/projectname: '<sf_project_name>'
+    snappyflow/component: gen-elastic-apm-log
+  name: python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: python-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: python-app
+        snappyflow/appname: '<sf_app_name>'
+        snappyflow/projectname: '<sf_project_name>'
+        snappyflow/component: gen-elastic-apm-log
+    spec:
+      containers:
+        - env:
+            - name: SF_APP_NAME
+              value: '<sf_app_name>'
+            - name: SF_PROFILE_KEY
+              value: '<sf_profile_key>'
+            - name: SF_PROJECT_NAME
+              value: '<sf_project_name>'
+          image: refapp-node:latest
+          imagePullPolicy: Always
+          name: python-app
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10Mi
+            limits:
+              cpu: 50m
+              memory: 50Mi
+      restartPolicy: Always
+```
+
+<b><i>Note: For kubernetes mode we need sfagent pods to be running inside kubernetes cluster where your application pods are deployed.</i></b> 
 
 For viewing trace and logs in Snappyflow server make sure project and app name is created or discovered.
 Once project and app name is created.
@@ -1224,5 +1287,5 @@ Then click on any trace and go to logs tab to see the correlated logs to trace.
 ```python
 # Note: To get trace in snappyflow server we need log entries to adhere following log format:
 <date in following format>
-[10/Aug/2021 10:51:16] [<log_level>] [<message>] | elasticapm transaction.id=<transaction_id> trace.id=<trace_id> span.id=<Snap id>
+[10/Aug/2021 10:51:16] [<log_level>] [<message>] | elasticapm transaction.id=<transaction_id> trace.id=<trace_id> span.id=<span_id>
 ```
