@@ -13,7 +13,8 @@ Collects metric data organized in following `documentType` under metrics index
 - serverDetails
 - databaseDetails
 - tableDetails
-- replicationDetails
+- masterReplicationDetails
+- slaveReplicationDetails
 
 ### Logger plugin
 
@@ -102,6 +103,17 @@ Execute the following queries on the slave using the login of the user provided 
 
 If the user is able to execute these queries then the replication details can be collected.
 
+Commands to create a replication user if you want to enable replication:
+
+the commands to be executed on the source or master,
+```shell
+CREATE USER 'replica_user'@'slave_server_ip' IDENTIFIED WITH mysql_native_password BY 'password';
+```
+```shell
+GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'slave_server_ip';
+```
+
+
 ## Configuration 
 
 Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/ directory` 
@@ -117,7 +129,8 @@ metrics: 
           - databaseDetails  
           - serverDetails  
           - tableDetails 
-          - replicationDetails 
+          - masterReplicationDetails  #optional to be enabled when replication is setup
+          - slaveReplicationDetails  #optional to be enabled when replication is setup
         host: 127.0.0.1  
         password: USERad@123$  
         port: 3306  
