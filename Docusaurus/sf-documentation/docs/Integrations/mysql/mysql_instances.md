@@ -110,7 +110,7 @@ the commands to be executed on the source or master,
 CREATE USER 'replica_user'@'slave_server_ip' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 ```shell
-GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'slave_server_ip';
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'replica_user'@'slave_server_ip';
 ```
 
 
