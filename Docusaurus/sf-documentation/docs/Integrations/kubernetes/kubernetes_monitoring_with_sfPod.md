@@ -35,7 +35,14 @@ helm repo add snappyflow https://snappyflow.github.io/helm-charts
 helm repo list 
 helm repo update 
 ```
+### Step 3: Installing helm chart 
 
+
+
+```shell
+kubectl create namespace sfagent 
+helm install  snappyflow/sfagent --set cluster_name=<my-cluster-name> --set config.key=<profile key> --name sfagent --namespace sfagent
+```
 :::note
 
 `<my-cluster-name>` Replace with any name, Cluster is discovered by this name on the Snappyflow. 
