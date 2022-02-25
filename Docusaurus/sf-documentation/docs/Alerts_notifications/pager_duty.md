@@ -48,7 +48,7 @@ In your PagerDuty account portal
 
 - Click the Add Service button to save your new integration. You will be redirected to the Service home page. Click on Integrations tab
 
-![img](\img\pager_duty_1.png)
+<img src="\img\pager_duty_1.png" />
 
 - An Integration Key will be generated on this screen. Keep this key saved in a safe place, as it will be used when you configure the integration with SnapyFlow in the next section
 
@@ -58,35 +58,38 @@ In your PagerDuty account portal
 - Navigate to Manage Tab and click on Profiles icon on the left
 - You will now see a list of profiles/users
 
-![](\img\pager_duty_2.png)
+<img src="\img\pager_duty_2.png" />
+
 
 - Select a profile by clicking on the downward facing expand button. Only alerts configured for this profile will be sent to PagerDuty
 - Click on notifications and a list of existing notifications will be displayed. Click on `Add New` button on the right
 
-![](\img\pager_duty_3.png)
+<img src="\img\pager_duty_3.png" />
+
 
 - Under Type, select PagerDuty
 
-![](\img\pager_duty_4.png)
+<img src="\img\pager_duty_4.png" />
 
 - Provide a name for this notification
 - Paste the integration key generated in PagerDuty and click on Add button
 - Once added, the integration will appear with a green Active status
 
-![](\img\pager_duty_5.png)
+<img src="\img\pager_duty_5.png" />
+
 
 - Once the integration is setup, SnappyFlow sends out a test notification to PagerDuty
 - To add specific applications, navigate to Applications Tab and click on Edit Project button (highlighted by the red box below)
 
-![](\img\pager_duty_6.png)
+<img src="\img\pager_duty_6.png" />
 
 - In the Edit Project window, click on Notification tab and select PagerDuty from the drop-down menu option. Click on Configure button to proceed
 
-![](\img\pager_duty_7.png)
+<img src="\img\pager_duty_7.png" />
 
 - Select the integrations that were created and click on the Tick button
 
-![](\img\pager_duty_8.png)
+<img src="\img\pager_duty_8.png" />
 
 - Click on Save and Close button to complete the process. All alerts from this project will start appearing in PagerDuty
 
@@ -94,4 +97,4 @@ In your PagerDuty account portal
 
 Navigate to the profile where PagerDuty notifications are setup and click on Trash icon to delete the integration and stop sending notifications to PagerDuty.
 
-![](\img\pager_duty_9.png)
+<img src="\img\pager_duty_9.png" />
