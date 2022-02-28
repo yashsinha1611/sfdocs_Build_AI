@@ -60,48 +60,7 @@
               },
               collapsed: true,
               items: ['Tracing/java', 'Tracing/python', 'Tracing/ruby', 'Tracing/nodejs', 'Tracing/csharp', 'Tracing/go'], 
-        }, 
-        // {
-        //     type: 'category',
-        //     label: 'Tracing',
-        //     link: {
-        //         type: 'doc',
-        //         id: 'Tracing/overview', 
-        //       },
-        //       collapsed: true,
-        //     items: [ 
-        //         {
-        //             type: 'doc',
-        //             id: 'Tracing/java',
-        //             label: 'Java',
-        //         },
-        //         {
-        //             type: 'doc',
-        //             id: 'Tracing/python',
-        //             label: 'Python',
-        //         },
-        //         {
-        //             type: 'doc',
-        //             id: 'Tracing/ruby',
-        //             label: 'Ruby',
-        //         },
-        //         {
-        //             type: 'doc',
-        //             id: 'Tracing/nodejs',
-        //             label: 'NodeJS',
-        //         },
-        //         {
-        //             type: 'doc',
-        //             id: 'Tracing/csharp',
-        //             label: 'C#',
-        //         },
-        //         {
-        //             type: 'doc',
-        //             id: 'Tracing/go',
-        //             label: 'Go',
-        //         },
-        //     ],
-        // },
+        },  
         {
             type: 'category',
             label: 'Integrations',
@@ -443,8 +402,20 @@
                 title: 'Profiling',
                 image: '/img/docusaurus.png',
               },
+              items:[
+                  'Integrations/go/profiler',
+              {
+                  type: 'category',
+                  label: 'Java', 
+                  link: {
+                    type: 'doc',
+                    id: 'Integrations/java/java_profiler_cpu',
+                  },
+              items: ['Integrations/java/java_profiler_cpu', 'Integrations/java/java_profiler_memory'] 
+              },
+            ],
               collapsed: true,
-              items: ['Integrations/go/profiler', 'Integrations/java/java_profiler_cpu'], 
+            //   items: ['Integrations/go/profiler', 'Integrations/java/java_profiler_cpu'], 
         }, 
         {
             type: 'category',

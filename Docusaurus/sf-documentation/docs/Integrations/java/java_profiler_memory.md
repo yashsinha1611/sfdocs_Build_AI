@@ -1,6 +1,8 @@
-# Heap Analysis
+# Memory
 
-## Pre-requisites
+## Heap Analysis
+
+### Pre-requisites
 
 - Install Java - JDK 11
 - [Install sfAgent on Linux](https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux)
