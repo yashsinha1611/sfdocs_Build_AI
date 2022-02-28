@@ -6,11 +6,8 @@ const FeatureList = [
   {
     title: 'Quick Start Guide',
     Png: require('../../static/img/getting-started-icon.png').default,
-    list: [
-      {
-        label: "Getting Started",
-        url: '/docs/Quick_Start/getting_started'
-      },
+    Path:'/docs/Quick_Start/getting_started',  
+    list: [ 
       {
         label: "sfAgent Installation on Linux",
         url: '/docs/Integrations/os/linux/sfagent_linux'
@@ -28,11 +25,8 @@ const FeatureList = [
   {
     title: 'Integrations',
     Png: require('../../static/img/integrations-icon.png').default,
-    list: [
-      {
-        label: "Overview",
-        url: '/docs/Integrations/overview'
-      },
+    Path:'/docs/Integrations/overview',  
+    list: [ 
       {
         label: "JAVA",
           url: '/docs/Integrations/java/overview'
@@ -51,6 +45,7 @@ const FeatureList = [
   {
     title: 'Dashboards',
     Png: require('../../static/img/dashboards-icon.png').default,
+    Path: 'docs/category/dashboards',
     list: [
       {
         label: "Getting Started",
@@ -65,11 +60,8 @@ const FeatureList = [
   {
     title: 'Tracing',
     Png: require('../../static/img/tracing-icon.png').default,
-    list: [
-      {
-        label: "Overview",
-        url: '/docs/Tracing/overview'
-      },
+    Path: '/docs/Tracing/overview',
+    list: [ 
       {
         label: "Java",
         url: '/docs/Tracing/java'
@@ -95,6 +87,7 @@ const FeatureList = [
   {
     title: 'Profiling',
     Png: require('../../static/img/tracing-icon.png').default,
+    Path: '/docs/category/profiling',
     list: [
       {
         label: "JAVA",
@@ -109,11 +102,8 @@ const FeatureList = [
   {
     title: 'Log Management',
     Png: require('../../static/img/log-management-icon.png').default,
-    list: [
-      {
-        label: "Log Overview Search",
-        url: '/docs/Log_management/log_overview'
-      },
+    Path: '/docs/Log_management/log_overview',
+    list: [ 
       {
         label: "Feature Extraction",
         url: '/docs/Log_management/feature_extraction'
@@ -135,11 +125,8 @@ const FeatureList = [
   {
     title: 'Alerts & Notifications',
     Png: require('../../static/img/alerts-notification-icon.png').default,
-    list: [
-      {
-        label: "Getting Started",
-        url: '/docs/Alerts_notifications/getting_started'
-      },
+    Path: '/docs/Alerts_notifications/getting_started',
+    list: [ 
       {
         label: "Alert Management",
         url: '/docs/Alerts_notifications/alert_management'
@@ -152,12 +139,12 @@ const FeatureList = [
   },
   
 ];
-function Feature({ Png, title, list }) {
+function Feature({ Png, title, list,Path }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center padding-horiz--md padLR">
         <div className={styles.treePanel}>
-          <h4> <img src={Png} alt={title} />{title}</h4>
+          <h4><a className="urlPath" href={Path}><img src={Png} alt={title} />{title}</a></h4>
           <ul className={styles.treeView}>
             {
               list.map((items) => (

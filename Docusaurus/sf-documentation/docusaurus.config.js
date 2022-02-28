@@ -13,13 +13,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   favicon: 'img/favicon.ico',
   organizationName: 'SnappyFlow', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [require.resolve('docusaurus-lunr-search'),'@docusaurus/theme-live-codeblock'], 
   presets: [
     [
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          sidebarCollapsed: false,
+          path: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/ram-dot-kumar/SFwebsite.git',
@@ -116,7 +118,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()}`,
+        copyright: `Copyright © ${new Date().getFullYear()}`, 
       },
       prism: {
         theme: lightCodeTheme,

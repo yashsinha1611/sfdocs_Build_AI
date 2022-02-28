@@ -1,4 +1,4 @@
-# Dashboards
+# Getting Started
 
 ## A quick introduction
 

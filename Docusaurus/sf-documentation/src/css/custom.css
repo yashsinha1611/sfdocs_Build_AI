@@ -46,7 +46,7 @@ body{
 h1 {
     font-size: 2.25em;
     line-height: 1.226em;
-    font-weight: 300;
+    font-weight: 600;
     font-family: AmazonEmber_Lt !important;
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -129,7 +129,8 @@ table tr th{
 table thead tr{
   border-bottom-width: 1px;
 }
-table tr:nth-child(2n){
+table tr:nth-child(2n),
+.menu__caret:hover{
   background: transparent;
 }
 main p + table{
@@ -392,7 +393,12 @@ background:transparent;
   color: #333;
   text-decoration: none;
 }
-.menu__link--sublist:after{
+.menu__caret{
+  background: transparent;
+}
+.menu__link--sublist:after,
+.menu__caret:before,
+.menu__list-item--collapsed .menu__caret:before{
   background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.2rem; 
   opacity: 0.7;
   top: 4px;
@@ -461,9 +467,10 @@ main .container:first-child{
   max-width: 100%;
   margin: 0px;;
 }
-.menu__link--sublist:after{
+.menu__link--sublist:after,
+.menu__caret:before{
   position:absolute;
-  left: -10px;
+  left: -14px;
 }
 .blue_textbox{
   padding: 20px;
@@ -671,6 +678,36 @@ article ul.table-of-contents li:hover{
 .order_list li{
   list-style-type:  decimal;
 }
+main .padding-bottom--lg > div:first-child,
+main .padding-top--md > div:first-child{
+    padding: 0 6rem 0rem; 
+}
+main .padding-bottom--lg > div.row:first-child,
+main .padding-top--md > div.row:first-child{
+  padding: 0px;
+}
+/* main article div.text--truncate{
+  display: none;
+} */
+main article.col:first-child{
+  padding: 0px !important;
+  max-width: var(--ifm-col-width) !important;
+}
+a.card 
+{
+  height: auto;
+}
+a.card h2{
+  font-size: 1.4em !important;
+  margin-top: 0px !important;
+  border: 0px;
+   padding:  0;
+}
+a.urlPath,
+a.urlPath:hover{
+  text-decoration: none;
+  color: #1d2645 !important;
+}
 @media screen and (max-width: 550px) and (min-width: 320px) {
   nav.navbar--fixed-top{
       height: 85px;
@@ -763,42 +800,42 @@ article ul.table-of-contents li:hover{
 }
 
 @media only screen and (max-width: 1800px) and (min-width: 1321px) {
-  main .padding-bottom--lg .col:first-child{
+  main .padding-bottom--lg div.col:first-child{
     max-width: 75% !important;
   }
 }
  
 @media only screen and (max-width: 2000px) and (min-width: 1801px) {
-  main .padding-bottom--lg .col:first-child{
+  main .padding-bottom--lg div.col:first-child{
     max-width: 79% !important;
   }
 }
 @media only screen and (max-width: 2500px) and (min-width: 2001px) {
-  main .padding-bottom--lg .col:first-child{
+  main .padding-bottom--lg div.col:first-child{
     max-width: 82% !important;
   }
  
 }
 @media only screen and (max-width: 3000px) and (min-width: 2501px) {
-  main .padding-bottom--lg .col:first-child{
+  main .padding-bottom--lg div.col:first-child{
     max-width: 86% !important;
   }
 
 }
 @media only screen and (max-width: 3500px) and (min-width: 3001px) {
-  main .padding-bottom--lg .col:first-child{
+  main .padding-bottom--lg div.col:first-child{
     max-width: 90% !important;
   }
  
 }
 @media only screen and (max-width: 4000px) and (min-width: 3501px) {
-  main .padding-bottom--lg .col:first-child{
+  main .padding-bottom--lg div.col:first-child{
     max-width: 94% !important;
   }
 
 }
 @media only screen and (max-width: 5000px) and (min-width: 4001px) {
-  main .padding-bottom--lg .col:first-child{
+  main .padding-bottom--lg div.col:first-child{
     max-width: 96% !important;
   }
  
