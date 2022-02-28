@@ -1,4 +1,4 @@
-# Tracing Ruby Applications
+# Ruby
 #### Available Platforms
 
 [**Instances**](ruby#instances)

@@ -1,6 +1,6 @@
 
 
-# Tracing node.js applications
+# NodeJS
 
 #### Available Platforms
 

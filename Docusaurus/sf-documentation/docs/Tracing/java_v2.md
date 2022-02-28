@@ -1,5 +1,5 @@
 
-# Tracing Java Applications
+# Java
 
 
 sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  

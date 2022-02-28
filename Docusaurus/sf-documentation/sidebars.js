@@ -52,7 +52,7 @@
         }, 
         {
             type: 'category',
-            label: 'Tracing',  
+            label: 'Tracing Application',  
             link: { 
                 type: 'generated-index', 
                 title: 'Tracing in SnappyFlow',

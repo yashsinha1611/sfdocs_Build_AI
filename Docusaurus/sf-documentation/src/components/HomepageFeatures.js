@@ -60,7 +60,7 @@ const FeatureList = [
   {
     title: 'Tracing',
     Png: require('../../static/img/tracing-icon.png').default,
-    Path: '/docs/Tracing/overview',
+    Path: 'docs/category/tracing-application',
     list: [ 
       {
         label: "Java",

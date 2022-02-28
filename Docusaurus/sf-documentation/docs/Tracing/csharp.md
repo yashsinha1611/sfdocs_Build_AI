@@ -1,4 +1,4 @@
-# Tracing C# Applications
+# C sharp
 ## Available Platforms
 
 [**ASP.NET Core Application**](csharp#aspnet-core-application)
