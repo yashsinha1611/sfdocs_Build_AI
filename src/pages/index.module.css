@@ -1,0 +1,68 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  /* text-align: center; */
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner_container{
+  margin: 0px auto;
+  width: 964px;
+  position: relative;
+  top: -160px;
+}
+.search{
+  /* background: url('../../static/img/search.png') 97% 7px no-repeat; */
+  padding: 10px;
+  width: 90%;
+  border-radius: 3px;
+  background: #fff;
+  padding-right: 25px;
+  margin-top: 5px;
+  border:0px;
+} 
+.searchIcon{
+ background: #096a8f;
+    padding: 12px 14px 12.5px 14px;
+    position: relative;
+    top: 14px;
+    left: -2px;
+    border-radius: 0px 5px 5px 0px; 
+}
+@media screen and (max-width: 996px) and (min-width: 768px) {
+  .banner_container h1{ 
+    margin-bottom: 20px;
+  } 
+
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  
+  .banner_container{
+    top: -95px;
+  }
+ .banner_container h1{
+    margin-left: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .search{
+    width: 80%;
+    margin-left: 16px;
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="60" viewBox="0 0 82 60">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.362" y1="-0.042" x2="1.362" y2="1.063" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#c8511b"/>
+      <stop offset="1" stop-color="#f90"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-0.376" y1="-0.664" x2="1.477" y2="0.312" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-platform-aws-lambda">
+      <rect width="82" height="60"/>
+    </clipPath>
+  </defs>
+  <g id="platform-aws-lambda" clip-path="url(#clip-platform-aws-lambda)">
+    <g id="Group_77" data-name="Group 77" transform="translate(17 9)">
+      <path id="Path_112" data-name="Path 112" d="M67.928,42.665H57.416a.857.857,0,0,1-.766-.486L41.787,11.1H35.5a.856.856,0,0,1-.856-.856V.856A.856.856,0,0,1,35.5,0H48.629a.856.856,0,0,1,.77.488l14.79,31.08h3.739a.856.856,0,0,1,.856.856v9.384a.856.856,0,0,1-.856.856Zm-9.973-1.712h9.119V33.278H63.65a.855.855,0,0,1-.77-.486L48.089,1.712H36.357V9.391H42.33a.857.857,0,0,1,.771.484Z" transform="translate(-23.832)" fill="url(#linear-gradient)"/>
+      <path id="Path_113" data-name="Path 113" d="M15.924,101.085H4.847a.856.856,0,0,1-.768-1.214L15.665,75.6a.852.852,0,0,1,1.53-.015l5.564,11.46a.855.855,0,0,1,0,.738L16.694,100.6a.856.856,0,0,1-.77.488ZM6.2,99.373h9.183l5.663-11.954-4.6-9.5Z" transform="translate(0 -58.42)" fill="url(#linear-gradient-2)"/>
+    </g>
+  </g>
+</svg>

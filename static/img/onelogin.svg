@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="55" viewBox="0 0 90 55">
+  <defs>
+    <clipPath id="clip-onelogin">
+      <rect width="90" height="55"/>
+    </clipPath>
+  </defs>
+  <g id="onelogin" clip-path="url(#clip-onelogin)">
+    <rect width="90" height="55" fill="#fff"/>
+    <g id="onelogin-1" transform="translate(18 0)">
+      <circle id="Ellipse_21" data-name="Ellipse 21" cx="27.5" cy="27.5" r="27.5" transform="translate(0 0)" fill="#1f1f1f"/>
+      <path id="Path_2122" data-name="Path 2122" d="M152.56,140h-3.548A1.012,1.012,0,0,0,148,141.011v4.549a1.013,1.013,0,0,0,1.011,1.011h3.548v11.461a1.012,1.012,0,0,0,1.011,1.011h4.549a1.012,1.012,0,0,0,1.011-1.011v-17.02A1.012,1.012,0,0,0,158.119,140Z" transform="translate(-128.153 -121.225)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

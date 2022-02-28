@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="55" viewBox="0 0 90 55">
+  <defs>
+    <clipPath id="clip-pagerduty">
+      <rect width="90" height="55"/>
+    </clipPath>
+  </defs>
+  <g id="pagerduty" clip-path="url(#clip-pagerduty)">
+    <rect width="90" height="55" fill="#fff"/>
+    <g id="pagerduty-2" data-name="pagerduty" transform="translate(5.5 -17.18)">
+      <rect id="Rectangle_8" data-name="Rectangle 8" width="8.694" height="15.743" transform="translate(19.5 56.437)" fill="#06ac38"/>
+      <path id="Path_2070" data-name="Path 2070" d="M48.122,3.09C43.5.582,40.244.18,32.651.18H15.5V36.036H32.6c6.766,0,11.828-.408,16.287-3.377,4.861-3.2,7.4-8.587,7.4-14.785C56.271,11.156,53.172,5.786,48.122,3.09ZM34.584,28.52H24.211V7.856L34,7.762C42.917,7.7,47.394,10.8,47.394,17.928c0,7.7-5.577,10.6-12.81,10.6Z" transform="translate(4 17)" fill="#06ac38"/>
+    </g>
+  </g>
+</svg>

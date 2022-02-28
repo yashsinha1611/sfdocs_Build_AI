@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="55" viewBox="0 0 90 55">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.174" y1="1.067" x2="0.826" y2="-0.063" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5a62c3"/>
+      <stop offset="0.5" stop-color="#4d55bd"/>
+      <stop offset="1" stop-color="#3940ab"/>
+    </linearGradient>
+    <clipPath id="clip-teams">
+      <rect width="90" height="55"/>
+    </clipPath>
+  </defs>
+  <g id="teams" clip-path="url(#clip-teams)">
+    <rect width="90" height="55" fill="#fff"/>
+    <g id="microsoft-office-teams-2018-present-" transform="translate(15)">
+      <path id="Path_2075" data-name="Path 2075" d="M1504.534,777.5h15.272a2.613,2.613,0,0,1,2.613,2.613v13.911a9.6,9.6,0,0,1-9.6,9.6h-.045a9.6,9.6,0,0,1-9.6-9.6V778.865A1.365,1.365,0,0,1,1504.534,777.5Z" transform="translate(-1463.294 -756.875)" fill="#5059c9"/>
+      <circle id="Ellipse_18" data-name="Ellipse 18" cx="6.187" cy="6.187" r="6.187" transform="translate(45.375 5.5)" fill="#5059c9"/>
+      <circle id="Ellipse_19" data-name="Ellipse 19" cx="8.938" cy="8.938" r="8.938" transform="translate(23.375 0)" fill="#7b83eb"/>
+      <path id="Path_2076" data-name="Path 2076" d="M649.572,777.5H624.363a2.585,2.585,0,0,0-2.52,2.644V796.01a15.142,15.142,0,1,0,30.25,0V780.144a2.585,2.585,0,0,0-2.52-2.644Z" transform="translate(-605.343 -756.875)" fill="#7b83eb"/>
+      <path id="Path_2077" data-name="Path 2077" d="M638.473,777.5v22.234a2.531,2.531,0,0,1-1.567,2.324,2.437,2.437,0,0,1-.949.193H623.183c-.179-.454-.344-.907-.481-1.375a16.745,16.745,0,0,1-.729-4.867V780.14a2.581,2.581,0,0,1,2.516-2.64Z" transform="translate(-605.473 -756.875)" opacity="0.1"/>
+      <path id="Path_2078" data-name="Path 2078" d="M637.1,777.5v23.609a2.436,2.436,0,0,1-.192.948,2.532,2.532,0,0,1-2.324,1.568H623.829c-.234-.454-.454-.907-.646-1.375a13.637,13.637,0,0,1-.481-1.375,16.743,16.743,0,0,1-.729-4.867V780.14a2.581,2.581,0,0,1,2.516-2.64Z" transform="translate(-605.473 -756.875)" opacity="0.2"/>
+      <path id="Path_2079" data-name="Path 2079" d="M637.1,777.5v20.859a2.536,2.536,0,0,1-2.516,2.516H622.7a16.745,16.745,0,0,1-.729-4.867V780.14a2.581,2.581,0,0,1,2.516-2.64Z" transform="translate(-605.474 -756.875)" opacity="0.2"/>
+      <path id="Path_2080" data-name="Path 2080" d="M635.724,777.5v20.859a2.536,2.536,0,0,1-2.516,2.516H622.7a16.747,16.747,0,0,1-.729-4.867V780.14a2.581,2.581,0,0,1,2.516-2.64Z" transform="translate(-605.474 -756.875)" opacity="0.2"/>
+      <path id="Path_2081" data-name="Path 2081" d="M899.873,417.184v4.331c-.234.014-.454.027-.688.027s-.454-.014-.687-.027a7.546,7.546,0,0,1-1.375-.22,8.938,8.938,0,0,1-6.188-5.252,7.641,7.641,0,0,1-.44-1.375h6.861A2.526,2.526,0,0,1,899.873,417.184Z" transform="translate(-866.873 -403.668)" opacity="0.1"/>
+      <path id="Path_2082" data-name="Path 2082" d="M914.65,469.017v2.956a7.544,7.544,0,0,1-1.375-.22,8.938,8.938,0,0,1-6.187-5.253h5.046A2.526,2.526,0,0,1,914.65,469.017Z" transform="translate(-883.024 -454.126)" opacity="0.2"/>
+      <path id="Path_2083" data-name="Path 2083" d="M914.65,469.017v2.956a7.544,7.544,0,0,1-1.375-.22,8.938,8.938,0,0,1-6.187-5.253h5.046A2.526,2.526,0,0,1,914.65,469.017Z" transform="translate(-883.024 -454.126)" opacity="0.2"/>
+      <path id="Path_2084" data-name="Path 2084" d="M913.267,469.016v2.736a8.937,8.937,0,0,1-6.187-5.253h3.671A2.526,2.526,0,0,1,913.267,469.016Z" transform="translate(-883.018 -454.125)" opacity="0.2"/>
+      <path id="Path_2085" data-name="Path 2085" d="M2.52,466.5H27.73a2.52,2.52,0,0,1,2.52,2.52V494.23a2.52,2.52,0,0,1-2.52,2.52H2.52A2.52,2.52,0,0,1,0,494.23V469.02A2.52,2.52,0,0,1,2.52,466.5Z" transform="translate(0 -454.125)" fill="url(#linear-gradient)"/>
+      <path id="Path_2086" data-name="Path 2086" d="M333.389,730.506H328.35v13.722h-3.211V730.506h-5.016v-2.662h13.266Z" transform="translate(-311.631 -708.536)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
