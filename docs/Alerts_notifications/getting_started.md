@@ -1,5 +1,4 @@
-# Getting Started
-## Overview
+# Getting Started 
 
 ### Alerts in SnappyFlow
 
