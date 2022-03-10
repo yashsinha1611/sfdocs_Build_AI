@@ -256,20 +256,20 @@ If system.webserver or modules are not already in your web.config file, you can 
 :::
 
 #### Change Profile key instructions (Only when changing profile key) 
-If you want to change your profile key in future, you need to remove the preexisting elasticapm data from web.config file and rebuild the project.
+</strike>If you want to change your profile key in future, you need to remove the preexisting elasticapm data from web.config file and rebuild the project.</strike>
 
 #### Web.config 
 :::info
 <configuration> 
 <appSettings> 
-    <add key="ElasticApm:ServerUrl" value="" /> 
-    <add key="ElasticApm:GlobalLabels" value="" /> 
-    <add key="ElasticApm:CentralConfig" value="" /> 
-    <add key="ElasticApm:VerifyServerCert" value="" /> 
-    <add key="ElasticApm:DisableMetrics" value="" /> 
-    <add key="ElasticApm:ServiceName" value="" /> 
-    <add key="ElasticApm:StackTraceLimit" value="" /> 
-    <add key="ElasticApm:SpanFramesMinDuration" value="" /> 
+   <strike><add key="ElasticApm:ServerUrl" value="" /> </strike>
+   <strike><add key="ElasticApm:GlobalLabels" value="" /> </strike>
+   <strike><add key="ElasticApm:CentralConfig" value="" /> </strike>
+   <strike><add key="ElasticApm:VerifyServerCert" value="" /> </strike>
+   <strike><add key="ElasticApm:DisableMetrics" value="" /> </strike>
+   <strike><add key="ElasticApm:ServiceName" value="" /> </strike>
+   <strike><add key="ElasticApm:StackTraceLimit" value="" /></strike>
+   <strike><add key="ElasticApm:SpanFramesMinDuration" value="" /></strike>
 </appSettings> 
 </configuration> 
 :::
