@@ -251,26 +251,36 @@ Add ElasticApm module in **web.config** file. Refer Example [**web.config**](csh
 
 :::note
 
-If system.webserver or modules are not already in your web.config file, you can add them also.
+If `system.webserver` or modules are not already in your `web.config` file, you can add them as well
 
 :::
 
-#### Change Profile key instructions (Only when changing profile key) 
-If you want to change your profile key in future, you need to remove the preexisting elasticapm data from web.config file and rebuild the project.
+#### Instructions to change profile key 
 
-#### Web.config 
+:::warning
 
-<div class="blue_textbox">
-<configuration> 
-<appSettings> 
-   <strike><add key="ElasticApm:ServerUrl" value="" /> </strike>
-   <strike><add key="ElasticApm:GlobalLabels" value="" /> </strike>
-   <strike><add key="ElasticApm:CentralConfig" value="" /> </strike>
-   <strike><add key="ElasticApm:VerifyServerCert" value="" /> </strike>
-   <strike><add key="ElasticApm:DisableMetrics" value="" /> </strike>
-   <strike><add key="ElasticApm:ServiceName" value="" /> </strike>
-   <strike><add key="ElasticApm:StackTraceLimit" value="" /></strike>
-   <strike><add key="ElasticApm:SpanFramesMinDuration" value="" /></strike>
-</appSettings> 
-</configuration> 
-</div>
+Proceed with caution
+
+:::
+
+Remove preexisting elasticapm data from `web.config` file and rebuild the project.
+
+:::info
+
+#### Below code needs to be removed in `web.config` under `<appsettings>` if profile key is to be changed
+
+:::
+
+```
+    <add key="ElasticApm:ServerUrl" value="" /> 
+    <add key="ElasticApm:GlobalLabels" value="" /> 
+    <add key="ElasticApm:CentralConfig" value="" /> 
+    <add key="ElasticApm:VerifyServerCert" value="" /> 
+    <add key="ElasticApm:DisableMetrics" value="" /> 
+    <add key="ElasticApm:ServiceName" value="" /> 
+    <add key="ElasticApm:StackTraceLimit" value="" /> 
+    <add key="ElasticApm:SpanFramesMinDuration" value="" /> 
+```
+
+
+
