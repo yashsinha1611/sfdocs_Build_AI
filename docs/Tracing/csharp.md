@@ -260,7 +260,7 @@ If you want to change your profile key in future, you need to remove the preexis
 
 #### Web.config 
 
-:::
+:::info
 
 <configuration> 
 <appSettings> 
@@ -276,3 +276,17 @@ If you want to change your profile key in future, you need to remove the preexis
 </configuration> 
 
 :::
+```c#
+<configuration> 
+<appSettings> 
+    <add key="ElasticApm:ServerUrl" value="" /> 
+    <add key="ElasticApm:GlobalLabels" value="" /> 
+    <add key="ElasticApm:CentralConfig" value="" /> 
+    <add key="ElasticApm:VerifyServerCert" value="" /> 
+    <add key="ElasticApm:DisableMetrics" value="" /> 
+    <add key="ElasticApm:ServiceName" value="" /> 
+    <add key="ElasticApm:StackTraceLimit" value="" /> 
+    <add key="ElasticApm:SpanFramesMinDuration" value="" /> 
+</appSettings> 
+</configuration> 
+```
