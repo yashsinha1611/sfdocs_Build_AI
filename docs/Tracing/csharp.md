@@ -256,10 +256,11 @@ If system.webserver or modules are not already in your web.config file, you can 
 :::
 
 #### Change Profile key instructions (Only when changing profile key) 
-</strike>If you want to change your profile key in future, you need to remove the preexisting elasticapm data from web.config file and rebuild the project.</strike>
+If you want to change your profile key in future, you need to remove the preexisting elasticapm data from web.config file and rebuild the project.
 
 #### Web.config 
-:::info
+
+<div class="blue_textbox">
 <configuration> 
 <appSettings> 
    <strike><add key="ElasticApm:ServerUrl" value="" /> </strike>
@@ -272,4 +273,4 @@ If system.webserver or modules are not already in your web.config file, you can 
    <strike><add key="ElasticApm:SpanFramesMinDuration" value="" /></strike>
 </appSettings> 
 </configuration> 
-:::
+</div>
