@@ -259,7 +259,7 @@ If system.webserver or modules are not already in your web.config file, you can 
 If you want to change your profile key in future, you need to remove the preexisting elasticapm data from web.config file and rebuild the project.
 
 #### Web.config 
-:::
+:::info
 <configuration> 
 <appSettings> 
     <add key="ElasticApm:ServerUrl" value="" /> 
