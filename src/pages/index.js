@@ -15,7 +15,7 @@ function HomepageHeader() {
         siteConfig.themeConfig.navbar.logo.href = StageHomePageUrl
       }
     }
-  }, []);
+  });
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={styles.banner_container}>
