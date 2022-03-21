@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
-
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { StageHomePageUrl } from './Constants';
 const FeatureList = [
   {
     title: 'Quick Start Guide',
@@ -139,7 +140,16 @@ const FeatureList = [
   },
   
 ];
+
 function Feature({ Png, title, list,Path }) {
+  const { siteConfig } = useDocusaurusContext();
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      if (window.location.host.includes('stage')) {
+        siteConfig.themeConfig.navbar.logo.href = StageHomePageUrl
+      }
+    }
+  }, [])
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center padding-horiz--md padLR">
