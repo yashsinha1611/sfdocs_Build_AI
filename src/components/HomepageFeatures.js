@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { StageHomePageUrl } from './Constants';
 const FeatureList = [
   {
@@ -142,11 +141,11 @@ const FeatureList = [
 ];
 
 function Feature({ Png, title, list,Path }) {
-  const { siteConfig } = useDocusaurusContext();
   useEffect(() => {
     if (typeof window !== undefined) {
-      if (window.location.host.includes('stage')) {
-        siteConfig.themeConfig.navbar.logo.href = StageHomePageUrl
+      if (window.location.host.includes('stage') || window.location.host.includes('localhost')) {
+        console.log('home page');
+        document.querySelector('.navbar__brand').href = StageHomePageUrl
       }
     }
   }, [])

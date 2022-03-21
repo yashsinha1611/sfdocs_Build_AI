@@ -5,17 +5,17 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
-import {StageHomePageUrl} from '../components/Constants';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      if (window.location.host.includes('stage')) {
-        siteConfig.themeConfig.navbar.logo.href = StageHomePageUrl
-      }
-    }
-  });
+  // useEffect(() => {
+  //   if (typeof window !== undefined) {
+  //     if (window.location.host.includes('localhost')) {
+  //       document.querySelector('.navbar__brand').href = StageHomePageUrl
+  //       // siteConfig.themeConfig.navbar.logo.href = StageHomePageUrl
+  //     }
+  //   }
+  // });
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={styles.banner_container}>
