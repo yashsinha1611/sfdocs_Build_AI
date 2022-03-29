@@ -182,7 +182,7 @@
                             {
                                 type: 'doc',
                                 id: 'Integrations/kubernetes/sfkubeagent_installation',
-                                label: 'Application Monitoring with sfKubeAgent',
+                                label: 'Monitoring Application Pods with sfKubeAgent',
                             },
                             {
                                 type: 'doc',
