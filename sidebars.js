@@ -25,7 +25,7 @@
                 type: 'doc',
                 id: 'Quick_Start/getting_started' 
               },
-              collapsed: true,
+              collapsed: false,
             items: [ 
                 {
                     type: 'doc',
@@ -149,7 +149,10 @@
                     ]
                 },
                 {
-                    IIS: [
+                    type: 'category',
+                    label: 'IIS', 
+                      collapsed: true,
+                    items: [ 
                         {
                             type: 'doc',
                             id: 'Integrations/iis/iis_windows',
@@ -161,7 +164,7 @@
                             label: 'IIS Web Server and Access Logging Setup'
                         },
                     ]
-                },
+                },               
                 {
                     type: 'category',
                     label: 'Kubernetes',
@@ -255,9 +258,11 @@
                     id: 'Integrations/mssql_windows',
                     label: 'MS SQL',
                 },
-                {
-                    'Operating Systems':
-                        [
+                {    
+                    type: 'category',
+                    label:  'Operating Systems', 
+                      collapsed: true,
+                      items:[
                             {
                                 type: 'category',
                                 label: 'Linux',
@@ -296,28 +301,30 @@
                                     ],
                             },
                             {
-                                Windows:
-                                    [
-                                        {
-                                            type: 'doc',
-                                            id: 'Integrations/os/windows/sfagent_windows',
-                                            label: 'sfAgent installation on Windows',
-                                        },
-
-                                    ],
+                                type: 'category',
+                                label: 'Windows', 
+                                collapsed: true,
+                                items: [ 
+                                    {
+                                        type: 'doc',
+                                        id: 'Integrations/os/windows/sfagent_windows',
+                                        label: 'sfAgent installation on Windows',
+                                    },
+                                ],                             
                             },
                         ],
                 },
                 {
-                    StatsD:
-                        [
-                            {
-                                type: 'doc',
-                                id: 'Integrations/statsd/custom_monitoring',
-                                label: 'Custom Monitoring using StatsD',
-                            },
-                        ],
-
+                    type: 'category',
+                    label: 'StatsD', 
+                      collapsed: true,
+                    items: [ 
+                        {
+                            type: 'doc',
+                            id: 'Integrations/statsd/custom_monitoring',
+                            label: 'Custom Monitoring using StatsD',
+                        },
+                    ],
                 },
                 {
                     type: 'doc',
