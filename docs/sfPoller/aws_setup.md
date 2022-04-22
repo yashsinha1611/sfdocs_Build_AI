@@ -163,5 +163,8 @@
 
 6. Go to SnappyFlow dashboard (from where profile key was copied) and wait for sometime to get your applications discovered
  
+
+##### sfPoller Installation      [![Watch the video](images/video-icon.png)](images/sfPoller-Production.mp4) 
+
+
  
-<video  autoplay  className="videoSection" controls="" controlslist="nodownload" preload="metadata"><source  src="/images/sfPoller-Production.mp4" type="video/mp4" width="400px" height="300px"></source></video>
