@@ -23,6 +23,21 @@ const FeatureList = [
     ]
   },
   {
+    title: 'sfPoller',
+    Png: require('../../static/img/integrations-icon.png').default,
+    Path:'/docs/sfPoller/overview',  
+    list: [ 
+      {
+        label: "Setup in AWS",
+          url: '/docs/sfPoller/aws_setup'
+       },
+      {
+            label: "Setup in vCenter",
+            url: '/docs/sfPoller/vcenter_setup'
+        }  
+    ]
+  },
+  {
     title: 'Integrations',
     Png: require('../../static/img/integrations-icon.png').default,
     Path:'/docs/Integrations/overview',  

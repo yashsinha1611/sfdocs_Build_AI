@@ -52,6 +52,27 @@
         }, 
         {
             type: 'category',
+            label: 'sfPoller',  
+            link: { 
+                type: 'doc', 
+                id: 'sfPoller/overview'
+              },
+              collapsed: true,
+              items: [
+                {
+                    type: 'doc',
+                    id: 'sfPoller/aws_setup',
+                    label: 'Setup in AWS',
+                },
+                {
+                    type: 'doc',
+                    id: 'sfPoller/vcenter_setup',
+                    label: 'Setup in vCenter',
+                } 
+            ], 
+        },  
+        {
+            type: 'category',
             label: 'Tracing',  
             link: { 
                 type: 'generated-index', 
@@ -397,6 +418,11 @@
                     type: 'doc',
                     id: 'Integrations/aws_lambda',
                     label: 'AWS Lambda',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin_config',
+                    label: 'Plugin Configuration',
                 },
             ],
         },
