@@ -33,6 +33,7 @@ Add the plugin configuration in `config.yaml` file under `C:\Program Files (x86)
     - serverDetails
     - databaseDetails
     - tableDetails
+    - queryDetails
 ```
 
 For help with plugins, please reach out to [support@snappyflow.io](mailto:support@snappyflow.io)
