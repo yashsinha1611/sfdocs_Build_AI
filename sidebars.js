@@ -411,6 +411,11 @@
                 },
                 {
                     type: 'doc',
+                    id: 'Integrations/rabbitmq',
+                    label: 'RabbitMQ',
+                },
+                {
+                    type: 'doc',
                     id: 'Integrations/haproxy',
                     label: 'HAProxy',
                 },
