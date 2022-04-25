@@ -56,6 +56,6 @@ All CloudWatch metrics are collected and tagged based on their ELB type to get d
 
 ### Further Reading
 
-[S3](../s3/documentation.md) and [RDS](../rds/documentation.md)  for other AWS service related monitoring.
+S3 and [RDS](./rds)  for other AWS service related monitoring.
 
 For help with plugins, please reach out to [support@snappyflow.io](mailto:support@snappyflow.io).
