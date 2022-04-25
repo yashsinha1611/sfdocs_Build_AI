@@ -2,7 +2,7 @@
 # What Is SfPoller?
 
 
-During the course of instrumenting monitoring of an application, an SRE or an architect needs a repertoire of tools to cater to varied requirements of monitoring. sfPoller is a powerful and extremely useful component of SnappyFlow and when used in conjunction with sfAgent and sfPod, allow users to reach all interfaces of an application that need to be monitored.
+During the course of instrumenting an application for monitoring, an SRE or an architect needs a repertoire of tools to cater to varied requirements of monitoring. sfPoller is a powerful and extremely useful component of SnappyFlow and when used in conjunction with sfAgent and sfPod, allow users to reach all interfaces of an application that need to be monitored.
 
 A few example scenarios where sfPoller is indispensable are mentioned below:
  
