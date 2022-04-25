@@ -424,10 +424,72 @@
                     id: 'Integrations/aws_lambda',
                     label: 'AWS Lambda',
                 },
+                // {
+                //     type: 'doc',
+                //     id: 'Integrations/plugin_config',
+                //     label: 'Plugin Configuration',
+                // },
                 {
-                    type: 'doc',
-                    id: 'Integrations/plugin_config',
-                    label: 'Plugin Configuration',
+                    type: 'category',
+                    label: 'Plugin Configuration', 
+                      collapsed: true,
+                    items: [ 
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/aws',
+                            label: 'AWS',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/azuredb',
+                            label: 'AzureDB',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/azurelog',
+                            label: 'AzureLog',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/blazemeter',
+                            label: 'Blaze Meter',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/blob',
+                            label: 'Blob',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/elb',
+                            label: 'ELB',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/elblogs',
+                            label: 'ELB Logs',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/mssql',
+                            label: 'MS SQL',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/oracleASH',
+                            label: 'Oracle ASH',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/rds',
+                            label: 'RDS',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/plugin/vcenter',
+                            label: 'vCenter',
+                        }
+                    ],
                 },
             ],
         },
