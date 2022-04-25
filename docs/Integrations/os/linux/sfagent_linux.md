@@ -63,7 +63,7 @@ sfAgent executes commands such as iostat or jcmd to fetch metrics. If the utilit
 
 :::
 
-To install sfAgent on multiple end-points using Ansible playbook, refer the following script at https://github.com/snappyflow/apm-agent 
+To install sfAgent on multiple end-points using Ansible playbook, refer the following script at https://github.com/snappyflow/ansible-role-apm-agent 
 
 ## Configuration
 
