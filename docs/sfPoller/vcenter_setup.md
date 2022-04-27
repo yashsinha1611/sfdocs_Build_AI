@@ -1,5 +1,5 @@
 
-# Snappyflow sfPoller Server For vCenter
+# Snappyflow sfPoller Server for vCenter
 
 ### Pre-Requisites:
 
