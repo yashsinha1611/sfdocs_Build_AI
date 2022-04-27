@@ -1,8 +1,6 @@
 # AWS
-
-## Metric
-
-### Description
+ 
+## Description
 
 AWS Metric plugin provide information related to billing and inventory for the account and it is displayed in sfAPM dashboard. 
 
