@@ -434,7 +434,7 @@
                             {
                                 type: 'doc',
                                 id: 'Integrations/rabbitmqinstance',
-                                label: 'RabbitMQ on Instance',
+                                label: 'RabbitMQ on Instances',
                             },
                             {
                                 type: 'doc',
