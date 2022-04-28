@@ -427,10 +427,22 @@
                     label: 'Redis',
                 },
                 {
-                    type: 'doc',
-                    id: 'Integrations/rabbitmq',
-                    label: 'RabbitMQ',
-                },
+                    type: 'category',
+                    label: 'RabbitMQ', 
+                      collapsed: true,
+                      items:[ 
+                            {
+                                type: 'doc',
+                                id: 'Integrations/rabbitmqinstance',
+                                label: 'RabbitMQ on Instance',
+                            },
+                            {
+                                type: 'doc',
+                                id: 'Integrations/rabbitmqkubernet',
+                                label: 'RabbitMQ in Kubernetes',
+                            },
+                        ]
+            },
                 {
                     type: 'doc',
                     id: 'Integrations/haproxy',
