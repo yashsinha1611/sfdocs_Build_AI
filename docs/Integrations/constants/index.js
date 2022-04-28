@@ -384,7 +384,7 @@ const IntegrationsList = () => {
 
 	return (
 		<div>
-			SnappyFlow support a wide range of build in integrations to help you get started quickly.
+			SnappyFlow supports a wide range of built in integrations to help you get started quickly.
 			<p className="searchContrainer ">
 				<img src="/img/search.png" alt="Search" />
 				<input type="text" className="form-control" value={searchKey} onChange={handleSearchKeyChange} name="" placeholder="Search for SnappyFlow Integrations" />

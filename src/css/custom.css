@@ -716,6 +716,9 @@ main .padding-bottom--lg article.col:first-child{
   position: relative;
   top: -3px;
 }
+ol li ul {
+  margin-top: 10px;
+}
 @media screen and (max-width: 550px) and (min-width: 320px) {
   nav.navbar--fixed-top{
       height: 85px;

@@ -52,6 +52,27 @@
         }, 
         {
             type: 'category',
+            label: 'sfPoller',  
+            link: { 
+                type: 'doc', 
+                id: 'sfPoller/overview'
+              },
+              collapsed: true,
+              items: [
+                {
+                    type: 'doc',
+                    id: 'sfPoller/aws_setup',
+                    label: 'Setup in AWS',
+                },
+                {
+                    type: 'doc',
+                    id: 'sfPoller/vcenter_setup',
+                    label: 'Setup in vCenter',
+                } 
+            ], 
+        },  
+        {
+            type: 'category',
             label: 'Tracing',  
             link: { 
                 type: 'generated-index', 
@@ -254,10 +275,27 @@
                         ],
                 },
                 {
-                    type: 'doc',
-                    id: 'Integrations/mssql_windows',
-                    label: 'MS SQL',
+                    type: 'category',
+                    label: 'MS SQL', 
+                      collapsed: true,
+                        items:[ 
+                            {
+                                type: 'doc',
+                                id: 'Integrations/mssql_windows',
+                                label: 'MS SQL on Instances',
+                            },
+                            {
+                                type: 'doc',
+                                id: 'Integrations/plugin/mssql',
+                                label: 'MS SQL in Kubernetes',
+                            }, 
+                        ],
                 },
+                // {
+                //     type: 'doc',
+                //     id: 'Integrations/mssql_windows',
+                //     label: 'MS SQL',
+                // },
                 {    
                     type: 'category',
                     label:  'Operating Systems', 
@@ -389,6 +427,23 @@
                     label: 'Redis',
                 },
                 {
+                    type: 'category',
+                    label: 'RabbitMQ', 
+                      collapsed: true,
+                      items:[ 
+                            {
+                                type: 'doc',
+                                id: 'Integrations/rabbitmqinstance',
+                                label: 'RabbitMQ on Instances',
+                            },
+                            {
+                                type: 'doc',
+                                id: 'Integrations/rabbitmqkubernet',
+                                label: 'RabbitMQ in Kubernetes',
+                            },
+                        ]
+            },
+                {
                     type: 'doc',
                     id: 'Integrations/haproxy',
                     label: 'HAProxy',
@@ -397,7 +452,63 @@
                     type: 'doc',
                     id: 'Integrations/aws_lambda',
                     label: 'AWS Lambda',
+                },  
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/aws',
+                    label: 'AWS',
                 },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/azuredb',
+                    label: 'AzureDB',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/azurelog',
+                    label: 'AzureLog',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/blazemeter',
+                    label: 'Blaze Meter',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/blob',
+                    label: 'Blob',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/elb',
+                    label: 'ELB',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/elblogs',
+                    label: 'ELB Logs',
+                },
+                // {
+                //     type: 'doc',
+                //     id: 'Integrations/plugin/mssql',
+                //     label: 'MS SQL',
+                // },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/oracleASH',
+                    label: 'Oracle ASH',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/rds',
+                    label: 'RDS',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/vcenter',
+                    label: 'vCenter',
+                }, 
+                
             ],
         },
         {

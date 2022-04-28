@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
-
+import { StageHomePageUrl } from './Constants';
 const FeatureList = [
   {
     title: 'Quick Start Guide',
@@ -20,6 +20,21 @@ const FeatureList = [
         label: "Monitoring Application Pods with sfKubeAgent",
         url: '/docs/Integrations/kubernetes/sfkubeagent_installation'
       },
+    ]
+  },
+  {
+    title: 'sfPoller',
+    Png: require('../../static/img/integrations-icon.png').default,
+    Path:'/docs/sfPoller/overview',  
+    list: [ 
+      {
+        label: "Setup in AWS",
+          url: '/docs/sfPoller/aws_setup'
+       },
+      {
+            label: "Setup in vCenter",
+            url: '/docs/sfPoller/vcenter_setup'
+        }  
     ]
   },
   {
@@ -139,7 +154,16 @@ const FeatureList = [
   },
   
 ];
+
 function Feature({ Png, title, list,Path }) {
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      if (window.location.host.includes('stage') || window.location.host.includes('localhost')) {
+        console.log('home page');
+        document.querySelector('.navbar__brand').href = StageHomePageUrl
+      }
+    }
+  }, [])
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center padding-horiz--md padLR">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -8,6 +8,14 @@ import HomepageFeatures from '../components/HomepageFeatures';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  // useEffect(() => {
+  //   if (typeof window !== undefined) {
+  //     if (window.location.host.includes('localhost')) {
+  //       document.querySelector('.navbar__brand').href = StageHomePageUrl
+  //       // siteConfig.themeConfig.navbar.logo.href = StageHomePageUrl
+  //     }
+  //   }
+  // });
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={styles.banner_container}>
