@@ -41,7 +41,7 @@ helm repo update
 
 ```shell
 kubectl create namespace sfagent 
-helm install  snappyflow/sfagent --set cluster_name=<my-cluster-name> --set config.key=<profile key> --name sfagent --namespace sfagent
+helm install  snappyflow/sfagent --set config.project_name=<my-project-name> --set config.app_name=<my-cluster-name> --set config.key=<profile key> --name sfagent --namespace sfagent 
 ```
 :::note
 
