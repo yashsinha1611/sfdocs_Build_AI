@@ -427,6 +427,11 @@
                     label: 'Redis',
                 },
                 {
+                    type: 'doc',
+                    id: 'Integrations/redis_sentinel',
+                    label: 'Redis Sentinel',
+                },
+                {
                     type: 'category',
                     label: 'RabbitMQ', 
                       collapsed: true,
