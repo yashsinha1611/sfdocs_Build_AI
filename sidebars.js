@@ -427,6 +427,11 @@
                     label: 'Redis',
                 },
                 {
+                    type: 'doc',
+                    id: 'Integrations/redis_sentinel',
+                    label: 'Redis Sentinel',
+                },
+                {
                     type: 'category',
                     label: 'RabbitMQ', 
                       collapsed: true,
@@ -443,6 +448,18 @@
                             },
                         ]
             },
+            {
+                type: 'category',
+                label: 'Clickhouse', 
+                  collapsed: true,
+                  items:[ 
+                        {
+                            type: 'doc',
+                            id: 'Integrations/clickhouse_kubernetes',
+                            label: 'Clickhouse on Kubernetes',
+                        }, 
+                    ]
+        },
                 {
                     type: 'doc',
                     id: 'Integrations/haproxy',
