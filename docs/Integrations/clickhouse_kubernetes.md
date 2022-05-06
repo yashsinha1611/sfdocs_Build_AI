@@ -149,16 +149,7 @@ spec:
           name: etc-clickhouse-operator-templatesd-folder
         - mountPath: /etc/clickhouse-operator/users.d
           name: etc-clickhouse-operator-usersd-folder
-      - command:
-        - sh
-        - -c
-        - tail -n+1 -F /var/log/*.log
-        env:
-        - name: CLICKHOUSE_USER
-          value: sdsd
-        - name: CLICKHOUSE_PASSWORD
-          value: dsds
-        image: altinity/metrics-exporter:0.10.0
+      - image: altinity/metrics-exporter:0.10.0
         imagePullPolicy: Always
         name: metrics-exporter
         ports:
