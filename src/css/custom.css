@@ -634,7 +634,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .navbar__items--right > :last-child{
   margin-left: 5px;
 }
-.navbar__items--right div:first-child{
+.navbar__items--right div:first-child svg{
   display:none;
 }
 article ul.table-of-contents{
