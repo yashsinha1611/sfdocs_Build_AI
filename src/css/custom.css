@@ -634,7 +634,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .navbar__items--right > :last-child{
   margin-left: 5px;
 }
-.navbar__items--right div:first-child{
+.navbar__items--right div:first-child svg{
   display:none;
 }
 article ul.table-of-contents{
@@ -753,6 +753,9 @@ ol li ul {
     padding: 2px 15px; 
     text-decoration: none;
     margin-top: -2px;
+}
+.navbar__search{
+  display: block !important;
 }
 @media screen and (max-width: 550px) and (min-width: 320px) {
   nav.navbar--fixed-top{

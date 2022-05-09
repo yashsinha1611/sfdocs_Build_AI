@@ -75,7 +75,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             class: 'docs',
           },
           { 
-            href: 'https://stage-website.snappyflow.io/product',
+            href: 'http://snappyflow.io/product',
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -84,7 +84,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           {
             type: 'doc', 
-            href: 'https://stage-website.snappyflow.io/pricing',
+            href: 'http://snappyflow.io/pricing',
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -93,7 +93,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           {
             type: 'doc', 
-            href: 'https://stage-website.snappyflow.io/blogs',
+            href: 'http://snappyflow.io/blogs',
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -102,7 +102,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           {
             type: 'doc', 
-            href: 'https://stage-website.snappyflow.io/success-stories',
+            href: 'http://snappyflow.io/success-stories',
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -111,7 +111,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           {
             type: 'doc', 
-            href: 'https://stage-accounts.snappyflow.io/freetrial',
+            href: 'https://accounts.snappyflow.io/freetrial',
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -120,7 +120,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           {
             type: 'doc', 
-            href: 'https://stage-accounts.snappyflow.io/login',
+            href: 'https://accounts.snappyflow.io/login',
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
