@@ -303,5 +303,6 @@ ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
 - Give a Service Name and select other requirements as per your task compatibility
 - Click on next step and start your service
 
-&nbsp;
+## Trace history
+
  <TraceHistory/>

@@ -1,4 +1,3 @@
-# Trace history
 
 By default, live tracing data is retained for 1 hour or defined retention period. Data is automatically deleted once retention cycle limit is reached; hence user can no longer access those data.
 
