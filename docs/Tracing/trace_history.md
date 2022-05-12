@@ -15,12 +15,12 @@ Now we are also providing the feature where the user can provide custom filters 
 Steps to create a **History Pipeline Rule**
 
 1. Select the appropriate filters in Aggregate/ Realtime page and click on **Save Filters As History Pipeline Rule** link in the top right corner.
-<img src="/img/filters.png" />
+<img src="/img/filters.PNG" />
 
 2.  Provide the configuration details for the **History Pipeline Rule** and click save.
 <p><b>Note:</b> To avoid overhead of data we are limiting the #Max Records to 50. </p>
-<img src="/img/rule_popup.png" />
+<img src="/img/rule_popup.PNG" />
 
 3. To Manage the list of History Pipeline Rules, Click History Pipeline Rules link in Aggregate/ Realtime page
-<img src="/img/view_rules.png" />
+<img src="/img/view_rules.PNG" />
  
