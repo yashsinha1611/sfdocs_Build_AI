@@ -288,5 +288,4 @@ Remove preexisting elasticapm data from `web.config` file and rebuild the projec
 
 
 
-# Trace history
  <TraceHistory/>

@@ -48,5 +48,5 @@ Refer to ruby[_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflo
 
 Once updated, deploy the pod.
 
-# Trace history
+
  <TraceHistory/>

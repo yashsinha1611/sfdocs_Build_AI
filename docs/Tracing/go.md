@@ -5,6 +5,4 @@ import TraceHistory from './trace_history.md';
 Coming Soon!
 
 
-# Trace history
-
  <TraceHistory/>

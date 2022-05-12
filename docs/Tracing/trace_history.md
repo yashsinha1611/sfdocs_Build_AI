@@ -1,4 +1,4 @@
-## Trace history download
+# Trace history
 
 By default, live tracing data is retained for 1 hour or defined retention period. Data is automatically deleted once retention cycle limit is reached; hence user can no longer access those data.
 
@@ -19,8 +19,9 @@ Steps to create a **History Pipeline Rule**
 
 2.  Provide the configuration details for the **History Pipeline Rule** and click save.
 <p><b>Note:</b> To avoid overhead of data we are limiting the #Max Records to 50. </p>
-<img src="/img/rule_popup.PNG" />
+<img src="/img/rule_popup.PNG" /> &nbsp;
 
-3. To Manage the list of History Pipeline Rules, Click History Pipeline Rules link in Aggregate/ Realtime page
+
+To Manage the list of **History Pipeline Rules,** Click History Pipeline Rules link in Aggregate/ Realtime page
 <img src="/img/view_rules.PNG" />
  
