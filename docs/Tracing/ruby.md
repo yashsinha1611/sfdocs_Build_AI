@@ -1,3 +1,5 @@
+import TraceHistory from './trace_history.md';
+
 # Ruby
 #### Available Platforms
 
@@ -45,3 +47,6 @@ Step 2: Update `deployment.yaml`
 Refer to ruby[_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/nodejs/nodejs_k8s_with_helm_chart_deployment.yaml) to copy trace agent to the application container and start the container using the trace agent configurations. Search for `SFTRACE-CONFIG` in sample `deployment.yaml` file
 
 Once updated, deploy the pod.
+
+# Trace history
+ <TraceHistory/>

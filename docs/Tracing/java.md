@@ -1,8 +1,8 @@
 
+import TraceHistory from './trace_history.md';
 
 # Java
-
-
+ 
 
 sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
 <div class="blue_textbox">
@@ -303,5 +303,5 @@ ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
 - Give a Service Name and select other requirements as per your task compatibility
 - Click on next step and start your service
 
-
-
+# Trace history
+ <TraceHistory/>
