@@ -103,7 +103,7 @@ In Tag update again contain three options.
 
     **b. From agent configuration dialogue box.**
       
-      &nbsp;&nbsp;&nbsp;&nbsp;Using this user can apply a bundle for multiple instances under a single application.
+      Using this user can apply a bundle for multiple instances under a single application.
 
     **Steps:** 
     - Click on three dots under the action tab on the Application page. 
