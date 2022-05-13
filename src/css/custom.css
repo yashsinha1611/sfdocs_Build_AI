@@ -724,6 +724,7 @@ main .padding-bottom--lg article.col:first-child{
 }
 ol li ul {
   margin-top: 10px;
+  list-style-type: disc;
 }
 .navbar__items a svg{
   display:none

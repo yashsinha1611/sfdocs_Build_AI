@@ -89,7 +89,8 @@ In Tag update again contain three options.
 
     Config bundle apply can be done in two ways 
 
-    a. From inventory page 
+    **a. From inventory page** 
+
     Using this user can apply a bundle for a single instance only at a time. 
     
      **Steps:**
@@ -100,7 +101,7 @@ In Tag update again contain three options.
      - After applying the bundle if it is a success status shows the applied, its fail status shows Error along with reason. 
        <img src="/img/fail_status.png" /> 
 
-    b. From agent configuration dialogue box.
+    **b. From agent configuration dialogue box.**
       
       &nbsp;&nbsp;&nbsp;&nbsp;Using this user can apply a bundle for multiple instances under a single application.
 
