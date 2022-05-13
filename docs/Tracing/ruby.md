@@ -1,4 +1,4 @@
-import TraceHistory from './trace_history.md';
+import TraceHistory from './advanced/trace_history.md';
 
 # Ruby
 #### Available Platforms

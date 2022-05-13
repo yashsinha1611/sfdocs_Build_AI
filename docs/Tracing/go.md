@@ -1,9 +1,10 @@
-import TraceHistory from './trace_history.md';
+import TraceHistory from './advanced/trace_history.md';
 
 # Go
 
 Coming Soon!
 
-## Trace history
 
+
+## Trace history
  <TraceHistory/>

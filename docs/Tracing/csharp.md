@@ -1,6 +1,6 @@
-import TraceHistory from './trace_history.md';
+import TraceHistory from './advanced/trace_history.md';
 
-# C sharp
+# C#
 ## Available Platforms
 
 [**ASP.NET Core Application**](csharp#aspnet-core-application)

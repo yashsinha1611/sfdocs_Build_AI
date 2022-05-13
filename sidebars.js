@@ -80,8 +80,53 @@
                 description: 'SnappyFlow supports distributed tracing compliant with Opentracing standard. Tracing allows users to visualize the sequence of steps a transaction (whether API or non-API such as a Celery job) takes during its execution. This analysis is extremely powerful and allows pinpointing the source of problems such as abnormal time being spent on an execution step or identifying point of failure in a transaction. SnappyFlow refers to distributed tracing as sfTrace.',
               },
               collapsed: true,
-              items: ['Tracing/java', 'Tracing/python', 'Tracing/ruby', 'Tracing/nodejs', 'Tracing/csharp', 'Tracing/go'], 
-        },  
+              items: [
+                  {
+                    type: 'doc',
+                     id: 'Tracing/java',
+                     label: 'Java'
+                  },
+                  {
+                    type: 'doc',
+                    id: 'Tracing/python',
+                    label: 'Python'
+                 },
+                 {
+                    type: 'doc',
+                    id: 'Tracing/ruby',
+                    label: 'Ruby'
+                 },
+                 {
+                    type: 'doc',
+                    id: 'Tracing/nodejs',
+                    label: 'NodeJS'
+                 },
+                 {
+                    type: 'doc',
+                    id: 'Tracing/csharp',
+                    label: 'C#'
+                 },
+                 {
+                    type: 'doc',
+                    id: 'Tracing/go',
+                    label: 'GO'
+                 },
+                 {
+                    type: 'category',
+                    label: 'Advanced Tracing Feature', 
+                      collapsed: true,
+                        items: [ 
+                            {
+                                type: 'doc',
+                                id: 'Tracing/advanced/trace_history',
+                                label: 'Trace History',
+                            }
+                        ]
+            },
+                ], 
+            
+             
+    },  
         {
             type: 'category',
             label: 'Integrations',
@@ -524,6 +569,11 @@
                     type: 'doc',
                     id: 'Integrations/plugin/vcenter',
                     label: 'vCenter',
+                },  
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/configUpdate',
+                    label: 'Configuration Update',
                 }, 
                 
             ],

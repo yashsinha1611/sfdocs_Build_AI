@@ -1,3 +1,4 @@
+### Tracing History Rule
 
 By default, live tracing data is retained for 1 hour or defined retention period. Data is automatically deleted once retention cycle limit is reached; hence user can no longer access those data.
 
@@ -5,9 +6,9 @@ There might be a case where some traces are important to users, to accommodate t
 
 We have default internal logic for collecting below conditional records (Max. 5 records per URL) every half an hour:
 
-- There might be a case where some traces are important to users, to accommodate the loss we are providing trace history feature where we store crucial trace records in metric index.
+- **HTTP 4xx, HTTP 5XX** error codes requests.
 
-- We have default internal logic for collecting below conditional records (Max. 5 records per URL) every half an hour:
+- Http request where duration is greater than 90th percentile of duration of the URL (For each URL present in the application).
 
 Now we are also providing the feature where the user can provide custom filters to store the traces. we need to create **History Pipeline Rules,** where the user can define the custom filters. Based on the filters defined in the rules, every 30 mins, the matching traces will be collected and stored
 
@@ -21,6 +22,6 @@ Steps to create a **History Pipeline Rule**
 <img src="/img/rule_popup.PNG" /> &nbsp;
 
 
-To Manage the list of **History Pipeline Rules,** Click History Pipeline Rules link in Aggregate/ Realtime page
+To Manage the list of History Pipeline Rules, Click **History Pipeline Rules** link in Aggregate/ Realtime page
 <img src="/img/view_rules.PNG" />
  
