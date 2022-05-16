@@ -1,5 +1,4 @@
-import TraceHistory from './advanced/trace_history.md';
-
+ 
 # Python
 
 #### Available Platforms
@@ -1292,6 +1291,4 @@ Then click on any trace and go to logs tab to see the correlated logs to trace.
 <date in following format>
 [10/Aug/2021 10:51:16] [<log_level>] [<message>] | elasticapm transaction.id=<transaction_id> trace.id=<trace_id> span.id=<span_id>
 ```
-## Trace history
-
- <TraceHistory/>
+ 

@@ -1,4 +1,4 @@
-### Tracing History Rules
+# Tracing History
 
 Trace collection generates large amount of data. All these historical trace data is not required. This is why the retention period of trace data is very low, compared to metrics or logs retention. The default configuration of trace retention is one hour. Trace data is automatically removed once it ages.
 

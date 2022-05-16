@@ -759,9 +759,9 @@ ol li ul {
 .navbar__search{
   display: block !important;
 }
-.theme-doc-markdown header{
+/*.theme-doc-markdown header{
   display: none;
-}
+}*/
 .theme-doc-markdown h1 {
   margin-top: 2rem !important;
 }

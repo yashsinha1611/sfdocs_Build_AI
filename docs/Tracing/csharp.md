@@ -1,4 +1,4 @@
-import TraceHistory from './advanced/trace_history.md';
+ 
 
 # C#
 ## Available Platforms
@@ -284,9 +284,4 @@ Remove preexisting elasticapm data from `web.config` file and rebuild the projec
     <add key="ElasticApm:SpanFramesMinDuration" value="" /> 
 ```
 
-
-
-
-## Trace history
-
- <TraceHistory/>
+ 

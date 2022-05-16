@@ -1,6 +1,3 @@
-
-import TraceHistory from './advanced/trace_history.md';
-
 # Java
  
 
@@ -302,7 +299,3 @@ ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
 - Click on Create , Select the Launch type matching to your task definition.  Select the Task Definition Name and Version in the Drop down matching to the task definition you created in step 1
 - Give a Service Name and select other requirements as per your task compatibility
 - Click on next step and start your service
-
-## Trace history
-
- <TraceHistory/>
