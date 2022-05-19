@@ -135,7 +135,7 @@
 
       sfPoller installation is complete now
 
-### Configure SfPoller
+### Configure sfPoller
 
 1. Add Profile Key:
 
