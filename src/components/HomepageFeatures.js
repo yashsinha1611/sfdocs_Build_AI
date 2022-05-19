@@ -34,7 +34,11 @@ const FeatureList = [
       {
             label: "Setup in vCenter",
             url: '/docs/sfPoller/vcenter_setup'
-        }  
+        },
+        {
+              label: "Setup in Azure",
+              url: '/docs/sfPoller/azure_setup' 
+          }  
     ]
   },
   {

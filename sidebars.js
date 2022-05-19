@@ -68,7 +68,12 @@
                     type: 'doc',
                     id: 'sfPoller/vcenter_setup',
                     label: 'Setup in vCenter',
-                } 
+                },
+                {
+                    type: 'doc',
+                    id: 'sfPoller/azure_setup',
+                    label: 'Setup in Azure',
+                }
             ], 
         },  
         {
