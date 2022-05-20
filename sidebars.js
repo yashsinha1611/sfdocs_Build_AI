@@ -142,6 +142,116 @@
               collapsed: true,
             items: [ 
                 {
+                    type: 'doc',
+                    id: 'Integrations/activemq',
+                    label: 'ActiveMQ',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/apache/overview',
+                    label: 'Apache',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/aws_lambda',
+                    label: 'AWS Lambda',
+                },  
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/aws',
+                    label: 'AWS',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/azuredb',
+                    label: 'AzureDB',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/azurelog',
+                    label: 'AzureLog',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/blazemeter',
+                    label: 'Blaze Meter',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/blob',
+                    label: 'Blob',
+                },
+                {
+                    type: 'category',
+                    label: 'Clickhouse', 
+                      collapsed: true,
+                      items:[ 
+                            {
+                                type: 'doc',
+                                id: 'Integrations/clickhouse_kubernetes',
+                                label: 'Clickhouse on Kubernetes',
+                            }, 
+                        ]
+            },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/configUpdate',
+                    label: 'Configuration Update',
+                }, 
+                {
+                    type: 'doc',
+                    id: 'Integrations/elb/elb_rds',
+                    label: 'Elastic Load Balancer',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/elb',
+                    label: 'ELB',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/plugin/elblogs',
+                    label: 'ELB Logs',
+                },
+                {
+                    type: 'category',
+                    label: 'GO',
+                    link: {
+                        type: 'doc',
+                        id: 'Integrations/go/profiler',
+                      }, 
+                      collapsed: true,
+                        items:[
+                            {
+                                type: 'doc',
+                                id: 'Integrations/go/profiler',
+                                label: 'Go Profiler',
+                            },
+                        ],
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/haproxy',
+                    label: 'HAProxy',
+                },
+                {
+                    type: 'category',
+                    label: 'IIS', 
+                      collapsed: true,
+                    items: [ 
+                        {
+                            type: 'doc',
+                            id: 'Integrations/iis/iis_windows',
+                            label: 'IIS in Windows'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/iis/iis_setup',
+                            label: 'IIS Web Server and Access Logging Setup'
+                        },
+                    ]
+                },  
+                {
                     type: 'category',
                     label: 'JAVA',
                     link: {
@@ -179,63 +289,25 @@
                 },
                 {
                     type: 'category',
-                    label: 'Nginx',
+                    label: 'Kafka',
                     link: {
                         type: 'doc',
-                        id: 'Integrations/nginx/overview',
-                      },  
-                      collapsed: true,
-                        items: [ 
-                            {
-                                type: 'doc',
-                                id: 'Integrations/nginx/nginx_instance',
-                                label: 'Monitoring Nginx on Instances',
-                            },
-                            {
-                                type: 'doc',
-                                id: 'Integrations/nginx/nginx_kubernetes',
-                                label: 'Monitoring Nginx in Kubernetes',
-                            },
-                        ],
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/apache/overview',
-                    label: 'Apache',
-                }, 
-                {
-                    type: 'category',
-                    label: 'Tomcat',
-                    link: {
-                        type: 'doc',
-                        id: 'Integrations/tomcat/overview',
+                        id: 'Integrations/kafka/overview',
                       }, 
                       collapsed: true,
-                    items: [ 
+                      items:[ 
                         {
                             type: 'doc',
-                            id: 'Integrations/tomcat/tomcat_windows',
-                            label: 'Tomcat in Windows'
+                            id: 'Integrations/kafka/kafka_kubernetes',
+                            label: 'Kafka in Kubernetes'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/kafka/kafka_instances',
+                            label: 'Kafka on Instances',
                         },
                     ]
                 },
-                {
-                    type: 'category',
-                    label: 'IIS', 
-                      collapsed: true,
-                    items: [ 
-                        {
-                            type: 'doc',
-                            id: 'Integrations/iis/iis_windows',
-                            label: 'IIS in Windows'
-                        },
-                        {
-                            type: 'doc',
-                            id: 'Integrations/iis/iis_setup',
-                            label: 'IIS Web Server and Access Logging Setup'
-                        },
-                    ]
-                },               
                 {
                     type: 'category',
                     label: 'Kubernetes',
@@ -268,29 +340,25 @@
                         ],
                 },
                 {
+                    type: 'doc',
+                    id: 'Integrations/mongodb',
+                    label: 'MongoDB',
+                },
+                {
                     type: 'category',
-                    label: 'Postgres',
-                    link: {
-                        type: 'doc',
-                        id: 'Integrations/postgres/overview',
-                      },  
+                    label: 'MS SQL', 
                       collapsed: true,
                         items:[ 
                             {
                                 type: 'doc',
-                                id: 'Integrations/postgres/postgres_instances',
-                                label: 'Postgres on Instances',
+                                id: 'Integrations/mssql_windows',
+                                label: 'MS SQL on Instances',
                             },
                             {
                                 type: 'doc',
-                                id: 'Integrations/postgres/postgres_kubernetes',
-                                label: 'Postgres in Kubernetes',
-                            },
-                            {
-                                type: 'doc',
-                                id: 'Integrations/postgres/postgres_sfpoller',
-                                label: 'Postgres with sfPoller',
-                            },
+                                id: 'Integrations/plugin/mssql',
+                                label: 'MS SQL in Kubernetes',
+                            }, 
                         ],
                 },
                 {
@@ -324,28 +392,29 @@
                             },
                         ],
                 },
+                
                 {
                     type: 'category',
-                    label: 'MS SQL', 
+                    label: 'Nginx',
+                    link: {
+                        type: 'doc',
+                        id: 'Integrations/nginx/overview',
+                      },  
                       collapsed: true,
-                        items:[ 
+                        items: [ 
                             {
                                 type: 'doc',
-                                id: 'Integrations/mssql_windows',
-                                label: 'MS SQL on Instances',
+                                id: 'Integrations/nginx/nginx_instance',
+                                label: 'Monitoring Nginx on Instances',
                             },
                             {
                                 type: 'doc',
-                                id: 'Integrations/plugin/mssql',
-                                label: 'MS SQL in Kubernetes',
-                            }, 
+                                id: 'Integrations/nginx/nginx_kubernetes',
+                                label: 'Monitoring Nginx in Kubernetes',
+                            },
                         ],
                 },
-                // {
-                //     type: 'doc',
-                //     id: 'Integrations/mssql_windows',
-                //     label: 'MS SQL',
-                // },
+                
                 {    
                     type: 'category',
                     label:  'Operating Systems', 
@@ -403,83 +472,35 @@
                         ],
                 },
                 {
-                    type: 'category',
-                    label: 'StatsD', 
-                      collapsed: true,
-                    items: [ 
-                        {
-                            type: 'doc',
-                            id: 'Integrations/statsd/custom_monitoring',
-                            label: 'Custom Monitoring using StatsD',
-                        },
-                    ],
-                },
-                {
                     type: 'doc',
-                    id: 'Integrations/activemq',
-                    label: 'ActiveMQ',
+                    id: 'Integrations/plugin/oracleASH',
+                    label: 'Oracle ASH',
                 },
                 {
                     type: 'category',
-                    label: 'GO',
+                    label: 'Postgres',
                     link: {
                         type: 'doc',
-                        id: 'Integrations/go/profiler',
-                      }, 
+                        id: 'Integrations/postgres/overview',
+                      },  
                       collapsed: true,
-                        items:[
+                        items:[ 
                             {
                                 type: 'doc',
-                                id: 'Integrations/go/profiler',
-                                label: 'Go Profiler',
+                                id: 'Integrations/postgres/postgres_instances',
+                                label: 'Postgres on Instances',
+                            },
+                            {
+                                type: 'doc',
+                                id: 'Integrations/postgres/postgres_kubernetes',
+                                label: 'Postgres in Kubernetes',
+                            },
+                            {
+                                type: 'doc',
+                                id: 'Integrations/postgres/postgres_sfpoller',
+                                label: 'Postgres with sfPoller',
                             },
                         ],
-                },
-                {
-                    type: 'category',
-                    label: 'Kafka',
-                    link: {
-                        type: 'doc',
-                        id: 'Integrations/kafka/overview',
-                      }, 
-                      collapsed: true,
-                      items:[ 
-                        {
-                            type: 'doc',
-                            id: 'Integrations/kafka/kafka_kubernetes',
-                            label: 'Kafka in Kubernetes'
-                        },
-                        {
-                            type: 'doc',
-                            id: 'Integrations/kafka/kafka_instances',
-                            label: 'Kafka on Instances',
-                        },
-                    ]
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/elb/elb_rds',
-                    label: 'Elastic Load Balancer',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/zookeeper',
-                    label: 'ZooKeeper',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/mongodb',
-                    label: 'MongoDB',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/redis',
-                    label: 'Redis',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/redis_sentinel',
-                    label: 'Redis Sentinel',
                 },
                 {
                     type: 'category',
@@ -497,73 +518,16 @@
                                 label: 'RabbitMQ in Kubernetes',
                             },
                         ]
-            },
-            {
-                type: 'category',
-                label: 'Clickhouse', 
-                  collapsed: true,
-                  items:[ 
-                        {
-                            type: 'doc',
-                            id: 'Integrations/clickhouse_kubernetes',
-                            label: 'Clickhouse on Kubernetes',
-                        }, 
-                    ]
-        },
-                {
-                    type: 'doc',
-                    id: 'Integrations/haproxy',
-                    label: 'HAProxy',
                 },
                 {
                     type: 'doc',
-                    id: 'Integrations/aws_lambda',
-                    label: 'AWS Lambda',
-                },  
-                {
-                    type: 'doc',
-                    id: 'Integrations/plugin/aws',
-                    label: 'AWS',
+                    id: 'Integrations/redis',
+                    label: 'Redis',
                 },
                 {
                     type: 'doc',
-                    id: 'Integrations/plugin/azuredb',
-                    label: 'AzureDB',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/plugin/azurelog',
-                    label: 'AzureLog',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/plugin/blazemeter',
-                    label: 'Blaze Meter',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/plugin/blob',
-                    label: 'Blob',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/plugin/elb',
-                    label: 'ELB',
-                },
-                {
-                    type: 'doc',
-                    id: 'Integrations/plugin/elblogs',
-                    label: 'ELB Logs',
-                },
-                // {
-                //     type: 'doc',
-                //     id: 'Integrations/plugin/mssql',
-                //     label: 'MS SQL',
-                // },
-                {
-                    type: 'doc',
-                    id: 'Integrations/plugin/oracleASH',
-                    label: 'Oracle ASH',
+                    id: 'Integrations/redis_sentinel',
+                    label: 'Redis Sentinel',
                 },
                 {
                     type: 'doc',
@@ -571,15 +535,48 @@
                     label: 'RDS',
                 },
                 {
+                    type: 'category',
+                    label: 'StatsD', 
+                      collapsed: true,
+                    items: [ 
+                        {
+                            type: 'doc',
+                            id: 'Integrations/statsd/custom_monitoring',
+                            label: 'Custom Monitoring using StatsD',
+                        },
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Tomcat',
+                    link: {
+                        type: 'doc',
+                        id: 'Integrations/tomcat/overview',
+                      }, 
+                      collapsed: true,
+                    items: [ 
+                        {
+                            type: 'doc',
+                            id: 'Integrations/tomcat/tomcat_windows',
+                            label: 'Tomcat in Windows'
+                        },
+                    ]
+                },           
+                {
                     type: 'doc',
                     id: 'Integrations/plugin/vcenter',
                     label: 'vCenter',
-                },  
+                },   
+              
                 {
                     type: 'doc',
-                    id: 'Integrations/plugin/configUpdate',
-                    label: 'Configuration Update',
+                    id: 'Integrations/zookeeper',
+                    label: 'ZooKeeper',
                 }, 
+                
+                
+               
+               
                 
             ],
         },

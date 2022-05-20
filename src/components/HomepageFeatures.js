@@ -46,14 +46,22 @@ const FeatureList = [
     Png: require('../../static/img/integrations-icon.png').default,
     Path:'/docs/Integrations/overview',  
     list: [ 
-      {
-        label: "JAVA",
-          url: '/docs/Integrations/java/overview'
-       },
-      {
-            label: "Kubernetes",
-            url: '/docs/Integrations/kubernetes/overview'
-        },
+      // {
+      //   label: "JAVA",
+      //     url: '/docs/Integrations/java/overview'
+      //  },
+      // {
+      //       label: "Kubernetes",
+      //       url: '/docs/Integrations/kubernetes/overview'
+      //   },
+      { 
+        url: '/docs/Integrations/activemq',
+        label: 'ActiveMQ',
+    },
+    { 
+      url: '/docs/Integrations/apache/overview',
+        label: 'Apache',
+    },
         {
             label: "More....",
             url: '/docs/Integrations/overview'

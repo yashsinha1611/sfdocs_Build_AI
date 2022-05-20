@@ -115,7 +115,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             docId:'Tracing/overview',
             target: '_self',
             position: 'left',
-            label: 'Get Your Free Trial Now  ',
+            label: 'Free Trial',
             class: 'getStart',
           },
           {
