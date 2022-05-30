@@ -4,15 +4,15 @@
 ## Launching sfPoller Instance 
 
 
-1. Login to Azure portal. Goto marketplace and select SnappyFlow sfPoller at <a href="https://portal.azure.com/#create/maplelabsinc1623932715330.sfpollersfpoller"><u>azure portal</u></a>.
+1. Login to Azure portal. Goto marketplace and select SnappyFlow sfPoller <a href="https://portal.azure.com/#create/maplelabsinc1623932715330.sfpollersfpoller">click here</a>.
     <img src="/img/azure_1.png" alt="" />
 2. Click create.
 3. Create a new resource group.
 4. Provide Virtual Machine name and select region.
-5. Select the deployment size of the VM. (Recommended standard_B2s- 2 vcpu and 4GiB RAM).
+5. Select deployment size of the VM. (Recommended standard_B2s- 2 vcpu and 4GiB RAM).
 6. Select generate new key pair option for SSH public key resource or use existing public key.
 7. If you select generate new key pair option provide key pair names. 
-8. Select all three ports (HTTP 80, HTTPS 443, SSH 22) in inbound ports which are mentioned in the image below. 
+8. Select all three ports in inbound ports.
     <img src="/img/azure_2.png" alt="" />
 9. Click on next and select OS disk type.
 10. Click on next and in the Management tab enable the identity check box.
@@ -26,7 +26,7 @@
     - Select scope as subscription and role as an owner. 
     <img src="/img/azure_4.png" alt="" />  
     - Click on save.
-14. After completing the above steps, to access the sfPoller UI copy the public IP of VM and to login the username is admin, the password is a private IP address of the VM. 
+14. After completing all the steps, to access the UI copy the public IP. The username is admin and the password is a private IP address. 
 
 ### Configure sfPoller
 
