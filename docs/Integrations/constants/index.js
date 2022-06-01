@@ -39,6 +39,14 @@ const AGENTS = [
 
 	},
 	{
+		'src': '/img/oracle_ash.svg',
+		'label': 'Oracle ASH',
+		'overText': 'OracleASH plugin fetch and parse the oracle ASH report from AWS-RDS.',
+		'category': ['Databases'],
+		'link': '/docs/Integrations/plugin/oracleASH'
+
+	},
+	{
 		'src': '/img/haproxy.svg',
 		'label': 'HAProxy',
 		'overText': 'Microsoft Infrastructure platform is built for enterprises',
@@ -60,6 +68,34 @@ const AGENTS = [
 		'link': '/docs/integrations/kafka/overview'
 	},
 	{
+		'src': '/img/blaze_meter.svg',
+		'label': 'Blaze Meter',
+		'overText': 'Plugin collects Test Reports from the BlazeMeter Account',
+		'category': ['App Tier'],
+		'link': '/docs/integrations/plugin/blazemeter'
+	},
+	{
+		'src': '/img/azure_DB.svg',
+		'label': 'AzureDB',
+		'overText': 'Azuredb Metric plugin collects metrics related to relational database services like Azure SQL, Azure database for MySQL and Azure database for PostgreSQL using insights data from Azure Monitor',
+		'category': ['Databases'],
+		'link': '/docs/Integrations/plugin/azuredb'
+	},
+	{
+		'src': '/img/azure_blob.svg',
+		'label': 'Azure Blob',
+		'overText': 'Azure blob storage is to store large amount of unstructured data on data storage platform',
+		'category': ['Databases'],
+		'link': '/docs/Integrations/plugin/blob'
+	},
+	{
+		'src': '/img/aws_rds.svg',
+		'label': 'AWS RDS',
+		'overText': 'Amazon Relational Database Service (Amazon RDS) is a managed SQL database service provided by Amazon Web Services (AWS)',
+		'category': ['Databases'],
+		'link': '/docs/Integrations/plugin/rds'
+	}, 
+	{
 		'src': '/img/apache-zookeeper-icon.svg',
 		'label': 'Zookeper',
 		'overText': 'Ldap Infrastructure platform is built for enterprises',
@@ -74,11 +110,25 @@ const AGENTS = [
 		'link': '/docs/Integrations/kubernetes/overview'
 	},
 	{
+		'src': '/img/clickhouse.svg',
+		'label': 'Clickhouse',
+		'overText': 'Clickhouse running in Kubernetes can be monitored in SnappyFlow using Prometheus exporter',
+		'category': ['Cloud', 'Kubernetes'],
+		'link': '/docs/Integrations/clickhouse_kubernetes'
+	}, 
+	{
 		'src': '/img/mysql.svg',
 		'label': 'MySQL',
 		'overText': 'MYSQL Infrastructure platform is built for enterprises',
 		'category': ['Databases'],
 		'link': '/docs/Integrations/mysql/overview'
+	}, 
+	{
+		'src': '/img/mssql.svg',
+		'label': 'MSSQL',
+		'overText': 'Monitoring MS SQL databases',
+		'category': ['Databases'],
+		'link': '/docs/Integrations/mssql_windows'
 	},
 	//{
 	//	'src':'/img/okta.svg',
@@ -157,6 +207,13 @@ const AGENTS = [
 		'overText': 'Redis Infrastructure platform is built for enterprises',
 		'category': ['App Tier'],
 		'link': '/docs/integrations/redis'
+	},
+	{
+		'src': '/img/rabbitmq.svg',
+		'label': 'RabbitMQ',
+		'overText': 'Monitoring RabbitMQ Message Broker running on Instances',
+		'category': ['App Tier'],
+		'link': '/docs/Integrations/rabbitmqinstance'
 	},
 	//{
 	//	'src':'/img/spark.svg',
