@@ -1,6 +1,6 @@
-## .NET Framework Application
+# .NET Framework Application
 
-### Supported Web frameworks
+## Supported Web frameworks
 
 | **Framework**  | **Supported versions** |
 | -------------- | ---------------------- |
