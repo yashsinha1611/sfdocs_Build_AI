@@ -648,6 +648,11 @@
                     type: 'doc',
                     id: 'Log_management/etl_jobs',
                     label: 'ETL Jobs',
+                }, 
+                {
+                    type: 'doc',
+                    id: 'Log_management/custom_log',
+                    label: 'Custom Log Overview',
                 },
             ],
         },

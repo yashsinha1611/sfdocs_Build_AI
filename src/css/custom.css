@@ -319,9 +319,11 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   padding-right: 0px !important;
 }
 /* .react-toggle, */
-.theme-doc-footer{
-  display: none;
+.theme-doc-footer .col:first-child,
+.theme-doc-footer  .theme-last-updated div small{
+  display: none !important;
 }
+
 .text-right{
   text-align: right;
 }
