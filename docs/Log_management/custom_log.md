@@ -8,7 +8,7 @@ Custom Log Overview is a built-in pane for providing a customized overview of th
 
 The custom Log Overview pane can be viewed in two ways
 
-- Import the Custom_Log_Overview pane under Metrics/Logs tab from CustomLogOverview template
+- Import the Custom Log Overview pane under Metrics/Logs tab from CustomLogOverview template
 
 - Change the dashboard template to CustomLogOverview template
 
