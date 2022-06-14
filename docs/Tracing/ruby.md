@@ -1,6 +1,6 @@
  
 
-# Ruby
+# Ruby tracing
 #### Available Platforms
 
 [**Instances**](ruby#instances)

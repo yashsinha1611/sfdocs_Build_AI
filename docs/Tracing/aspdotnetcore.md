@@ -1,13 +1,13 @@
-# ASP .NET Core
+# ASP.NET Core application
 ## Available Platforms
 
-[**Instances**](csharp#aspnet-core-application)
+[**Instances**](#instances)
 
-[**Container**](csharp#net-framework-application)
+[**Containers**](#containers)
 
 ## Instances
 
-### Supported Web frameworks
+### Supported web frameworks
 
 | **Framework** | **Supported versions**       |
 | ------------- | ---------------------------- |
@@ -135,6 +135,7 @@ The below code should be added inside public static IHostBuilder **CreateHostBui
 - **Elastic.Apm.AspNetFullFramework**
 - **Snappyflow.NetCoretrace.Utility**
 			 
+
 These packages can be installed using Nuget package manager in Visual Studio or using .NET CLI commands given below. 
 
    ```

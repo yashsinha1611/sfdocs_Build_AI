@@ -1,6 +1,6 @@
-# .NET Framework Application
+# .NET Framework application
 
-## Supported Web frameworks
+## Supported web frameworks
 
 | **Framework**  | **Supported versions** |
 | -------------- | ---------------------- |
@@ -35,7 +35,7 @@ If you don't know which is system path, you can print the code below to identify
 Directory.GetCurrentDirectory();
 ```
 
-For Instance based application, system path will be **IIS Express** folder. Common location for IIS Express Folder in windows is C:\Program Files (x86)\IIS Express.
+For Instance based application, system path will be **IIS Express** folder. Common location for IIS Express Folder in windows is `C:\Program Files (x86)\IIS Express`.
 
 :::
 
@@ -53,7 +53,7 @@ key: CHANGEME
 
 :::info
 
- If system path is IIS Express as above, the whole path for sftraceConfig.yaml should be C:\Program Files (x86)\IIS Express\wwwroot\ sftraceConfig.yaml.
+ If system path is IIS Express as above, the whole path for `sftraceConfig.yaml` should be `C:\Program Files (x86)\IIS Express\wwwroot\sftraceConfig.yaml`
 
 :::
 
@@ -61,7 +61,7 @@ Create a new class file called `Sftrace_class.cs` in location where **web.config
 
 :::caution
 
-Add the content below to new class file Sftrace_class.cs and don't forget to rename `CHANGENAMESPACE` to your namespace.
+Add the content below to new class file `Sftrace_class.cs` and don't forget to rename `CHANGENAMESPACE` to your namespace.
 
 :::
 
@@ -93,7 +93,7 @@ namespace CHANGENAMESPACE {
 
 The Global. asax file is a special file that contains event handlers for ASP.NET application lifecycle events.
 
-Below is a example Global.asax.cs with required code changes highlighted in blue colour. 
+Below is a example `Global.asax.cs` with required code changes highlighted in blue colour. 
 
 #### Global.asax.cs
 <img src="/img/dotnet/global.png" />
@@ -144,7 +144,7 @@ Proceed with caution
 Remove preexisting elasticapm data from `web.config` file and rebuild the project.
 
 :::info
- 
+
  Below code needs to be removed in `web.config` under `<appsettings>` if profile key is to be changed
 
 :::

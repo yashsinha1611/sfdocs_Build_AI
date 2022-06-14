@@ -1,5 +1,5 @@
- 
-# Python
+
+# Python tracing
 
 #### Available Platforms
 
@@ -71,7 +71,7 @@
          sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
          SFTRACE_CONFIG = sf.get_trace_config()
-   
+      
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -81,7 +81,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-   
+      
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -371,7 +371,7 @@
          sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
          SFTRACE_CONFIG = sf.get_trace_config()
-   
+      
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -381,7 +381,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-   
+      
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -612,9 +612,9 @@
          SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
          sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
          # End of manual configuration 
-   
+      
          SFTRACE_CONFIG = sf.get_trace_config()
-   
+      
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -624,7 +624,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-   
+      
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -872,7 +872,7 @@
          # End of manual configuration
       
          SFTRACE_CONFIG = sf.get_trace_config()
-   
+      
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -882,7 +882,7 @@
          # Add below line to provide destination index (Default:"log"):
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
-   
+      
          ELASTIC_APM={ 
             'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
@@ -1291,4 +1291,3 @@ Then click on any trace and go to logs tab to see the correlated logs to trace.
 <date in following format>
 [10/Aug/2021 10:51:16] [<log_level>] [<message>] | elasticapm transaction.id=<transaction_id> trace.id=<trace_id> span.id=<span_id>
 ```
- 

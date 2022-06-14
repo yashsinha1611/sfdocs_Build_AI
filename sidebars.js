@@ -108,7 +108,11 @@
                  },
                  {
                     type: 'category',
-                    label: 'C#', 
+                    label: 'C#',
+                    link: {
+                        type: 'doc',
+                        id: 'Tracing/csharp',
+                      }, 
                       collapsed: true,
                         items:[
                             {
