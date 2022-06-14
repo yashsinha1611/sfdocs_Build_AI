@@ -107,11 +107,6 @@
                     label: 'NodeJS'
                  },
                  {
-                    type: 'doc',
-                    id: 'Tracing/csharp',
-                    label: 'C#'
-                 },
-                 {
                     type: 'category',
                     label: 'C#',
                     link: {
