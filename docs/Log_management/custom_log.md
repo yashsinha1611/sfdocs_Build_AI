@@ -1,6 +1,8 @@
 
 
-# What is Custom Log Overview pane
+# Custom Log Overview pane
+
+## What is Custom Log Overview pane
 
 Custom Log Overview is a built-in pane for providing a customized overview of the data present in the Logs. This pane contains 3 filters (Source, Log Type and Log Level), a line chart and a table by default. This pane is available under CustomLogOverview template. 
 
