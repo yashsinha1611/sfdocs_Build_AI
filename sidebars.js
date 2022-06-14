@@ -112,6 +112,27 @@
                     label: 'C#'
                  },
                  {
+                    type: 'category',
+                    label: 'C#',
+                    link: {
+                        type: 'doc',
+                        id: 'Tracing/csharp',
+                      }, 
+                      collapsed: true,
+                        items:[
+                            {
+                                type: 'doc',
+                                id: 'Tracing/aspdotnetcore',
+                                label: 'ASP.NET Core',
+                            },
+                            {
+                                type: 'doc',
+                                id: 'Tracing/dotnetframework',
+                                label: '.NET Framework',
+                            },
+                        ]
+                },
+                 {
                     type: 'doc',
                     id: 'Tracing/go',
                     label: 'GO'
