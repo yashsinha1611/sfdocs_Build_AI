@@ -152,7 +152,7 @@ dotnet add package Elastic.Apm.AspNetFullFramework --version 1.12.1
 Copy below `docker-compose.override.yml` content and place it in under the environment variables in `docker-compose.yml` or `docker-compose.override.yml`. configure it with the correct profile key and tags. Get profile key from the Manage-->profile in snappyflow portal. Create a project and application using your profile (or use an existing project and application). You can provide any name to service, this will be displayed in Trace Dashboard.
 Below is an example `docker-compose.override.yml` with required code changes highlighted in blue color.
 #### docker-compose.override.yml
-   <img src="/img/dotnet/docker_compose_yml.PNG" />
+   <img src="/img/dotnet/docker_compose_yml.png" />
 
 Copy the below lines in your docker-compose.override.yml file similar to the example above.
 ```yaml
@@ -173,7 +173,7 @@ ASP.NET Core application contains Startup class. It is like Global.asax in the t
 
 Below is a example Startup.cs with required code changes highlighted in blue colour.
 #### Startup.cs
-   <img src="/img/dotnet/dockerstartup.PNG" />
+   <img src="/img/dotnet/dockerstartup.png" />
 
 Copy the below codes in your Startup.cs file similar to the example above.
 
@@ -210,7 +210,7 @@ Make sure to add `app.UseAllElasticApm(Configuration)` as first line in configur
 ASP.NET Core web application is actually a console project which starts executing from the entry point `public static void Main()` in the `Program` class where we can create a host for the web application.
 
 Below is an example Program.cs with required code changes highlighted in blue color.
-   <img src="/img/dotnet/dockerprogram.PNG" />
+   <img src="/img/dotnet/dockerprogram.png" />
 
 Copy the below codes in your Program.cs file similar to the example above.
 
@@ -239,25 +239,37 @@ The below code should be added inside public static IHostBuilder **CreateHostBui
 ```
 
 Now run your application with the **F5** key, or the **Ctrl+F5** key, selecting the docker-compose project, as shown below image
- <img src="/img/dotnet/docker-compose.PNG" />
+ <img src="/img/dotnet/docker-compose.png" />
 
 
 #### Change Profile key instructions (Only when changing profile key) 
 If you want to change your profile key in future, you need to remove the preexisting elasticapm data from web.config file and rebuild the project.
 
-#### Web.config 
+#### Instructions to change profile key 
 
-<div class="blue_textbox">
-<configuration> 
-<appSettings> 
-   <strike><add key="ElasticApm:ServerUrl" value="" /> </strike>
-   <strike><add key="ElasticApm:GlobalLabels" value="" /> </strike>
-   <strike><add key="ElasticApm:CentralConfig" value="" /> </strike>
-   <strike><add key="ElasticApm:VerifyServerCert" value="" /> </strike>
-   <strike><add key="ElasticApm:DisableMetrics" value="" /> </strike>
-   <strike><add key="ElasticApm:ServiceName" value="" /> </strike>
-   <strike><add key="ElasticApm:StackTraceLimit" value="" /></strike>
-   <strike><add key="ElasticApm:SpanFramesMinDuration" value="" /></strike>
-</appSettings> 
-</configuration> 
-</div>
+:::warning
+
+Proceed with caution
+
+:::
+
+Remove preexisting elasticapm data from `web.config` file and rebuild the project.
+
+:::info
+
+  Below code needs to be removed in `web.config` under `<appsettings>` if profile key is to be changed
+
+:::
+
+```
+    <add key="ElasticApm:ServerUrl" value="" /> 
+    <add key="ElasticApm:GlobalLabels" value="" /> 
+    <add key="ElasticApm:CentralConfig" value="" /> 
+    <add key="ElasticApm:VerifyServerCert" value="" /> 
+    <add key="ElasticApm:DisableMetrics" value="" /> 
+    <add key="ElasticApm:ServiceName" value="" /> 
+    <add key="ElasticApm:StackTraceLimit" value="" /> 
+    <add key="ElasticApm:SpanFramesMinDuration" value="" /> 
+```
+
+ 
