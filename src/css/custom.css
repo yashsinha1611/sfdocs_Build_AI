@@ -857,7 +857,14 @@ ol li ul {
     width: 88%;
   }
 }
-
+@media only screen and (max-width: 1285px) and (min-width: 1001px) {
+  .colorModeToggle_DEke, .footer__link-separator, .navbar__item, .tableOfContents_bqdL {
+      display: none;
+  }
+  .navbar__toggle {
+    display: inherit;
+  }
+}
 @media only screen and (max-width: 1800px) and (min-width: 1321px) {
   main .padding-bottom--lg div.col:first-child{
     max-width: 75% !important;
