@@ -36,7 +36,7 @@ Use the following extensions to achieve the required aggregation on a metric
 
 - A component by default uses the timeline selected in the global component
 
-  ![img](https://www.snappyflow.io/assets/images/display-by-time.png)
+  ![img](/img/display-by-time.png)
 
 - However, a user can evaluate a component for a specific custom using the following steps
 
@@ -46,7 +46,7 @@ Use the following extensions to achieve the required aggregation on a metric
 
   - Go to the JSON Editor and edit the time fields as shown below. In this example, we evaluate the component for last 1 hour. User can specify 30m for 30 minutes, 1d for 1day etc.
 
-    ![img](https://www.snappyflow.io/assets/images/edit-component.png)
+    ![img](/img/edit-component.webp)
 
 ## Constructing Queries
 
@@ -75,7 +75,7 @@ SnappyFlow provides SQL like query language to create components through a JSON 
    |                                                     | **Query_string**: Directive or operator for search by keyword |
    |                                                     | **Message**: Field name in which the pattern has to be searched |
    |                                                     | **Search Text**: Specify exact text in quotes To see all supported options, refer to [Log Overview Search](/docs/Log_management/log_overview) |
-   | Building queries for nested data                    | ![img](https://www.snappyflow.io/assets/images/building-queries-for-nested-data.png) |
+   | Building queries for nested data                    | ![img](/img/building-queries-for-nested-data.png) |
    |                                                     | **Note**: When using a nested field, enclose metric within square brackets. |
    |                                                     | Enable `Add Nested Fields` option in the advanced section. This will add the section `nestedFields` in JSON editor. |
    |                                                     | Specify the nested fields used in the query under `nestedFields` section. |
@@ -128,18 +128,18 @@ User can enable the metric properties from advanced section for:
 | Property      | Description                                                  | Example Use Case                                             | Comments                                                     |
 | :------------ | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | metricsFilter | Used to display specified portions of the string in the component or to shorten the displayed string | Consider a table component displaying pod details with `_tag_podName` as the table key. If the pod names have the form `apmmanager-apm-sfapm-apm`, we can shorten the displayed name using `metricsFilter` | Applicable for Table, Tabbed table, Line chart, Bar chart components |
-|               |                                                              | For Example: ![img](https://www.snappyflow.io/assets/images/metrics-filter-img.png)This will display `apmmanager-apm-sfapm-apm-5cd8946d64-2smb9` as `apm-5cd8946d64-2smb9` |                                                              |
-| decimal       | By default, data is shown upto 1 decimal placeUser can override this setting by using this option | ![img](https://www.snappyflow.io/assets/images/metrics-table-img1.png) | Applicable for Table, Tabbed table, Summary box, Line chart and Bar chart histogram components |
+|               |                                                              | For Example: ![img](/img/metrics-filter-img.png)This will display `apmmanager-apm-sfapm-apm-5cd8946d64-2smb9` as `apm-5cd8946d64-2smb9` |                                                              |
+| decimal       | By default, data is shown upto 1 decimal placeUser can override this setting by using this option | ![img](/img/metrics-table-img1.png) | Applicable for Table, Tabbed table, Summary box, Line chart and Bar chart histogram components |
 |               |                                                              | If we have a table component with a header CPU (%), data under this column will be rounded to 3 decimal places. |                                                              |
 |               |                                                              | **Note**: To change the number of decimals for all metrics in the component, use `default: <num_of_decimals>` |                                                              |
-| format        | Format time field from epoch milliseconds/epoch seconds format to DateTime format | ![img](https://www.snappyflow.io/assets/images/metrics-table-img2.png)![img](https://www.snappyflow.io/assets/images/metrics-table-img3.png) | Applicable for Table, Tabbed table, Bar charts, Key based line chart componentsAvailable options are DateTime, DateTime(ms) and DateTime(us) |
+| format        | Format time field from epoch milliseconds/epoch seconds format to DateTime format | ![img](/img/metrics-table-img2.png)![img](/img/metrics-table-img3.png) | Applicable for Table, Tabbed table, Bar charts, Key based line chart componentsAvailable options are DateTime, DateTime(ms) and DateTime(us) |
 |               |                                                              | In the above example, the time displayed under `Last Seen` column of table is formatted to DateTime format |                                                              |
 | color         | Display table cell with colors based on conditions           | Refer the section “Display table cell with colors based on conditions” in the [Table Component](#table-component) section below | Applicable for Table, Tabbed table and Excel Table components |
 | rate          | Used to display the urate/unit rate of the metric in Table and Summary Box components | **Usage**: `<var_name>: urate`                               | Applicable for Summary Box and Table components              |
 |               |                                                              | urate is calculated as value of the `metric/(time range used in query in seconds)` |                                                              |
-| nullValues    | Null Values are displayed as NA by defaultUse this option to override the default setting | ![img](https://www.snappyflow.io/assets/images/metrics-table-nullvalues.png)The null values will be displayed as `--` instead of NA | Applicable for Table component                               |
-| boxColor      | Display box color for Summary box based on condition         | ![img](https://www.snappyflow.io/assets/images/metrics-table-boxcolor.png)The condition should be specified in the same way as the table cell color. Refer [Table Component](#table-component) section below. | Applicable for Summary Box                                   |
-| textColor     | Display text color for Summary box based on condition        | ![img](https://www.snappyflow.io/assets/images/metrics-table-img-textcolor.png)The condition should be specified in the same way as the table cell color.Refer [Table Component](#table-component) section below. | Applicable for Summary Box                                   |
+| nullValues    | Null Values are displayed as NA by defaultUse this option to override the default setting | ![img](/img/metrics-table-nullvalues.png)The null values will be displayed as `--` instead of NA | Applicable for Table component                               |
+| boxColor      | Display box color for Summary box based on condition         | ![img](/img/metrics-table-boxcolor.png)The condition should be specified in the same way as the table cell color. Refer [Table Component](#table-component) section below. | Applicable for Summary Box                                   |
+| textColor     | Display text color for Summary box based on condition        | ![img](/img/metrics-table-img-textcolor.png)The condition should be specified in the same way as the table cell color.Refer [Table Component](#table-component) section below. | Applicable for Summary Box                                   |
 
 ## Table Component
 
@@ -187,7 +187,7 @@ User can enable the metric properties from advanced section for:
 
 - By choosing “Change Sort Order” in advanced section, user can change the option to descending or ascending for the sort key. Please see in the example below
 
-  ![img](https://www.snappyflow.io/assets/images/change-sort-field.png)
+  ![img](/img/change-sort-field.png)
 
 ### Filter
 
@@ -197,11 +197,11 @@ User can enable the metric properties from advanced section for:
 
 - Click on the filter icon
 
-  ![img](https://www.snappyflow.io/assets/images/transction-by-api-filter.png)
+  ![img](/img/transction-by-api-filter.png)
 
 - Define filters for specific columns. We can specify one or more filters at a time. In the example below we are asking to filter all API path values in databases that contain the key “snappyflow” and number of 4xx errors is GT 5
 
-  ![img](https://www.snappyflow.io/assets/images/filter-popup.png)
+  ![img](/img/filter-popup.png)
 
 - Please note the following limitations and rules to follow
 
@@ -212,15 +212,15 @@ User can enable the metric properties from advanced section for:
 
 - Example- we are computing the total number of 4XX and 5XX errors in the query below and we would like color the cell containing #Errors in red if the number of errors are GT 0
 
-  ![img](https://www.snappyflow.io/assets/images/display-table-cell-with-colors.png)
+  ![img](/img/display-table-cell-with-colors.png)
 
 - Go to the advanced section and enable metric properties. This will bring up a section called metric properties under which add the condition as shown below for color
 
-  ![img](https://www.snappyflow.io/assets/images/metricpoperties.png)
+  ![img](/img/metricpoperties.png)
 
 - This will cause the color to rendered for the cell if #Errors is GT 0
 
-  ![img](https://www.snappyflow.io/assets/images/browser-stats.png)
+  ![img](/img/browser-stats.png)
 
 ### Hyperlink
 
@@ -230,8 +230,8 @@ User can enable the metric properties from advanced section for:
 
 - A hyperlink section is enabled in the JSON editor. You will need to define the redirection target which comprises of Group (Group is a collection of panes. If the target pane does not belong a group, leave this field empty), Pane (dashboard pane name), Component (dropdown in the pane where the value of the hyperlink has to be propagated)
 
-  ![img](https://www.snappyflow.io/assets/images/hyperlink.png)
+  ![img](/img/hyperlink.png)
 
 - Hyperlinks are enabled for the table. Click on the value “200” will redirect to the pane “Transaction Analysis” which belongs to group “Nginx Access” and render this pane with DropDown11 value = 200
 
-  ![img](https://www.snappyflow.io/assets/images/tx-by-rest-code.png)
+  ![img](/img/tx-by-rest-code.png)

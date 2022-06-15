@@ -857,7 +857,7 @@ ol li ul {
     width: 88%;
   }
 }
-@media only screen and (max-width: 1285px) and (min-width: 1001px) {
+@media only screen and (max-width: 1225px) and (min-width: 1001px) {
   .colorModeToggle_DEke, .footer__link-separator, .navbar__item, .tableOfContents_bqdL {
       display: none;
   }
