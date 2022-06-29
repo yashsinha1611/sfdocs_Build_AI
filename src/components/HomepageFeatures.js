@@ -164,7 +164,17 @@ const FeatureList = [
       }
     ]
   },
-  
+  {
+    title: 'Real User Monitoring',
+    Png: require('../../static/img/tracing-icon.png').default,
+    Path: '/docs/RUM/RUM_documentation',
+    list: [ 
+      {
+        label: "Overview",
+        url: '/docs/RUM/RUM_documentation'
+      } 
+    ]
+  },
 ];
 
 function Feature({ Png, title, list,Path }) {

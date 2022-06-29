@@ -697,6 +697,21 @@
                 },
             ],
         },
-
+        {
+            type: 'category',
+            label: 'Real User Monitoring',
+            link: {
+                type: 'doc',
+                id: 'RUM/RUM_documentation',
+              }, 
+              collapsed: true, 
+            items: [ 
+                {
+                    type: 'doc',
+                    id: 'RUM/RUM_documentation',
+                    label: 'Overview',
+                },
+            ],
+        },
     ],
   };
