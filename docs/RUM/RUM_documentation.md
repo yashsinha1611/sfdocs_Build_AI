@@ -1,6 +1,6 @@
 # Real User Monitoring in SnappyFlow
 
-Real User Monitoring (RUM) involves recording end-user interactions with a website or a client interacting with a server or cloud-based application. It  allows website/application owners to visualize the sequence of actions and events that takes place during an interaction. Metrics such as Response times, Number of Transactions, Number of errors, Type of errors are monitored and visualized to help identify and troubleshoot website performance issues. 
+Real User Monitoring (RUM) involves recording end-user interactions with a website or a client interacting with a server or cloud-based application. It  allows website/application owners to visualize the sequence of actions and events that takes place during an interaction. Metrics such as Response time, Transactions, Errors, Event information, Browser information are monitored and visualized to help identify and troubleshoot website performance issues. 
 
 ![image](images/doc1.png)
 
@@ -9,6 +9,20 @@ Real User Monitoring (RUM) involves recording end-user interactions with a websi
 ![image](images/doc3.png)
 
 ![image](images/doc4.png)
+
+## Performance Metrics
+
+- **Apdex Rating**  
+	Apdex (Application Performance Index) is a measure of user satisifaction for a website that varies from 0 to 1 (0 = no users satisfied, 1 = all users satisfied)
+
+- **Page load metrics**  
+	During loading of a page, resource timing information of all the dependent resources such as JavaScript, stylesheets, images, etc. are captured.
+
+- **User interactions**  
+	The click events that trigger the network activity are captured as user interactions
+
+- **JavaScript errors**  
+	The javascript errors that occur in the application are captured. Using the captured information, the root cause of the issue can be analysed
 
 
 
