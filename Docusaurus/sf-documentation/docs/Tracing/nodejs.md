@@ -1110,6 +1110,7 @@ Specify following values in metadata labels section of deployment file.
 snappyflow/appname: <SF_APP_NAME>
 snappyflow/projectname: <SF_PROJECT_NAME>
 snappyflow/component: gen-elastic-apm-log # This is must for tracing log correlation
+snappyflow/component: aks-gen-elastic-apm-log # Set this value if deploying app in Azure Kubernetes
 ```
 ### Sample deployment file
 ```yaml
