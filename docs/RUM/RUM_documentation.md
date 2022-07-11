@@ -98,9 +98,10 @@ apmRum.init(data);
 Create a new file  `apm-error.handler.ts` add following code
 
 ```js
-import { ErrorHandler } from "@angular/core";
+import { ErrorHandler, Injectable } from "@angular/core";
 declare const sfApm: any;
 
+@Injectable()
 export class ApmErrorHandler extends ErrorHandler {
 
 	constructor() {
@@ -118,7 +119,7 @@ export class ApmErrorHandler extends ErrorHandler {
 Then in `app.module.ts` add,
 ```js
 import { ErrorHandler, NgModule } from '@angular/core';
-import { ApmErrorHandler } from './apm.error-handler';
+import { ApmErrorHandler } from './apm-error.handler';
 ```
 
 under imports add,
