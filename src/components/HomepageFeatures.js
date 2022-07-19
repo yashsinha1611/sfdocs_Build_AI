@@ -6,8 +6,8 @@ const FeatureList = [
   {
     title: 'Quick Start Guide',
     Png: require('../../static/img/getting-started-icon.png').default,
-    Path:'/docs/Quick_Start/getting_started',  
-    list: [ 
+    Path: '/docs/Quick_Start/getting_started',
+    list: [
       {
         label: "sfAgent Installation on Linux",
         url: '/docs/Integrations/os/linux/sfagent_linux'
@@ -25,27 +25,27 @@ const FeatureList = [
   {
     title: 'sfPoller',
     Png: require('../../static/img/integrations-icon.png').default,
-    Path:'/docs/sfPoller/overview',  
-    list: [ 
+    Path: '/docs/sfPoller/overview',
+    list: [
       {
         label: "Setup in AWS",
-          url: '/docs/sfPoller/aws_setup'
-       },
+        url: '/docs/sfPoller/aws_setup'
+      },
       {
-            label: "Setup in vCenter",
-            url: '/docs/sfPoller/vcenter_setup'
-        },
-        {
-              label: "Setup in Azure",
-              url: '/docs/sfPoller/azure_setup' 
-          }  
+        label: "Setup in vCenter",
+        url: '/docs/sfPoller/vcenter_setup'
+      },
+      {
+        label: "Setup in Azure",
+        url: '/docs/sfPoller/azure_setup'
+      }
     ]
   },
   {
     title: 'Integrations',
     Png: require('../../static/img/integrations-icon.png').default,
-    Path:'/docs/Integrations/overview',  
-    list: [ 
+    Path: '/docs/Integrations/overview',
+    list: [
       // {
       //   label: "JAVA",
       //     url: '/docs/Integrations/java/overview'
@@ -54,19 +54,19 @@ const FeatureList = [
       //       label: "Kubernetes",
       //       url: '/docs/Integrations/kubernetes/overview'
       //   },
-      { 
+      {
         url: '/docs/Integrations/activemq',
         label: 'ActiveMQ',
-    },
-    { 
-      url: '/docs/Integrations/apache/overview',
+      },
+      {
+        url: '/docs/Integrations/apache/overview',
         label: 'Apache',
-    },
-        {
-            label: "More....",
-            url: '/docs/Integrations/overview'
-        },
-     
+      },
+      {
+        label: "More....",
+        url: '/docs/Integrations/overview'
+      },
+
     ]
   },
   {
@@ -88,7 +88,7 @@ const FeatureList = [
     title: 'Tracing',
     Png: require('../../static/img/tracing-icon.png').default,
     Path: 'docs/category/tracing',
-    list: [ 
+    list: [
       {
         label: "Java",
         url: '/docs/Tracing/java'
@@ -130,7 +130,7 @@ const FeatureList = [
     title: 'Log Management',
     Png: require('../../static/img/log-management-icon.png').default,
     Path: '/docs/Log_management/log_overview',
-    list: [ 
+    list: [
       {
         label: "Feature Extraction",
         url: '/docs/Log_management/feature_extraction'
@@ -153,7 +153,7 @@ const FeatureList = [
     title: 'Alerts & Notifications',
     Png: require('../../static/img/alerts-notification-icon.png').default,
     Path: '/docs/Alerts_notifications/getting_started',
-    list: [ 
+    list: [
       {
         label: "Alert Management",
         url: '/docs/Alerts_notifications/alert_management'
@@ -168,16 +168,28 @@ const FeatureList = [
     title: 'Real User Monitoring',
     Png: require('../../static/img/tracing-icon.png').default,
     Path: '/docs/RUM/RUM_documentation',
-    list: [ 
+    list: [
       {
-        label: "Overview",
-        url: '/docs/RUM/RUM_documentation'
-      } 
+        label: "Agent Installation",
+        url: '/docs/RUM/RUM_agent_installation'
+      },
+      {
+        label: "RUM Dashboard",
+        url: '/docs/RUM/RUM_Dashboard'
+      },
+      {
+        label: "Performance Metrics",
+        url: '/docs/RUM/RUM_Metrics'
+      },
+      {
+        label: "Glossary",
+        url: '/docs/RUM/RUM_Glossary'
+      }
     ]
   },
 ];
 
-function Feature({ Png, title, list,Path }) {
+function Feature({ Png, title, list, Path }) {
   useEffect(() => {
     if (typeof window !== undefined) {
       if (window.location.host.includes('stage') || window.location.host.includes('localhost')) {
