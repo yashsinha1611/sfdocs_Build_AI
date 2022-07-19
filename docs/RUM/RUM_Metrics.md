@@ -8,11 +8,11 @@
     where $$t$$ stands for the [target response time](./RUM_Glossary.md/#target-response-time)  
     If $$ResponseTime$$ is the time taken by the system to respond,  
     $$SatisifiedCount$$ stands for the number of [transactions](./RUM_Glossary.md/#transaction) where  
-    ResponseTime $\le$ t  
+    $$ResponseTime$$ $\le$ t  
     $$ToleratedCount$$ stands for the number of transactions where  
-    t $\lt$ ResponseTime $\le$ 4t  
+    t $\lt$ $$ResponseTime$$ $\le$ 4t  
     $$FrustratedCount$$ stands for the number of transactions where  
-    ResponseTime $\gt$ 4t 
+    $$ResponseTime$$ $\gt$ 4t 
 
 - ### Page load metrics
 	During loading of a page, resource timing information of all the dependent resources that are included as a part of the page such as JavaScript, stylesheets, images, etc. are captured. This information explains in details about how the page is loaded. Below are some of the page load metrics
