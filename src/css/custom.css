@@ -190,8 +190,8 @@ main ul li p{
 }
 .admonition-note .admonition-icon svg,
 .theme-admonition-note svg{
-  width: 18px;
-  height: 18px;
+  width: 18px !important;
+  height: 18px !important;
 }
 .admonition-note .admonition-icon svg path,
 .theme-admonition-note svg path{
