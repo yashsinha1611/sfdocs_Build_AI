@@ -12,7 +12,11 @@
     $$ToleratedCount$$ stands for the number of transactions where  
     t $\lt$ $$ResponseTime$$ $\le$ 4t  
     $$FrustratedCount$$ stands for the number of transactions where  
-    $$ResponseTime$$ $\gt$ 4t 
+    $$ResponseTime$$ $\gt$ 4t  
+      
+:::note  
+In the Snappyflow RUM Dashboard, Apdex Rating is calculated by setting the target response time value as 500ms
+:::note  
 
 - ### Page load metrics
 	During loading of a page, resource timing information of all the dependent resources that are included as a part of the page such as JavaScript, stylesheets, images, etc. are captured. This information explains in details about how the page is loaded. Below are some of the page load metrics
@@ -48,9 +52,9 @@
         $$TTFB = firstByteReceived - initialDocRequest$$  
         where $$initialDocRequest$$ is the time at which the request for the initial document is made and $$firstByteReceived$$` is the time at which first byte is received 
     
-    :::note   
-    The page-load transaction duration might not always reflect the Load event of the browser and can extend beyond the event. This is because in order to capture the overall user experience of the page including all of the above information plus additional resource requests that might be triggered during the execution of dependent resources.  
-    :::note
+:::note   
+The page-load transaction duration might not always reflect the Load event of the browser and can extend beyond the event. This is because in order to capture the overall user experience of the page including all of the above information plus additional resource requests that might be triggered during the execution of dependent resources.  
+:::note
 
 - ### User interactions
 	The click event listeners that are registered by the application are automatically instrumented by the `sf-apm-rum` agent. These click events are captured as `user-interaction` transactions. However, in order to limit the number of user transactions, the agent discards transactions with no spans (e.g. no network activity). In case a click event results in a route change, such transactions are captured as `route-change` transactions instead of `user-interaction` transaction. The name of the `user-interaction` transaction is influenced by either `name` or preferably the `data-transaction-name` attribute of the HTML element.

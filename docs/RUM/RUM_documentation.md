@@ -24,6 +24,8 @@ Snappyflow provides a lightweight and powerful `sf-apm-rum` agent that can be in
 
 ## Performance Metrics
 
+Below are the various performance metrics that are captured by the `sf-apm-rum` agent
+
 - [Apdex Rating](./RUM_Metrics.md/#apdex-rating)
 - [Page load metrics](./RUM_Metrics.md/#page-load-metrics)
 - [User interactions](./RUM_Metrics.md/#user-interactions)
