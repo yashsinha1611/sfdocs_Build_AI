@@ -1,5 +1,7 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const math = require('remark-math');
+const katex = require('rehype-katex');
 
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -13,7 +15,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   favicon: 'img/favicon.ico',
   organizationName: 'SnappyFlow', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
-  plugins: [require.resolve('docusaurus-lunr-search'),'@docusaurus/theme-live-codeblock'], 
+  plugins: [require.resolve('docusaurus-lunr-search'), '@docusaurus/theme-live-codeblock'],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -23,6 +25,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           sidebarCollapsed: false,
           path: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
           // Please change this to your repo.
           editUrl: 'https://github.com/ram-dot-kumar/SFwebsite.git',
         },
@@ -37,6 +41,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       }),
     ],
   ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
+  // stylesheets: [
+  //   {
+  //     href: require.resolve('./node_modules/katex/dist/katex.min.css'),
+  //     type: 'text/css',
+  //   },
+  // ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -60,68 +79,68 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         // ],
         logo: {
           alt: 'SnappyFlow',
-          src: 'img/logo-new.png', 
+          src: 'img/logo-new.png',
           href: 'https://www.snappyflow.io/',
           target: '_self',
         },
         items: [
           {
-            type: 'doc', 
+            type: 'doc',
             href: '/',
-            docId:'Tracing/overview',
+            docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'Documentation',
             class: 'docs',
           },
-          { 
+          {
             href: 'http://snappyflow.io/product',
-            docId:'Tracing/overview',
+            docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'Product',
             class: 'docs',
           },
           {
-            type: 'doc', 
+            type: 'doc',
             href: 'http://snappyflow.io/pricing',
-            docId:'Tracing/overview',
+            docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'Pricing',
             class: 'docs',
           },
           {
-            type: 'doc', 
+            type: 'doc',
             href: 'http://snappyflow.io/blogs',
-            docId:'Tracing/overview',
+            docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'Blogs',
             class: 'docs',
           },
           {
-            type: 'doc', 
+            type: 'doc',
             href: 'http://snappyflow.io/success-stories',
-            docId:'Tracing/overview',
+            docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'Success Stories',
             class: 'docs',
           },
           {
-            type: 'doc', 
+            type: 'doc',
             href: 'https://accounts.snappyflow.io/freetrial',
-            docId:'Tracing/overview',
+            docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'Free Trial',
             class: 'getStart',
           },
           {
-            type: 'doc', 
+            type: 'doc',
             href: 'https://accounts.snappyflow.io/login',
-            docId:'Tracing/overview',
+            docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
             label: 'Login',
@@ -172,12 +191,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()}`, 
+        copyright: `Copyright © ${new Date().getFullYear()}`,
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme, 
-       themes: ['@docusaurus/theme-live-codeblock'], 
-      }, 
+        darkTheme: darkCodeTheme,
+        themes: ['@docusaurus/theme-live-codeblock'],
+      },
     }),
 });
