@@ -183,19 +183,22 @@ main ul li:first-child,main  ol li:first-child{
 main ul li p{
   margin-top: 0px !important;
 }
-.admonition-note{
+.admonition-note, .theme-admonition-note{
   border: 1px solid rgba(0,115,187,.35);
   background-color: rgba(241,250,255,.8);
   border-radius: 0px;
 }
-.admonition-note .admonition-icon svg{
+.admonition-note .admonition-icon svg,
+.theme-admonition-note svg{
   width: 18px;
   height: 18px;
 }
-.admonition-note .admonition-icon svg path{
+.admonition-note .admonition-icon svg path,
+.theme-admonition-note svg path{
   fill: #0073bb;
 }
-.admonition-content p{
+.admonition-content p,
+.theme-admonition-note p{
   margin-top: 0.5em !important; 
   margin-bottom: 0px !important;
   padding-left: 1.5em;
