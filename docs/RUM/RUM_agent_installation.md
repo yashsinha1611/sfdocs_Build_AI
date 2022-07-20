@@ -52,11 +52,11 @@ declare const sfApm: any; // add it outside class, only for angular applications
 let apmRum = new sfApm.ApmRum(); // initialize the library
 
 const data = {
-	baseUrl: '<add-snappyflow-server-url-here>',
-	profileKey: '<add-profile-key-here>',
-	serviceName: '<your-apm-service-name>',
-	projectName: '<add-project-name-here>',
-	appName: '<add-application-name-here>',
+	baseUrl: '<add-snappyflow-server-url-here>', // provide the DNS Name/ Host IP of the snappyflow APM server that you are using to view the data
+	profileKey: '<add-profile-key-here>', // paste the profile key copied from SF profile
+	serviceName: '<your-apm-service-name>', // specify service name for RUM
+	projectName: '<add-project-name-here>', // provide the snappyflow project name
+	appName: '<add-application-name-here>', // provide the snappyflow application name
 };
 apmRum.init(data);
 ```
@@ -96,3 +96,15 @@ providers: [
 	{provide: ErrorHandler, useClass: ApmErrorHandler}
 ]
 ```
+
+## **Step5: Verfiy the Installation**
+
+Once the above mentioned steps are completed, restart the application and check for the RUM data in the Snappyflow APM server. For viewing RUM data in snappyflow server, make sure  the project and application is created or discovered with project name and app name specified in the [Step 3](#step3-configure-the-sf-apm-rum-agent).
+
+Once application is available in the Snappyflow Server, Click on View dashboard -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane
+
+
+## **Step6: Debugging (In case of No Data in RUM Dashboard)**
+
+In case there is no data appearing in the RUM tab, check if there is a `intake/v2/rum/events` call is fired from the configured application side in the Network tab of the developer tools in the browser.  
+  
