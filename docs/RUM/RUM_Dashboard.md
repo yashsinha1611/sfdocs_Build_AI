@@ -1,6 +1,6 @@
 # RUM Dashboard
 
-The Real User Monitoring Tab is available under the application dashboard just below the Tracing Tab. The various views of the data captured by the `sf-apm-rum` agent can be viewed under this tab. There are 3 pane that helps us provide the different view of the captured data.
+The Real User Monitoring Tab is available under the application dashboard just below the Tracing Tab. The various views of the data captured by the `sf-apm-rum` agent can be viewed under this tab. There are 3 panes that help us provide different views of the captured data.
 
 - [Summary](#summary-pane)
 - [Pages](#pages-pane)

@@ -1,8 +1,8 @@
-# Real User Monitoring in SnappyFlow
+# Real User Monitoring    
 
 ## Overview
 
-Real User Monitoring (RUM) involves recording end-user interactions with a website or a client interacting with a server or cloud-based application. It  allows website/application owners to visualize the sequence of actions and [events](./RUM_Glossary/#event) that takes place during an interaction. Metrics such as [Response time](./RUM_Glossary/#response-time), [Transactions](./RUM_Glossary/#transaction), [Errors](./RUM_Glossary.md/#error), Event information, Browser information are monitored and visualized to help identify and troubleshoot website performance issues. 
+Real User Monitoring (RUM) is used for performance analysis of client(Browser) side component of an application. It involves recording end-user interactions with a website or a client interacting with a server or cloud-based application. It allows website/application owners to visualize the sequence of actions and [events](./RUM_Glossary/#event) that take place during an interaction. Metrics such as [Response time](./RUM_Glossary/#response-time), [Transactions](./RUM_Glossary/#transaction), [Errors](./RUM_Glossary.md/#error), Event information, Browser information are monitored and visualized to help identify and troubleshoot website performance issues. Below are the screenshots of RUM Dashboard.
 
 ![image](images/doc1.png)
 
