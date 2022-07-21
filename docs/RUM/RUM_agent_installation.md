@@ -52,7 +52,7 @@ declare const sfApm: any; // add it outside class, only for angular applications
 let apmRum = new sfApm.ApmRum(); // initialize the library
 
 const data = {
-	baseUrl: '<add-snappyflow-server-url-here>', // provide the DNS Name/ Host IP of the snappyflow APM server that you are using to view the data
+	baseUrl: '<add-snappyflow-server-url-here>', // provide the URL of the snappyflow APM server that you are using to view the data
 	profileKey: '<add-profile-key-here>', // paste the profile key copied from SF profile
 	serviceName: '<your-apm-service-name>', // specify service name for RUM
 	projectName: '<add-project-name-here>', // provide the snappyflow project name
