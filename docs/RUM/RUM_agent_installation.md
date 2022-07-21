@@ -44,7 +44,7 @@ Since the library requires Web APIs to work, which are not available when Next.j
 
 :::note
 
-## **Step3: Configure the sf-apm-rum agent**
+## **Step 3: Configure the sf-apm-rum agent**
 
 ```js
 declare const sfApm: any; // add it outside class, only for angular applications
@@ -61,7 +61,7 @@ const data = {
 apmRum.init(data);
 ```
 
-## **Step4: For Angular based applications only**
+## **Step 4: For Angular based applications only**
 
 
 Create a new file  `apm-error.handler.ts` add following code
@@ -97,14 +97,21 @@ providers: [
 ]
 ```
 
-## **Step5: Verfiy the Installation**
+## **Step 5: Verfiy the setup**
 
 Once the above mentioned steps are completed, restart the application and check for the RUM data in the Snappyflow APM server. For viewing RUM data in snappyflow server, make sure  the project and application is created or discovered with project name and app name specified in the [Step 3](#step3-configure-the-sf-apm-rum-agent).
 
 Once application is available in the Snappyflow Server, Click on View dashboard -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane
 
 
-## **Step6: Debugging (In case of No Data in RUM Dashboard)**
+## **Step 6: Debugging (In case of No Data in RUM Dashboard)**
 
-In case there is no data appearing in the RUM tab, check if there is a `intake/v2/rum/events` call is fired from the configured application side in the Network tab of the developer tools in the browser.  
+##### i. **Check if data is available on the Snappyflow server**  
+Navigate to the application dashboard -> Click on Browse Data -> Change the Index to "Real User Monitoring". Check if the data is available. If the data is available, it will be visible on the RUM Dashboard within few seconds.  
+
+##### ii. **Check if the RUM data is sent from the configured application**  
+Open the Developer tools for the configured web application on the browser -> Click on the Network Tab -> Trigger some actions in the application. Check if there is a `intake/v2/rum/events` call fired from the configured application side. If this call is made, it means that the data is being sent to the snappyflow server.   
+
+##### iii. **Check if the configurations are correct**  
+Check if the projectName and appName provided in the [Step 3](#step-3-configure-the-sf-apm-rum-agent) are matching the project name and application name in the snappyflow server.  
   
