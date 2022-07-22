@@ -304,6 +304,11 @@ module.exports = {
                     ],
                 },
                 {
+                    type: 'doc',
+                    id: 'Integrations/jboss',
+                    label: 'JBoss',
+                },
+                {
                     type: 'category',
                     label: 'Kafka',
                     link: {

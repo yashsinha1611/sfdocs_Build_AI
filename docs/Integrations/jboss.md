@@ -45,15 +45,14 @@ It consists of two document types:
 
 Use Jboss dashboard for data visualization.
 
-------
 
 ## Logger
 
-## Description
+### Description
 
 Jboss logger to capture Wildfly server access logs and error logs.
 
-##Prerequisites
+### Prerequisites
 
 Jboss server access log format needs to be modified to capture all metrics from the access logs, which includes following steps
 
@@ -147,7 +146,7 @@ agent:
     url_normalizer: desired_port_number
 ```
 
-:::Note
+:::note
 1. Latitude and Longitude are often near the center of population. These values are not precise and should not be used to identify a particular address or household.
 2. User-agent parsing requires high computation power. Recommended to enable only if needed and system have enough CPU resource available. Please refer the following table to know the CPU consumption range. These are **approximate values**, and **might vary** depending on multiple factors.
 :::
