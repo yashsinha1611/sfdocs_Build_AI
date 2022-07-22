@@ -45,6 +45,14 @@ It consists of two document types:
 
 Use Jboss dashboard for data visualization.
 
+###Server Info pane
+![img.png](./images/jboss_server_info.png)
+
+###Jvm Health pane
+![img_1.png](./images/jboss_jvm_health.png)
+
+###Api Load Analysis pane
+![img_2.png](./images/jboss_api_load.png)
 
 ## Logger
 
