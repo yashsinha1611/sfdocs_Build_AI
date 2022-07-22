@@ -40,8 +40,8 @@ metrics:
 
 It consists of two document types:
 
-- Jboss stats: contain metrics like jboss sever version, uptime, server name,transactions and session related details,request information like processing time, request count, data received and sent,processing time, request count, data received and sent.
-- JVM stats: contain all JVM related metrics used by tomcat server like garbage collection details, memory pools, loaded/unloaded classes etc.
+- Jboss stats: contain metrics like jboss sever version, uptime, server name,transactions and session related details,request information like processing time, request count, data received and sent,processing time, request count, data received and sent
+- JVM stats: contain all JVM related metrics used by tomcat server like garbage collection details, memory pools, loaded/unloaded classes etc
 
 Use Jboss dashboard for data visualization.
 
@@ -76,7 +76,7 @@ Jboss server access log format needs to be modified to capture all metrics from 
 </host>
 
 ```
-- Set the attribute record-request-start-time="true" in the section `<subsystem xmlns="urn:jboss:domain:undertow:*">` for all the listeners as %D and %T access log elements will work only after record-request-start-time is turned on.
+- Set the attribute record-request-start-time="true" in the section `<subsystem xmlns="urn:jboss:domain:undertow:*">` for all the listeners as %D and %T access log elements will work only after record-request-start-time is turned on
 
 - Set the attribute statistics-enabled="true" in all the occurences of standalone.xml as the statistics are disabled by default
 
@@ -89,7 +89,7 @@ After changing log pattern to combined or the above mentioned pattern, sample lo
 
 ## Configuration Settings
 
-Mention the access log file and server log file path in plugin configuration. Wildcard character supported.
+Mention the access log file and server log file path in plugin configuration. Wildcard character supported
 
 ```yaml
 logging: 
@@ -115,18 +115,18 @@ logging:
 
 Jboss access log plugin also supports:
 
-  1. Geo-IP: Useful to find geographical location of the client using the IP address. To enable, set the option "geo_info" to true in the above configuration.
-  2. User-Agent Analysis: To get the host machine details like browser, Operating system and device by analysis the user-agent. To enable, set the option "ua_parser" to true in the above configuration. If enabled, by default it runs on port 8586.
-  3. URL Normalizer (not supported in container deployment): Normalize incoming URL paths. To enable, set the option "url_normalizer" to true in the above configuration. If enabled, by default it runs on port 8587. 
+  1. Geo-IP: Useful to find geographical location of the client using the IP address. To enable, set the option "geo_info" to true in the above configuration
+  2. User-Agent Analysis: To get the host machine details like browser, Operating system and device by analysis the user-agent. To enable, set the option "ua_parser" to true in the above configuration. If enabled, by default it runs on port 8586
+  3. URL Normalizer (not supported in container deployment): Normalize incoming URL paths. To enable, set the option "url_normalizer" to true in the above configuration. If enabled, by default it runs on port 8587
 
 
 
 
-Config Field Description.,
+Config Field Description,
 
-*interval*: Normalization algorithm runtime interval.
+*interval*: Normalization algorithm runtime interval
 
-*enabled*: Rely on normalization feature for rule generation.
+*enabled*: Rely on normalization feature for rule generation
 
 *rules_length_limit Normalization specific configuration is available in /opt/sfagent/normalization/config.yaml which resonate the following,
 
@@ -138,11 +138,11 @@ dynamic_rule_generation:
     log_volume: 100000
 rules: []
 ```
-t*: Limit over size of generated rules. set the value to -1  for specifying no limit.
+t*: Limit over size of generated rules. set the value to -1  for specifying no limit
 
-*log_volume*: Limit over number of logs processed. set the value to -1  for specifying no limit.
+*log_volume*: Limit over number of logs processed. set the value to -1  for specifying no limit
 
-*rules*: Rules Generated.
+*rules*: Rules Generated
 
 Recommended Approach is to have sfagent running with *dynamic_rule_generation* enabled over a period of time. Observe whether rules generated reflect all the web app requests intended to be normalized and if its a true reflection, set *enabled* flag to *false* , indicating no further rules will be generated
 
@@ -155,8 +155,8 @@ agent:
 ```
 
 :::note
-1. Latitude and Longitude are often near the center of population. These values are not precise and should not be used to identify a particular address or household.
-2. User-agent parsing requires high computation power. Recommended to enable only if needed and system have enough CPU resource available. Please refer the following table to know the CPU consumption range. These are **approximate values**, and **might vary** depending on multiple factors.
+1. Latitude and Longitude are often near the center of population. These values are not precise and should not be used to identify a particular address or household
+2. User-agent parsing requires high computation power. Recommended to enable only if needed and system have enough CPU resource available. Please refer the following table to know the CPU consumption range. These are **approximate values**, and **might vary** depending on multiple factors
 :::
 
 
