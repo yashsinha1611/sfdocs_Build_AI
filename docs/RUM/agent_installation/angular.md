@@ -1,9 +1,8 @@
-# Angular
-# Steps to install SnappyFlow RUM agent
+# Steps to install SnappyFlow RUM agent - Angular
 
 :::note Prerequisites
 
-Any web application developed using javascript or javascript based frameworks like Angular, React etc
+Any web application developed using javascript based frameworks like Angular.
 :::
 
 ## **Step 1: Install the sf-apm-rum agent**
@@ -24,7 +23,7 @@ Eg:
 ```scripts: ['node_modules/sf-apm-rum/dist/sf-apm-rum.js']```
 
 
-## **Step 3:**
+## **Step 3: Configure the error handler**
 
 
 Create a new file  `apm-error.handler.ts` in the add following code
@@ -62,12 +61,11 @@ providers: [
 
 ## **Step 4: Configure the sf-apm-rum agent**
 
+Add the following code in the applications root component,
+usually in app.component.ts
+
 ```js
-// please add the following code in the applications root component.
-// usually in app.component.ts
-
-
-declare const sfApm: any; // add it outside class, only for angular applications
+declare const sfApm: any; // add it outside class
 
 let apmRum = new sfApm.ApmRum(); // initialize the library
 

@@ -1,8 +1,8 @@
-# Steps to install SnappyFlow RUM agent - React
+# Steps to install SnappyFlow RUM agent - Others
 
 :::note Prerequisites
 
-Any web application developed using javascript based frameworks like React etc
+Any web application developed using javascript or javascript based frameworks.
 :::
 
 ## **Step 1: Install the sf-apm-rum agent**
@@ -16,15 +16,16 @@ $ npm install --save sf-apm-rum
 ## **Step 2: Import the sf-apm-rum package**
 
 ```js
-import * as sfApm from 'sf-apm-rum';
+const sfApm  = require('sf-apm-rum');
 ```
 
 ## **Step 3: Configure the sf-apm-rum agent**
 
-Add the following code in the applications root component,
-usually in index.js or index.tsx if you are using typescript
+Add the following code in the applications root component.
+
 
 ```js
+
 let apmRum = new sfApm.ApmRum(); // initialize the library
 
 const apmData = {

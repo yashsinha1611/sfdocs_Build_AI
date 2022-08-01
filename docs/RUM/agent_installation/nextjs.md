@@ -1,10 +1,8 @@
-# Nextjs
-
-# Steps to install SnappyFlow RUM agent
+# Steps to install SnappyFlow RUM agent - Nextjs
 
 :::note Prerequisites
 
-Any web application developed using javascript or javascript based frameworks like Angular, React etc
+Any web application developed using javascript based frameworks like Nextjs etc
 :::
 
 ## **Step 1: Install the sf-apm-rum agent**
@@ -34,10 +32,10 @@ Since the library requires Web APIs to work, which are not available when Next.j
 
 ## **Step 3: Configure the sf-apm-rum agent**
 
-```js
-// please add the following code in the applications root component.
-// usually in pages/_app.js or _app.tsx if you are using typescript
+Add the following code in the applications root component,
+usually in pages/_app.js or _app.tsx if you are using typescript
 
+```js
 let apmRum = new sfApm.ApmRum(); // initialize the library
 
 const apmData = {
