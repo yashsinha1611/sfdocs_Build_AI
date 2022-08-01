@@ -2,7 +2,7 @@
 
 :::note Prerequisites
 
-Any web application developed using javascript based frameworks like React etc
+Any web application developed using React.
 :::
 
 ## **Step 1: Install the sf-apm-rum agent**

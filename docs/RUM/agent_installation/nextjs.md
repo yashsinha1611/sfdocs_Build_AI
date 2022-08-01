@@ -2,7 +2,7 @@
 
 :::note Prerequisites
 
-Any web application developed using javascript based frameworks like Nextjs etc
+Any web application developed using Nextjs.
 :::
 
 ## **Step 1: Install the sf-apm-rum agent**
