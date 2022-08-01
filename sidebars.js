@@ -712,9 +712,13 @@ module.exports = {
             collapsed: true,
             items: [
                 {
-                    type: 'doc',
-                    id: 'RUM/RUM_agent_installation',
+                    type: 'category',
                     label: 'Agent Installation',
+                    link: {
+                        type: 'doc',
+                        id: 'RUM/agent_installation/angular',
+                    },
+                    items: ['RUM/agent_installation/angular', 'RUM/agent_installation/react', 'RUM/agent_installation/nextjs']
                 },
                 {
                     type: 'doc',
