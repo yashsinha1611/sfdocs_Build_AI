@@ -1,0 +1,75 @@
+# TripWire plugin
+
+## Overview
+
+Tripwire Metric Plugin Parses reports Generates By Tripwire intrusion detection system.
+
+## Prerequisites
+
+- Tripwire Plugin Requires Tripwire package to be installed.
+
+For installation,
+Centos Users Refer to  [centos](https://www.howtoforge.com/tutorial/monitoring-and-detecting-modified-files-using-tripwire-on-centos-7/) And Ubuntu users  [ubuntu](https://techdirectarchive.com/2022/03/24/how-to-install-and-configure-tripwire-on-ubuntu/) 
+
+
+## Configuration Settings
+
+Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent` directory  
+
+
+
+```yaml
+
+metrics: 
+  metrics: 
+  plugins: 
+    - name: tripwire
+      enabled: true
+      interval: 300
+      config:
+        report_path: /var/lib/tripwire/report
+
+```
+
+If Tripwire reports has to be Triggered automatically once in day, user can add cron job for it
+
+```
+0 0 * * * tripwire --check
+```
+If the user wants to trigger Tripwire Report at any point of Time Use following command:
+
+```
+tripwire --check 
+```
+
+## Documents
+
+It consists of Three document types:
+
+- tripwireReportSummary : Contains Information about Report Creation date, user who created, policy used , command used for triggering report
+- tripwireRuleSummary : Contains Information Related to list of rules added for monitorings and its severity, count of added, removed and modified files
+- tripwireObjectSummary : Contains Detailed Information about List of Added, Removed and Modified Files per Rules
+
+Use TripWire dashboard for data visualization.
+
+### Tripwire Summary pane
+![img.png](./images/TripWire_Summary.png)
+
+### Tripwire Object Details pane
+![img_1.png](./images/TripwireObjectDetails.png)
+
+
+
+
+## Viewing data and dashboards 
+
+Data collected by plugins can be viewed in SnappyFlow’s browse data section under metrics section 
+
+`plugin: TripWire`
+
+`documentType: tripwireReportSummary, tripwireRuleSummary, tripwireObjectSummary`
+
+Dashboard template: `TripWire`
+
+
+For help with plugins, please reach out to [support@snappyflow.io](mailto:support@snappyflow.io).
