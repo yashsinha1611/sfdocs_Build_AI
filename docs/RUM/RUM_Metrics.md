@@ -77,4 +77,4 @@ The page-load transaction duration might not always reflect the Load event of th
         A long task is any user activity or browser task that monopolize the UI thread for extended periods (greater than 50 milliseconds) and block other critical tasks (frame rate or input latency) from being executed. The `sf-apm-rum` agent uses the Long Task API which is only available in chromium-based browsers (Chrome >58, Edge >79, Opera >69). It is captured as Longtask ``` <name> ``` span for all managed transactions.  
 
 - ### JavaScript errors
-	The javascript [errors](./RUM_Glossary.md/#error) that occur in the application are captured. Using the captured information, the root cause of the issue can be analysed. In order to capture errors in an angular application, [follow these steps](./RUM_agent_installation.md/#step4-for-angular-based-applications-only)
+	The javascript [errors](./RUM_Glossary.md/#error) that occur in the application are captured. Using the captured information, the root cause of the issue can be analysed.
