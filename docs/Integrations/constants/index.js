@@ -22,7 +22,7 @@ const AGENTS = [
 		'overText': 'Java Infrastructure platform is built for enterprises',
 		'category': ['App Tier'],
 		'link': '/docs/Integrations/java/overview'
-	},
+	}, 
 	{
 		'src': '/img/golang.svg',
 		'label': 'Go',
@@ -215,6 +215,13 @@ const AGENTS = [
 		'category': ['App Tier'],
 		'link': '/docs/Integrations/rabbitmqinstance'
 	},
+	{
+		'src': '/img/tripwire.png',
+		'label': 'TripWire',
+		'overText': 'Tripwire Metric Plugin Parses reports Generates By Tripwire',
+		'category': ['App Tier', 'Services'],
+		'link': '/docs/Integrations/tripwire'
+	},
 	//{
 	//	'src':'/img/spark.svg',
 	//	'label':'Spark',
@@ -283,7 +290,7 @@ const AGENTS = [
 		'overText': 'Custom Metrics Infrastructure platform is built for enterprises',
 		'category': ['Services'],
 		'link': '/docs/integrations/statsd/custom_monitoring'
-	},
+	}, 
 	//{
 	//	'src':'/img/elastic-search.svg',
 	//	'label':'Elastic Search',
