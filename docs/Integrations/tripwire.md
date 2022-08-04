@@ -6,7 +6,7 @@ Tripwire Metric Plugin Parses reports Generates By Tripwire intrusion detection 
 
 ## Prerequisites
 
-- Tripwire Plugin Requires Tripwire package to be installed.
+- Tripwire Plugin Requires Tripwire package to be installed
 
 For installation,
 Centos Users Refer to  [centos](https://www.howtoforge.com/tutorial/monitoring-and-detecting-modified-files-using-tripwire-on-centos-7/) And Ubuntu users  [ubuntu](https://techdirectarchive.com/2022/03/24/how-to-install-and-configure-tripwire-on-ubuntu/) 
@@ -31,7 +31,7 @@ metrics:
 
 ```
 
-If Tripwire reports has to be Triggered automatically once in day, user can add cron job for it
+If Tripwire reports has to be Triggered automatically once in day, user can add cron job for it.
 
 ```
 0 0 * * * tripwire --check
@@ -63,7 +63,7 @@ Use TripWire dashboard for data visualization.
 
 ## Viewing data and dashboards 
 
-Data collected by plugins can be viewed in SnappyFlow’s browse data section under metrics section 
+Data collected by plugins can be viewed in SnappyFlow’s browse data section under metrics section.
 
 `plugin: TripWire`
 

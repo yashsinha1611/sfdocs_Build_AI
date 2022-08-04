@@ -585,6 +585,11 @@ module.exports = {
                 },
                 {
                     type: 'doc',
+                    id: 'Integrations/tripwire',
+                    label: 'TripWire',
+                }, 
+                {
+                    type: 'doc',
                     id: 'Integrations/plugin/vcenter',
                     label: 'vCenter',
                 },
