@@ -456,7 +456,7 @@ apmsql provides support for the following popular drivers.
     ```go
     var client, _ = mongo.Connect(
         context.Background(),
-        options.Client().SetMonitor(apmmongo.CommandMonitor()),
+        options.Client().SetMonitor(apmmongo.CommandMonitor()).ApplyURI("mongodb://localhost:27017"),
     )
     ```
 
@@ -477,7 +477,7 @@ apmsql provides support for the following popular drivers.
 
     var client, _ = mongo.Connect(
         context.Background(),
-        options.Client().SetMonitor(apmmongo.CommandMonitor()),
+        options.Client().SetMonitor(apmmongo.CommandMonitor()).ApplyURI("mongodb://localhost:27017"),
     )
 
     func handleRequest(w http.ResponseWriter, req *http.Request) {
