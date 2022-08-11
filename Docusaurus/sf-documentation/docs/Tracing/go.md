@@ -15,15 +15,23 @@
 
 ## Instances
 
+### Supported web frameworks
+
+| **Framework** | **Supported versions**       |
+| ------------- | ---------------------------- |
+| Goji          | v1.0.1                       |
+
 ### **Goji**
 
 **Pre-requisite**
 
-Install the Elastic APM Go Agent.
+1. Go of version >= 1.15.0 installed.
 
-```bash
-go get go.elastic.co/apm/v2
-```
+2. Install the Elastic APM Go Agent.
+
+    ```bash
+    go get go.elastic.co/apm/v2
+    ```
 
 **Handling the environment variables for Elastic APM Go Agent**
 
@@ -46,9 +54,7 @@ go get go.elastic.co/apm/v2
     ```go
     import (
         _ "github.com/snappyflow/go-sf-apm-lib"
-        "go.elastic.co/apm/module/apmhttp/v2"
-	    "go.elastic.co/apm/v2"
-        ...
+        // rest of the packages
     )
     ```
 
@@ -76,6 +82,8 @@ go get go.elastic.co/apm/v2
     }
     ```
 
+    Use the Router middleware to let the tracer determine the routes.
+
     By default, the service name is taken as the executable name. If you want to provide a different service name, set the `ELASTIC_APM_SERVICE_NAME` environment variable before running your Goji application.
 
 3. Once your application is up and running you can check the trace data on Snappyflow Server.
@@ -84,20 +92,30 @@ go get go.elastic.co/apm/v2
 
     Once project and app are created, go to View Dashboard -> Click on Tracing on left side bar -> Click on View Transaction -> Go to Real Time tab.
 
+**To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
+
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
 
 ## Kubernetes
 
+### Supported web frameworks
+
+| **Framework** | **Supported versions**       |
+| ------------- | ---------------------------- |
+| Goji          | v1.0.1                       |
+
 ### **Goji**
 
 **Pre-requisite**
 
-Install the Elastic APM Go Agent.
+1. Go of version >= 1.15.0 installed.
 
-```bash
-go get go.elastic.co/apm/v2
-```
+2. Install the Elastic APM Go Agent.
+
+    ```bash
+    go get go.elastic.co/apm/v2
+    ```
 
 **Handling the environment variables for Elastic APM Go Agent**
 
@@ -124,9 +142,7 @@ go get go.elastic.co/apm/v2
     ```go
     import (
         _ "github.com/snappyflow/go-sf-apm-lib"
-        "go.elastic.co/apm/module/apmhttp/v2"
-	    "go.elastic.co/apm/v2"
-        ...
+        // rest of the packages
     )
     ```
 
@@ -154,6 +170,8 @@ go get go.elastic.co/apm/v2
     }
     ```
 
+    Use the Router middleware to let the tracer determine the routes.
+
     By default, the service name is taken as the executable name. If you want to provide a different service name, set the `ELASTIC_APM_SERVICE_NAME` environment variable before running your Goji application.
 
 3. Once your application is up and running you can check the trace data on Snappyflow Server.
@@ -162,20 +180,30 @@ go get go.elastic.co/apm/v2
 
     Once project and app are created, go to View Dashboard -> Click on Tracing on left side bar -> Click on View Transaction -> Go to Real Time tab.
 
+**To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
+
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
 
 ## Docker
 
+### Supported web frameworks
+
+| **Framework** | **Supported versions**       |
+| ------------- | ---------------------------- |
+| Goji          | v1.0.1                       |
+
 ### **Goji**
 
 **Pre-requisite**
 
-Install the Elastic APM Go Agent.
+1. Go of version >= 1.15.0 installed.
 
-```bash
-go get go.elastic.co/apm/v2
-```
+2. Install the Elastic APM Go Agent.
+
+    ```bash
+    go get go.elastic.co/apm/v2
+    ```
 
 **Handling the environment variables for Elastic APM Go Agent**
 
@@ -206,9 +234,7 @@ go get go.elastic.co/apm/v2
     ```go
     import (
         _ "github.com/snappyflow/go-sf-apm-lib"
-        "go.elastic.co/apm/module/apmhttp/v2"
-	    "go.elastic.co/apm/v2"
-        ...
+        // rest of the packages
     )
     ```
 
@@ -236,6 +262,8 @@ go get go.elastic.co/apm/v2
     }
     ```
 
+    Use the Router middleware to let the tracer determine the routes.
+
     By default, the service name is taken as the executable name. If you want to provide a different service name, set the `ELASTIC_APM_SERVICE_NAME` environment variable before running your Goji application.
 
 3. Once your application is up and running you can check the trace data on Snappyflow Server.
@@ -244,20 +272,30 @@ go get go.elastic.co/apm/v2
 
     Once project and app are created, go to View Dashboard -> Click on Tracing on left side bar -> Click on View Transaction -> Go to Real Time tab.
 
+**To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
+
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
 
 ## ECS
 
+### Supported web frameworks
+
+| **Framework** | **Supported versions**       |
+| ------------- | ---------------------------- |
+| Goji          | v1.0.1                       |
+
 ### **Goji**
 
 **Pre-requisite**
 
-Install the Elastic APM Go Agent.
+1. Go of version >= 1.15.0 installed.
 
-```bash
-go get go.elastic.co/apm/v2
-```
+2. Install the Elastic APM Go Agent.
+
+    ```bash
+    go get go.elastic.co/apm/v2
+    ```
 
 **Handling the environment variables for Elastic APM Go Agent**
 
@@ -278,9 +316,7 @@ go get go.elastic.co/apm/v2
     ```go
     import (
         _ "github.com/snappyflow/go-sf-apm-lib"
-        "go.elastic.co/apm/module/apmhttp/v2"
-	    "go.elastic.co/apm/v2"
-        ...
+        // rest of the packages
     )
     ```
 
@@ -308,6 +344,8 @@ go get go.elastic.co/apm/v2
     }
     ```
 
+    Use the Router middleware to let the tracer determine the routes.
+
     By default, the service name is taken as the executable name. If you want to provide a different service name, set the `ELASTIC_APM_SERVICE_NAME` environment variable before running your Goji application.
 
 3. Once your application is up and running you can check the trace data on Snappyflow Server.
@@ -316,12 +354,18 @@ go get go.elastic.co/apm/v2
 
     Once project and app are created, go to View Dashboard -> Click on Tracing on left side bar -> Click on View Transaction -> Go to Real Time tab.
 
+**To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
+
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
 
 
 
 ## Outgoing HTTP requests and DB transactions
+
+You can follow these steps only if you are making outgoing HTTP requsts and DB transactions in your application and want to trace them.
+
+This is independent of the web framework used.
 
 **Tracing outgoing HTTP requests**
 
@@ -353,9 +397,9 @@ For complete code, refer sample Goji app at: https://github.com/snappyflow/traci
 
 These lines have to be added in the handler functions wherever outgoing HTTP requests are being made.
 
-You can refer the following handler function from the Goji reference app: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-goji/main.go#L72
+You can refer the following handler function from the Goji reference app: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-goji/main.go#L90
 
-**Tracing DB transactions**
+**Tracing SQL DB transactions**
 
 1. Import the required database instrumentation module, say postgres for example.
 
@@ -377,12 +421,78 @@ You can refer the following handler function from the Goji reference app: https:
     }
     ```
 
+3. Create spans
+
+    Spans will be created for queries and other statement executions if the context methods are used, and the context includes a transaction.
+
+    ```go
+    func handleRequest(w http.ResponseWriter, r *http.Request) {
+        tx, err := db.BeginTx(r.Context(), nil)
+        if err != nil {
+            // handle error
+        }
+        result, err := tx.QueryContext(r.Context(), "SELECT * FROM customers")
+        ...
+    }
+    ```
+
 apmsql provides support for the following popular drivers.
 
 - module/apmsql/pq (github.com/lib/pq)
 - module/apmsql/pgxv4 (github.com/jackc/pgx/v4/stdlib)
 - module/apmsql/mysql (github.com/go-sql-driver/mysql)
 - module/apmsql/sqlite3 (github.com/mattn/go-sqlite3)
+
+**Tracing MongoDB transactions**
+
+1. Import the following instrumentation module.
+
+    ```
+    go.elastic.co/apm/module/apmmongo/v2
+    ```
+
+2. To create spans for MongoDB commands, pass in a `CommandMonitor` created with `apmmongo.CommandMonitor` as an option when constructing a client.
+
+    ```go
+    var client, _ = mongo.Connect(
+        context.Background(),
+        options.Client().SetMonitor(apmmongo.CommandMonitor()),
+    )
+    ```
+
+3. When executing the commands, pass in a context containing a transaction.
+
+    ```go
+    import (
+        "context"
+        "net/http"
+
+        "go.mongodb.org/mongo-driver/bson"
+        "go.mongodb.org/mongo-driver/mongo"
+        "go.mongodb.org/mongo-driver/mongo/options"
+
+        "go.elastic.co/apm/v2"
+        "go.elastic.co/apm/module/apmmongo/v2"
+    )
+
+    var client, _ = mongo.Connect(
+        context.Background(),
+        options.Client().SetMonitor(apmmongo.CommandMonitor()),
+    )
+
+    func handleRequest(w http.ResponseWriter, req *http.Request) {
+        collection := client.Database("db").Collection("coll")
+        cur, err := collection.Find(req.Context(), bson.D{})
+         // to capture the error and send it to APM server
+        if err != nil {
+            e := apm.CaptureError(req.Context(), err)
+            e.Send()
+        }
+        ...
+    }
+    ```
+
+    **It is important to capture the mongoDB command execution error and send it to APM server using `apm.CaptureError` function to see the errors on the snappyflow server.**
 
 **Tracing ElasticSearch DB transactions**
 
@@ -414,7 +524,11 @@ apmsql provides support for the following popular drivers.
     }
     ```
 
-**Tracing errors**
+For other instrumentation modules, refer https://www.elastic.co/guide/en/apm/agent/go/2.x/builtin-modules.html
+
+## Tracing errors
+
+Follow these steps only if you want to trace errors in your application.
 
 1. Import the following package.
 
@@ -582,6 +696,8 @@ You can refer the code at: https://github.com/snappyflow/tracing-reference-apps/
             log_path: /var/log/trace/goji.log  # Your app log file path
     ```
 
+**Note: sfagent is required only to send log correlation data to the snappyflow server. It is not needed to trace transactions.**
+
 
 ### For Kubernetes
 
@@ -643,7 +759,7 @@ You can refer the code at: https://github.com/snappyflow/tracing-reference-apps/
         restartPolicy: Always
       ```
 
-    **Note: For kubernetes mode we need sfagent pods to be running inside kubernetes cluster where your application pods are deployed.**
+**Note: For kubernetes mode we need sfagent pods to be running inside kubernetes cluster where your application pods are deployed.**
 
 
 For viewing the logs in Snappyflow server make sure project and app are created or discovered with the same names as `SF_PROJECT_NAME` and `SF_APP_NAME`.
