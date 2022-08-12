@@ -9,7 +9,7 @@ MongoDB plugin is an sfAgent plugin used to collect mongodb metrics. It uses ser
 1. Standalone mode
 2. Cluster (replicaset) mode
 
-# **MongoDB Monitoring in Standalone **mode
+# **MongoDB Monitoring in Standalone mode**
 
 ## Prerequisites
 
