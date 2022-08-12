@@ -65,9 +65,9 @@ MongoDB plugin is an sfAgent plugin used to collect mongodb metrics. It uses ser
                  ] } )
       ```
 
-   3. Exit mongo using `exit` command.
+   3. Exit mongo using `exit` command
 
-   4. Open `/etc/mongod.conf` file and uncomment security config if exists else add the    config.
+   4. Open `/etc/mongod.conf` file and uncomment security config if exists else add the config
 
       ```
       security:
@@ -76,11 +76,11 @@ MongoDB plugin is an sfAgent plugin used to collect mongodb metrics. It uses ser
 
    5. Restart mongodb using command `service mongod restart` 
 
-   6. Use the created mongo user credentials in sfagent config and start sfagent.
+   6. Use the created mongo user credentials in sfagent config and start sfagent
 
 ## Configuration
 
-sfAgent section provides steps to install and automatically generate plugin configurations.  User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory
+sfAgent section provides steps to install and automatically generate plugin configurations.  User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory.
 
 ```yaml
 key: <Profile_key>
@@ -106,12 +106,12 @@ metrics:
 
 | **Name**    | **Description**                                              |
 | ----------- | ------------------------------------------------------------ |
-| Collections | Contains a count of the number of collections in that database. |
+| Collections | Contains a count of the number of collections in that database |
 | DataSize    | Total size of the data held in this database including the padding factor.Shown as byte |
 | Db          | database name                                                |
 | IndexSize   | Total size of all indexes created on this database.Shown as byte |
 | StorageSize | Total amount of space allocated to collections in this database for document storage.Shown as byte |
-| TotalSize   | Total size of the data held in this database including the padding factor. |
+| TotalSize   | Total size of the data held in this database including the padding factor |
 
   ##### documentType : **systemInfo** 
 
@@ -119,14 +119,14 @@ metrics:
 | ------------------ | ------------------------------------------------------------ |
 | Version            | version of mongodb                                           |
 | UptimeMillis       | Number of seconds that the mongos or mongod process has been active |
-| availabeConnection | Number of unused available incoming connections the database can provide. |
-| currentConnection  | Number of connections to the database server from clients.   |
+| availabeConnection | Number of unused available incoming connections the database can provide |
+| currentConnection  | Number of connections to the database server from clients   |
 | activeConnections  | Number of active connections to the database server from clients |
 | aggDataSize        | Total size of the data held in this database including the padding factor |
-| FsTotalSize        | Total size of all disk capacity on the filesystem where MongoDB stores data. |
-| aggFsUsedSize      | Total size of all disk space in use on the filesystem where MongoDB stores data. |
-| aggStorageSize     | Sum of the space allocated to all collections in the database for document storage, including free space. |
-| aggTotalSize       | Sum of the space allocated for both documents and indexes in all collections in the database. Includes used and free storage space. This is the sum of storageSize and indexSize. |
+| FsTotalSize        | Total size of all disk capacity on the filesystem where MongoDB stores data |
+| aggFsUsedSize      | Total size of all disk space in use on the filesystem where MongoDB stores data |
+| aggStorageSize     | Sum of the space allocated to all collections in the database for document storage, including free space |
+| aggTotalSize       | Sum of the space allocated for both documents and indexes in all collections in the database. Includes used and free storage space. This is the sum of storageSize and indexSize |
 | TotalDb            | total number of databases                                    |
 
 
@@ -139,21 +139,21 @@ metrics:
 | deleteQuery          | Number of times delete executed                              |
 | dirtyBytesInCache    | Size of the dirty data in the cache                          |
 | CacheSize            | Maximum cache size                                           |
-| CurrentQueueTotal    | Total number of operations queued waiting for the lock.      |
-| CurrentQueueReaders  | Number of operations that are currently queued and waiting for the read lock. |
-| CurrentQueueWriters  | Number of operations that are currently queued and waiting for the write lock. |
-| ActiveClientsTotal   | Total number of active client connections to the database.   |
+| CurrentQueueTotal    | Total number of operations queued waiting for the lock      |
+| CurrentQueueReaders  | Number of operations that are currently queued and waiting for the read lock |
+| CurrentQueueWriters  | Number of operations that are currently queued and waiting for the write lock |
+| ActiveClientsTotal   | Total number of active client connections to the database   |
 | ActiveClientsReaders | Count of the active client connections performing read operations |
-| ActiveClientswriters | Count of active client connections performing write operations. |
-| readLatency          | Total latency statistics for read requests per second.       |
-| writeLatency         | Total latency statistics for write operations per second.    |
-| PhysicalBytesIn      | The number of bytes that reflects the amount of network traffic received by this database. |
-| PhysicalBytesOut     | The number of bytes that reflects the amount of network traffic sent from this database. |
-| CurrentCache         | Size of the data currently in cache.                         |
+| ActiveClientswriters | Count of active client connections performing write operations |
+| readLatency          | Total latency statistics for read requests per second       |
+| writeLatency         | Total latency statistics for write operations per second    |
+| PhysicalBytesIn      | The number of bytes that reflects the amount of network traffic received by this database |
+| PhysicalBytesOut     | The number of bytes that reflects the amount of network traffic sent from this database |
+| CurrentCache         | Size of the data currently in cache                         |
 
 **Viewing data and dashboards**
 
-Data collected by the plugin can be viewed in SnappyFlow’s browse data section 
+Data collected by the plugin can be viewed in SnappyFlow’s browse data section.
 
 - `plugin`: `mongodb`
 - `documentType`: `dbStats`, `systemInfo`, `operationalMetrics`
@@ -162,7 +162,7 @@ Data collected by the plugin can be viewed in SnappyFlow’s browse data section
 
 ------
 
-# **MongoDB Monitoring in cluster**(replicaset) mode
+# **MongoDB Monitoring in cluster(replicaset) mode**
 
 MongoDB cluster is a set of nodes that are primary and secondary nodes. The nodes are synced and maintain same data in all the nodes in the replicaset type. The synchronization and the node information are collected about the cluster.
 
@@ -170,13 +170,13 @@ Install the agent on all the nodes in the cluster, both the primary nodes and th
 
 **There are four documentTypes related to the replication:**
 
-1)nodeDetails 
+1. nodeDetails 
 
-2)replicationMemberDetails 
+2. replicationMemberDetails 
 
-3)replicationSyncDetails 
+3. replicationSyncDetails 
 
-4)oplogDetails 
+4. oplogDetails 
 
  ### Pre-requisites
 
@@ -235,9 +235,9 @@ Install the agent on all the nodes in the cluster, both the primary nodes and th
               ] } )
    ```
 
-3. Exit mongo using `exit` command.
+3. Exit mongo using `exit` command
 
-4. Open `/etc/mongod.conf` file and uncomment security config if exists else add the    config.
+4. Open `/etc/mongod.conf` file and uncomment security config if exists else add the config
 
    ```
    security:
@@ -246,11 +246,11 @@ Install the agent on all the nodes in the cluster, both the primary nodes and th
 
 5. Restart mongodb using command `service mongod restart` 
 
-6. Use the created mongo user credentials in sfagent config and start sfagent.
+6. Use the created mongo user credentials in sfagent config and start sfagent
 
 ### Configuration
 
-sfAgent section provides steps to install and automatically generate plugin configurations.  User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory
+sfAgent section provides steps to install and automatically generate plugin configurations.  User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory.
 
 ```yaml
 key: <Profile_key>
@@ -288,17 +288,17 @@ metrics:
 | -------------------- | ------------------------------------------------------------ |
 | name                 | The name of the member                                       |
 | Id                   | id of the member                                             |
-| SyncSourceID         | The [syncSourceId](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.syncSourceId) field holds the [replSetGetStatus.members[n\]._id](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.members-n-._id) of the member from which this instance syncs. |
-| health               | A number that indicates if the member is up (i.e. 1) or down (i.e. 0). |
-| state                | An integer between 0 and 10 that represents the replica state of the member. |
+| SyncSourceID         | The [syncSourceId](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.syncSourceId) field holds the [replSetGetStatus.members[n\]._id](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.members-n-._id) of the member from which this instance syncs |
+| health               | A number that indicates if the member is up (i.e. 1) or down (i.e. 0) |
+| state                | An integer between 0 and 10 that represents the replica state of the member |
 | stateStr             | A string that describes state                                |
 | uptime               | The uptime field holds a value that reflects the number of seconds that this member has been online |
-| lastHeartbeat        | An ISODate formatted date and time that reflects the last time the server that processed the replSetGetStatus command received a response from a heartbeat that it sent to this member (members[n]). |
+| lastHeartbeat        | An ISODate formatted date and time that reflects the last time the server that processed the replSetGetStatus command received a response from a heartbeat that it sent to this member (members[n]) |
 | lastHeartbeatRecv    | An ISODate formatted date and time that reflects the last time the server that processed the replSetGetStatus command received a heartbeat request from this member (members[n]) |
 | syncSourceHost       | The syncSourceHost field holds the hostname of the member from which this instance syncs |
 | lastHeartbeatMessage | When the last heartbeat included an extra message, the lastHeartbeatMessage contains a string representation of that message |
 | lastCommittedOpTime  | Information, from the viewpoint of this member, regarding the most recent operation that has been written to a majority of replica set members. |
-| appliedOpTime        | Information, from the viewpoint of this member, regarding the most recent operation that has been applied to this member of the replica set. |
+| appliedOpTime        | Information, from the viewpoint of this member, regarding the most recent operation that has been applied to this member of the replica set |
 | durableOpTime        | Information, from the viewpoint of this member, regarding the most recent operation that has been written to the journal of this member of the replica set |
 | InfoMessage          | gives information on the member state If the instance is down |
 
@@ -320,9 +320,9 @@ metrics:
 | logSizeMB         | Total size of the oplog                                      |
 | usedMB            | Total amount of space used by the oplog                      |
 | timeDiff(in secs) | difference between the first and last operation in the oplog |
-| tFirst            | Returns a time stamp for the first (i.e. earliest) operation in the oplog. Compare this value to the last write operation issued against the server.Only present if there are entries in the oplog. |
-| tLast             | Returns a time stamp for the last (i.e. latest) operation in the oplog. Compare this value to the last write operation issued against the server.Only present if there are entries in the oplog. |
-| now               | Returns a timestamp that reflects the current time. The shell process generates this value, and the datum may differ slightly from the server time if you're connecting from a remote host as a result. Equivalent to Date().Only present if there are entries in the oplog. |
+| tFirst            | Returns a time stamp for the first (i.e. earliest) operation in the oplog. Compare this value to the last write operation issued against the server.Only present if there are entries in the oplog |
+| tLast             | Returns a time stamp for the last (i.e. latest) operation in the oplog. Compare this value to the last write operation issued against the server.Only present if there are entries in the oplog |
+| now               | Returns a timestamp that reflects the current time. The shell process generates this value, and the datum may differ slightly from the server time if you're connecting from a remote host as a result. Equivalent to Date().Only present if there are entries in the oplog |
 
 ##  Viewing data and dashboards
 
