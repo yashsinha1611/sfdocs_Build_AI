@@ -269,7 +269,7 @@ const IntegrationsList = () => {
 
 	const handleSelectCategory = (evt, categorySelected) => { 
 		setSelectedCategories((prevList) => {
-			
+
 			if (categorySelected !== 'All') {
 				$('.All').removeClass('btnSelected')
 				const categoryPresent = prevList.some((category) => category === categorySelected);
@@ -278,6 +278,9 @@ const IntegrationsList = () => {
 					evt.target.classList.remove('btnSelected')
 					newList = prevList.filter((category) => category !== categorySelected)
 				} else {
+					if (prevList.includes('All')) {
+						prevList = []
+					}
 					evt.target.classList.add('btnSelected')
 					newList = [...prevList, categorySelected];
 				}
