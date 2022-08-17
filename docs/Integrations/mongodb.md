@@ -166,7 +166,9 @@ Data collected by the plugin can be viewed in SnappyFlow’s browse data section
 
 MongoDB cluster is a set of nodes that are primary and secondary nodes. The nodes are synced and maintain same data in all the nodes in the replicaset type. The synchronization and the node information are collected about the cluster.
 
-Install the agent on all the nodes in the cluster, both the primary nodes and the secondary nodes. 
+Install the agent on all the nodes in the cluster, both the primary nodes and the secondary nodes.
+
+**Supported on:** MongoDB version 5.0
 
 **There are four documentTypes related to the replication:**
 
