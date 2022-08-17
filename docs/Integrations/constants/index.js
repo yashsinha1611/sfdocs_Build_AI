@@ -85,7 +85,7 @@ const AGENTS = [
 		'src': '/img/azure_blob.svg',
 		'label': 'Azure Blob',
 		'overText': 'Azure blob storage is to store large amount of unstructured data on data storage platform',
-		'category': ['Cloud'],
+		'category': ['Cloud','Services'],
 		'link': '/docs/Integrations/plugin/blob'
 	},
 	{
