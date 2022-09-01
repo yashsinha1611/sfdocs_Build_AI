@@ -84,7 +84,7 @@ Another way to check if SnappyFlow is receiving metrics is to check the `Browse 
 
 ## Setting up dashboards
 
-SnappyFlow provides a built in dashboard template for Consul and Envoy metrics. To setup dashboards, go to the project and under metrics, click on the 3 dots menu and select `Import from Template' option. Search for consul and clone and save the template to your dashboard.
+SnappyFlow provides a built in dashboard template for Consul and Envoy metrics. To setup dashboards, go to the project and under metrics, click on the 3 dots menu and select `Import from Template` option. Search for consul and clone and save the template to your dashboard.
 
 *Importing built-in dashboards*
 <img src="/img/screenshots/hcp_consul/import_template.jpg" />
@@ -93,6 +93,6 @@ SnappyFlow provides a built in dashboard template for Consul and Envoy metrics. 
 <img src="/img/screenshots/hcp_consul/dashboard.jpg" />
 
 
-
+For help with plugins, please reach out to support@snappyflow.io.
 
 
