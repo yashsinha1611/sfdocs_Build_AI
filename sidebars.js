@@ -250,11 +250,11 @@ module.exports = {
                     id: 'Integrations/haproxy',
                     label: 'HAProxy',
                 },
-                //{
-                //    type: 'doc',
-                //    id: 'Integrations/hcp_consul',
-                //   label: 'HCP Consul',
-                //},
+                {
+                    type: 'doc',
+                    id: 'Integrations/hcp_consul',
+                   label: 'HCP Consul',
+                },
                 {
                     type: 'category',
                     label: 'IIS',
