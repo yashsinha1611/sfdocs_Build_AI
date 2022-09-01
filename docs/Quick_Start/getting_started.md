@@ -100,7 +100,7 @@ SnappyFlow mandates that all end-points should be assigned two tags - `_tag_proj
 
 
 
-<iframe title="Key Concepts" src="/assets/videos/Key-Concepts-production.mp4" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"  autoplay="0"  ></iframe>
+<iframe title="Key Concepts" src="/videos/Key-Concepts-production.mp4" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"  autoplay="0"  ></iframe>
 
 ## Let's Start Monitoring
 
