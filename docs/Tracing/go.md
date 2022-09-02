@@ -498,7 +498,7 @@ apmsql provides support for the following popular drivers.
         "go.mongodb.org/mongo-driver/mongo/options"
 
         "go.elastic.co/apm/v2"
-        "go.elastic.co/apm/module/apmmongo/v2"
+        "github.com/snappyflow/sf-elastic-apm-go/module/apmmongo"
     )
 
     var client, _ = mongo.Connect(
