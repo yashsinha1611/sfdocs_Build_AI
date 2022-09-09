@@ -57,7 +57,7 @@ const AGENTS = [
 		'src': '/img/apache-activemq-icon.svg',
 		'label': 'ActiveMQ',
 		'overText': 'Cassandra Infrastructure platform is built for enterprises',
-		'category': ['App Tier'],
+		'category': ['Web Tier'],
 		'link': '/docs/integrations/activemq'
 	},
 	{
@@ -71,28 +71,28 @@ const AGENTS = [
 		'src': '/img/blaze_meter.svg',
 		'label': 'Blaze Meter',
 		'overText': 'Plugin collects Test Reports from the BlazeMeter Account',
-		'category': ['Services'],
+		'category': ['App Tier'],
 		'link': '/docs/integrations/plugin/blazemeter'
 	},
 	{
 		'src': '/img/azure_DB.svg',
 		'label': 'AzureDB',
 		'overText': 'Azuredb Metric plugin collects metrics related to relational database services like Azure SQL, Azure database for MySQL and Azure database for PostgreSQL using insights data from Azure Monitor',
-		'category': ['Databases'],
+		'category': ['Cloud'],
 		'link': '/docs/Integrations/plugin/azuredb'
 	},
 	{
 		'src': '/img/azure_blob.svg',
 		'label': 'Azure Blob',
 		'overText': 'Azure blob storage is to store large amount of unstructured data on data storage platform',
-		'category': ['Cloud','Services'],
+		'category': ['Cloud'],
 		'link': '/docs/Integrations/plugin/blob'
 	},
 	{
 		'src': '/img/aws_rds.svg',
 		'label': 'AWS RDS',
 		'overText': 'Amazon Relational Database Service (Amazon RDS) is a managed SQL database service provided by Amazon Web Services (AWS)',
-		'category': ['Databases'],
+		'category': ['Cloud'],
 		'link': '/docs/Integrations/plugin/rds'
 	}, 
 	{
@@ -106,14 +106,14 @@ const AGENTS = [
 		'src': '/img/kubernetes-clusters.svg',
 		'label': 'Kubernetes',
 		'overText': 'Kubernetes clusters Infrastructure platform is built for enterprises',
-		'category': ['Cloud', 'Kubernetes'],
+		'category': ['Kubernetes'],
 		'link': '/docs/Integrations/kubernetes/overview'
 	},
 	{
 		'src': '/img/clickhouse.svg',
 		'label': 'Clickhouse',
 		'overText': 'Clickhouse running in Kubernetes can be monitored in SnappyFlow using Prometheus exporter',
-		'category': ['Cloud', 'Kubernetes'],
+		'category': ['Databases'],
 		'link': '/docs/Integrations/clickhouse_kubernetes'
 	}, 
 	{
@@ -169,21 +169,21 @@ const AGENTS = [
 		'src': '/img/redis.svg',
 		'label': 'Redis',
 		'overText': 'Redis Infrastructure platform is built for enterprises',
-		'category': ['App Tier'],
+		'category': ['Databases'],
 		'link': '/docs/integrations/redis'
 	},
 	{
 		'src': '/img/rabbitmq.svg',
 		'label': 'RabbitMQ',
 		'overText': 'Monitoring RabbitMQ Message Broker running on Instances',
-		'category': ['App Tier'],
+		'category': ['Web Tier'],
 		'link': '/docs/Integrations/rabbitmqinstance'
 	},
 	{
 		'src': '/img/tripwire.png',
 		'label': 'TripWire',
 		'overText': 'Tripwire Metric Plugin Parses reports Generates By Tripwire',
-		'category': ['App Tier', 'Services'],
+		'category': ['App Tier'],
 		'link': '/docs/Integrations/tripwire'
 	}, 
 	{
@@ -210,7 +210,7 @@ const AGENTS = [
 		'src': '/img/custom-metrics-using-statsd.svg',
 		'label': 'StatsD',
 		'overText': 'Custom Metrics Infrastructure platform is built for enterprises',
-		'category': ['Services'],
+		'category': ['App Tier'],
 		'link': '/docs/integrations/statsd/custom_monitoring'
 	},  
 	{
@@ -241,9 +241,9 @@ const buttonLists = [
 	{
 		'label': 'Kubernetes'
 	},
-	{
-		'label': 'Services'
-	},
+	// {
+	// 	'label': 'Services'
+	// },
 	{
 		'label': 'Alerts & Notifications'
 	},

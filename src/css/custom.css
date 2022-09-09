@@ -261,7 +261,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   transform: translateY(-35px);
 }
 .integration li:first-child{
-  padding: 10px 22px !important;
+  padding: 6px 22px !important;
 }
 .icon_list{
   padding: 0px;
