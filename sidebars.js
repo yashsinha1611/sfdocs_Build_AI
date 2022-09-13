@@ -467,16 +467,6 @@ module.exports = {
                                 },
                                 {
                                     type: 'doc',
-                                    id: 'Integrations/os/linux/cpuloadstats_plugin',
-                                    label: 'Monitoring CPU Load',
-                                },
-                                {
-                                    type: 'doc',
-                                    id: 'Integrations/os/linux/filestats_plugin',
-                                    label: 'Monitoring File Stats',
-                                },
-                                {
-                                    type: 'doc',
                                     id: 'Integrations/os/linux/netstat',
                                     label: 'Netstat',
                                 },
