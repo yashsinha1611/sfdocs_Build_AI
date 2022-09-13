@@ -13,7 +13,21 @@ SnappyFlow supports monitoring of HCP Consul and Envoy metrics through [StatsD](
 
 ## Configuring StatsD plugin
 
-The `config.yaml` file under `/opt/sfagent/` contains all configuration information for sfAgent.  Edit this config file and add profile key, tags (Hostnames, Application Names, Project Names),  and the StatsD plugin configuration details under `metrics` as provided in the code block below. A default rules file is provided under `/opt/sfagent/rules/consul_envoy_rules.txt`. In the `config.yaml` file, you may find other plugins pre populated by sfAgent.
+The `config.yaml` file under `/opt/sfagent/` contains all configuration information for sfAgent.  Edit this config file and add profile key, tags (Hostnames, Application Names, Project Names),  and the StatsD plugin configuration details under `metrics` as provided in the code block below. Default rules file is provided under `/opt/sfagent/statsd_rules/`. In the `config.yaml` file, you may find other plugins pre populated by sfAgent.
+
+
+
+To monitor envoy metrics use
+
+`/opt/sfagent/statsd_rules/envoy_rules.txt`
+
+To monitor consul metrics use 
+
+`/opt/sfagent/statsd_rules/consul_rules.txt`
+
+To monitor consul and envoy metric use
+
+`opt/sfagent/statsd_rules/consul_envoy_rules.txt`
 
 ```yaml
 key: <input_profile_key_from_snappyflow_account> 
@@ -28,7 +42,7 @@ metrics:
       config: 
         port: 8125 
         flushinterval: 30 
-        ruleFile: /opt/sfagent/rules/consul_envoy_rules.txt 
+        ruleFile: /opt/sfagent/statsd_rules/consul_envoy_rules.txt 
 ```
 
 **key**: Enter the profile key from SnappyFLow account
@@ -73,14 +87,10 @@ Clicking on the project takes you to the inventory page which gives a list of en
 *Verifying that StatsD plugin is running*
 <img src="/img/screenshots/hcp_consul/inventory_page.jpg" />
 
-
-
-
 Another way to check if SnappyFlow is receiving metrics is to check the `Browse Data` tab. Filter by StatsD plugin to see all raw data coming into SnappyFlow.
 
 *Checking for raw data*
 <img src="/img/screenshots/hcp_consul/raw_data.jpg" />
-
 
 ## Setting up dashboards
 
@@ -92,7 +102,4 @@ SnappyFlow provides a built in dashboard template for Consul and Envoy metrics. 
 *HCP Envoy dashboard*
 <img src="/img/screenshots/hcp_consul/dashboard.jpg" />
 
-
 For help with plugins, please reach out to support@snappyflow.io.
-
-
