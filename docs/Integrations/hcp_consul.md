@@ -13,9 +13,7 @@ SnappyFlow supports monitoring of HCP Consul and Envoy metrics through [StatsD](
 
 ## Configuring StatsD plugin
 
-The `config.yaml` file under `/opt/sfagent/` contains all configuration information for sfAgent.  Edit this config file and add profile key, tags (Hostnames, Application Names, Project Names),  and the StatsD plugin configuration details under `metrics` as provided in the code block below. Default rules file is provided under `/opt/sfagent/statsd_rules/`. In the `config.yaml` file, you may find other plugins pre populated by sfAgent.
-
-
+The `config.yaml` file under `/opt/sfagent/` contains all configuration information for sfAgent.  Edit this config file and add profile key, tags (Hostnames, Application Names, Project Names),  and the StatsD plugin configuration details under `metrics` as provided in the code block below. Default rules files are provided under `/opt/sfagent/statsd_rules/`. In the `config.yaml` file, you may find other plugins pre populated by sfAgent.
 
 To monitor envoy metrics use
 
@@ -42,7 +40,7 @@ metrics:
       config: 
         port: 8125 
         flushinterval: 30 
-        ruleFile: /opt/sfagent/statsd_rules/consul_envoy_rules.txt 
+        ruleFile: <path_to_rule_file> 
 ```
 
 **key**: Enter the profile key from SnappyFLow account
