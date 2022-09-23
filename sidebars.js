@@ -30,22 +30,27 @@ module.exports = {
                 {
                     type: 'doc',
                     id: 'Integrations/os/linux/sfagent_linux',
-                    label: 'sfAgent Installation on Linux',
+                    label: 'Monitor a Linux system',
                 },
                 {
                     type: 'doc',
                     id: 'Integrations/os/windows/sfagent_windows',
-                    label: 'sfAgent Installation on Windows',
+                    label: 'Monitor a Windows system',
                 },
                 {
                     type: 'doc',
                     id: 'Quick_Start/sfpoller_setup',
-                    label: 'sfPoller Setup',
+                    label: 'Monitor Cloud Services',
                 },
                 {
                     type: 'doc',
-                    id: 'Integrations/kubernetes/sfkubeagent_installation',
-                    label: 'Monitoring Application Pods with sfKubeAgent',
+                    id: 'Integrations/kubernetes/kubernetes_monitoring_with_sfPod',
+                    label: 'Monitoring a Kubernetes cluster',
+                },
+                {
+                    type: 'doc',
+                    id: 'Quick_Start/snappyflow_self_hosted',
+                    label: 'Setup SnappyFlow Self Hosted',
                 },
 
             ],
@@ -249,6 +254,11 @@ module.exports = {
                     type: 'doc',
                     id: 'Integrations/haproxy',
                     label: 'HAProxy',
+                },
+                {
+                    type: 'doc',
+                    id: 'Integrations/hcp_consul',
+                   label: 'HCP Consul',
                 },
                 {
                     type: 'category',
@@ -459,6 +469,16 @@ module.exports = {
                                     type: 'doc',
                                     id: 'Integrations/os/linux/linux_os',
                                     label: 'Monitoring Linux OS',
+                                },
+                                {
+                                    type: 'doc',
+                                    id: 'Integrations/os/linux/cpuloadstats_plugin',
+                                    label: 'CPU Load',
+                                },
+                                {
+                                    type: 'doc',
+                                    id: 'Integrations/os/linux/filestats_plugin',
+                                    label: 'File Stats',
                                 },
                                 {
                                     type: 'doc',

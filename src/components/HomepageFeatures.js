@@ -9,16 +9,20 @@ const FeatureList = [
     Path: '/docs/Quick_Start/getting_started',
     list: [
       {
-        label: "sfAgent Installation on Linux",
+        label: "Monitor a Linux machine",
         url: '/docs/Integrations/os/linux/sfagent_linux'
       },
       {
-        label: "sfAgent Installation on Windows",
+        label: "Monitor a Windows machine",
         url: '/docs/Integrations/os/windows/sfagent_windows'
       },
       {
-        label: "Monitoring Application Pods with sfKubeAgent",
-        url: '/docs/Integrations/kubernetes/sfkubeagent_installation'
+        label: "Monitoring a Kubernets cluster",
+        url: '/docs/Integrations/kubernetes/kubernetes_monitoring_with_sfPod'
+      },
+      {
+        label: "Setup SnappyFlow in your own environment",
+        url: '/docs/Quick_Start/snappyflow_self_hosted'
       },
     ]
   },

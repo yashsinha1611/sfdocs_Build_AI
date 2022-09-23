@@ -94,6 +94,12 @@
 
 **To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
 
+**To know how to trace internal function calls or code blocks in your application code, [click here](#custom-instrumentation)**
+
+**To know how to capture and trace errors, [click here](#tracing-errors)**
+
+**To know about context propagation, [click here](#context-propagation)**
+
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
 
@@ -181,6 +187,12 @@ For complete code, refer sample Goji app at: https://github.com/snappyflow/traci
     Once project and app are created, go to View Dashboard -> Click on Tracing on left side bar -> Click on View Transaction -> Go to Real Time tab.
 
 **To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
+
+**To know how to trace internal function calls or code blocks in your application code, [click here](#custom-instrumentation)**
+
+**To know how to capture and trace errors, [click here](#tracing-errors)**
+
+**To know about context propagation, [click here](#context-propagation)**
 
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
@@ -274,6 +286,12 @@ For complete code, refer sample Goji app at: https://github.com/snappyflow/traci
 
 **To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
 
+**To know how to trace internal function calls or code blocks in your application code, [click here](#custom-instrumentation)**
+
+**To know how to capture and trace errors, [click here](#tracing-errors)**
+
+**To know about context propagation, [click here](#context-propagation)**
+
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
 
@@ -356,6 +374,12 @@ For complete code, refer sample Goji app at: https://github.com/snappyflow/traci
 
 **To know how to trace outgoing HTTP requests and DB transactions, [click here](#outgoing-http-requests-and-db-transactions)**
 
+**To know how to trace internal function calls or code blocks in your application code, [click here](#custom-instrumentation)**
+
+**To know how to capture and trace errors, [click here](#tracing-errors)**
+
+**To know about context propagation, [click here](#context-propagation)**
+
 For complete code, refer sample Goji app at: https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-goji
 
 
@@ -397,7 +421,7 @@ This is independent of the web framework used.
 
 These lines have to be added in the handler functions wherever outgoing HTTP requests are being made.
 
-You can refer the following handler function from the Goji reference app: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-goji/main.go#L90
+You can refer the following handler function from the Goji reference app: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-goji/handlers.go#L48
 
 **Tracing SQL DB transactions**
 
@@ -448,8 +472,10 @@ apmsql provides support for the following popular drivers.
 1. Import the following instrumentation module.
 
     ```
-    go.elastic.co/apm/module/apmmongo/v2
+    github.com/snappyflow/sf-elastic-apm-go/module/apmmongo
     ```
+
+    This package provides the means of instrumenting the `mongodb/mongo-go-driver`, so that MongoDB commands are reported as spans within the current transaction.
 
 2. To create spans for MongoDB commands, pass in a `CommandMonitor` created with `apmmongo.CommandMonitor` as an option when constructing a client.
 
@@ -460,7 +486,7 @@ apmsql provides support for the following popular drivers.
     )
     ```
 
-3. When executing the commands, pass in a context containing a transaction.
+3. When executing the commands, pass in a context containing the current transaction to capture spans within this transaction.
 
     ```go
     import (
@@ -472,7 +498,7 @@ apmsql provides support for the following popular drivers.
         "go.mongodb.org/mongo-driver/mongo/options"
 
         "go.elastic.co/apm/v2"
-        "go.elastic.co/apm/module/apmmongo/v2"
+        "github.com/snappyflow/sf-elastic-apm-go/module/apmmongo"
     )
 
     var client, _ = mongo.Connect(
@@ -483,16 +509,50 @@ apmsql provides support for the following popular drivers.
     func handleRequest(w http.ResponseWriter, req *http.Request) {
         collection := client.Database("db").Collection("coll")
         cur, err := collection.Find(req.Context(), bson.D{})
-         // to capture the error and send it to APM server
-        if err != nil {
-            e := apm.CaptureError(req.Context(), err)
-            e.Send()
-        }
         ...
     }
     ```
 
-    **It is important to capture the mongoDB command execution error and send it to APM server using `apm.CaptureError` function to see the errors on the snappyflow server.**
+**Tracing Redis transactions**
+
+1. Import the following instrumentation module.
+
+    ```
+    github.com/snappyflow/sf-elastic-apm-go/module/apmgoredisv8
+    ```
+
+    This package provides a means of instrumenting `go-redis/redis for v8` so that Redis commands are reported as spans within the current transaction.
+
+2. To report Redis commands as spans, call AddHook(apmgoredis.NewHook()) from instance of the Redis client to use the hook provided by apmgoredisv8 module.
+
+    ```go
+    redisClient.AddHook(apmgoredisv8.NewHook())
+    ```
+
+3. When executing the commands, pass in a context containing the current transaction to capture spans within this transaction.
+
+    ```go
+    import (
+        "github.com/go-redis/redis/v8"
+	    "github.com/snappyflow/sf-elastic-apm-go/module/apmgoredisv8"
+    )
+
+    var redisClient = redis.NewClient(&redis.Options{
+        Addr:     "localhost:6379",
+        Password: "",
+        DB:       0,
+    })
+
+    func main() {
+        redisClient.AddHook(apmgoredisv8.NewHook())
+        ...
+    }
+
+    func handleRequest(w http.ResponseWriter, req *http.Request) {
+        val, err := redisClient.Get(req.Context(), "key").Result()
+        ...
+    }
+    ```
 
 **Tracing ElasticSearch DB transactions**
 
@@ -526,7 +586,8 @@ apmsql provides support for the following popular drivers.
 
 For other instrumentation modules, refer https://www.elastic.co/guide/en/apm/agent/go/2.x/builtin-modules.html
 
-## Tracing errors
+
+## Tracing Errors
 
 Follow these steps only if you want to trace errors in your application.
 
@@ -546,6 +607,123 @@ Follow these steps only if you want to trace errors in your application.
     ```
 
 
+## Custom Instrumentation
+
+Spans can be created to trace a function call or operation/activity within a transaction.
+
+1. `apm.StartSpan` starts and returns a new span within the transaction, with the specified name and type.
+
+    ```go
+    span, ctx := apm.StartSpan(req.Context, "myFunc", "custom.internal.functionCall")
+    // Here, "muFunc" is the span name, "custom" is the span type, "internal" is the subtype, and "functionCall" is the action.
+    // If the span type contains two dots, they are assumed to separate the span type, subtype, and action
+    // A single dot separates span type and subtype, and the action will not be set.
+    // span type can also be set to just a string with no dots. In this case subtype and action are set to null.
+    ```
+
+    So you can use the following pattern to trace internal operations or a block of code.
+
+    ```go
+    span, ctx := apm.StartSpan(req.Context(), "internal operation", "custom")
+	// ... code or operation you want to trace here ...
+    // It is important to end the span to mark it as complete.
+	span.End()
+    ```
+
+    The span’s duration will be calculated as the amount of time elapsed since the span was started until this call.
+
+2. You can also add nested spans by passing the parent span's context in the child span creation. The span being ended must be the most recently started span.
+
+    ```go
+    parentSpan, ctx := apm.StartSpan(req.Context(), "myFunc", "custom")
+    // ... code or operation you want to trace here ...
+	childSpan, _ := apm.StartSpan(ctx, "internal operation", "custom")
+	// ... code or operation you want to trace here ...
+    // childSpan must end before parentSpan
+	childSpan.End()
+    parentSpan.End()
+    ```
+
+    If the context contains neither a transaction nor a span, then the span will be dropped (i.e. will not be reported to the SnappyFlow server).
+
+3. You can also trace the function calls and there duration within a transaction using the same steps.
+
+    ```go
+    import (
+        "go.elastic.co/apm/v2"
+    )
+
+    func handleTest(w http.ResponseWriter, req *http.Request) {
+        myFunc(req.Context())
+        ...
+    }
+
+    func myFunc(ctx context.Context) {
+        span, _ := apm.StartSpan(ctx, "myFunc", "custom.internal.functionCall")
+        defer span.End()
+        ...
+    }
+    ```
+
+You can refer the reference Goji app for an example: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-goji/handlers.go#L39
+
+
+## Context Propagation
+
+In Go, for each incoming request, a transaction will be started and added to the request context automatically. So, the http.Request object will contain the current transaction context.
+
+This context needs to be passed into method calls within the handler manually in order to create spans within that transaction, e.g. to trace DB queries.
+
+**Note:** If the context contains neither a transaction nor a span, then the span will be dropped (i.e. will not be reported to the SnappyFlow server.)
+
+For example,
+
+```go
+import (
+	"context"
+	"net/http"
+
+    _ "github.com/snappyflow/go-sf-apm-lib"
+
+	"github.com/snappyflow/sf-elastic-apm-go/module/apmgoji"
+	"github.com/zenazn/goji"
+
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+
+	"github.com/snappyflow/sf-elastic-apm-go/module/apmmongo"
+)
+
+var mongoClient, _ = mongo.Connect(
+	context.Background(),
+	options.Client().SetMonitor(apmmongo.CommandMonitor()).ApplyURI("mongodb://localhost:27017"),
+)
+
+func main() {
+    goji.Use(goji.DefaultMux.Router)
+	goji.Use(apmgoji.Middleware())
+
+    goji.Get("/mongo", handleMongoDB)
+    goji.Serve()
+}
+
+func handleMongoDB(w http.ResponseWriter, req *http.Request) {
+	// By passing the request context down to getDocs, getDocs can make DB queries which will be traced within this context.
+	ctx := req.Context()
+	getDocs(ctx)
+	...
+}
+
+func getDocs(ctx context.Context) {
+    collection := mongoClient.Database("db").Collection("coll")
+	cur, err := collection.Find(ctx, bson.D{})
+    ...
+    cur.Close(ctx)
+}
+```
+
+For more details refer the documentation at: https://www.elastic.co/guide/en/apm/agent/go/2.x/custom-instrumentation-propagation.html 
 
 
 ## Log Correlation
