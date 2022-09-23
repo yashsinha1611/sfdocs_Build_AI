@@ -15,7 +15,16 @@ const katex = require('rehype-katex');
   favicon: 'img/favicon.ico',
   organizationName: 'SnappyFlow', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
-  plugins: [require.resolve('docusaurus-lunr-search'), '@docusaurus/theme-live-codeblock'],
+  plugins: [
+    require.resolve('docusaurus-lunr-search'),
+    '@docusaurus/theme-live-codeblock',
+    [
+    require.resolve('@cmfcmf/docusaurus-search-local'),
+    {
+      indexDocs: true,
+    }
+    ]
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -198,5 +207,6 @@ const katex = require('rehype-katex');
         darkTheme: darkCodeTheme,
         themes: ['@docusaurus/theme-live-codeblock'],
       },
+      
     }),
 });
