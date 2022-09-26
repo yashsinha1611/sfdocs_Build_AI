@@ -235,3 +235,72 @@ User can enable the metric properties from advanced section for:
 - Hyperlinks are enabled for the table. Click on the value “200” will redirect to the pane “Transaction Analysis” which belongs to group “Nginx Access” and render this pane with DropDown11 value = 200
 
   ![img](/img/tx-by-rest-code.png)
+
+## Generic Filter Component
+
+The generic filter component is used to perform search on all the components in a pane.
+
+  ![img](/img/generic-filter/gen_filter_final_screen.png)
+
+### Adding Generic filter component
+
+The generic filter component can be added in only those panes where the **dropdowns are not present or grouped/ global dropdowns are not visible**. In such panes, the generic filter component can be added by clicking the generic filter option in add component list.
+
+:::note
+Only one generic filter component can be added to a pane
+:::note
+
+  ![img](/img/generic-filter/add_gen_filter.png)
+
+
+### Searching using Generic filter
+
+To perform a search on a pane using generic filter, we need to [add condition(s)](#steps-to-add-a-condition). After adding all the condition(s), we need to click the search icon present at the end of the search box to perform the provided search on all the components in that pane.
+
+#### Condition in generic filter
+A condition is a single unit of search. It contains 3 components:
+- **Field**: Elasticsearch field name on which search has to be performed
+- **Operator**: The search operator
+- **Value**: The value to be searched for the provided field name
+
+For Eg:  
+If the condition is **code == 200**, we are expecting the results where the value of **code** field is **equal to 200**. Here **code** is the field name, **==** is the operator and **200** is the value.  
+
+  ![img](/img/generic-filter/gen_filter_final_screen2.png)
+  
+#### Steps to add a condition
+
+##### Step 1: Add a field
+
+To add a field, we need to select the field from the field recommendation list or can press enter key after providing the field name in the search box.
+
+  ![img](/img/generic-filter/add_field.png)
+
+##### Step 2: Add an operator
+
+Based on the type of the selected field provided in the [Step 1](#step-1-add-a-field), the operator recommendation will be provided.  
+If the field is of type **number**, then the operators will be $>, >=, <, <=, !=, ==$  
+If the field is of type **text**, then the operators will be ~(contains), ~-(does not contain), $==$ 
+
+
+:::note
+If the selected field has different types across different elasticsearch indices, all the opertors will be listed in operator recommendation.
+:::note
+
+  ![img](/img/generic-filter/add_operator.png)
+
+##### Step 3: Add a value
+
+Based on the field selected, all the possible values of that field will be fetched and will be provided as recommendation. We can select a value from the list or can press enter after providing the value in the search box.  
+
+:::note
+If the selected field is present in more than one index, the value recommendation list will not be fetched
+:::note
+
+  ![img](/img/generic-filter/add_value.png)
+
+### Deleting Generic filter component
+
+We can delete the generic filter component by clicking the 3 dots icon at the end of the search and then clicking the delete icon in the menu.
+
+  ![img](/img/generic-filter/delete_gen_filter.png)
