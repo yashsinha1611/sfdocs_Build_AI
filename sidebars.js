@@ -45,7 +45,7 @@ module.exports = {
                 {
                     type: 'doc',
                     id: 'Integrations/kubernetes/kubernetes_monitoring_with_sfPod',
-                    label: 'Monitoring a Kubernetes cluster',
+                    label: 'Monitor a Kubernetes cluster',
                 },
                 {
                     type: 'doc',
@@ -64,6 +64,11 @@ module.exports = {
             },
             collapsed: true,
             items: [
+                {
+                    type: 'doc',
+                    id: 'sfPoller/overview',
+                    label: 'sfPoller overview',
+                },
                 {
                     type: 'doc',
                     id: 'sfPoller/aws_setup',
@@ -707,8 +712,8 @@ module.exports = {
             items: [
                 {
                     type: 'doc',
-                    id: 'Alerts_notifications/alert_management',
-                    label: 'Alert Management',
+                    id: 'Alerts_notifications/getting_started',
+                    label: 'Alerts overview',
                 },
                 {
                     type: 'doc',

@@ -17,7 +17,7 @@ const FeatureList = [
         url: '/docs/Integrations/os/windows/sfagent_windows'
       },
       {
-        label: "Monitoring a Kubernets cluster",
+        label: "Monitor a Kubernets cluster",
         url: '/docs/Integrations/kubernetes/kubernetes_monitoring_with_sfPod'
       },
       {
@@ -32,6 +32,10 @@ const FeatureList = [
     Path: '/docs/sfPoller/overview',
     list: [
       {
+        label: "Overview",
+        url: '/docs/sfPoller/overview'
+      },
+        {
         label: "Setup in AWS",
         url: '/docs/sfPoller/aws_setup'
       },
@@ -159,8 +163,8 @@ const FeatureList = [
     Path: '/docs/Alerts_notifications/getting_started',
     list: [
       {
-        label: "Alert Management",
-        url: '/docs/Alerts_notifications/alert_management'
+        label: "Alerts overview",
+        url: '/docs/Alerts_notifications/getting_started'
       },
       {
         label: "SLO",
