@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="55" viewBox="0 0 90 55">
+  <defs>
+    <clipPath id="clip-elastic-search">
+      <rect width="90" height="55"/>
+    </clipPath>
+  </defs>
+  <g id="elastic-search" clip-path="url(#clip-elastic-search)">
+    <rect width="90" height="55" fill="#fff"/>
+    <g id="Group_72" data-name="Group 72" transform="translate(7.761 8.622)">
+      <path id="Path_1821" data-name="Path 1821" d="M1652.989,350.76l0-.006a27.5,27.5,0,0,0-45.745,5.4h35.844a10.928,10.928,0,0,0,7.042-2.543,22.773,22.773,0,0,0,2.857-2.848" transform="translate(-1591.141 -349.495)" fill="#fec514" fill-rule="evenodd"/>
+      <path id="Path_1822" data-name="Path 1822" d="M1603.456,374.934a27.519,27.519,0,0,0,.939,7.129h33.689a7.129,7.129,0,1,0,0-14.259H1604.4a27.523,27.523,0,0,0-.939,7.129" transform="translate(-1590.217 -356.057)" fill="#343741" fill-rule="evenodd"/>
+      <path id="Path_1823" data-name="Path 1823" d="M1652.989,398.782l0,.006a27.5,27.5,0,0,1-45.745-5.4h35.844a10.931,10.931,0,0,1,7.042,2.542,22.833,22.833,0,0,1,2.857,2.848" transform="translate(-1591.141 -362.291)" fill="#00bfb3" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>
