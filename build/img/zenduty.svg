@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="55" viewBox="0 0 90 55">
+  <defs>
+    <clipPath id="clip-zenduty">
+      <rect width="90" height="55"/>
+    </clipPath>
+  </defs>
+  <g id="zenduty" clip-path="url(#clip-zenduty)">
+    <rect width="90" height="55" fill="#fff"/>
+    <g id="zenduty-2" data-name="zenduty" transform="translate(107 -176)">
+      <path id="Path_2105" data-name="Path 2105" d="M-66.112,191.414c-2.219,0-5.488-2.452-5.488-5.605v-4.2c0-3.153.934-5.605,5.488-5.605s5.488,2.452,5.488,5.605v4.2C-60.623,188.962-63.893,191.414-66.112,191.414Z" transform="translate(4.26)" fill="#0f172a"/>
+      <path id="Path_2106" data-name="Path 2106" d="M-34.094,225.214H-59.2l4.437-13.312.817-2.1c4.9,1.985,15.3,8.408,20.669,13.546A1.08,1.08,0,0,1-34.094,225.214Z" transform="translate(6.34 5.669)" fill="#0f172a"/>
+      <path id="Path_2107" data-name="Path 2107" d="M-52.539,192.9l-18.567,12.144c-4.9-2.919-10.743-6.89-14.246-10.276a1.014,1.014,0,0,1,.817-1.752h32Z" transform="translate(1.898 2.835)" fill="#0f172a"/>
+      <path id="Path_2108" data-name="Path 2108" d="M-40.482,194.52l-7.006,18.217-.817,2.1-4.437,13.312H-95.832a1.1,1.1,0,0,1-.934-1.752q1.576-2.1,3.153-3.854a49.546,49.546,0,0,1,8.057-6.773l.117-.117c.934-.7,1.868-1.285,2.8-1.868l13.312-8.641L-50.758,193h8.992A1.128,1.128,0,0,1-40.482,194.52Z" transform="translate(0 2.85)" fill="#fd9a00"/>
+    </g>
+  </g>
+</svg>
