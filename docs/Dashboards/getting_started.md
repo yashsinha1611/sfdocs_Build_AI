@@ -16,36 +16,34 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AMF2TnQCYkU" title="SnappyFlow dashboard concepts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-
 ## Types of Aggregation
 
 Use the following extensions to achieve the required aggregation on a metric
 
-| Aggregation | Extension            | Comments                                                     |
-| :---------- | :------------------- | :----------------------------------------------------------- |
-| Average     | .avg or no extension | Not allowed for text fields                                  |
-| Percentile  | .95P, .99P etc       | Not allowed for text fields                                  |
-| Max         | .max                 | Not allowed for text fields                                  |
-| Min         | .min                 | Not allowed for text fields                                  |
-| Count       | .count               |                                                              |
-| Terminal    | .term                | Retrieves the last value of the metric from DBDocument type has to be specified in the query |
+| Aggregation | Extension            | Comments                                                                                                                                                         |
+|:----------- |:-------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Average     | .avg or no extension | Not allowed for text fields                                                                                                                                      |
+| Percentile  | .95P, .99P etc       | Not allowed for text fields                                                                                                                                      |
+| Max         | .max                 | Not allowed for text fields                                                                                                                                      |
+| Min         | .min                 | Not allowed for text fields                                                                                                                                      |
+| Count       | .count               |                                                                                                                                                                  |
+| Terminal    | .term                | Retrieves the last value of the metric from DBDocument type has to be specified in the query                                                                     |
 | Current     | .curr                | Retrieves the last value of the metric in the last 8 mins. If no value is available, the result is displayed as NADocument type has to be specified in the query |
 
 ## Global vs Custom timeline
 
 - A component by default uses the timeline selected in the global component
-
+  
   ![img](/img/display-by-time.png)
 
 - However, a user can evaluate a component for a specific custom using the following steps
-
+  
   - Edit the component and go to the advanced section
-
+  
   - Select “Custom Time”
-
+  
   - Go to the JSON Editor and edit the time fields as shown below. In this example, we evaluate the component for last 1 hour. User can specify 30m for 30 minutes, 1d for 1day etc.
-
+    
     ![img](/img/edit-component.webp)
 
 ## Constructing Queries
@@ -57,37 +55,35 @@ SnappyFlow provides SQL like query language to create components through a JSON 
 - Whenever you create a new component, it will always have `_tag_appName == $value` by default, which is automatically substituted with current application name. This ensures that data is being queried for the current application only
 
 - Examples
-
-   | Example Use Case                                    | Query                                                        |
-   | :-------------------------------------------------- | :----------------------------------------------------------- |
-   | Collect a metric for a specific instance            | `select CPUUtil where _tag_Name == instance1`                |
-   | Collect metrics for all instances in an application | `select CPUUtil where _tag_Name == *`                        |
-   | Collect metric based on a dropdown condition        | `select CPUUtil where _tag_Name == DropDownXX.$value`        |
-   |                                                     | **Note**: `DropDownXX` is the name of the dropdown.                                  `DropDown.$value` is the value selected in the dropdown |
-   | Collect a terminal value of a metric                | `Select clusterStatus.term where _plugin == elasticsearch and _documentType == clusterStats` |
-   |                                                     | **Note**: Whenever you query a terminal value, a `_documentType` has to be specified |
-   | Create a logic expression                           | `Select path.count where code >= 400 and code < 600`         |
-   |                                                     | **Equal**: `==`                                              |
-   |                                                     | **Not Equal**: `!==`                                         |
-   |                                                     | **Greater or Less**: `>`, `>=`, `<`, `<=`                    |
-   |                                                     | **Variable belongs to a list**: `X ==(A,B,C..)`              |
-   | String operations                                   | `query_string == message:"Index to be deleted"`              |
-   |                                                     | **Query_string**: Directive or operator for search by keyword |
-   |                                                     | **Message**: Field name in which the pattern has to be searched |
-   |                                                     | **Search Text**: Specify exact text in quotes To see all supported options, refer to [Log Overview Search](/docs/Log_management/log_overview) |
-   | Building queries for nested data                    | ![img](/img/building-queries-for-nested-data.png) |
-   |                                                     | **Note**: When using a nested field, enclose metric within square brackets. |
-   |                                                     | Enable `Add Nested Fields` option in the advanced section. This will add the section `nestedFields` in JSON editor. |
-   |                                                     | Specify the nested fields used in the query under `nestedFields` section. |
-
   
+  | Example Use Case                                    | Query                                                                                                                                         |
+  |:--------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Collect a metric for a specific instance            | `select CPUUtil where _tag_Name == instance1`                                                                                                 |
+  | Collect metrics for all instances in an application | `select CPUUtil where _tag_Name == *`                                                                                                         |
+  | Collect metric based on a dropdown condition        | `select CPUUtil where _tag_Name == DropDownXX.$value`                                                                                         |
+  |                                                     | **Note**: `DropDownXX` is the name of the dropdown.                                  `DropDown.$value` is the value selected in the dropdown  |
+  | Collect a terminal value of a metric                | `Select clusterStatus.term where _plugin == elasticsearch and _documentType == clusterStats`                                                  |
+  |                                                     | **Note**: Whenever you query a terminal value, a `_documentType` has to be specified                                                          |
+  | Create a logic expression                           | `Select path.count where code >= 400 and code < 600`                                                                                          |
+  |                                                     | **Equal**: `==`                                                                                                                               |
+  |                                                     | **Not Equal**: `!==`                                                                                                                          |
+  |                                                     | **Greater or Less**: `>`, `>=`, `<`, `<=`                                                                                                     |
+  |                                                     | **Variable belongs to a list**: `X ==(A,B,C..)`                                                                                               |
+  | String operations                                   | `query_string == message:"Index to be deleted"`                                                                                               |
+  |                                                     | **Query_string**: Directive or operator for search by keyword                                                                                 |
+  |                                                     | **Message**: Field name in which the pattern has to be searched                                                                               |
+  |                                                     | **Search Text**: Specify exact text in quotes To see all supported options, refer to [Log Overview Search](/docs/Log_management/log_overview) |
+  | Building queries for nested data                    | ![img](/img/building-queries-for-nested-data.png)                                                                                             |
+  |                                                     | **Note**: When using a nested field, enclose metric within square brackets.                                                                   |
+  |                                                     | Enable `Add Nested Fields` option in the advanced section. This will add the section `nestedFields` in JSON editor.                           |
+  |                                                     | Specify the nested fields used in the query under `nestedFields` section.                                                                     |
 
 - **Combined query:** SnappyFlow allows upto 2 queries for SummaryBox and Tables and can be enabled from the advanced section. This is useful when querying terminal values from two different documentTypes
 
 - **Render:** This feature is useful when using combined query for tables and summary charts
-
+  
   It has 2 uses:
-
+  
   - change the order of rendering metrics when combined query is used
   - collect a number of metrics, transform the metrics and render only a subset of the collected metrics. Enable the feature from advanced section
 
@@ -98,7 +94,7 @@ Histogram interval is relevant for a Line chart and Bar chart histogram. It is a
 By default, histogram interval is calculated based on time range represented in the graph. If user deselects ‘Adaptive Interval’ option from the advanced section, the histogram interval is fixed at 60s.
 
 | Time Range represented in the chart | Line Chart Interval | Bar Chart Interval |
-| :---------------------------------- | :------------------ | :----------------- |
+|:----------------------------------- |:------------------- |:------------------ |
 | <= 1 minute                         | 1s                  | 1s                 |
 | <= 5 minutes                        | 2s                  | 4s                 |
 | <= 10 minutes                       | 4s                  | 10s                |
@@ -125,21 +121,21 @@ User can enable the metric properties from advanced section for:
 - Formatting the data rendered in the component
 - Applying text/box color properties
 
-| Property      | Description                                                  | Example Use Case                                             | Comments                                                     |
-| :------------ | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| metricsFilter | Used to display specified portions of the string in the component or to shorten the displayed string | Consider a table component displaying pod details with `_tag_podName` as the table key. If the pod names have the form `apmmanager-apm-sfapm-apm`, we can shorten the displayed name using `metricsFilter` | Applicable for Table, Tabbed table, Line chart, Bar chart components |
-|               |                                                              | For Example: ![img](/img/metrics-filter-img.png)This will display `apmmanager-apm-sfapm-apm-5cd8946d64-2smb9` as `apm-5cd8946d64-2smb9` |                                                              |
-| decimal       | By default, data is shown upto 1 decimal placeUser can override this setting by using this option | ![img](/img/metrics-table-img1.png) | Applicable for Table, Tabbed table, Summary box, Line chart and Bar chart histogram components |
-|               |                                                              | If we have a table component with a header CPU (%), data under this column will be rounded to 3 decimal places. |                                                              |
-|               |                                                              | **Note**: To change the number of decimals for all metrics in the component, use `default: <num_of_decimals>` |                                                              |
-| format        | Format time field from epoch milliseconds/epoch seconds format to DateTime format | ![img](/img/metrics-table-img2.png)![img](/img/metrics-table-img3.png) | Applicable for Table, Tabbed table, Bar charts, Key based line chart componentsAvailable options are DateTime, DateTime(ms) and DateTime(us) |
-|               |                                                              | In the above example, the time displayed under `Last Seen` column of table is formatted to DateTime format |                                                              |
-| color         | Display table cell with colors based on conditions           | Refer the section “Display table cell with colors based on conditions” in the [Table Component](#table-component) section below | Applicable for Table, Tabbed table and Excel Table components |
-| rate          | Used to display the urate/unit rate of the metric in Table and Summary Box components | **Usage**: `<var_name>: urate`                               | Applicable for Summary Box and Table components              |
-|               |                                                              | urate is calculated as value of the `metric/(time range used in query in seconds)` |                                                              |
-| nullValues    | Null Values are displayed as NA by defaultUse this option to override the default setting | ![img](/img/metrics-table-nullvalues.png)The null values will be displayed as `--` instead of NA | Applicable for Table component                               |
-| boxColor      | Display box color for Summary box based on condition         | ![img](/img/metrics-table-boxcolor.png)The condition should be specified in the same way as the table cell color. Refer [Table Component](#table-component) section below. | Applicable for Summary Box                                   |
-| textColor     | Display text color for Summary box based on condition        | ![img](/img/metrics-table-img-textcolor.png)The condition should be specified in the same way as the table cell color.Refer [Table Component](#table-component) section below. | Applicable for Summary Box                                   |
+| Property      | Description                                                                                          | Example Use Case                                                                                                                                                                                           | Comments                                                                                                                                     |
+|:------------- |:---------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------- |
+| metricsFilter | Used to display specified portions of the string in the component or to shorten the displayed string | Consider a table component displaying pod details with `_tag_podName` as the table key. If the pod names have the form `apmmanager-apm-sfapm-apm`, we can shorten the displayed name using `metricsFilter` | Applicable for Table, Tabbed table, Line chart, Bar chart components                                                                         |
+|               |                                                                                                      | For Example: ![img](/img/metrics-filter-img.png)This will display `apmmanager-apm-sfapm-apm-5cd8946d64-2smb9` as `apm-5cd8946d64-2smb9`                                                                    |                                                                                                                                              |
+| decimal       | By default, data is shown upto 1 decimal placeUser can override this setting by using this option    | ![img](/img/metrics-table-img1.png)                                                                                                                                                                        | Applicable for Table, Tabbed table, Summary box, Line chart and Bar chart histogram components                                               |
+|               |                                                                                                      | If we have a table component with a header CPU (%), data under this column will be rounded to 3 decimal places.                                                                                            |                                                                                                                                              |
+|               |                                                                                                      | **Note**: To change the number of decimals for all metrics in the component, use `default: <num_of_decimals>`                                                                                              |                                                                                                                                              |
+| format        | Format time field from epoch milliseconds/epoch seconds format to DateTime format                    | ![img](/img/metrics-table-img2.png)![img](/img/metrics-table-img3.png)                                                                                                                                     | Applicable for Table, Tabbed table, Bar charts, Key based line chart componentsAvailable options are DateTime, DateTime(ms) and DateTime(us) |
+|               |                                                                                                      | In the above example, the time displayed under `Last Seen` column of table is formatted to DateTime format                                                                                                 |                                                                                                                                              |
+| color         | Display table cell with colors based on conditions                                                   | Refer the section “Display table cell with colors based on conditions” in the [Table Component](#table-component) section below                                                                            | Applicable for Table, Tabbed table and Excel Table components                                                                                |
+| rate          | Used to display the urate/unit rate of the metric in Table and Summary Box components                | **Usage**: `<var_name>: urate`                                                                                                                                                                             | Applicable for Summary Box and Table components                                                                                              |
+|               |                                                                                                      | urate is calculated as value of the `metric/(time range used in query in seconds)`                                                                                                                         |                                                                                                                                              |
+| nullValues    | Null Values are displayed as NA by defaultUse this option to override the default setting            | ![img](/img/metrics-table-nullvalues.png)The null values will be displayed as `--` instead of NA                                                                                                           | Applicable for Table component                                                                                                               |
+| boxColor      | Display box color for Summary box based on condition                                                 | ![img](/img/metrics-table-boxcolor.png)The condition should be specified in the same way as the table cell color. Refer [Table Component](#table-component) section below.                                 | Applicable for Summary Box                                                                                                                   |
+| textColor     | Display text color for Summary box based on condition                                                | ![img](/img/metrics-table-img-textcolor.png)The condition should be specified in the same way as the table cell color.Refer [Table Component](#table-component) section below.                             | Applicable for Summary Box                                                                                                                   |
 
 ## Table Component
 
@@ -148,32 +144,32 @@ User can enable the metric properties from advanced section for:
 - All tables by default have aggregated option selected
 
 - In this option, metrics are computed for a bucket that corresponds to a unique value of the key
-
+  
   **Example**:
-
+  
   If we need documents such as (Group: A, Name: x, Age: 10, Weight: 20) , (Group B, Name: y, Age: 12, Weight: 22), (Group A, Name: xx, Age: 25, Weight: 100), (Group B, Name: yy, Age: 15, Weight: 70), a table for `Select Age.avg, Weight.avg where Group == *` provides an output as shown below.
-
+  
   | Group | Age  | Weight |
-  | :---- | :--- | :----- |
+  |:----- |:---- |:------ |
   | A     | 17.5 | 60     |
   | B     | 13.5 | 46     |
 
-​		***Group is the table key\*** in the above example
+​        ***Group is the table key\*** in the above example
 
 ### Non Aggregation Table:
 
 - User can choose this option by disabling “Aggregation” in advanced option or by leaving the “Table Key” field as empty
 
 - This option is used to represent values from a sequence of JSON in a tabular format, without performing any aggregations
-
+  
   Example: For the same example above, a query “Select Name, Group, Age, Weight” would provide the result as shown below that merely represents the data in a tabular form. The ordering by default will be in descending order of time
-
-  | Group | Name | Age  | Weight |
-  | :---- | :--- | :--- | :----- |
-  | A     | x    | 10   | 20     |
-  | B     | y    | 12   | 22     |
-  | C     | xx   | 25   | 100    |
-  | D     | yy   | 15   | 70     |
+  
+  | Group | Name | Age | Weight |
+  |:----- |:---- |:--- |:------ |
+  | A     | x    | 10  | 20     |
+  | B     | y    | 12  | 22     |
+  | C     | xx   | 25  | 100    |
+  | D     | yy   | 15  | 70     |
 
 ### Change Sort Field
 
@@ -186,7 +182,7 @@ User can enable the metric properties from advanced section for:
 - Please note that a metric that has a .term/.count aggregation cannot be specified as a sort field
 
 - By choosing “Change Sort Order” in advanced section, user can change the option to descending or ascending for the sort key. Please see in the example below
-
+  
   ![img](/img/change-sort-field.png)
 
 ### Filter
@@ -196,30 +192,30 @@ User can enable the metric properties from advanced section for:
 - Enable filter by selecting “Add Filter” option in advanced options
 
 - Click on the filter icon
-
+  
   ![img](/img/transction-by-api-filter.png)
 
 - Define filters for specific columns. We can specify one or more filters at a time. In the example below we are asking to filter all API path values in databases that contain the key “snappyflow” and number of 4xx errors is GT 5
-
+  
   ![img](/img/filter-popup.png)
 
 - Please note the following limitations and rules to follow
-
+  
   - If combined query is used, filters can be applied only to table key
   - Filter cannot be applied to a variable that is a transformation of more than one metric
 
 ### Display table cell with colors based on conditions
 
 - Example- we are computing the total number of 4XX and 5XX errors in the query below and we would like color the cell containing #Errors in red if the number of errors are GT 0
-
+  
   ![img](/img/display-table-cell-with-colors.png)
 
 - Go to the advanced section and enable metric properties. This will bring up a section called metric properties under which add the condition as shown below for color
-
+  
   ![img](/img/metricpoperties.png)
 
 - This will cause the color to rendered for the cell if #Errors is GT 0
-
+  
   ![img](/img/browser-stats.png)
 
 ### Hyperlink
@@ -229,18 +225,24 @@ User can enable the metric properties from advanced section for:
 - Go to Edit Component’s advanced section and enable Hyperlink checkbox, which can be found under General category
 
 - A hyperlink section is enabled in the JSON editor. You will need to define the redirection target which comprises of Group (Group is a collection of panes. If the target pane does not belong a group, leave this field empty), Pane (dashboard pane name), Component (dropdown in the pane where the value of the hyperlink has to be propagated)
-
+  
   ![img](/img/hyperlink.png)
 
 - Hyperlinks are enabled for the table. Click on the value “200” will redirect to the pane “Transaction Analysis” which belongs to group “Nginx Access” and render this pane with DropDown11 value = 200
-
+  
   ![img](/img/tx-by-rest-code.png)
 
 ## Generic Filter Component
 
-The generic filter component is used to filter the data shown in the components in a pane. In a pane, only one of generic filter or dropdown components can be added. 
+The `Generic Filter` component is used to filter data displayed in the components in a pane. `Generic Filter` component gives more flexible filtering capabilities compared to `Dropdown`.
 
-  ![img](/img/generic-filter/gen_filter_final_screen.png)
+:::info
+
+In any pane, only one of `Generic Filter` or `Dropdown` components can be added.
+
+:::
+
+*An example of `Generic Filter` in use in an Nginx dashboard where browser used is Chrome and OS is Windows.*![img](/img/generic-filter/gen_filter_final_screen.png)
 
 ### Adding Generic Filter component
 
@@ -252,36 +254,45 @@ Only one generic filter component can be added to a pane
 
   ![img](/img/generic-filter/add_gen_filter.png)
 
-
 ### Using Generic Filter
 
-The results in a pane can be filtered by [adding condition(s)](#steps-to-add-a-condition) in the generic filter. Multiple conditions can be added to further fine tune the results. Once all the condition(s) are added, click the search icon to filter the results.
-  
+The results in a pane can be filtered by adding condition(s) in the `Generic Filter` component. Multiple conditions can be added to further fine tune the results. Once all the condition(s) are added, click the search icon to filter the results.
+
 #### Steps to add a condition
 
 A condition contains 3 components:
+
 - **Field**: Field name on which search has to be performed
 - **Operator**: The search operator
 - **Value**: The value to be searched for the provided field name
 
-For Eg:  
-If the condition is **code == 200**, we are expecting the results where the value of **code** field is **equal to 200**. Here **code** is the field name, **==** is the operator and **200** is the value.  
+For Example, if one of the condition is `code == 200`, all the components in the pane will only show results where the value of `code` field is `200`. 
+
+Here, 
+
+**code **is the `field name`
+
+**==** is the `operator`
+
+**200 **is the `value`
 
   ![img](/img/generic-filter/gen_filter_final_screen2.png)
 
 ##### Step 1: Add a field
 
-Use the search box to select the required field. Alternatively, type in the field name and press enter.
+Use the search box to select from a list of recommended fields. Alternatively, type in the field name and press enter.
 
   ![img](/img/generic-filter/add_field.png)
-
 
 ##### Step 2: Add an operator
 
 Based on the type of the selected field, operator recommendations will be provided.  
-If the field type is **number**, then the operators will be $>, >=, <, <=, !=, ==$  
-If the field type is **text**, then the operators will be ~(contains), ~-(does not contain), $==$ 
 
+
+- If the field type is **number**, then the operators will be `>`, `>=`, `<`, `<=`, `!=`, `==`  
+  
+
+- If the field type is **text**, then the operators will be `~`(contains), `~-`(does not contain), `==`(equal to). 
 
 :::note
 If the selected field has different types of values, all the opertors will be listed in operator recommendation.
@@ -294,7 +305,7 @@ If the selected field has different types of values, all the opertors will be li
 Based on the field selected, all the possible values of that field will be fetched and will be provided as recommendations. Select the value from the list or type in the field name and press enter.
 
 :::note
-If the selected field is present in multiple indices(Metrics, Logs, Tracing), the value recommendation list will not be fetched
+If the selected field is present in multiple indices (Metrics, Logs, Tracing), the value recommendation list will not be fetched
 :::note
 
   ![img](/img/generic-filter/add_value.png)
