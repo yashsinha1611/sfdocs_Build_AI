@@ -22,6 +22,8 @@ const katex = require('rehype-katex');
     require.resolve('@cmfcmf/docusaurus-search-local'),
     {
       indexDocs: true,
+      indexBlog: true,
+      language: "en",
     }
     ]
   ],
