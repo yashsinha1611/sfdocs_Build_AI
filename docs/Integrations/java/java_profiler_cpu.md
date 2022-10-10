@@ -33,11 +33,11 @@ metrics:
       enabled: true
       interval: 10
       target: profile
-    config: 
-      process: process_name      # otherwise mention '*'
-      monitorCpuProfiling: true
-      cpuProfilingInterval: 10
-      stackTraceLimit: 25
+      config:
+        process: process_name      # otherwise mention '*'
+        monitorCpuProfiling: true
+        cpuProfilingInterval: 10
+        stackTraceLimit: 25
 ```
 
 **CPU profiling interval :**
