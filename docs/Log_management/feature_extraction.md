@@ -27,7 +27,7 @@ Feature Extraction is available under the Logs dropdown in all application homep
 
 Under Feature Extraction, there are two tabs `Data View` and `Operations`
 
-<img src="/img/feature_extraction/feature_extraction_tab.png" />
+<img src="/img/feature_extraction/ui.png" />
 
 
 ### Data View Tab
