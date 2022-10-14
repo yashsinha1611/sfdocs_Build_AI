@@ -16,7 +16,6 @@ const katex = require('rehype-katex');
   organizationName: 'SnappyFlow', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
   plugins: [
-    'plugin-image-zoom',
     require.resolve('docusaurus-lunr-search'),
     '@docusaurus/theme-live-codeblock',
     [
@@ -204,17 +203,6 @@ const katex = require('rehype-katex');
         //   },
         // ],
         copyright: `Copyright © ${new Date().getFullYear()}`,
-      },
-      imageZoom: {
-        // CSS selector to apply the plugin to, defaults to '.markdown img'
-        selector: '.markdown img', 
-        options: {
-          margin: 24,
-          background: '#BADA55',
-          scrollOffset: 0,
-          container: '#zoom-container',
-          template: '#zoom-template',
-        },
       },
       prism: {
         theme: lightCodeTheme,
