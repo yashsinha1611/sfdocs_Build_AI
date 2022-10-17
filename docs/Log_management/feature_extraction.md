@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Feature Extraction - Extract data from raw logs
 
 ## Overview
@@ -45,7 +48,7 @@ The Operations View tab lists all the Feature Extraction operations that have be
 
 ## How it works ##
 
-:::important
+:::note <h3>Read me</h3>
 
 Read the below passage to use Feature Extraction effectively
 
@@ -81,107 +84,110 @@ The command comprises of multiple functions such as `skipword()`, `skip()`, `ext
 
 There are mainly two type of functions - Skip and Extract.
 
+| Skip Functions | Extract Functions |
+|--|--|
+| [skip](#skip) | [extractword](#extractword) |
+| [skipchar](#skipchar) | [extractchar](#extractchar) |
+| [skipword](#skipword) | [extractnum](#extractnum) |
+| [skipuntil](#skipuntil) | [extractuntil](#extractuntil) |
+|  | [extractpattern](#extractpattern) |
+|  | [extractjson](#extractjson) |
+|  | [extractregex](#extractregex) |
+|  | [extractregexgroup](#extractregexgroup) |
+|  | [extractkeyvalue](#extractkeyvalue) |
+|  | [extractjsonkeys](#extractjsonkeys) |
+|  | [extracttime](#extracttime) |
+|  | [extracttillend](#extracttillend) |
+|  | [inextractkeyvalue](#inextractkeyvalue) |
+
+
 ## Skip Functions ##
 Skip function allows moving the imaginary cursor to the position of interest
 
-### skipword(N) ###
+### skipword ###
 
-This function is used to skip N number of words. This function assumes each word is separated by a single `space`. The pointer position is now immediately after the `space` at the end of Nth word.
+This function is used to skip a given number of words. This function assumes each word is separated by a single `space`. The pointer position moves to the end of the `space` after the Nth word.
 
 #### Syntax and Usage ####
 skipword(N), where N is an integer and denotes the number of words to skip.
 
-#### Example ####
 
-Consider the Log line "This is an example list."
 
-Using `skipword(3)` moves the pointer 3 words to the right.
+<hr></hr>
 
-In this example, the pointer or imaginary cursor is denoted by `|`.
-
-**Initial pointer position**
-
-`|`This is an example list.
-
-**Updated pointer position **
-
-This is an `|`example list.
-
-The remaining log line after skipping will be “example list.”
-
-### skipchar(N) ###
+### skipchar ###
 
 This function is used to skip N number of characters. The pointer position is always after the Nth skipped character.
 
-#### Syntax and Usage ####
-skipchar(N), where N is an integer and denotes the number of characters to be skipped including spaces.
-#### Example ####
-Consider the Log line "This is an example list."
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+    skipchar(N)
+  </TabItem>
+  <TabItem value="Usage" label="Usage" default>
+  skipchar(5)
 
-Using `skipchar(7)` moves the pointer 5 characters to the right.
+  skipchar(4)
+  </TabItem>
+  <TabItem value="Example" label="Example">
+Consider the Log line <b>"This is an example list." </b>
 
+Using `skipchar(7)` moves the pointer 5 characters to the right. 
+
+In this example, the pointer or imaginary cursor is denoted by `|`.
+
+**<u>Initial pointer position</u>**
+
+`|`This is an example list.
+
+**<u>Final pointer position</u>**
+
+This is`|` an example list.
+
+</TabItem>
+
+</Tabs>
+
+
+<hr></hr>
+
+### skipuntil ###
+
+This function is used to skip until the string as specified by the user is found. It skips only until the first occurrence of the delimiter.
+
+
+<details>
+  <summary><b>Example</b></summary>
+  <div>
+Consider the Log line "Running full sweep for node-116"
+
+Using `skipuntil(“for”, 0)` moves the cursor to the first occurence of the word `for` and using `0` moves the cursor to the beginning of the word.
 
 In this example, the pointer or imaginary cursor is denoted by `|`.
 
 **Initial pointer position**
 
-`|`This is an example list.
+`|`Running full sweep for node-116
 
 **Updated pointer position **
 
-This is`|` an example list.
+Running full sweep `|` for node-116
 
-The remaining log line after skipping will be “ example list.”
+The remaining log line after skipping will be: “for node-116”
+</div>
+</details>
 
-### skipuntil ###
-
-This function is used to skip until the delimiter as specified by the user is found. It skips only until the first occurrence of the delimiter.
 
 #### Syntax and Usage ####
 
 skipuntil(wordToSkip, includeWord)
-where,
--	wordToSkip is a string and denotes the delimiter until which skipping is done.
+
+
+`wordToSkip` is a string and denotes the word until which the cursor skips.
+
 o	If wordToSkip is specified as $numeric$, everything until the first occurrence of a number is skipped.
 o	If wordToSkip is specified as $special$, everything until the first occurrence of a special character is extracted.
 -	includeWord (0-exclude/1-include) is an integer which denotes whether to include the delimiter in the skipping.
 Here,
 -	The pointer position is before the wordToSkip if includeWord is 0.
 -	The pointer position is after the wordToSkip if includeWord is 1.
-
-#### Example ####
-
-Log line1: This is an example list.
-Rule1: skipuntil(“an”, 0)
-Updated pointer position (|): This is |an example list.
-The remaining log line after skipping will be: “an example list.”
-
-Rule2: skipuntil(“an”, 1)
-Updated pointer position (|): This is an |example list.
-The remaining log line after skipping will be: “example list.”
-
-Log line2: 123 example log line 01/01/2022.
-
-Rule1: skipuntil(“$numeric$”, 1)
-Updated pointer position (|): 123 |example log line 01/01/2022.
-The remaining log line after skipping will be: “example log line 01/01/2022.”
-
-Rule2: res=extractuntil(“$special$”, 1)
-Updated pointer position (|): 123 example log line 01/|01/2022.
-The remaining log line after skipping will be: “01/2022.”
-
-Log line3: Jan2022-Monday example log line.
-Rule1: res=extractuntil(“$numeric$”, 0)
-Updated pointer position (|): Jan|2022-Monday example log line.
-The remaining log line after skipping will be: “2022-Monday example log line.”
-
-Rule2: res=extractuntil(“$special$”, 0)
-Updated pointer position (|): Jan2022|-Monday example log line.
-The remaining log line after skipping will be: “-Monday example log line.”
-
-
-## Extract Functions ##
-Extract function allows retrieving particular information and this can be stored in a variable
-
-
 

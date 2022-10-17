@@ -183,5 +183,5 @@ The remaining log line after skipping will be: “-Monday example log line.”
 ## Extract Functions ##
 Extract function allows retrieving particular information and this can be stored in a variable
 
-New changes <Sourav>
+New changes
 
