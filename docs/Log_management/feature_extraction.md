@@ -102,14 +102,81 @@ There are mainly two type of functions - Skip and Extract.
 
 
 ## Skip Functions ##
-Skip function allows moving the imaginary cursor to the position of interest
+Skip functions allows moving the imaginary cursor to the position of interest
+
+### skip
+
+This function is used to skip a particular word in the log line. 
+
+
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+skip("wordtoskip") where `wordtoskip` is the word to be skipped. Note that double quotes are required.
+
+  </TabItem>
+  <TabItem value="Usage" label="Usage" default>
+
+skip("dns")
+
+skip("source")
+
+  </TabItem>
+  <TabItem value="Example" label="Example">
+
+Consider the Log line **Update-mapping for Metric-7kjdgp3g hosted from master-2**
+
+Using skip(“for”), the pointer will look for the word `for` and move the imaginary cursor after the word `for`
+
+**<u>Initial pointer position</u>**
+
+`|`Update-mapping for Metric-7kjdgp3g hosted from master-2
+
+**<u>Final pointer position</u>**
+
+Update-mapping for `|` Metric-7kjdgp3g hosted from master-2
+
+</TabItem>
+
+</Tabs>
+
+<hr></hr>
 
 ### skipword ###
 
 This function is used to skip a given number of words. This function assumes each word is separated by a single `space`. The pointer position moves to the end of the `space` after the Nth word.
 
-#### Syntax and Usage ####
-skipword(N), where N is an integer and denotes the number of words to skip.
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+skip("N") where `N` is the number of words to be skipped.
+
+  </TabItem>
+  <TabItem value="Usage" label="Usage" default>
+
+skip("4")
+
+skip("5")
+
+  </TabItem>
+  <TabItem value="Example" label="Example">
+
+Consider the Log line **Update-mapping for Metric-7kjdgp3g hosted from master-2**
+
+Using skip(“5”), the pointer will skip five words
+
+**<u>Initial pointer position</u>**
+
+`|`Update-mapping for Metric-7kjdgp3g hosted from master-2
+
+**<u>Final pointer position</u>**
+
+Update-mapping for Metric-7kjdgp3g hosted from `|`master-2
+
+</TabItem>
+
+</Tabs>
 
 
 
@@ -121,7 +188,7 @@ This function is used to skip N number of characters. The pointer position is al
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
-    skipchar(N)
+    skipchar(N) where `N` is the number of characters to skip.
   </TabItem>
   <TabItem value="Usage" label="Usage" default>
   skipchar(5)
@@ -152,42 +219,52 @@ This is`|` an example list.
 
 ### skipuntil ###
 
-This function is used to skip until the string as specified by the user is found. It skips only until the first occurrence of the delimiter.
+This function is used to skip until the string as specified is found. It skips only until the first occurrence of the string.
 
 
-<details>
-  <summary><b>Example</b></summary>
-  <div>
-Consider the Log line "Running full sweep for node-116"
 
-Using `skipuntil(“for”, 0)` moves the cursor to the first occurence of the word `for` and using `0` moves the cursor to the beginning of the word.
-
-In this example, the pointer or imaginary cursor is denoted by `|`.
-
-**Initial pointer position**
-
-`|`Running full sweep for node-116
-
-**Updated pointer position **
-
-Running full sweep `|` for node-116
-
-The remaining log line after skipping will be: “for node-116”
-</div>
-</details>
-
-
-#### Syntax and Usage ####
-
-skipuntil(wordToSkip, includeWord)
-
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+ skipuntil("wordtoskip",includeword)
 
 `wordToSkip` is a string and denotes the word until which the cursor skips.
 
-o	If wordToSkip is specified as $numeric$, everything until the first occurrence of a number is skipped.
-o	If wordToSkip is specified as $special$, everything until the first occurrence of a special character is extracted.
--	includeWord (0-exclude/1-include) is an integer which denotes whether to include the delimiter in the skipping.
-Here,
--	The pointer position is before the wordToSkip if includeWord is 0.
--	The pointer position is after the wordToSkip if includeWord is 1.
+- If wordToSkip is specified as `$numeric$`, everything until the first occurrence of a number is skipped.
+- If wordToSkip is specified as `$special$`, everything until the first occurrence of a special character is extracted.
+
+`includeWord`  is an integer which denotes whether to include the `wordtoskip`
+
+Use `0` to exclude and `1` to include the `wordtoskip`
+
+- The pointer position is before the `wordToSkip` if `includeWord` is `0`.
+- The pointer position is after the `wordToSkip` if `includeWord` is `1`.
+
+
+
+ </TabItem>
+  <TabItem value="Usage" label="Usage" default>
+  skipuntil("Metric-7kjdgp3g",0)
+  </TabItem>
+  <TabItem value="Example" label="Example">
+
+Consider the Log line **Running full sweep for node-116**
+
+Using skipuntil(“for”, 0) skips the pointer position after the first occurrence of the word `for`
+
+In this example, the pointer or imaginary cursor is denoted by `|`.
+
+**<u>Initial pointer position</u>**
+
+Running full sweep **|** for node-116
+
+**<u>Final pointer position</u>**
+
+Running full sweep **|** for node-116
+
+The remaining log line after skipping will be: “for node-116”
+
+</TabItem>
+
+</Tabs>
+
 
