@@ -2,7 +2,7 @@
 
 ## Overview
 
-Skip functions are used in [Feature Extractions](/docs/Log_management/feature_extraction) and allow moving the pointer/imaginary cursor to a position of interest in the log line.
+Skip functions are used in [Feature Extraction](/docs/Log_management/feature_extraction) and allow moving the pointer/imaginary cursor to a position of interest in the log line.
 
 ## skip
 
