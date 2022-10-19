@@ -17,7 +17,7 @@ Feature Extraction can be setup only for any logs and this is applicable at an A
 
 :::note
 
-Feature Extraction only works for logs ingested post setting up the operation. 
+Feature Extraction only works on logs ingested post setting up the operation. 
 
 :::
 
@@ -48,26 +48,30 @@ The Operations View tab lists all the Feature Extraction operations that have be
 
 ## How it works ##
 
-:::danger <h3>Read below passage to use Feature Extraction effectively</h3>
+:::danger Read below passage to use Feature Extraction effectively
 
 
 
 Imagine a cursor or pointer at the beginning of a log line. This cursor can be moved along the log line from left to right to reach a particular position of interest. This is called **skipping**. The character/word that immediately follows the cursor is processed based on the query provided. This is called **extracting**.
+
+Using a combination of skipping and extracting, useful information can be retrieved from any kind of unstructured logs.
 
 :::
 
 
 
 
-**The general syntax for creating a query is**
+:::note **General syntax for creating a Feature Extraction**
 
 `parse(field_name): command`
 
+where, 
+
 `field_name` is the name of the field in the log whose content is to be parsed. The contents of `field_name` are parsed character by character from left to right based on `command`.
 
-`command` comprises of single or multiple functions which are executed ony by one on the contents of `field_name`. It is possible to extract specific information and store it in a variable.
+`command` comprises of single or multiple functions which are executed ony by one, on the contents of `field_name`. The function can either be a skip or an extract function.
 
-
+:::
 
 
 
@@ -77,7 +81,7 @@ Imagine a cursor or pointer at the beginning of a log line. This cursor can be m
 
 In the above query, the `message` field is parsed.
 
-The command comprises of multiple functions such as `skipword()`, `skip()`, `extractword()` and `extractnum()`. The extracted content from the function `extractnum().format("float")` is stored in a variable called `decimal` in floating point.
+The command comprises of two skip functions  `skipword()`, `skip()` and two extract functions`extractword()` and `extractnum()`.  The variables `test` and `decimal` store the extracted data from the log line. 
 
 
 ## Functions used in Feature Extraction Queries ##
@@ -86,19 +90,19 @@ There are mainly two type of functions - Skip and Extract.
 
 | Skip Functions | Extract Functions |
 |--|--|
-| [skip](#skip) | [extractword](#extractword) |
-| [skipchar](#skipchar) | [extractchar](#extractchar) |
-| [skipword](#skipword) | [extractnum](#extractnum) |
-| [skipuntil](#skipuntil) | [extractuntil](#extractuntil) |
-|  | [extractpattern](#extractpattern) |
-|  | [extractjson](#extractjson) |
-|  | [extractregex](#extractregex) |
-|  | [extractregexgroup](#extractregexgroup) |
-|  | [extractkeyvalue](#extractkeyvalue) |
-|  | [extractjsonkeys](#extractjsonkeys) |
-|  | [extracttime](#extracttime) |
-|  | [extracttillend](#extracttillend) |
-|  | [inextractkeyvalue](#inextractkeyvalue) |
+| [skip](/docs/Log_management/skip_functions#skip) | [extractword](/docs/Log_management/extract_functions#extractword) |
+| [skipchar](/docs/Log_management/skip_functions#skipchar) | [extractchar](/docs/Log_management/extract_functions#extractchar) |
+| [skipword](/docs/Log_management/skip_functions#skipword) | [extractnum](/docs/Log_management/extract_functions#extractnum) |
+| [skipuntil](/docs/Log_management/skip_functions#skipuntil) | [extractuntil](/docs/Log_management/extract_functions#extractuntil) |
+|  | [extractpattern](/docs/Log_management/extract_functions#extractpattern) |
+|  | [extractjson](/docs/Log_management/extract_functions#extractjson) |
+|  | [extractregex](/docs/Log_management/extract_functions#extractregex) |
+|  | [extractregexgroup](/docs/Log_management/extract_functions#extractregexgroup) |
+|  | [extractkeyvalue](/docs/Log_management/extract_functions#extractkeyvalue) |
+|  | [extractjsonkeys](/docs/Log_management/extract_functions#extractjsonkeys) |
+|  | [extracttime](/docs/Log_management/extract_functions#extracttime) |
+|  | [extracttillend](/docs/Log_management/extract_functions#extracttillend) |
+|  | [inextractkeyvalue](/docs/Log_management/extract_functions#inextractkeyvalue) |
 
 
 
