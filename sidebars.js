@@ -671,6 +671,16 @@ module.exports = {
                 },
                 {
                     type: 'doc',
+                    id: 'Log_management/skip_functions',
+                    label: 'Skip Functions',
+                },
+                {
+                    type: 'doc',
+                    id: 'Log_management/extract_functions',
+                    label: 'Extract Functions',
+                },
+                {
+                    type: 'doc',
                     id: 'Log_management/archival',
                     label: 'Archival',
                 },

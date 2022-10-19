@@ -48,11 +48,11 @@ The Operations View tab lists all the Feature Extraction operations that have be
 
 ## How it works ##
 
-:::note <h3>Read me</h3>
+:::danger <h3>Read below passage to use Feature Extraction effectively</h3>
 
-Read the below passage to use Feature Extraction effectively
 
-**Imagine a cursor at the beginning of the log line. This cursor can be moved along the log line from left to right to reach a particular position that is of interest. The character/word that immediately follows the cursor is processed based on the query provided. **
+
+Imagine a cursor or pointer at the beginning of a log line. This cursor can be moved along the log line from left to right to reach a particular position of interest. This is called **skipping**. The character/word that immediately follows the cursor is processed based on the query provided. This is called **extracting**.
 
 :::
 
@@ -63,11 +63,11 @@ Read the below passage to use Feature Extraction effectively
 
 `parse(field_name): command`
 
-`field_name` is the name of the field whose content is to be parsed. 
+`field_name` is the name of the field in the log whose content is to be parsed. The contents of `field_name` are parsed character by character from left to right based on `command`.
 
-`command` comprises multiple functions which are executed ony by one on the parsed content. It is possible to extract specific information and store in a variable.
+`command` comprises of single or multiple functions which are executed ony by one on the contents of `field_name`. It is possible to extract specific information and store it in a variable.
 
-The contents of `field_name` are parsed character by character 
+
 
 
 
@@ -101,170 +101,8 @@ There are mainly two type of functions - Skip and Extract.
 |  | [inextractkeyvalue](#inextractkeyvalue) |
 
 
-## Skip Functions ##
-Skip functions allows moving the imaginary cursor to the position of interest
 
-### skip
 
-This function is used to skip a particular word in the log line. 
 
-
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-skip("wordtoskip") where `wordtoskip` is the word to be skipped. Note that double quotes are required.
-
-  </TabItem>
-  <TabItem value="Usage" label="Usage" default>
-
-skip("dns")
-
-skip("source")
-
-  </TabItem>
-  <TabItem value="Example" label="Example">
-
-Consider the Log line **Update-mapping for Metric-7kjdgp3g hosted from master-2**
-
-Using skip(“for”), the pointer will look for the word `for` and move the imaginary cursor after the word `for`
-
-**<u>Initial pointer position</u>**
-
-`|`Update-mapping for Metric-7kjdgp3g hosted from master-2
-
-**<u>Final pointer position</u>**
-
-Update-mapping for `|` Metric-7kjdgp3g hosted from master-2
-
-</TabItem>
-
-</Tabs>
-
-<hr></hr>
-
-### skipword ###
-
-This function is used to skip a given number of words. This function assumes each word is separated by a single `space`. The pointer position moves to the end of the `space` after the Nth word.
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-skip("N") where `N` is the number of words to be skipped.
-
-  </TabItem>
-  <TabItem value="Usage" label="Usage" default>
-
-skip("4")
-
-skip("5")
-
-  </TabItem>
-  <TabItem value="Example" label="Example">
-
-Consider the Log line **Update-mapping for Metric-7kjdgp3g hosted from master-2**
-
-Using skip(“5”), the pointer will skip five words
-
-**<u>Initial pointer position</u>**
-
-`|`Update-mapping for Metric-7kjdgp3g hosted from master-2
-
-**<u>Final pointer position</u>**
-
-Update-mapping for Metric-7kjdgp3g hosted from `|`master-2
-
-</TabItem>
-
-</Tabs>
-
-
-
-<hr></hr>
-
-### skipchar ###
-
-This function is used to skip N number of characters. The pointer position is always after the Nth skipped character.
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-    skipchar(N) where `N` is the number of characters to skip.
-  </TabItem>
-  <TabItem value="Usage" label="Usage" default>
-  skipchar(5)
-
-  skipchar(4)
-  </TabItem>
-  <TabItem value="Example" label="Example">
-Consider the Log line <b>"This is an example list." </b>
-
-Using `skipchar(7)` moves the pointer 5 characters to the right. 
-
-In this example, the pointer or imaginary cursor is denoted by `|`.
-
-**<u>Initial pointer position</u>**
-
-`|`This is an example list.
-
-**<u>Final pointer position</u>**
-
-This is`|` an example list.
-
-</TabItem>
-
-</Tabs>
-
-
-<hr></hr>
-
-### skipuntil ###
-
-This function is used to skip until the string as specified is found. It skips only until the first occurrence of the string.
-
-
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
- skipuntil("wordtoskip",includeword)
-
-`wordToSkip` is a string and denotes the word until which the cursor skips.
-
-- If wordToSkip is specified as `$numeric$`, everything until the first occurrence of a number is skipped.
-- If wordToSkip is specified as `$special$`, everything until the first occurrence of a special character is extracted.
-
-`includeWord`  is an integer which denotes whether to include the `wordtoskip`
-
-Use `0` to exclude and `1` to include the `wordtoskip`
-
-- The pointer position is before the `wordToSkip` if `includeWord` is `0`.
-- The pointer position is after the `wordToSkip` if `includeWord` is `1`.
-
-
-
- </TabItem>
-  <TabItem value="Usage" label="Usage" default>
-  skipuntil("Metric-7kjdgp3g",0)
-  </TabItem>
-  <TabItem value="Example" label="Example">
-
-Consider the Log line **Running full sweep for node-116**
-
-Using skipuntil(“for”, 0) skips the pointer position after the first occurrence of the word `for`
-
-In this example, the pointer or imaginary cursor is denoted by `|`.
-
-**<u>Initial pointer position</u>**
-
-Running full sweep **|** for node-116
-
-**<u>Final pointer position</u>**
-
-Running full sweep **|** for node-116
-
-The remaining log line after skipping will be: “for node-116”
-
-</TabItem>
-
-</Tabs>
 
 
