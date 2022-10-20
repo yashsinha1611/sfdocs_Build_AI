@@ -43,7 +43,7 @@ Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for 
 metrics:  
   plugins:  
     - name: redisdb
-    enabled: true  
+      enabled: true
       interval: 60  
       config:  
         documentsTypes:  
