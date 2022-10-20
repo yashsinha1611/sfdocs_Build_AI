@@ -576,8 +576,12 @@ module.exports = {
                     label: 'Redis Sentinel',
                 },
                 {
-                    type: 'category', 
-                    label: 'RDS', 
+                    type: 'category',
+                    label: 'Redis',  
+                    link: {
+                        type: 'doc',
+                        id: 'Integrations/redis/overview'
+                    },
                     collapsed: true,
                     items: [
                         {

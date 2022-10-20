@@ -170,7 +170,7 @@ const AGENTS = [
 		'label': 'Redis',
 		'overText': 'Redis Infrastructure platform is built for enterprises',
 		'category': ['Databases'],
-		'link': '/docs/integrations/redis'
+		'link': '/docs/integrations/redis/overview'
 	},
 	{
 		'src': '/img/rabbitmq.svg',
