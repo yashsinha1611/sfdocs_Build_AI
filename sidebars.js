@@ -565,20 +565,32 @@ module.exports = {
                         },
                     ]
                 },
-                {
-                    type: 'doc',
-                    id: 'Integrations/redis',
-                    label: 'Redis',
-                },
+                // {
+                //     type: 'doc',
+                //     id: 'Integrations/redis',
+                //     label: 'Redis',
+                // },
                 {
                     type: 'doc',
                     id: 'Integrations/redis_sentinel',
                     label: 'Redis Sentinel',
                 },
                 {
-                    type: 'doc',
-                    id: 'Integrations/plugin/rds',
-                    label: 'RDS',
+                    type: 'category', 
+                    label: 'RDS', 
+                    collapsed: true,
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Integrations/redis/redis_instance',
+                            label: 'Redis Instance',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Integrations/redis/redis_kubernetes',
+                            label: 'Redis Kubernetes',
+                        },
+                    ],
                 },
                 {
                     type: 'category',
