@@ -126,12 +126,49 @@ Note that the pointer position skips the whole number in both the use of integer
 
 ## extractuntil
 
-This function, extractchar(N), extracts N number of characters, including spaces and stores the result in a variable. Pointer position moves to the end of N characters.
+This function extracts all characters until 
+
+- **A specified** string 
+
+  (or) 
+
+- **ANY** number or
+
+  (or) 
+
+- **ANY** special character 
+
+is found. It extracts only until the first occurrence of the given input. 
 
 :::info Syntax
 
 
-var=extractchar(N), where N is an integer which denotes the number of characters to extract and var is the variable name.
+extractuntil(wordToExtract, includeWord)
+
+where, `WordToExtract` can be
+
+a string until which the extraction is to be done.
+
+(or)
+
+`$numeric$` In this case, everything until the first occurrence of any number is extracted.
+
+(or)
+
+ `$special$` In this case, everything until the first occurrence of any special character is extracted.
+
+`includeWord` is an integer and denotes whether to include the `WordToExtract`
+
+- Use `0` to include the `WordToExtract`
+- Use `1` to exclude the `WordToExtact`
+
+
+
+**Pointer position**
+
+The pointer position is always after the `WordToExtract` irrespective of whether `includeWord` is `0` or `1`
+
+
 
 :::
 
@@ -144,13 +181,11 @@ Consider the Log line **Running full sweep for node-116**
 
 **Initial pointer position**
 
-`|`Error404 received due to Authentication token failure
 
-Using new-word=extractchar(7), seven characters will be extracted and stored in `new-word`
 
 **Updated pointer position**
 
-Running `|` full sweep for node-116
+
 
 :::
 
