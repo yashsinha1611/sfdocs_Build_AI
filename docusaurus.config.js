@@ -24,8 +24,9 @@ const katex = require('rehype-katex');
       indexDocs: true,
       indexBlog: true,
       language: "en",
-    }
-    ]
+    },
+    ],
+    require.resolve('docusaurus-plugin-image-zoom')
   ],
   presets: [
     [
@@ -209,6 +210,14 @@ const katex = require('rehype-katex');
         darkTheme: darkCodeTheme,
         themes: ['@docusaurus/theme-live-codeblock'],
       },
-      
+      zoom: {
+        selector: '.main-wrapper img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+        },
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        config: {}
+      }
     }),
 });

@@ -664,11 +664,48 @@ module.exports = {
             },
             collapsed: true,
             items: [
+            
+            
                 {
-                    type: 'doc',
-                    id: 'Log_management/feature_extraction',
+                    type: 'category',
                     label: 'Feature Extraction',
+                    link: {
+                        type: 'doc',
+                        id: 'Log_management/feature_extraction',
+                    },
+                    collapsed: false,
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Log_management/skip_functions',
+                            label: 'Skip Functions'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Log_management/extract_functions',
+                            label: 'Extract Functions'
+                        },
+                    ]
                 },
+
+
+
+
+                //{
+                //   type: 'doc',
+                //    id: 'Log_management/feature_extraction',
+                //    label: 'Feature Extraction',
+                //},
+                //{
+                //    type: 'doc',
+                //    id: 'Log_management/skip_functions',
+                //    label: 'Skip Functions',
+                //},
+                //{
+                //   type: 'doc',
+                //    id: 'Log_management/extract_functions',
+                //    label: 'Extract Functions',
+                //},
                 {
                     type: 'doc',
                     id: 'Log_management/archival',
