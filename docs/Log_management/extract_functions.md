@@ -202,9 +202,7 @@ is found. It extracts only until the first occurrence of the given input.
 
 extractuntil(wordToExtract, includeWord)
 
-where, `WordToExtract` can be
-
-a string until which the extraction is to be done.
+where, `WordToExtract` can be a string until which the extraction is to be done.
 
 (or)
 

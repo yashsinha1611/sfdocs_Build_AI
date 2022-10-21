@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Feature Extraction allows processing of unstructured logs and enhances it by adding metadata extracted from the log. Using simple queries, search for specific information and store them in different variables that can then be used in dashboards and log search. 
 
-This is especially useful in cases where required data is not part of a structured key:value pair and instead the data is part of a message or any log line. Multiple Feature Extraction operations can be setup and run in parallel on various types of logs. These
+This is especially useful in cases where required data is not part of a structured key:value pair and instead the data is part of a message or any log line. Multiple Feature Extraction operations can be setup and run in parallel on various types of logs. 
 
 
 
@@ -44,15 +44,13 @@ The Data View tab shows all the logs ingested for the respective application. Us
 
 The Operations View tab lists all the Feature Extraction operations that have been saved and their current status. 
 
-<img src="/img/feature_extraction/operations_view.png" />
+
 
 ## How it works ##
 
 :::danger Read below passage to use Feature Extraction effectively
 
-
-
-Imagine a cursor or pointer at the beginning of a log line. This cursor can be moved along the log line from left to right to reach a particular position of interest. This is called **skipping**. The character/word that immediately follows the cursor is processed based on the query provided. This is called **extracting**.
+Imagine a cursor or pointer at the beginning of a log line. This cursor can be moved along the log line from left to right to reach a particular position of interest. This is called **skipping**. The character/word that immediately follows the cursor is processed based on the query provided. This is called **extracting**. 
 
 Using a combination of skipping and extracting, useful information can be retrieved from any kind of unstructured logs.
 
@@ -61,11 +59,16 @@ Using a combination of skipping and extracting, useful information can be retrie
 
 
 
+
 :::note **General syntax for creating a Feature Extraction**
 
-`parse(field_name): command`
+feature_extraction_rule_construct.gif
+
+`string_1 && string_2 with parse(field_name): command`
 
 where, 
+
+`string_1` and `string_2` are search strings
 
 `field_name` is the name of the field in the log whose content is to be parsed. The contents of `field_name` are parsed character by character from left to right based on `command`.
 
