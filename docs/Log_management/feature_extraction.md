@@ -48,48 +48,64 @@ The Operations View tab lists all the Feature Extraction operations that have be
 
 ## How it works ##
 
+Feature Extraction is useful in parsing unstructured logs. Using a combination of built-in filters, search stings,  skip and extract functions, specific information can be extracted from complex log lines.
+
 :::danger Read below passage to use Feature Extraction effectively
 
 Imagine a cursor or pointer at the beginning of a log line. This cursor can be moved along the log line from left to right to reach a particular position of interest. This is called **skipping**. The character/word that immediately follows the cursor is processed based on the query provided. This is called **extracting**. 
 
-Using a combination of skipping and extracting, useful information can be retrieved from any kind of unstructured logs.
+:::
+
+:::note
+
+The scope of Feature Extraction Rules are limited to the application under which the rule is created
 
 :::
 
+### Step1: Search for logs using the built-in filters
+
+In the Feature Extraction page, filter logs bases on Plugin type, Document type, Instance name and log level. 
+
+<img src="/img/feature_extraction/filters.png" />
+
+### Step 2: Create a Feature Extraction rule
+
+A Feature Extraction rule comprises of 3 key parts as in the below example
+
+<img src="/img/feature_extraction/syntax.svg" />
+
+1. **Search String**
+
+   This is a search string and is used to filter logs on the basis of simple search strings
+
+2. **Filed to be parsed**
+
+   is the name of the field in the log whose content is to be parsed. The contents of `field_name` are parsed character by character from left to right based on the command that follows.
+
+3. **Command**
+
+   It comprises of single or multiple functions which are executed ony by one, on the contents of `field_name`. The function can either be a skip or an extract function.
 
 
 
+#### Syntax
 
-:::note **General syntax for creating a Feature Extraction**
+`Search String` is single or a combination of strings enclosed in double inverted commas. Multiple strings can be combined in an  `AND` operation using `&&`.
 
-feature_extraction_rule_construct.gif
+Examples
 
-`string_1 && string_2 with parse(field_name): command`
+`"new user"`
 
-where, 
+`"new user" && "create account"`
 
-`string_1` and `string_2` are search strings
+### Step 3: Save and Run Feature Extraction rule
 
-`field_name` is the name of the field in the log whose content is to be parsed. The contents of `field_name` are parsed character by character from left to right based on `command`.
-
-`command` comprises of single or multiple functions which are executed ony by one, on the contents of `field_name`. The function can either be a skip or an extract function.
-
-:::
+If a Feature Extraction rule is valid and runs successfully, the SAVE button will be activated and lets you save the rule. This rule will now run on all incoming logs that match the filter criteria for the application under which the rule is created. Saved feature extractions can be found in the operations tab.
 
 
+## Feature Extraction Functions ##
 
-### Feature Extraction Example ###
-
-    parse(message): skipword(1) skip(“word1 word2”) test=extractword(1) decimal=extractnum().format(“float”)
-
-In the above query, the `message` field is parsed.
-
-The command comprises of two skip functions  `skipword()`, `skip()` and two extract functions`extractword()` and `extractnum()`.  The variables `test` and `decimal` store the extracted data from the log line. 
-
-
-## Functions used in Feature Extraction Queries ##
-
-There are mainly two type of functions - Skip and Extract.
+There are two type of functions - Skip and Extract.
 
 | Skip Functions | Extract Functions |
 |--|--|
