@@ -280,37 +280,301 @@ Error404 received due to Authentication token failure`|`
 
 ## extractpattern
 
+This function is used to extract predefined patterns like ip addresses, dns, urls etc. The function only identifies and extracts the first matching string and the pointer position updates to the end of the matching string.
+
+:::info Syntax
+
+`extractpattern(pattern)` where `pattern` specifies the patter to be identified and extracted.
+
+**Supported patterns**
+
+`"IPV4"` - This extracts IPV4 address in the format x.x.x.x
+
+`"IPV6"` - This extracts IPV6 address in the format y:y:y:y:y:y:y:y or y:y:y:y:y:y:x.x.x.x
+
+`"mac"` - This extracts mac address in the format x : x : x : x :x : x
+
+`"url"`- This extracts url in the format http://abc.xyz.abc or https://abc.xyz.abc
+
+`"hostname"` - This extracts hostnames from urls
+
+:::
+
+:::note Example
 
 
 
+**Ipv4 address**
+
+Consider the log line **127.0.0.1 is an example IPv4 address**
+
+In this example, the pointer or imaginary cursor is denoted by `|`.
+
+**Initial pointer position**
+
+`|`127.0.0.1 is an example IPv4 address
+
+Using `res=extractPattern(“IPv4”)`, the ip address `127.0.0.1` is extracted and stored in the variable `res`
+
+**Updated pointer position**
+
+127.0.0.1`|` is an example IPv4 address
+
+<hr></hr>
+
+**IPv6 address**
+
+Consider the log line **2001:0db8:85a3:0000:0000:8a2e:0370:7334 is an example IPv6 address**
+
+In this example, the pointer or imaginary cursor is denoted by `|`.
+
+**Initial pointer position**
+
+`|`2001:0db8:85a3:0000:0000:8a2e:0370:7334 is an example IPv6 address
+
+Using `res=extractPattern(“IPv6”)`, the ip address `001:0db8:85a3:0000:0000:8a2e:0370:7334` is extracted and stored in the variable `res`
+
+**Updated pointer position**
+
+2001:0db8:85a3:0000:0000:8a2e:0370:7334`|` is an example IPv6 address
+
+<hr></hr>
+
+**MAC address**
+
+Consider the log line  **00:00:5e:00:53:af is an example MAC address**
+
+In this example, the pointer or imaginary cursor is denoted by `|`.
+
+**Initial pointer position**
+
+`|`00:00:5e:00:53:af is an example MAC address
+
+Using `res=extractPattern(“MAC”)`, the MAC address `00:00:5e:00:53:af` is extracted and stored in the variable `res`
+
+
+
+**Updated pointer position**
+
+00:00:5e:00:53:af `|`is an example MAC address
+
+<hr></hr>
+
+**URL**
+
+Consider the log line **https://www.google.com is an example URL address**
+
+In this example, the pointer or imaginary cursor is denoted by `|`.
+
+**Initial pointer position**
+
+`|`https://www.google.com is an example URL address
+
+Using `res=extractPattern(“URL”)`, the url `https://www.google.com` is extracted and stored in the variable `res`
+
+**Updated pointer position**
+
+`https://www.google.com| is an example URL address`
+
+<hr></hr>
+
+**Hostname**
+
+Consider the log line **ec2-35-88-174-201.us-west-2.compute.amazonaws.com is an example hostname**
+
+In this example, the pointer or imaginary cursor is denoted by `|`.
+
+
+
+**Initial pointer position**
+
+`|`ec2-35-88-174-201.us-west-2.compute.amazonaws.com is an example hostname
+
+Using `res=extractPattern(“hostname”)`, the hostname `ec2-35-88-174-201.us-west-2.compute.amazonaws.com` is extracted and stored in the variable `res`
+
+**Updated pointer position**
+
+ec2-35-88-174-201.us-west-2.compute.amazonaws.com`|` is an example hostname.
+
+:::
 
 ## extractjson
 
+This function is used to extract JSON string from the log line. The extracted JSON string will be stored in a variable as specified by the user. The pointer position updates to the end of the extracted JSON. 
 
+:::note Limitation
 
+This function doesn’t work if there are 2 or more consecutive jsons.
 
+:::
+
+:::info Syntax
+
+`var=extractJson()` where `var` denotes the variable to which the extracted JSON string is stored.
+
+:::
+
+:::note Example
+
+Log line: *{“key1”: “value1”, “key2”: “value2”} is an example json.*
+
+Rule: res=extractjson()
+
+Updated pointer position (|): {“key1”: “value1”, “key2”: “value2”} **|**is an example json.
+
+Output: “res”: “””{“key1”: “value1”, “key2”: “value2”}”””
+
+:::
 
 ## extractregex
 
+This function extracts the string from the log line which matches the regex pattern as specified. The pointer position updates to the end of the extracted match. The limitation here is that it does not work for more than one match.
 
+To learn more about regex patterns, go to https://regex101.com/ . Select flavor as Java 8.
 
+:::info Syntax
 
+`var=extractregex(toMatch)`, where `toMatch` is the regex pattern of type string that is used to match a particular string in the log line. The regex pattern is to be enclosed within the double quotes and forward slashes `“/…/”` without leaving any spaces. `var` denotes the variable to which the extracted value is stored
+
+:::
+
+:::note Example
+
+For example,
+
+Consider the log line: **[a, b, c] is an example list**
+
+Using `res=extractregex(“/^\[.*\]”/)`, `“[a, b, c]”` is extracted and stored in the variable `res`
+
+:::
 
 ## extractregexgroup
 
+This function extracts all the matched groups from the log line for a regex pattern as specified. The pointer position updates to the end of the last matched group.
 
+:::info Syntax
+
+`extractregexgroup(toMatch, extractToKey1.format1, extractToKey2.format2, …)`
+
+where,
+
+- ` toMatch` is the regex pattern of type string which is used to match all the groups from the log line. The regex pattern is to be enclosed within the double quotes and forward slashes `“/…/”` without leaving any spaces.
+- `extractToKey` is the name of the key where the extracted matched group is to be stored.
+- `format` specifies the conversion format for the extracted value (string, int, float).
+
+:::
+
+:::note Example
+
+Consider the log line **root : TTY=unknown ; PWD=/home/centos ; USER=root ; COMMAND=/bin/rm –rf jmeter.log**
+
+Using `extractregexgroup(“/TTY=\w+ ; PATH=([^\s]+) ; USER=(\w+) ; COMMAND=(.*)$/”, path.string, username. string, cmd. string)` extracts
+
+
+
+ `/home/centos` to key `path`
+
+`root` to key `username`
+
+ `/bin/rm -rf jmeter.log` to key `cmd`
+
+:::
 
 ## extractkeyvalue
 
+This function is used to extract the key-value pairs from the log line. It scans the line from the current position till the end for all the possible key-value pairs. Every key-value pair should end with a delimiter. After extraction, the pointer position updates to the end of the last delimiter.
 
+:::info Syntax
+
+`extractkeyvalue(sep, del, numOfPairs)`
+
+where,
+
+- `sep` is a string and denotes the separator separating key from value.
+
+- `de`l is a string and denotes the delimiter which separates the key-value pairs from each other.
+
+- `numOfPairs` is an integer and denotes the number of pairs to be extracted.
+
+:::
+
+:::note Example
+
+Consider the log line **key1:val1; key2:val2; key3:val3; are example key-value pairs**
+
+Using `var = extractkeyvalue(“:”, “;”, 2)` extracts `key1 : val1, key2 : val2` and stores them in the variable `var`
+
+
+
+:::
 
 ## extractjsonkeys
 
+This function is used to extract the values for the keys in the JSON. The limitation here is that the JSON cannot have duplicate keys. The pointer position is moved to the position after the JSON. The values extracted are stored in the format as specified by the user.
 
+:::info Syntax
 
+`extractjsonkeys(key_name1.format1, key_name2.format2, …)` where `key_name` is the key to be extracted and `format` is the format for the extracted value. 
 
+Acceptable `format` types are `string`, `int` and `float`
+
+:::
+
+:::note Example
+
+Consider the log line **abc {“key1”: “val1”, “key2”: “val2”} is an example log line**
+
+Using `skip(“abc”) extractjsonkeys(key1.string, key2.string)` extracts and stores the following data
+
+`key1 : val1`,
+
+`key2 : val2`
+
+:::
 
 
 
 ## inextractkeyvalue
 
+This function supports position-independent parsing. It extracts all the key-value pairs separated by a separator and delimited by a delimiter from the whole log line and stores them in a map. The limitation here is that every key-value pair must end with a delimiter.
+
+
+
+
+
+:::info Syntax
+
+`inextractkeyvalue(sep, del)`
+
+where,
+
+
+
+
+
+- `sep` is a string and denotes the separator separating key from value.
+- `del` is a string and denotes the delimiter which separates the key-value pairs from each other.
+
+
+
+
+
+
+
+:::
+
+:::note Example
+
+Consider the log line **key1:val1; key2:val2; are example key-value pairs key3:val3;**
+
+Using `extractkeyvalue(“:”, “;”)`
+
+extracts 
+
+“key1” : “val1”,
+
+“key2” : “val2”,
+
+“key3” : “val3”
+
+:::
