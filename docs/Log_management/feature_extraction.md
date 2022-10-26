@@ -58,7 +58,7 @@ Imagine a cursor or pointer at the beginning of a log line. This cursor can be m
 
 :::note
 
-The scope of Feature Extraction Rules are limited to the application under which the rule is created
+The scope of Feature Extraction Rules are limited to the application under which the rule is created.
 
 :::
 
