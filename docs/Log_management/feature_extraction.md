@@ -44,7 +44,7 @@ The Data View tab shows all the logs ingested for the respective application. Us
 
 The Operations View tab lists all the Feature Extraction operations that have been saved and their current status. 
 
-
+<img src="/img/feature_extraction/operations_view.png" />
 
 ## How it works ##
 
@@ -76,7 +76,13 @@ A Feature Extraction rule comprises of 3 key parts as in the below example
 
 1. **Search String**
 
-   This is a search string and is used to filter logs on the basis of simple search strings
+   This is a search string and is used to filter logs on the basis of simple search strings. It is single or a combination of strings enclosed in double inverted commas. Multiple strings can be combined in an  `AND` operation using `&&`.
+
+   Examples
+
+   `"new user"`
+
+   `"new user" && "create account"`
 
 2. **Filed to be parsed**
 
@@ -84,23 +90,17 @@ A Feature Extraction rule comprises of 3 key parts as in the below example
 
 3. **Command**
 
-   It comprises of single or multiple functions which are executed ony by one, on the contents of `field_name`. The function can either be a skip or an extract function.
+   It comprises of single or multiple functions which are executed one by one, on the contents of `field_name`. The function can either be a [skip](/docs/Log_management/skip_functions) or an [extract](/docs/Log_management/extract_functions) function.
 
 
 
-#### Syntax
 
-`Search String` is single or a combination of strings enclosed in double inverted commas. Multiple strings can be combined in an  `AND` operation using `&&`.
 
-Examples
+### Step 3: Save Feature Extraction rule
 
-`"new user"`
+Use the search bar in the Data View tab to enter the Feature Extraction rule and hit `Search`. If a Feature Extraction rule is valid you will see filtered logs matching your search and the `Save` button will be activated and lets you save the rule. This rule will now run on all incoming logs that match the filter criteria for the application under which the rule is created. Saved feature extractions can be found in the operations tab.
 
-`"new user" && "create account"`
-
-### Step 3: Save and Run Feature Extraction rule
-
-If a Feature Extraction rule is valid and runs successfully, the SAVE button will be activated and lets you save the rule. This rule will now run on all incoming logs that match the filter criteria for the application under which the rule is created. Saved feature extractions can be found in the operations tab.
+<img src="/img/feature_extraction/operations_view.png" />
 
 
 ## Feature Extraction Functions ##
