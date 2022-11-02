@@ -9,7 +9,7 @@ Feature Extraction allows processing of unstructured logs and enhances it by add
 
 This is especially useful in cases where required data is not part of a structured key:value pair and instead the data is part of a message or any log line. Multiple Feature Extraction operations can be setup and run in parallel on various types of logs. 
 
-<iframe title="Key Concepts" src="/videos/feature_extraction_overview.mp4" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"  autoplay="0"  ></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zP7UbSvcg3Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
