@@ -26,7 +26,7 @@ Kafka on Kubernetes can be monitored in SnappyFlow using two approaches:
 
 3. The value of Kafka-JMX-OPTS must be as below:
 
-   ```
+   ```yaml
    - name: KAFKA_JMX_OPTS
      value: "-javaagent:/agent/jolokia.jar=port=8778,host=127.0.0.1 
              -Djava.rmi.server.hostname=127.0.0.1 
@@ -37,7 +37,7 @@ Kafka on Kubernetes can be monitored in SnappyFlow using two approaches:
 
    Sample Init Container Configuration for including Jolokia
 
-   ```
+   ```yaml
    initContainers:
    - name: get-jolokia
      image: alpine
@@ -167,7 +167,7 @@ Example for the config-map are below:
 
 **Kafka config map:**
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:  
@@ -195,7 +195,7 @@ log4j.logger.kafka.network.RequestChannel$=WARN,
 
 **Config map for Kafka sfKubeAgent:**
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:  

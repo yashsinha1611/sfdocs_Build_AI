@@ -68,13 +68,12 @@ Jboss server access log format needs to be modified to capture all metrics from 
 
 - Set log format in the following section `<host name="default-host" alias="localhost">` by specifying the pattern value to pre-defined “combined” log format or
 
-```
+```xml
 <host name="default-host" alias="localhost">
-<location name="/" handler="welcome-content"/>
-<access-log pattern="%h %t &quot;%r&quot; %s &quot;%{i,User-Agent}&quot; %D " use-server-log="false"/>
-<http-invoker security-realm="ApplicationRealm"/>
+    <location name="/" handler="welcome-content"/>
+    <access-log pattern="%h %t &quot;%r&quot; %s &quot;%{i,User-Agent}&quot; %D " use-server-log="false"/>
+    <http-invoker security-realm="ApplicationRealm"/>
 </host>
-
 ```
 - Set the attribute record-request-start-time="true" in the section `<subsystem xmlns="urn:jboss:domain:undertow:*">` for all the listeners as %D and %T access log elements will work only after record-request-start-time is turned on
 
@@ -84,7 +83,6 @@ After changing log pattern to combined or the above mentioned pattern, sample lo
 
 ```
 183.83.155.203 [07/Aug/2020:14:24:17 +0000] "GET /petclinic/org.richfaces.resources/javax.faces.resource/org.richfaces/skinning.ecss?db=eAG7dPvZfwAIqAOT HTTP/1.1" 500 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" 3
-
 ```
 
 ## Configuration Settings
