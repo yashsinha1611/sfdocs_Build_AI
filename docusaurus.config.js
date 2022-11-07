@@ -16,16 +16,7 @@ const katex = require('rehype-katex');
   organizationName: 'SnappyFlow', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
   plugins: [
-    require.resolve('docusaurus-lunr-search'),
     '@docusaurus/theme-live-codeblock',
-    [
-    require.resolve('@cmfcmf/docusaurus-search-local'),
-    {
-      indexDocs: true,
-      indexBlog: true,
-      language: "en",
-    },
-    ],
     require.resolve('docusaurus-plugin-image-zoom')
   ],
   presets: [
@@ -68,7 +59,16 @@ const katex = require('rehype-katex');
   //     type: 'text/css',
   //   },
   // ],
-
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      ({
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true
+      }),
+    ],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
