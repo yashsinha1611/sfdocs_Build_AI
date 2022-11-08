@@ -28,7 +28,7 @@ data:
     key: <profile_key> 
     metrics:
         plugins:
-        - name: redisdb
+        - name: kube-sfagent-redisdb
           enabled: true
           interval: 30
           config:
