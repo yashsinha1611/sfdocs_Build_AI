@@ -195,6 +195,17 @@ const FeatureList = [
       }
     ]
   },
+  {
+    title: 'Synthetic Monitoring',
+    Png: require('../../static/img/tracing-icon.png').default,
+    Path: '/docs/Synthetic/overview',
+    list: [
+      {
+        label: "Overview",
+        url: '/docs/Synthetic/overview'
+      } 
+    ]
+  },
 ];
 
 function Feature({ Png, title, list, Path }) {

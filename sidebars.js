@@ -842,5 +842,23 @@ module.exports = {
                 }
             ],
         },
+        {
+            type: 'category',
+            label: 'Synthetic Monitoring',
+            link: {
+                type: 'doc',
+                id: 'Synthetic/overview',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'doc',
+                    label: 'Overview',
+                    id: 'Synthetic/overview', 
+                } 
+
+            ],
+        },
+ 
     ],
 };
