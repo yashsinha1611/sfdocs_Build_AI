@@ -12,7 +12,7 @@ Nginx monitoring involves monitoring of the following elements:
 ## Pre-requisites 
 
 ### Access Log Format
-Ensure Nginx access logs are in format expected by sfAgent parser. Edit nginx conf file `/etc/nginx/nginx.conf` and set log format as follows: 	
+Nginx access log monitoring from multi domain configuration is supported. Ensure Nginx access logs are in format expected by sfAgent parser. Edit nginx conf file, conf file can be `/etc/nginx/nginx.conf, /etc/nginx/sites-enabled/default, /etc/nginx/conf.d/custom.conf`  and set log format as follows: 	
 
 ```
 '$remote_addr $remote_user [$time_local] '  
@@ -116,6 +116,7 @@ access_log  /var/log/nginx/access.log snappyflow buffer=16k flush=5s;
    
 
 :::note
+
 â€¯The server blocks of Nginx config are usually found not in the master configuration file (e.g., /etc/nginx/nginx.conf) but in supplemental configuration files that are referenced by the master config. To find the relevant configuration files, first locate the master config by running: 
 
 `nginx -t` 
@@ -129,6 +130,10 @@ Open the master configuration file listed, and look for lines that begin with â€
 In one of the referenced config files you should find the main server block, which you can modify as above to configure Nginx metrics reporting. After changing any configurations, reload the configs by executing: 
 
 `nginx -s reload`
+
+After modifying any configuration restart Nginx service by executing:
+
+`systemctl restart nginx`
 
 Now you can view the status page to see your metrics: 
 [http://127.0.0.1/stats](http://127.0.0.1/stats)
@@ -187,4 +192,3 @@ logging:
 - Dashboard for this data can be instantiated by Importing dashboard template `Nginx_Server`, `Nginx_Access` to the application dashboard. 
 
  
-
