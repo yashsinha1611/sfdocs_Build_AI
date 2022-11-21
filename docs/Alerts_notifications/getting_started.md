@@ -190,78 +190,78 @@ When an alert is notified due to some issue in the system, to avoid getting any 
 
 Alerts can be snoozed from alert history page. Option is provided to snooze single alert, or you can select multiple alerts and snooze bulk alerts as shown in the below image. 
 
-<img src="img\snooze_alert\snooze.png"/>
+<img src="/img/snooze_alert/snooze.png"/>
 
 **Snoozing single alert from alert history page.**
 
 When you snooze single alert from alert history page alert name, source name, group of the selected alert will be display and you must add the duration to snooze the selected alert, duration can be minuets, hours, days.
 
-<img src="img\snooze_alert\single_alert_history.png"/>
+<img src="/img/snooze_alert/single_alert_history.png"/>
 
 **Bulk snooze in alert history page.**
 
 When you snooze multiple alerts by using bulk snooze option from alert history page alert name, source name, group for all the selected alerts will be listed and you must add the duration to snooze the alert duration can be minuets, hours, days. The same duration will be applicable for all listed alerts as shown in the below image.
 
-<img src="img\snooze_alert\multiple_alert_history.png"/>
+<img src="/img/snooze_alert/multiple_alert_history.png"/>
 
 Alerts also can be snoozed from alert definition page. Option is provided to snooze single alert, or you can select multiple alerts and snooze bulk alerts as shown in the below image. 
 
-<img src="img\snooze_alert\definition_snooze.png"/>
+<img src="/img/snooze_alert/definition_snooze.png"/>
 
 **Snoozing single alert from alert definition page.**
 
 When you snooze single alert from alert definition page alert name, source name, group of the selected alert will be display and you must add the duration to snooze the selected alert, duration can be minuets, hours, days.
 
-<img src="img\snooze_alert\single_alert_definition.png"/>
+<img src="/img/snooze_alert/single_alert_definition.png"/>
 
 **Bulk snooze in alert definition page.**
 
 When you snooze multiple alerts by using bulk snooze option from alert definition page alert name, source name, group for all the selected alerts will be listed and you must add the duration to snooze the alert, duration can be minuets, hours, days. The same duration will be applicable for all listed alerts as shown in the below image.
 
-<img src="img\snooze_alert\multiple_alert_definition.png"/>
+<img src="/img/snooze_alert/multiple_alert_definition.png"/>
 
 **Snoozed alerts tab.**
 
 Snoozed alerts tab is available in alert definition page, which contains details of all snoozed alerts which are snoozed from alert history or alert definition page i.e., alert name source name, group, snooze start time and snooze end time.
 
-<img src="img\snooze_alert\tab.png"/>
+<img src="/img/snooze_alert/tab.png"/>
 
 **Edit Snoozed alerts.**
 
 We can edit duration of single or multiple snoozed alerts in snoozed alert tab using the option provided in snoozed alert tab as shown in the below image.
 
-<img src="img\snooze_alert\tab_edit.png"/>
+<img src="/img/snooze_alert/tab_edit.png"/>
 
 **Edit single snoozed alert.**
 
 We can edit duration of single snoozed alert from snoozed alerts tab using edit icon from action column.
 
 
-<img src="img\snooze_alert\tab_single_edit.png"/>
+<img src="/img/snooze_alert/tab_single_edit.png"/>
 
 **Edit multiple snoozed alerts.**
 
 We can edit duration of multiple snoozed alert from snoozed alerts tab using edit button from alert operations.
 
 
-<img src="img\snooze_alert\tab_multiple_edit.png"/>
+<img src="/img/snooze_alert/tab_multiple_edit.png"/>
 
 **Unsnooze snoozed alerts.**
 
 We can unsnoozed single or multiple snoozed alerts in snoozed alert tab using the option provided in snoozed alert tab as shown in the below image.
 
-<img src="img\snooze_alert\unsnooze.png"/>
+<img src="/img/snooze_alert/unsnooze.png"/>
 
 **Unsnooze single snoozed alert.**
 
 We can unsnooze single snoozed alert from snoozed alerts tab using unsnooze icon from action column.
 
-<img src="img\snooze_alert\unsnooze_single.png"/>
+<img src="/img/snooze_alert/unsnooze_single.png"/>
 
 **Unsnooze multiple snoozed alerts.**
 
 We can unsnooze multiple snoozed alert from snoozed alerts tab using unsnooze button from alert operations.
 
-<img src="img\snooze_alert\unsnooze_multiple.png"/>
+<img src="/img/snooze_alert/unsnooze_multiple.png"/>
 
 
