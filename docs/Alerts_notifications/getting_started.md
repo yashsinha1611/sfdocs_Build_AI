@@ -71,3 +71,197 @@ Alert can be executed in the following modes.
 - **Apply check to all instances**: Enabling this option will cause the check to be operated on all the instances in the application. Condition `tag_Name == *` is inserted in the where clause of the alert
 - **Apply check for all values of custom tag**: Enabling this option will cause the check to be operated on all unique values of the custom tag. E.g. If user wants to specify an alert to check the health of each index in Elasticsearch and raise a separate alert for each issue found, user will have to specify the condition `check index_health != green where index_name==*` . In this example, the custom tag is `index_name`
 - **Apply check to a specific data point**: This option is used when the check is very specific to a single data point e.g. check if `Cluster_status != Green`. No automatic tags are inserted if this option is enabled
+
+### Trigger After Cycles
+
+This allows users to add number of trigger cycles to be wait before raising the alert, when the user adds trigger after cycles, alert will not raise and wait for the given trigger after cycles even though it satisfies any one of the severity conditions.
+
+This option help in avoid raising an issue which has occurred just once. For a e.g., if user has created an alert to raise Sev1 alert if the count of error log is more than 1 for sampling period 5 mins and periodicity 5 mins.  
+
+Consider the situation when system was being upgraded now in the last 5 mins all the API calls failed and created lot of error but only in 1 alert cycle (i.e., the severity condition is satisfied in 1 alert cycle alone, this issue is not consistent). 
+
+As this change in system was momentary, the raising of alert immediately can be avoided by checking the consistency of the alert that can be done by enabling “Trigger after” specifying to wait 5 cycles before raising an alert (i.e., checking if last 5 alert cycles the severity condition (error count > 1) is satisfied and then raising Sev1 alert).
+
+E.g.
+When user adds 3 cycles to be wait and for the first or second cycle alert satisfy any one severity condition it will not raise and for the third cycle if it satisfies any severity condition it will be raised.
+
+Consider the Avg Response Time alert with below details.
+Trigger After Cycles: 3
+Severity conditions:
+Sev1: Avg Response Time > 60
+Sev2: Avg Response Time > 25
+Sev3: Avg Response Time > 10
+
+- **For 1st cycle:** 
+If avg response time is 65.9 which is > 60 so satisfy sev1 condition but alert will be not raised.
+
+- **For 2nd cycle:**
+If avg response time is 50.5 which is > 25 so satisfy sev2 condition but alert will be not raised.
+
+- **For 3rd cycle:**
+If avg response time is 43.7 which is > 25 so satisfy sev2 condition and this time alert will be raised.
+
+**Trigger after cycles while adding or editing the alert:**
+
+<img src="/img/trigger_after_cycle/interface.png"/>
+
+
+As shown in the above image text box is provided to add ‘Tringger After Cycle’ also there is a drop down for Selecting Alert Severity that will be ‘Latest Sev’ or ‘Highest Sev’
+
+**Alert Severity:**
+If trigger after cycle is 4 for an alert and below are the severity conditions satisfy for the cycles
+- **For 1st cycle:**  Satisfy Sev2 but alert will be not raised.
+- **For 2nd cycle:**  Satisfy Sev2 but alert will be not raised.
+- **For 3rd cycle:**  Satisfy Sev3 but alert will be not raised.
+- **For 4th cycle:**  Alert will be raised.
+
+If Alert severity is set as ‘Latest Sev’ then at 4th cycle Sev3 alert will be raised because the latest Sev3 condition is satisfied at 3rd cycle.
+If Alert severity is set as ‘Highest Sev’ then at 4th cycle Sev2 alert will be raised because in previous 3 cycles Sev2 condition is satisfied two times and its highest.
+
+How to add trigger after cycles in alert.
+
+By default, ‘Trigger After Cycle’ will be always 1 and ‘Alert Severity’ will be ‘Latest Sev’ while adding the alert as shown in the below image.
+
+<img src="/img/trigger_after_cycle/trigger_after.png"/>
+
+As shown in the below image while adding or editing the alert you can use text box provided as ‘Trigger After Cycle’ to add number of cycles to be wait by the alert before raising and you can also use dropdown to select ‘Alert Severity’. 
+
+**While adding the alert.**
+
+<img src="/img/trigger_after_cycle/while_adding.png"/>
+
+**While editing the alert.**
+
+<img src="/img/trigger_after_cycle/while_editing.png"/>
+
+
+
+### Recurring Time
+
+Recurring time allow users to add frequency of alert being notified, when the user adds recurring time, alert will be notified only when user defined recuring time crossed from previous notification.
+
+E.g.
+When user adds Response Time alert with periodicity 5 mins, sampling period 5 mins and recurring time 10 mins with following severity condition:
+
+Sev1: Avg Response Time > 60
+
+When severity condition breaches Sev1 alert is raised and notified to the user around 11:00 AM and in the next alert execution cycle based on periodicity (i.e., 11:05AM) the severity condition breaches in this cycle as well. 
+
+But the alert will not be notified to user because recurring time specified as 10 mins. 
+If in the upcoming cycle say 11:10 AM if the severity condition is still breached, then the alert will be raised and notified to the user. 
+
+**Recurring time while adding or editing the alert.**
+
+<img src="/img/recurring_time/interface.png"/>
+
+
+As shown in the above image text box is provided to add ‘Recurring Time’ It can be in minutes, hours, or days.
+
+
+**How to add recurring time in alert.**
+
+<img src="/img/recurring_time/recurring.png"/>
+
+By default, ‘Recuring Time’ will be always 30m while adding the alert as shown in the below image.
+
+By default, when alert defined with say 5 mins periodicity or any periodicity, will be notified to the user for the first time it occurred. We don’t notify the alert for another 30 mins from the time of occurrence of previous alert or the alert will not be notified until and unless a higher severity alert is raised, this is to reduce the frequency of alert being notified. 
+
+As shown in the below image while adding or editing the alert you can use text box provided as ‘Recurring Time’ to add recurring time in minutes, hours, or days.
+
+**While adding the alert.**
+
+<img src="/img/recurring_time/while_adding.png"/>
+
+**While editing the alert.**
+
+<img src="/img/recurring_time/while_editing.png"/>
+
+
+
+### Snooze Alert
+
+Snooze alert will allow user to stop an alert from being notified for a brief amount of time even if the severity conditions are satisfied and later automatically get active after the specified snooze time.
+
+When user has planned for 4 hours maintenance period, during which the system will be down and cause the alerts. At this scenario user can snooze the alert for the 4 hours but need not stop the alert. So, after 4 hours (i.e., specified snooze duration), the alerts will be active automatically.
+
+When an alert is notified due to some issue in the system, to avoid getting any further notification till the system issue is resolved user can snooze the alert for specified duration while addressing and resolving the issue in the system.
+
+**How to snooze alerts.**
+
+Alerts can be snoozed from alert history page. Option is provided to snooze single alert, or you can select multiple alerts and snooze bulk alerts as shown in the below image. 
+
+<img src="img\snooze_alert\snooze.png"/>
+
+**Snoozing single alert from alert history page.**
+
+When you snooze single alert from alert history page alert name, source name, group of the selected alert will be display and you must add the duration to snooze the selected alert, duration can be minuets, hours, days.
+
+<img src="img\snooze_alert\single_alert_history.png"/>
+
+**Bulk snooze in alert history page.**
+
+When you snooze multiple alerts by using bulk snooze option from alert history page alert name, source name, group for all the selected alerts will be listed and you must add the duration to snooze the alert duration can be minuets, hours, days. The same duration will be applicable for all listed alerts as shown in the below image.
+
+<img src="img\snooze_alert\multiple_alert_history.png"/>
+
+Alerts also can be snoozed from alert definition page. Option is provided to snooze single alert, or you can select multiple alerts and snooze bulk alerts as shown in the below image. 
+
+<img src="img\snooze_alert\definition_snooze.png"/>
+
+**Snoozing single alert from alert definition page.**
+
+When you snooze single alert from alert definition page alert name, source name, group of the selected alert will be display and you must add the duration to snooze the selected alert, duration can be minuets, hours, days.
+
+<img src="img\snooze_alert\single_alert_definition.png"/>
+
+**Bulk snooze in alert definition page.**
+
+When you snooze multiple alerts by using bulk snooze option from alert definition page alert name, source name, group for all the selected alerts will be listed and you must add the duration to snooze the alert, duration can be minuets, hours, days. The same duration will be applicable for all listed alerts as shown in the below image.
+
+<img src="img\snooze_alert\multiple_alert_definition.png"/>
+
+**Snoozed alerts tab.**
+
+Snoozed alerts tab is available in alert definition page, which contains details of all snoozed alerts which are snoozed from alert history or alert definition page i.e., alert name source name, group, snooze start time and snooze end time.
+
+<img src="img\snooze_alert\tab.png"/>
+
+**Edit Snoozed alerts.**
+
+We can edit duration of single or multiple snoozed alerts in snoozed alert tab using the option provided in snoozed alert tab as shown in the below image.
+
+<img src="img\snooze_alert\tab_edit.png"/>
+
+**Edit single snoozed alert.**
+
+We can edit duration of single snoozed alert from snoozed alerts tab using edit icon from action column.
+
+
+<img src="img\snooze_alert\tab_single_edit.png"/>
+
+**Edit multiple snoozed alerts.**
+
+We can edit duration of multiple snoozed alert from snoozed alerts tab using edit button from alert operations.
+
+
+<img src="img\snooze_alert\tab_multiple_edit.png"/>
+
+**Unsnooze snoozed alerts.**
+
+We can unsnoozed single or multiple snoozed alerts in snoozed alert tab using the option provided in snoozed alert tab as shown in the below image.
+
+<img src="img\snooze_alert\unsnooze.png"/>
+
+**Unsnooze single snoozed alert.**
+
+We can unsnooze single snoozed alert from snoozed alerts tab using unsnooze icon from action column.
+
+<img src="img\snooze_alert\unsnooze_single.png"/>
+
+**Unsnooze multiple snoozed alerts.**
+
+We can unsnooze multiple snoozed alert from snoozed alerts tab using unsnooze button from alert operations.
+
+<img src="img\snooze_alert\unsnooze_multiple.png"/>
+
+
