@@ -50,9 +50,7 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Setup SnappyFlow Self Hosted',
-                    link: {
-                        type: 'doc',     
-                    }, 
+                  
                         collapsed: true,
                         items: [
                             {
