@@ -50,21 +50,21 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Setup SnappyFlow Self Hosted',
-                  
-                        collapsed: true,
-                        items: [
-                            {
-                                type: 'doc',
-                                id: 'Quick_Start/aws',
-                                label: 'AWS',
-                            },
-                            {
-                                type: 'doc',
-                                id: 'Quick_Start/azure',
-                                label: 'Azure',
-                            },
-                        ], 
-                }, 
+
+                    collapsed: true,
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Quick_Start/aws',
+                            label: 'AWS',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Quick_Start/azure',
+                            label: 'Azure',
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -275,7 +275,7 @@ module.exports = {
                 {
                     type: 'doc',
                     id: 'Integrations/hcp_consul',
-                   label: 'HCP Consul',
+                    label: 'HCP Consul',
                 },
                 {
                     type: 'category',
@@ -589,7 +589,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Redis',  
+                    label: 'Redis',
                     link: {
                         type: 'doc',
                         id: 'Integrations/redis/overview'
@@ -640,7 +640,7 @@ module.exports = {
                     type: 'doc',
                     id: 'Integrations/tripwire',
                     label: 'TripWire',
-                }, 
+                },
                 {
                     type: 'doc',
                     id: 'Integrations/plugin/vcenter',
@@ -692,8 +692,8 @@ module.exports = {
             },
             collapsed: true,
             items: [
-            
-            
+
+
                 {
                     type: 'category',
                     label: 'Feature Extraction',
@@ -866,11 +866,42 @@ module.exports = {
                 {
                     type: 'doc',
                     label: 'Overview',
-                    id: 'Synthetic/overview', 
-                } 
+                    id: 'Synthetic/overview',
+                }
 
             ],
         },
- 
+        {
+            type: 'category',
+            label: 'Security Information and Event Management',
+            link: {
+                type: 'doc',
+                id: 'SIEM/SIEM_documentation',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'doc',
+                    id: 'SIEM/siemappliance_installation',
+                    label: 'SIEM Appliance Installation',
+                },
+                {
+                    type: 'doc',
+                    label: 'SIEM Agent Installation',
+                    id: 'SIEM/siemagent_installation',
+                },
+                {
+                    type: 'doc',
+                    id: 'SIEM/SIEM_events',
+                    label: 'Events',
+                },
+                {
+                    type: 'doc',
+                    id: 'SIEM/SIEM_Dashboard',
+                    label: 'Dashboard',
+                }
+            ],
+        },
+
     ],
 };

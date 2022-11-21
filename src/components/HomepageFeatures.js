@@ -35,7 +35,7 @@ const FeatureList = [
         label: "Overview",
         url: '/docs/sfPoller/overview'
       },
-        {
+      {
         label: "Setup in AWS",
         url: '/docs/sfPoller/aws_setup'
       },
@@ -203,7 +203,30 @@ const FeatureList = [
       {
         label: "Overview",
         url: '/docs/Synthetic/overview'
-      } 
+      }
+    ]
+  },
+  {
+    title: 'Security Information and Event Management',
+    Png: require('../../static/img/tracing-icon.png').default,
+    Path: '/docs/SIEM/SIEM_documentation',
+    list: [
+      {
+        url: '/docs/SIEM/siemappliance_installation',
+        label: 'SIEM Appliance Installation',
+      },
+      {
+        label: 'SIEM Agent Installation',
+        url: '/docs/SIEM/siemagent_installation',
+      },
+      {
+        url: '/docs/SIEM/SIEM_events',
+        label: 'Events',
+      },
+      {
+        url: '/docs/SIEM/SIEM_Dashboard',
+        label: 'Dashboard',
+      }
     ]
   },
 ];
