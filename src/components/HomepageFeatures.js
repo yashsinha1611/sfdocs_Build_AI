@@ -22,7 +22,7 @@ const FeatureList = [
       },
       {
         label: "Setup SnappyFlow in your own environment",
-        url: '/docs/Quick_Start/snappyflow_self_hosted'
+        url: '/docs/Quick_Start/aws'
       },
     ]
   },

@@ -48,11 +48,25 @@ module.exports = {
                     label: 'Monitor a Kubernetes cluster',
                 },
                 {
-                    type: 'doc',
-                    id: 'Quick_Start/snappyflow_self_hosted',
+                    type: 'category',
                     label: 'Setup SnappyFlow Self Hosted',
-                },
-
+                    link: {
+                        type: 'doc',     
+                    }, 
+                        collapsed: true,
+                        items: [
+                            {
+                                type: 'doc',
+                                id: 'Quick_Start/aws',
+                                label: 'AWS',
+                            },
+                            {
+                                type: 'doc',
+                                id: 'Quick_Start/azure',
+                                label: 'Azure',
+                            },
+                        ], 
+                }, 
             ],
         },
         {
