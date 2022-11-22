@@ -66,7 +66,7 @@ By default, each SIEM agent has the syscheck enabled and preconfigured, but it i
 Configuration for FIM check i.e. `<syscheck>` is located in Wazuh agent's config file `/var/ossec/etc/ossec.conf`. 
 
 To change the frequency of periodic scans, follow the given steps: 
-- Locate \<syscheck\> block in the file and update frequency field to desired value. Unit of this Value is seconds. 
+- Locate <syscheck\> block in the file and update frequency field to desired value. Unit of this Value is seconds. 
 - Save the file and restart SIEM agent service
 ```shell
 sudo ./siemagent_installer.sh restart
