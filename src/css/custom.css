@@ -42,6 +42,7 @@
 }
 body{
   font-family: AmazonEmber_Rg,Helvetica Neue,Arial,sans-serif;
+  overflow-x: hidden !important;
 }
 h1 {
     font-size: 2.25em;

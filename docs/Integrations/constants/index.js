@@ -159,6 +159,13 @@ const AGENTS = [
 		'link': '/docs/Integrations/apache/overview'
 	}, 
 	{
+		'src':'/img/aws-elastic-cache.svg',
+		'label':'ElastiCache', 
+		'overText': 'ElastiCache is the distributed in memory cache environments in the AWS cloud.',
+		'category': ['Cloud'],
+		'link': '/docs/Integrations/elb/elasticache'
+	}, 
+	{
 		'src':'/img/public-cloud-elbs.svg',
 		'label':'Elastic Load Balancer',
 		'overText': 'Public cloud elbs Infrastructure platform is built for enterprises',
