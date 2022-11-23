@@ -88,11 +88,11 @@ Before downloading the template for Azure, make sure your region has enough quot
 1: Go to the azure account  
 2: Search the virtual network in the azure account 
 
-<img src="/img/snappyflow_self_hosted/azure_virtual_network_search.png" />
+<img src="/img/snappyflow_self_hosted/azure_virtual_network_search.PNG" />
 
 3: Click on create and provide the existing resource group or create a resource group name, virtual network name/instance name, and Region. Click Next  
 
-<img src="/img/snappyflow_self_hosted/azure_create_virtual_network.png" />
+<img src="/img/snappyflow_self_hosted/azure_create_virtual_network.PNG" />
 
 4: Provide IP address range and select the checkbox **Add IPV6 address space** if required 
  
@@ -103,17 +103,17 @@ Before downloading the template for Azure, make sure your region has enough quot
 
 6:  Once virtual network is created click on the go to resource
 
- <img src="/img/snappyflow_self_hosted/azure_deployment_completed.png" />
+ <img src="/img/snappyflow_self_hosted/azure_deployment_completed.PNG" />
  
 
 7:  Create another subnet which will acts as the gateway subnet
 - Click on the subnets option in the virtual network.  
 - Click on subnet and provide the subnet name.  
-- Click on save. <br/><br/>
+- Click on save <br/><br/>
 
-     <img src="/img/snappyflow_self_hosted/azure_virtual_network_getway.png" />
-- Click on add. <br/><br/>
-<img src="/img/snappyflow_self_hosted/azure_virtual_network_show_gateway.png" /><br/><br/>
+     <img src="/img/snappyflow_self_hosted/azure_virtual_network_getway.PNG" />
+- Click on add <br/><br/>
+<img src="/img/snappyflow_self_hosted/azure_virtual_network_show_gateway.PNG" /><br/><br/>
           If you are using the external database, you will required to add the server endpoints as sql in virtual network. 
 
 :::note
@@ -125,24 +125,24 @@ Make sure while adding the service endpoint, select the subnet which will not ac
  - Click on the service endpoints from the left side in the virtual network page
  - Click on add and select the service as Microsoft.Sql
  - Select the subnet which will not act as gateway subnet and click on add<br/><br/>
- <img src="/img/snappyflow_self_hosted/virtual_network_service_endpoint.png" /> <br/><br/>
+ <img src="/img/snappyflow_self_hosted/virtual_network_service_endpoint.PNG" /> <br/><br/>
  - Click on the add 
 
 ### Steps for creating the Storage Account 
  1. Click on the link [https://portal.azure.com/#create/Microsoft.StorageAccount](https://portal.azure.com/#create/Microsoft.StorageAccount)  
  2. Provide Resource group (same as virtual network resource group) details and storage account name 
  3. Click the “Review” button and on successful validation, complete the creation
- <img src="/img/snappyflow_self_hosted/storage_account_create.png" /> 
+ <img src="/img/snappyflow_self_hosted/storage_account_create.PNG" /> 
  4. Once created click on go to resource
  5. On the left side click the `Access key` option as below which is required during the deployment of snappyflow. Click show and copy the Access key and storage account for further usage
- <img src="/img/snappyflow_self_hosted/azure_storage_account_accesskeys.png" /> 
+ <img src="/img/snappyflow_self_hosted/azure_storage_account_accesskeys.PNG" /> 
 
 
 ### Deployment Steps 
 1. Uploading the template
 
      Log into Azure portal and Search for Deploy a Custom template using the search bar on top and select Deploy a custom template
-     <img src="/img/snappyflow_self_hosted/azure_deploy_custom_template.png" /> 
+     <img src="/img/snappyflow_self_hosted/azure_deploy_custom_template.PNG" /> 
 
 2. Click on build your own template in the editor
  <img src="/img/snappyflow_self_hosted/azure_deploy.png" />
