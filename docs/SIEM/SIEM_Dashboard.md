@@ -8,7 +8,7 @@ The SIEM Tab is available under the application dashboard just below the Profili
 
 ## Summary Pane  
 
-This pane provides the overview of the data captured. This view is helpful in understanding the statistics of events/alerts that have occured on the SIEM agent machines. The SIEM rules are mapped against compliance requirements to provide regulatory compliance support. When an alert is generated (a threat detection rule condition has been matched), it automatically includes compliance information [Compliance Types](./SIEM_events.md/#siem-compliance-types). It helps user to know the severity of events [Events by Severity](./SIEM_events.md/#siem-eventsrules), Events by Source or SIEM agents where the event has happened, Top 10 events to help the user to understand the count of repetitive or mostly happened events and Events Trend by Severity Level to visualize data. 
+This pane provides the overview of the data captured. This view is helpful in understanding the statistics of events/alerts that have occured on the SIEM agent machines. The SIEM rules are mapped against compliance requirements to provide regulatory compliance support. When an alert is generated (a threat detection rule condition has been matched), it automatically includes compliance information [Compliance Types](./SIEM_documentation.md/#siem-compliance-types). It helps user to know the severity of events [Events by Severity](./SIEM_events.md/#siem-eventsrules), Events by Source or SIEM agents where the event has happened, Top 10 events to help the user to understand the count of repetitive or mostly happened events and Events Trend by Severity Level to visualize data. 
 
 ![image](images/doc1.png)
 
