@@ -201,6 +201,11 @@ module.exports = {
                 },
                 {
                     type: 'doc',
+                    id: 'Integrations/plugin/rds',
+                    label: 'AWS RDS',
+                },
+                {
+                    type: 'doc',
                     id: 'Integrations/plugin/azuredb',
                     label: 'AzureDB',
                 },
@@ -209,6 +214,7 @@ module.exports = {
                     id: 'Integrations/plugin/azurelog',
                     label: 'AzureLog',
                 },
+              
                 {
                     type: 'doc',
                     id: 'Integrations/plugin/blazemeter',
@@ -565,6 +571,7 @@ module.exports = {
                         },
                     ],
                 },
+                
                 {
                     type: 'category',
                     label: 'RabbitMQ',
@@ -581,12 +588,7 @@ module.exports = {
                             label: 'RabbitMQ in Kubernetes',
                         },
                     ]
-                },
-                // {
-                //     type: 'doc',
-                //     id: 'Integrations/redis',
-                //     label: 'Redis',
-                // },
+                }, 
                 {
                     type: 'doc',
                     id: 'Integrations/redis_sentinel',
