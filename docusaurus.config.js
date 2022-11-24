@@ -92,7 +92,7 @@ const katex = require('rehype-katex');
         logo: {
           alt: 'SnappyFlow',
           src: 'img/logo-new.png',
-          href: 'https://www.snappyflow.io/',
+          href: 'https://stage-website.snappyflow.io/',
           target: '_self',
         },
         items: [
@@ -106,7 +106,7 @@ const katex = require('rehype-katex');
             class: 'docs',
           },
           {
-            href: 'http://snappyflow.io/product',
+            href: 'https://stage-website.snappyflow.io/product',
             docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -115,7 +115,7 @@ const katex = require('rehype-katex');
           },
           {
             type: 'doc',
-            href: 'http://snappyflow.io/pricing',
+            href: 'https://stage-website.snappyflow.io/pricing',
             docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -124,7 +124,7 @@ const katex = require('rehype-katex');
           },
           {
             type: 'doc',
-            href: 'http://snappyflow.io/blogs',
+            href: 'https://stage-website.snappyflow.io/blogs',
             docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -133,7 +133,7 @@ const katex = require('rehype-katex');
           },
           {
             type: 'doc',
-            href: 'http://snappyflow.io/success-stories',
+            href: 'https://stage-website.snappyflow.io/success-stories',
             docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -142,7 +142,7 @@ const katex = require('rehype-katex');
           },
           {
             type: 'doc',
-            href: 'https://accounts.snappyflow.io/freetrial',
+            href: 'https://stage-accounts.snappyflow.io/freetrial',
             docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
@@ -151,7 +151,7 @@ const katex = require('rehype-katex');
           },
           {
             type: 'doc',
-            href: 'https://accounts.snappyflow.io/login',
+            href: 'https://stage-accounts.snappyflow.io/login',
             docId: 'Tracing/overview',
             target: '_self',
             position: 'left',
