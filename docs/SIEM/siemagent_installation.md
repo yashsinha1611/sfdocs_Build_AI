@@ -1,7 +1,5 @@
 # Installing SIEM Agent
 
-Use "siemagent_installer.sh" script for installing SIEM agent. Script is used to edit the file `/var/ossec/etc/ossec.conf` which contains all the configurations related to SIEM agent service.
-
 ## Pre-requisites
 
 SIEM Appliance IP - should be visible to all the network devices. Based on agent's availability on the network , one can choose to provide private ip address also.
@@ -20,8 +18,15 @@ To start with the installation, follow the given command and provide SIEM Applia
 ```shell
 sudo ./siemagent_installer.sh install <ip> <projectName> <appName> <instanceName>
 ```
+:::important
+
+Providing tags are crucial for endpoints to appear under the correct project in SnappyFlow Portal.
+
+::: 
 
 ## Update Ip and labels/tags in SIEM Agent config
+
+In case of change in SIEM Appliance's Ip or if User needs to change tags to update endpoints in SnappyFlow Portal. Use following options to update SIEM configuration using script.
 
 Use `update_ip` option to update SIEM Appliance's ip in agent's config using the below given format:
 
@@ -35,19 +40,10 @@ Use `update_tags` option to update tags in agent's config using the below given 
 sudo ./siemagent_installer.sh update_tags <projectName> <appName> <instanceName>
 ```
 
-## Uninstalling the SIEM Agent
-
-To uninstall the agent , run the following command:
-```shell
-sudo ./siemagent_installer.sh uninstall
-```
-
-To see more options, run the script with `--help` option:
+Run the script with `--help` option and refer "SIEM Agent Installer User Guide" for complete usage of the script:
 ```shell
 sudo ./siemagent_installer.sh --help
 ```
-Refer "SIEM Agent Installer User Guide" for complete usage of the script.
-
 
 ## Validating connection
 
@@ -70,4 +66,11 @@ To change the frequency of periodic scans, follow the given steps:
 - Save the file and restart SIEM agent service
 ```shell
 sudo ./siemagent_installer.sh restart
+```
+
+## Uninstalling the SIEM Agent
+
+To uninstall the agent , run the following command:
+```shell
+sudo ./siemagent_installer.sh uninstall
 ```

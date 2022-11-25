@@ -23,22 +23,3 @@ The rules are classified in multiple levels, from the lowest (0) to the maximum 
 | 13    | Unusual error (high importance)  | Most of the times it matches a common attack pattern.                                                                                                                                                                          |
 | 14    | High importance security event   | Most of the times done with correlation and it indicates an attack.                                                                                                                                                            |
 | 15    | Severe attack                    | No chances of false positives. Immediate attention is necessary.                                                                                                                                                               |
-
-&nbsp;
-&nbsp;
-
-## SIEM Compliance Types
-
-- Payment Card Industry Data Security Standard (PCI DSS)
-
-- General Data Protection Regulation (GDPR)
-
-- NIST Special Publication 800-53 (NIST 800-53)
-
-- Good Practice Guide 13 (GPG13)
-
-- Trust Services Criteria (TSC SOC2)
-
-- Health Insurance Portability and Accountability Act (HIPAA)
-
-- Rules also include MITRE ATT&CK framework, which is used for alerts taxonomy and to provide better security context.

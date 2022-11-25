@@ -1,5 +1,9 @@
 # SIEM Appliance Setup
 
+## Supported Cloud Platforms:
+
+- AWS(Amazon Web Services): "SnappyFlow SIEM Appliance" AMI is provided in AWS marketplace.
+
 ## Pre-requisites
 
 ### Create AWS Security Group
@@ -33,11 +37,11 @@
 
 3. Click Launch Instance
 
-4. Click on AWS Marketplace and search for SnappyFlow SIEM Manager
+4. Click on AWS Marketplace and search for SnappyFlow SIEM Appliance
 
-5. Select SnappyFlow SIEM Manager AMI
+5. Select SnappyFlow SIEM Appliance AMI
 
-6. Read SnappyFlow SIEM Manager usage policy and detail. Click continue to proceed
+6. Read SnappyFlow SIEM Appliance usage policy and detail. Click continue to proceed
 
 7. Select the instance type (Min Recommended: t2.medium )
 
@@ -50,7 +54,7 @@
 
 SIEM Appliance Setup is complete now.
 
-## Configure SIEM Appiliance
+## Configure SIEM Appliance
 
 - Login to SIEM Appliance using ssh.
 
@@ -77,27 +81,4 @@ logging:
 - Restart the sfagent service by running the following command 
 ```bash
 service sfagent restart
-```
-
-## Upgrading the Manager service on SIEM Appliance
-
-To upgrade the manager , run the following command:
-
-For CentOS,
-```shell
-yum upgrade wazuh-manager
-```
-For Ubuntu,
-```shell
-apt-get install wazuh-manager
-```
-
-## Upgrading the sfAgent on SIEM Appliance
-
-Run following commands to upgrade sfAgent:
-
-```shell
-wget https://raw.githubusercontent.com/snappyflow/apm-agent/master/install.sh -O install.sh 
-chmod +x install.sh 
-sudo ./install.sh --upgrade
 ```
