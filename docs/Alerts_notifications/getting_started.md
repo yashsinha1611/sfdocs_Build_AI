@@ -74,9 +74,9 @@ Alert can be executed in the following modes.
 
 ### Trigger After Cycles
 
-This allows users to add number of trigger cycles to be wait before raising the alert, when the user adds trigger after cycles, alert will not raise and wait for the given trigger after cycles even though it satisfies any one of the severity conditions.
+This allows users to add number of trigger cycles to wait before raising the alert, when the user adds trigger after cycles, alert will not raise and wait for the given trigger after cycles even though it satisfies any one of the severity conditions.
 
-This option help in avoid raising an issue which has occurred just once. For a e.g., if user has created an alert to raise Sev1 alert if the count of error log is more than 1 for sampling period 5 mins and periodicity 5 mins.  
+This option will avoid to raise an issue immediately after its occurrence. For a e.g., if user has created an alert to raise Sev1 alert if the count of error log is more than 1 for sampling period 5 mins and periodicity 5 mins.  
 
 Consider the situation when system was being upgraded now in the last 5 mins all the API calls failed and created lot of error but only in 1 alert cycle (i.e., the severity condition is satisfied in 1 alert cycle alone, this issue is not consistent). 
 
@@ -106,13 +106,13 @@ If avg response time is 43.7 which is > 25 so satisfy sev2 condition and this ti
 <img src="/img/trigger_after_cycle/interface.png"/>
 
 
-As shown in the above image text box is provided to add ‘Tringger After Cycle’ also there is a drop down for Selecting Alert Severity that will be ‘Latest Sev’ or ‘Highest Sev’
+As shown in the above image text box is provided to add ‘Trigger After Cycle’ also there is a drop down for Selecting Alert Severity that will be ‘Latest Sev’ or ‘Highest Sev’
 
 **Alert Severity:**
-If trigger after cycle is 4 for an alert and below are the severity conditions satisfy for the cycles
-- **For 1st cycle:**  Satisfy Sev2 but alert will be not raised.
-- **For 2nd cycle:**  Satisfy Sev2 but alert will be not raised.
-- **For 3rd cycle:**  Satisfy Sev3 but alert will be not raised.
+If the Trigger After Cycles is set at 4 for an alert, then below will be the alert behaviour before its triggered.
+- **For 1st cycle:**  Satifies Sev2 but alert will be not raised.
+- **For 2nd cycle:**  Satifies Sev2 but alert will be not raised.
+- **For 3rd cycle:**  Satifies Sev3 but alert will be not raised.
 - **For 4th cycle:**  Alert will be raised.
 
 If Alert severity is set as ‘Latest Sev’ then at 4th cycle Sev3 alert will be raised because the latest Sev3 condition is satisfied at 3rd cycle.
@@ -138,7 +138,7 @@ As shown in the below image while adding or editing the alert you can use text b
 
 ### Recurring Time
 
-Recurring time allow users to add frequency of alert being notified, when the user adds recurring time, alert will be notified only when user defined recuring time crossed from previous notification.
+Recurring time allow users to add a difference in time duration of the alert being notified. When the user adds recurring time, alert will be notified only when user defined recurring time has exceeded from the previous notification.
 
 E.g.
 When user adds Response Time alert with periodicity 5 mins, sampling period 5 mins and recurring time 10 mins with following severity condition:
@@ -155,18 +155,18 @@ If in the upcoming cycle say 11:10 AM if the severity condition is still breache
 <img src="/img/recurring_time/interface.png"/>
 
 
-As shown in the above image text box is provided to add ‘Recurring Time’ It can be in minutes, hours, or days.
+As shown in the above image text box is provided to add ‘Recurring Time’ It can be in Minutes, Hours, or Days.
 
 
 **How to add recurring time in alert.**
 
 <img src="/img/recurring_time/recurring.png"/>
 
-By default, ‘Recuring Time’ will be always 30m while adding the alert as shown in the below image.
+By default, ‘Recurring Time’ will be always 30m while adding the alert as shown in the below image.
 
-By default, when alert defined with say 5 mins periodicity or any periodicity, will be notified to the user for the first time it occurred. We don’t notify the alert for another 30 mins from the time of occurrence of previous alert or the alert will not be notified until and unless a higher severity alert is raised, this is to reduce the frequency of alert being notified. 
+Let’s consider an alert with Periodicity set at 5mins, and Recurring time set to default 30mins. Once the specific alert is triggered, system will not notify for another 30mins, even if the alert condition is met. This is done to reduce the frequency of alerts being notified.
 
-As shown in the below image while adding or editing the alert you can use text box provided as ‘Recurring Time’ to add recurring time in minutes, hours, or days.
+As shown in the below image while adding or editing the alert you can use text box provided as ‘Recurring Time’ to add recurring time in Minutes, Hours, or Days.
 
 **While adding the alert.**
 
@@ -180,43 +180,41 @@ As shown in the below image while adding or editing the alert you can use text b
 
 ### Snooze Alert
 
-Snooze alert will allow user to stop an alert from being notified for a brief amount of time even if the severity conditions are satisfied and later automatically get active after the specified snooze time.
+Snooze alert will enable the user to snooze or stop an alert being notified for the time duration specified. Irrespective of the alert conditions being met, the alert will not be active during this snooze duration. The alert will be enabled once the snooze duration expires.
 
-When user has planned for 4 hours maintenance period, during which the system will be down and cause the alerts. At this scenario user can snooze the alert for the 4 hours but need not stop the alert. So, after 4 hours (i.e., specified snooze duration), the alerts will be active automatically.
-
-When an alert is notified due to some issue in the system, to avoid getting any further notification till the system issue is resolved user can snooze the alert for specified duration while addressing and resolving the issue in the system.
+Let’s consider a situation where an user has planned for a system maintenance which will take approx. 4 hours. During this while the system might come across various corner conditions and many system parameters might be crossing their respective threshold values. This can consequently trigger a lot of unimportant alerts.  To overcome this situation, Snoozing an alert can avoid unwanted panic within the system.
 
 **How to snooze alerts.**
 
-Alerts can be snoozed from alert history page. Option is provided to snooze single alert, or you can select multiple alerts and snooze bulk alerts as shown in the below image. 
+Alerts can be snoozed from alert history page. Option is provided to snooze single alert, or you can select multiple alerts and snooze alerts as shown in the below image. 
 
 <img src="/img/snooze_alert/snooze.png"/>
 
 **Snoozing single alert from alert history page.**
 
-When you snooze single alert from alert history page alert name, source name, group of the selected alert will be display and you must add the duration to snooze the selected alert, duration can be minuets, hours, days.
+When you snooze a single alert from the alert history page, details such as Alert Name, Source Name, Group and Snooze Duration are displayed. The Snooze Duration by default is set to 5 Mins. User can change the duration to Minutes, Hours, and Days.
 
 <img src="/img/snooze_alert/single_alert_history.png"/>
 
 **Bulk snooze in alert history page.**
 
-When you snooze multiple alerts by using bulk snooze option from alert history page alert name, source name, group for all the selected alerts will be listed and you must add the duration to snooze the alert duration can be minuets, hours, days. The same duration will be applicable for all listed alerts as shown in the below image.
+When you snooze multiple alerts using the Snooze option from the alert history page, details such as Alert Name, Source Name, Group and Snooze Duration are displayed. The Snooze Duration by default is set to 5 Mins. User can change the duration to Minutes, Hours and Days, and this will be reflected for all alerts selected.
 
 <img src="/img/snooze_alert/multiple_alert_history.png"/>
 
-Alerts also can be snoozed from alert definition page. Option is provided to snooze single alert, or you can select multiple alerts and snooze bulk alerts as shown in the below image. 
+Alerts also can be snoozed from alert definition page. Option is provided to snooze single alert, or you can select multiple alerts and snooze alerts as shown in the below image. 
 
 <img src="/img/snooze_alert/definition_snooze.png"/>
 
 **Snoozing single alert from alert definition page.**
 
-When you snooze single alert from alert definition page alert name, source name, group of the selected alert will be display and you must add the duration to snooze the selected alert, duration can be minuets, hours, days.
+When you snooze single alert from alert definition page alert name, source name, group of the selected alert will be display and you must add the duration to snooze the selected alert, duration can be Minutes, Hours, Days.
 
 <img src="/img/snooze_alert/single_alert_definition.png"/>
 
 **Bulk snooze in alert definition page.**
 
-When you snooze multiple alerts by using bulk snooze option from alert definition page alert name, source name, group for all the selected alerts will be listed and you must add the duration to snooze the alert, duration can be minuets, hours, days. The same duration will be applicable for all listed alerts as shown in the below image.
+When you snooze multiple alerts by using snooze option from alert definition page alert name, source name, group for all the selected alerts will be listed and you must add the duration to snooze the alert, duration can be Minutes, Hours, Days. The same duration will be applicable for all listed alerts as shown in the below image.
 
 <img src="/img/snooze_alert/multiple_alert_definition.png"/>
 
