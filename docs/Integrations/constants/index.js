@@ -163,7 +163,7 @@ const AGENTS = [
 		'label':'ElastiCache', 
 		'overText': 'ElastiCache is the distributed in memory cache environments in the AWS cloud.',
 		'category': ['Cloud'],
-		'link': '/docs/Integrations/elb/elasticache'
+		'link': '/docs/Integrations/elasticache/elasticache'
 	}, 
 	{
 		'src':'/img/public-cloud-elbs.svg',

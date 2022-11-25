@@ -244,7 +244,7 @@ module.exports = {
                 },
                 {
                     type: 'doc',
-                    id: 'Integrations/elb/elasticache',
+                    id: 'Integrations/elasticache/elasticache',
                     label: 'ElastiCache',
                 },
                 {

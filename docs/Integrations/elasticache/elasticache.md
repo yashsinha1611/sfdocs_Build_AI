@@ -1,27 +1,54 @@
+﻿# ElastiCache
 
-# ElastiCache
-
-## Overview 
-
-ElastiCache is the distributed in memory cache environments in the AWS cloud. Amazon ElastiCache supports the Memcached and Redis cache engines. 
+## Overview
+ElastiCache is the distributed in memory cache environments in the AWS cloud. Amazon ElastiCache supports the Memcached and Redis cache engines.
 
 ## Prerequisites:
 
-**CloudWatch Access for IAM Role​**
+### CloudWatch Access for IAM Role 
 
-Provide Read only access for CloudWatch to the dedicated IAM Role used for APM. You can use AWS managed polices that addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. Attach this AWS policy **CloudWatchReadOnlyAccess** to IAM role to get read access for all CloudWatch else create the below custom policy and attach it to IAM. 
+Provide Read only access for CloudWatch to the dedicated IAM Role used for APM. You can use AWS managed polices that addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. Attach this AWS policy **CloudWatchReadOnlyAccess** to IAM role to get read access for all CloudWatch else create the below custom policy and attach it to IAM.
 
-**Required Permissions:**  
- - cloudwatch:GetMetricData,  
- - elasticache: ListTagsForResource,  
- - elasticache:DescribeCacheClusters,  
- - elasticache:DescribeEvents    
+**Required Permissions:**
 
-## Metrics list 
+- cloudwatch:GetMetricData,
+- elasticache: ListTagsForResource,
+- elasticache:DescribeCacheClusters,
+- elasticache:DescribeEvent
 
-**Host Level Stats**
+To monitor remote services like Elasticache we use sfpoller.  when using a SaaS based snappyflow one can use sfpoller or use tag based discovery on SaaS portal.
 
-Host level metrics are common for both Redis and Memcached engines 
+## sfPoller Configuration
+
+Select *ElastiCache* Endpoint Type in  *Add Endpoints* and add the Cluster Name
+
+- Add Endpoint<br/><br/>
+
+ <img src="/img/add_endpoint.png" />
+
+- Select ElastiCache Endpoint<br/><br/>
+
+  <img src="/img/endpoint_type.png" /><br/><br/>
+
+
+- Enter the ClusterName<br/><br/>
+
+ <img src="/img/cluster_name.png" /><br/><br/>
+
+Select the plugin from the dropdown under Plugins tab and config the polling interval. Plugin configuration for ElastiCache services this includes cloudwatch-elasticache-redis and cloudwatch-elasticache-memcached plugin. You can enable/disable any of the plugin based on your needs and instance support.
+
+**cloudwatch-elasticache-redis**:
+
+a monitoring support for AWS ElastiCache Redis Cluster, collects all the hostlevel, node level and operational stats of a redis cluster.
+
+**cloudwatch-elasticache-memcached:**
+
+a monitoring support for AWS ElastiCache memcached Cluster, collects all the hostlevel, system level and operational stats of a memcached cluster.
+
+### Metrics list
+
+##### Host Level Stats
+Host level metrics are common for both Redis and Memcached engines
 
 | Metric                                 | Description                                                     |
 | :------------------------------------- | :----------------------------------------------------------- |
@@ -41,7 +68,8 @@ Host level metrics are common for both Redis and Memcached engines
 | CurrConnections | A count of the number of connections connected to the cache at an instant in time.  |
 | CurrItems | A count of the number of items currently stored in the cache.  |
 
-**Redis Node Stats**
+
+#### Redis Node Stats
 
 | Metric                                       | Description                                                                                                                                                                                                                                               |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,7 +103,8 @@ Host level metrics are common for both Redis and Memcached engines
 | CurrConnections                              | A count of the number of connections connected to the cache at an instant in time. ElastiCache uses two to three of the connections to monitor the cluster.                                                                                               |
 | CurrItems                                    | A count of the number of items currently stored in the cache.                                                                                                                                                                                             |
 
-**Redis Operational Stats**
+
+#### Redis Operational Stats
 
 | Metric                      | Description                                                                                                                                                      |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -108,10 +137,9 @@ Host level metrics are common for both Redis and Memcached engines
 | StringBasedCmds             | The total number of commands that are string-based.                                                                                                              |
 | StringBasedCmdsLatency      | Latency of string-based commands.                                                                                                                                |
 | StreamBasedCmds             | The total number of commands that are stream-based.                                                                                                              |
-| StreamBasedCmdsLatency      | Latency of stream-based commands.                                                                                                                                |
+| StreamBasedCmdsLatency      | Latency of stream-based commands.                                                                 |
 
-
-**Memcached System Stats**
+#### Memcached System Stats
 
 | Metric                       | Description                                                                                                          |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -131,7 +159,7 @@ Host level metrics are common for both Redis and Memcached engines
 | CurrConnections              | A count of the number of connections connected to the cache at an instant in time.                                   |
 | CurrItems                    | A count of the number of items currently stored in the cache.                                                        |
 
-**Memcached Operational Stats**
+#### Memcached Operational Stats
 
 | Metric       | Description                                                                                                               |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------- |
@@ -155,41 +183,16 @@ Host level metrics are common for both Redis and Memcached engines
 | CmdTouch     | The cumulative number of touch requests.                                                                                  |
 | CasBadval    | The number of CAS (check and set) requests the cache has received where the Cas value did not match the Cas value stored. |
 
+## View Data and Dashboards
 
-### sfPoller Configuration 
+All CloudWatch metrics are collected and tagged based on their ElastiaCache type to get displayed in their respective dashboard template. Use ElastiCache\_Redis or ElastiCache\_Memcached for data visualization as per the Engine.
 
-Select **ElastiCache** Endpoint Type in **Add Endpoints** and add the Cluster Name
-
-- Add Endpoint  <br/><br/>
-
-     <img src="/img/add_endpoint.png" />
-
-- Select ElastiCache Endpoint  <br/><br/>
-
-     <img src="/img/endpoint_type.png" />
-
-- Enter the ClusterName <br/><br/>
-
-    <img src="/img/cluster_name.png" />
-
-- Select the plugin from the dropdown under Plugins tab and config the polling interval. Plugin configuration for ElastiCache services this includes cloudwatch-elasticache-redis and cloudwatch-elasticache-memcached plugin. You can enable/disable any of the plugin based on your needs and instance support. 
-
-- **cloudwatch-elasticache-redis:** 
-
-    a monitoring support for AWS ElastiCache Redis Cluster, collects all the hostlevel, node level and operational stats of a redis cluster.                                                                    
-
-- **cloudwatch-elasticache-memcached:** 
-
-    a monitoring support for AWS ElastiCache memcached Cluster, collects all the hostlevel, system level and operational stats of a memcached cluster. 
- 
- 
-    
-### View Data and Dashboards 
-
-All CloudWatch metrics are collected and tagged based on their ElastiaCache type to get displayed in their respective dashboard template. Use ElastiCache_Redis or ElastiCache_Memcached for data visualization as per the Engine. <br/><br/>
-
-<img src="/img/elasticache_dashboard1.png" />
+<img src="/img/elasticache_dashboard1.png" /><br/><br/>
 
 <img src="/img/elasticache_dashboard2.png" />
 
- 
+
+
+
+
+
