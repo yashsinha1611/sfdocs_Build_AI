@@ -110,9 +110,9 @@ As shown in the above image text box is provided to add ‘Trigger After Cycle�
 
 **Alert Severity:**
 If the Trigger After Cycles is set at 4 for an alert, then below will be the alert behaviour before its triggered.
-- **For 1st cycle:**  Satifies Sev2 but alert will be not raised.
-- **For 2nd cycle:**  Satifies Sev2 but alert will be not raised.
-- **For 3rd cycle:**  Satifies Sev3 but alert will be not raised.
+- **For 1st cycle:**  Satisfies Sev2 but alert will be not raised.
+- **For 2nd cycle:**  Satisfies Sev2 but alert will be not raised.
+- **For 3rd cycle:**  Satisfies Sev3 but alert will be not raised.
 - **For 4th cycle:**  Alert will be raised.
 
 If Alert severity is set as ‘Latest Sev’ then at 4th cycle Sev3 alert will be raised because the latest Sev3 condition is satisfied at 3rd cycle.
