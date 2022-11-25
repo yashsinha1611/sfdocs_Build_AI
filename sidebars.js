@@ -244,6 +244,11 @@ module.exports = {
                 },
                 {
                     type: 'doc',
+                    id: 'Integrations/plugin/docker_monitoring',
+                    label: 'Docker Monitoring',
+                },
+                {
+                    type: 'doc',
                     id: 'Integrations/elasticache/elasticache',
                     label: 'ElastiCache',
                 },
