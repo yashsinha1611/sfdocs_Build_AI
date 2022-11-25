@@ -45,15 +45,15 @@ Below are the screenshots of SIEM Dashboard.
 
 ![image](images/Architecture-Diagram.jpg)
 
-## SIEM Appliance
+### SIEM Appliance
 
-The SIEM Appliance collects and analyzes data from the deployed Wazuh agents. It triggers alerts when threats or anomalies are detected.  It is also used to manage the agents' configuration remotely and to monitor their status. [Steps to setup SIEM Appliance](./siemappliance_installation.md)
+The SIEM Appliance collects and analyzes data from the deployed [SIEM Agents](#siem-agent). It triggers alerts when threats or anomalies are detected.  It is also used to manage the agents' configuration remotely and to monitor their status. [Steps to setup SIEM Appliance](./siemappliance_installation.md)
 
-## SIEM Agent
+### SIEM Agent
 
 The SIEM agent is multi-platform and runs on the hosts that the user wants to monitor. It communicates with the SIEM manager, sending data in near real time through an encrypted and authenticated channel. [Steps to install SIEM Agent](./siemagent_installation.md)
 
-### Supported Platforms
+#### Supported Platforms
 
 - Ubuntu
 - CentOS
