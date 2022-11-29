@@ -77,7 +77,7 @@ A Feature Extraction rule comprises of 3 key parts as in the below example
 
 1. **Search String**
 
-   This is a search string and is used to filter logs on the basis of simple search strings. It is single or a combination of strings enclosed in double inverted commas. Multiple strings can be combined in an  `AND` operation using `&&`.
+   This is a search string and is used to filter logs on the basis of simple search strings. It is single or a combination of strings enclosed in double inverted commas.
 
    Examples
 
