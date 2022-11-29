@@ -2,11 +2,13 @@
 
 ## Supported Cloud Platforms:
 
-- AWS(Amazon Web Services): "SnappyFlow SIEM Appliance" AMI is provided in AWS marketplace.
+- Amazon Web Services: SnappyFlow SIEM Appliance is provided as an AMI in AWS marketplace.
 
 ## Pre-requisites
 
-### Create AWS Security Group
+### AWS
+
+#### Create Security Group
 
   1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
 
@@ -23,50 +25,54 @@
   6. Add security group rules now
 
     Add inbound rules:
-
+    
     |    Type     | Protocol | Port      | Source       | Description    |
     | :---------- | :------- | :-------- | :----------- | :------------- |
     | Custom TCP  | TCP      | 1514-1515 | 0.0.0.0,::/0 | siem tcp       |
     | SSH         | TCP      | 22        | 0.0.0.0,::/0 | siem ssh       |
 
 
+
 ## Launching SIEM Appliance
+
+### AWS
+
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
 
 2. In the navigation pane, click Instances
 
 3. Click Launch Instance
 
-4. Click on AWS Marketplace and search for SnappyFlow SIEM Appliance
+4. Click on AWS Marketplace and search for `SnappyFlow SIEM Appliance`
 
 5. Select SnappyFlow SIEM Appliance AMI
 
-6. Read SnappyFlow SIEM Appliance usage policy and detail. Click continue to proceed
+6. Read SnappyFlow SIEM Appliance usage policy in detail. Click continue to proceed
 
 7. Select the instance type (Min Recommended: t2.medium )
 
 8. Configure security group:
-    Click the security group created in the prerequisite step
+    Use the security group created in the prerequisite step
 
 9. Review changes before clicking launch
 
 10. Click the SSH key pair and launch
 
-SIEM Appliance Setup is complete now.
+SIEM Appliance Launch is complete now.
 
 ## Configure SIEM Appliance
 
-- Login to SIEM Appliance using ssh.
+- Login to SIEM Appliance using ssh
 
 - Locate sfagent folder - `/opt/sfagent/` 
 
-- [sfAgent](/docs/Quick_Start/getting_started#sfagent) section provides steps to automatically generate plugin configurations. User can also manually add the configuration shown below to config.yaml under `/opt/sfagent/` directory
+- [sfAgent](/docs/integrations/os/linux/sfagent_linux#configuration) section provides steps to automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory
 
-- Add Profile Key:
+- Add Profile Key
 
-  Copy profile key from "Profiles" section under "Manage" tab of your SnappyFlow SaaS account or SnappyFlow server.
+  Copy profile key from "Profiles" section under "Manage" tab of your SnappyFlow cloud account or SnappyFlow server in case your hosting SnappyFlow in your own environment.
 
-- Add `wazuh-siem` logging plugin in `config.yaml` file as given below:
+- Add `wazuh-siem` logging plugin in `config.yaml` file as given below
 
 ```yaml 
 logging: 
@@ -82,3 +88,8 @@ logging:
 ```bash
 service sfagent restart
 ```
+
+## Getting SIEM Appliance IP address
+
+The SIEM Appliance IP address will be used to configure SIEM agents. In AWS, the IP address is available under Instance Summary.
+

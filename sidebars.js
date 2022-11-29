@@ -910,13 +910,9 @@ module.exports = {
                 {
                     type: 'doc',
                     id: 'SIEM/SIEM_events',
-                    label: 'Events',
+                    label: 'SIEM Events',
                 },
-                {
-                    type: 'doc',
-                    id: 'SIEM/SIEM_Dashboard',
-                    label: 'Dashboard',
-                }
+                
             ],
         },
 

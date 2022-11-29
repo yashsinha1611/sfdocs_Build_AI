@@ -38,13 +38,13 @@ This function is used to skip a given number of words. This function assumes eac
 
 :::info Syntax
 
-skip("N") where `N` is the number of words to be skipped.
+skipword("N") where `N` is the number of words to be skipped.
 
 ::: 
 
 :::note  Example
 
-Consider the Log line **Update-mapping for Metric-7kjdgp3g hosted from master-2**. Using skip(“5”), the pointer will skip five words. In this example, the pointer or imaginary cursor is denoted by `|`.
+Consider the Log line **Update-mapping for Metric-7kjdgp3g hosted from master-2**. Using skipword(“5”), the pointer will skip five words. In this example, the pointer or imaginary cursor is denoted by `|`.
 
 **<u>Initial pointer position</u>**
 
