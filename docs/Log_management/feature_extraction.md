@@ -77,13 +77,18 @@ A Feature Extraction rule comprises of 3 key parts as in the below example
 
 1. **Search String**
 
-   This is a search string and is used to filter logs on the basis of simple search strings. It is single or a combination of strings enclosed in double inverted commas.
+   This is a search string and is used to filter logs using simple search strings. It is a single or a combination of strings. Use double quotes ("") to search for a specific pattern of strings.
 
-   Examples
+Examples
 
-   `"new user"`
+`new user` - This will search for both the strings irrespective of their position.
 
-   `"new user" && "create account"`
+`"new user"` - This will search specifically for the string `new user`
+
+`"new user" "create account"` - This will search for two separate patterns `new user` and `create account`
+
+`new user "create account"` - Here only `create account` is a pattern.
+
 
 2. **Field to be parsed**
 
