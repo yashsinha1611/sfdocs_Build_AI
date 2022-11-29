@@ -1,6 +1,6 @@
 # Extract Functions
 
-## Overview
+## Overview of Extract Functions
 
 Extract functions allow extracting specific information from the log line.
 
