@@ -221,11 +221,7 @@ const FeatureList = [
       },
       {
         url: '/docs/SIEM/SIEM_events',
-        label: 'Events',
-      },
-      {
-        url: '/docs/SIEM/SIEM_Dashboard',
-        label: 'Dashboard',
+        label: 'SIEM Events',
       }
     ]
   },
