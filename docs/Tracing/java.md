@@ -1,7 +1,7 @@
 # Java tracing
 
 
-sfTrace Java Agent automatically instruments various APIs, frameworks and application servers. Currently sfTrace supports the following:  
+sfTrace Java Agent automatically instruments APIs, frameworks and application servers. Currently sfTrace supports the following:  
 <div class="blue_textbox">
 	<b>Supported Java versions</b> 
 	<p>
