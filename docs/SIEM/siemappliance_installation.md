@@ -26,10 +26,10 @@
 
     Add inbound rules:
     
-    |    Type     | Protocol | Port      | Source       | Description    |
-    | :---------- | :------- | :-------- | :----------- | :------------- |
-    | Custom TCP  | TCP      | 1514-1515 | 0.0.0.0,::/0 | siem tcp       |
-    | SSH         | TCP      | 22        | 0.0.0.0,::/0 | siem ssh       |
+    |    Type     | Protocol | Port      | Source       | Description             |
+    | :---------- | :------- | :-------- | :----------- | :---------------------- |
+    | Custom TCP  | TCP      | 1514-1515 | 0.0.0.0,::/0 | SIEM Manager and agent communication      |
+    | SSH         | TCP      | 22        | 0.0.0.0,::/0 | sfgent configuration       |
 
 
 
@@ -49,7 +49,7 @@
 
 6. Read SnappyFlow SIEM Appliance usage policy in detail. Click continue to proceed
 
-7. Select the instance type (Min Recommended: t2.medium )
+7. Select the instance type (Min Recommended: t2.small)
 
 8. Configure security group:
     Use the security group created in the prerequisite step
@@ -66,28 +66,22 @@ SIEM Appliance Launch is complete now.
 
 - Locate sfagent folder - `/opt/sfagent/` 
 
-- [sfAgent](/docs/integrations/os/linux/sfagent_linux#configuration) section provides steps to automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory
+- Open config.yaml file
 
 - Add Profile Key
 
-  Copy profile key from "Profiles" section under "Manage" tab of your SnappyFlow cloud account or SnappyFlow server in case your hosting SnappyFlow in your own environment.
+  Provide the value for `key` field by copying profile key from "Profiles" section under "Manage" tab of your SnappyFlow cloud account or SnappyFlow server in case your hosting SnappyFlow in your own environment.
 
-- Add `wazuh-siem` logging plugin in `config.yaml` file as given below
+- Update the Project/ Application details
+  
+  Update the project name and app name under `projectName` and `appName` fields respectively.
 
-```yaml 
-logging: 
-  plugins: 
-    - name: wazuh-siem
-      enabled: true 
-      config: 
-        log_path: /var/ossec/logs/alerts/alerts.json
-```
-- Close and save the `config.yaml` file.
+- Save and close the `config.yaml` file.
 
 - Restart the sfagent service by running the following command 
-```bash
-service sfagent restart
-```
+  ```bash
+  service sfagent restart
+  ```
 
 ## Getting SIEM Appliance IP address
 
