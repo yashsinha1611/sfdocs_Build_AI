@@ -1,6 +1,6 @@
 # Extract Functions
 
-## Overview
+## Overview of Extract Functions
 
 Extract functions allow extracting specific information from the log line.
 
@@ -468,7 +468,7 @@ where,
 
 Consider the log line **root : TTY=unknown ; PWD=/home/centos ; USER=root ; COMMAND=/bin/rm –rf jmeter.log**
 
-Using `extractregexgroup(“/TTY=\w+ ; PATH=([^\s]+) ; USER=(\w+) ; COMMAND=(.*)$/”, path.string, username. string, cmd. string)` extracts
+Using `extractregexgroup(“/TTY=\w+ ; PATH=([^\s]+) ; USER=(\w+) ; COMMAND=(.*)$/”, path.string, username.string, cmd.string)` extracts
 
 
 

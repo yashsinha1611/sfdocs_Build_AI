@@ -254,6 +254,11 @@ module.exports = {
                 },
                 {
                     type: 'doc',
+                    id: 'Integrations/docdb/DocDB',
+                    label: 'DocDB',
+                },
+                {
+                    type: 'doc',
                     id: 'Integrations/elb/elb_rds',
                     label: 'Elastic Load Balancer',
                 },

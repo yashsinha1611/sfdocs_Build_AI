@@ -1,7 +1,7 @@
 # NetStat Monitoring
 
 ## Overview
-Netstat Metric plugin is an agent-based plugin that collects below data for each process running on the machine.
+Netstat Metric plugin is an agent-based plugin that collects below data for each process running on the machine. 
 - Tcp Connections
 - Udp Connections
 - TcpEstablish Connections
@@ -23,7 +23,10 @@ Netstat Metric plugin is an agent-based plugin that collects below data for each
 
 ## Agent Configuration
 
-Refer to [sfAgent](https://www.odwebp.svc.ms/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/ directory`
+Refer to [sfAgent](https://www.odwebp.svc.ms/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory. Add the list of required foreign ports in the field “ports”. The list of ports must be comma separated values.
+
+**NOTE:** If no ports are mentioned in the `config.yaml`, sfagent will filter ports based on default ports that are `80,8080,8000 and 443`.
+
 ```
 key: <profile_key> 
 tags: 
@@ -34,7 +37,10 @@ metrics:
   plugins: 
     - name: netstat 
       enabled: true 
-      interval: 60 
+      interval: 60
+      config:
+        ports: <list_of_ports>  #80,8080,8000,443
+  
 ```
 
 ## Viewing data and dashboards
@@ -62,11 +68,3 @@ Ubuntu: 14.x, 16.x
 - [PSUtil](/docs/integrations/os/linux/psutil)
 - [Custom plugins using StatsD](/docs/integrations/statsd/custom_monitoring)
 - [Prometheus Integration](/docs/Integrations/kubernetes/prometheus_exporter) 
-
-
-
-
-
-
-
-

@@ -15,16 +15,15 @@ This is especially useful in cases where required data is not part of a structur
 
 ## Setting up & Viewing Feature Extractions
 
-Feature Extraction can be setup only for any logs and this is applicable at an Application level. Once setup, all ingested logs for that application are processed at ingest time based on the specific rules provided.
+:::note Scope of a Feature Extraction Rule
 
-:::note
+The scope is limited to the logs of the application under which the Feature Extraction is created. Once setup, all ingested logs for that application are processed at ingest based on the specific rules provided.
 
-Feature Extraction only works on logs ingested post setting up the operation. 
+Feature Extraction works on logs ingested *post* setting up the rule. 
 
 :::
 
 Feature Extraction is available under the Logs dropdown in all application homepages.
-
 
 <img src="/img/feature_extraction/feature_extraction_tab.png" />
 
@@ -50,7 +49,7 @@ The Operations View tab lists all the Feature Extraction operations that have be
 
 ## How it works ##
 
-Feature Extraction is useful in parsing unstructured logs. Using a combination of built-in filters, search stings,  skip and extract functions, specific information can be extracted from complex log lines.
+Feature Extraction is useful in parsing unstructured logs. Using a combination of built-in filters, search strings,  skip and extract functions, specific information can be extracted from complex log lines.
 
 :::danger Read below passage to use Feature Extraction effectively
 
@@ -66,7 +65,7 @@ The scope of Feature Extraction Rules are limited to the application under which
 
 ### Step1: Search for logs using the built-in filters
 
-In the Feature Extraction page, filter logs bases on Plugin type, Document type, Instance name and log level. 
+In the Feature Extraction page, filter logs based on Plugin type, Document type, Instance name and log level. 
 
 <img src="/img/feature_extraction/filters.png" />
 
@@ -78,15 +77,20 @@ A Feature Extraction rule comprises of 3 key parts as in the below example
 
 1. **Search String**
 
-   This is a search string and is used to filter logs on the basis of simple search strings. It is single or a combination of strings enclosed in double inverted commas. Multiple strings can be combined in an  `AND` operation using `&&`.
+   This is a search string and is used to filter logs using simple search strings. It is a single or a combination of strings. Use double quotes ("") to search for a specific pattern of strings.
 
-   Examples
+Examples
 
-   `"new user"`
+`new user` - This will search for both the strings irrespective of their position.
 
-   `"new user" && "create account"`
+`"new user"` - This will search specifically for the string `new user`
 
-2. **Filed to be parsed**
+`"new user" "create account"` - This will search for two separate patterns `new user` and `create account`
+
+`new user "create account"` - Here only `create account` is a pattern.
+
+
+2. **Field to be parsed**
 
    is the name of the field in the log whose content is to be parsed. The contents of `field_name` are parsed character by character from left to right based on the command that follows.
 
