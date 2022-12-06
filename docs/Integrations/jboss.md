@@ -2,7 +2,7 @@
 
 ## Overview
 
-Jboss Metric plugin monitors Jboss server by collecting multiple types of metrics like server stats, jvm stats using Jolokia
+Jboss Metric plugin monitors Jboss server by collecting multiple types of metrics like server stats, jvm stats using Jolokia.
 
 ## Prerequisites
 
@@ -16,12 +16,9 @@ Jboss Metric plugin monitors Jboss server by collecting multiple types of metric
 
 ## Configuration Settings
 
-Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent` directory  
-
-
+Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent` directory . sfAgent supports multi domain monitoring. 
 
 ```yaml
-
 metrics: 
   metrics: 
   plugins: 
@@ -62,9 +59,9 @@ Jboss logger to capture Wildfly server access logs and error logs.
 
 ### Prerequisites
 
-Jboss server access log format needs to be modified to capture all metrics from the access logs, which includes following steps
+Jboss server access log format needs to be modified to capture all metrics from the access logs, which includes following steps. 
 
-- Edit the file $JBOSS_HOME/standalone/configuration/standalone.xml
+- Edit the file $JBOSS_HOME/standalone/configuration/standalone.xml or $JBOSS_HOME/domain/configuration/domain.xml in case of domain mode.
 
 - Set log format in the following section `<host name="default-host" alias="localhost">` by specifying the pattern value to pre-defined “combined” log format or
 
@@ -79,11 +76,23 @@ Jboss server access log format needs to be modified to capture all metrics from 
 
 - Set the attribute statistics-enabled="true" in all the occurences of standalone.xml as the statistics are disabled by default
 
+- Restart wildfly service by executing the command
+
+  ```
+  service wildfly restart
+  ```
+
 After changing log pattern to combined or the above mentioned pattern, sample log would look like:
 
 ```
 183.83.155.203 [07/Aug/2020:14:24:17 +0000] "GET /petclinic/org.richfaces.resources/javax.faces.resource/org.richfaces/skinning.ecss?db=eAG7dPvZfwAIqAOT HTTP/1.1" 500 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" 3
 ```
+
+:::note
+
+If the access log format mentioned in the configuration is incorrect, a default parser is invoked to pick all the access logs.
+
+::: 
 
 ## Configuration Settings
 
@@ -96,7 +105,7 @@ logging:
       enabled: true
       ## OPTIONAL
       config:
-        log_path: "/opt/wildfly/standalone/log/access*.log"
+        log_path: "/opt/wildfly/<mode>/log/access*.log"   ## mode is domain or standalone
         geo_info: true
         ua_parser: true
         url_normalizer: false #Not recommended for k8s deployment
@@ -108,7 +117,11 @@ logging:
           - error
           - warn
           - warning
-        log_path: "/opt/wildfly/standalone/log/server*.log"
+        log_path: "/opt/wildfly/<mode>log/server*.log"   ## mode is domain or standalone
+      ## If log format is incorrect
+    - name: jboss-default-parser
+      enabled: true
+      log_path: "/opt/wildfly/<mode>/log/access*.log" ## mode is domain or standalone
 ```
 
 Jboss access log plugin also supports:
@@ -116,8 +129,6 @@ Jboss access log plugin also supports:
   1. Geo-IP: Useful to find geographical location of the client using the IP address. To enable, set the option "geo_info" to true in the above configuration
   2. User-Agent Analysis: To get the host machine details like browser, Operating system and device by analysis the user-agent. To enable, set the option "ua_parser" to true in the above configuration. If enabled, by default it runs on port 8586
   3. URL Normalizer (not supported in container deployment): Normalize incoming URL paths. To enable, set the option "url_normalizer" to true in the above configuration. If enabled, by default it runs on port 8587
-
-
 
 
 Config Field Description,
