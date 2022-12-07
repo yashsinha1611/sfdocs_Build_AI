@@ -18,7 +18,7 @@ The below guide is applicable for setups with an **ingest rate below 500 GB/day*
 
 ## Size your infrastructure using the sizing tool
 
-SnappyFlow providesHead to accounts.snappyflow.io and use your SnappyFlow credentials to login. Once logged in, click on Pricing Calculator.
+Snappyflow provides the sizing tool to calculate the price in accounts.snappyflow.io and use your SnappyFlow credentials to login. Once logged in, click on Pricing Calculator.
 
 Choose your cloud platform and select the region where you want to deploy SnappyFlow. The region can be changed at a later stage too.<br/>
 [https://accounts.snappyflow.io/myaccount/platform](https://accounts.snappyflow.io/myaccount/platform).
@@ -97,44 +97,50 @@ Before downloading the template for Azure, make sure your region has enough quot
 4: Provide IP address range and select the checkbox **Add IPV6 address space** if required 
  
 
-5:	In same window on below, we can either use default subnet or we can add new subnet (Click **add subnet** and provide IP address range alone) if required and click **Review + create**
+5:	In same window we can either use default subnet or we can add new subnet (Click **add subnet** and provide IP address range alone) if required and click **Review + create**
  
  <img src="/img/snappyflow_self_hosted/azure_address.png" />
 
 6:  Once virtual network is created click on the go to resource
 
- <img src="/img/snappyflow_self_hosted/azure_deployment_completed.PNG" />
+ <img src="/img/snappyflow_self_hosted/azure_ms_template.png" />
  
 
 7:  Create another subnet which will acts as the gateway subnet
-- Click on the subnets option in the virtual network.  
-- Click on subnet and provide the subnet name.  
-- Click on save <br/><br/>
-
-     <img src="/img/snappyflow_self_hosted/azure_virtual_network_getway.PNG" />
-- Click on add <br/><br/>
+- On the left side click the `subnets` option in the virtual network
+- Click on subnet and provide the subnet name   
+<br/>
+     <img src="/img/snappyflow_self_hosted/azure_virtual_network_getway.PNG" /><br/>
+- Click on save <br/>
 <img src="/img/snappyflow_self_hosted/azure_virtual_network_show_gateway.PNG" /><br/><br/>
-          If you are using the external database, you will required to add the server endpoints as sql in virtual network. 
+
+<hr/>
+
+### The below steps are applicable only if you select Backup for SnappyFlow account data while downloading the template from sizing tool.
 
 :::note
 Make sure while adding the service endpoint, select the subnet which will not act as gateway. If you create the service endpoint under the gateway subnet, provisioning will fail.
 :::note
 
 
-### Steps to add service endpoint 
+#### Steps to add service endpoint 
  - Click on the service endpoints from the left side in the virtual network page
  - Click on add and select the service as Microsoft.Sql
- - Select the subnet which will not act as gateway subnet and click on add<br/><br/>
- <img src="/img/snappyflow_self_hosted/virtual_network_service_endpoint.PNG" /> <br/><br/>
+ - Follow the below rules to add the subnet
+     - Select the subnet which will not act as gateway subnet
+     - Once added the subnet to the service endpoint dont provide same subnet name as gateway subnet while deploying the template. For example if you created the two subnets, add the first subnet under service endpoint and provide the second subnet as gateway subnet<br/><br/>
+     <img src="/img/snappyflow_self_hosted/virtual_network_service_endpoint.PNG" /> <br/><br/>
  - Click on the add 
 
-### Steps for creating the Storage Account 
- 1. Click on the link [https://portal.azure.com/#create/Microsoft.StorageAccount](https://portal.azure.com/#create/Microsoft.StorageAccount)  
- 2. Provide Resource group (same as virtual network resource group) details and storage account name 
- 3. Click the “Review” button and on successful validation, complete the creation
+#### Steps for creating the Storage Account 
+ 1. Go to the azure account
+ 2. Search the virtual network in the azure account
+ 3. Click on create option
+ 4. Provide Resource group (same as virtual network resource group) details and storage account name 
+ 5. Click the “Review” button and on successful validation, complete the creation
  <img src="/img/snappyflow_self_hosted/storage_account_create.PNG" /> 
- 4. Once created click on go to resource
- 5. On the left side click the `Access key` option as below which is required during the deployment of snappyflow. Click show and copy the Access key and storage account for further usage
+ 6. Once created click on go to resource
+ 7. On the left side click the `Access key` option as below which is required during the deployment of snappyflow. Click on show button(key section) and copy the Access key and storage account for further usage
  <img src="/img/snappyflow_self_hosted/azure_storage_account_accesskeys.PNG" /> 
 
 
@@ -156,14 +162,15 @@ Make sure while adding the service endpoint, select the subnet which will not ac
 
 1. Choose subscription, resource group, virtual network name, subnet name, GatewaysubnetName, allowedIpAddr, System Assigned Identity, Admin username, Authentication type, admin key, storage accountName, Storage Account keys
   - **Resource Group** –  Select the existing resource group which was created earlier while creating the virtual network.
-  -	**Region** – Select the same region as of Virtual network. 
- -	**Virtual Network Name** – Provide the same name of virtual Network created on pre-requisites. 
-     - Subnet Name/ Gatewaysubnet – Provide the name of the subnet name created on pre-requisites. 
-     - Subnet is used for all the virtual machines created under this subnet range and Gateway subnet will sends the client requests to the snappyflow.  
- -	**Allowed Ip Cidr** – Provide IP address range to allow to access snappyflow or keep as default (0.0.0.0/0) which gives provision to all to access snappyflow.  
+  -	**Region** – Select the same region as of Virtual network
+ -	**Virtual Network Name** – Provide the same name of virtual Network created on pre-requisites 
+     - SubnetName: provide the subnet which you added under the service endpoint
+     - GatewaysubnetName: provide the subnet which you not added under the service endpoint
+     - Subnet is used for all the virtual machines created under this subnet range and Gateway subnet will sends the client requests to the snappyflow 
+ -	**Allowed Ip Cidr** – Provide IP address range to allow to access snappyflow or keep as default (0.0.0.0/0) which gives provision to all to access snappyflow 
  -	**System Assigned identity** – Select  `True` which will assign owner role assignment 
  -	**Admin Username** – Admin username is the username for SSH into the Snappyflow server VM (Virtual Machine) 
- -	**Admin Key**  – Use `ssh-keygen -t rsa -b 2048` to generate your SSH key pairs in the Linux machine. Provide a public key in admin key column and use the private key to ssh to VM or use the azure portal itself to create the public keys. <br/><br/> 
+ -	**Admin Key**  – Use `ssh-keygen -t rsa -b 2048` to generate your SSH key pairs in the Linux machine. Provide a public key in admin key column and use the private key to ssh to VM or use the azure portal itself to create the public keys <br/><br/> 
      **Steps to create the public key from the azure portal:** 
 
      - Navigate to Azure portal  
@@ -171,9 +178,9 @@ Make sure while adding the service endpoint, select the subnet which will not ac
      - Click on the create option  
      - Select the resource group which is used while creating the Virtual Network  
      - Provide the key pair name  
-     - Click on Review+Create  
+     - Click on Review+Create   
      - Click on create and select the download private key and create resource option  
-     - Once deployment is completed select the key and copy the public ssh
+     - Once deployment is completed select the key and copy the public ssh key
 
 - **Storage Accounts Name/Key** – Provide the account name and key which are copied from the storage account. 
 
@@ -187,7 +194,7 @@ Make sure while adding the service endpoint, select the subnet which will not ac
 
 3. Once deployment completed, to access the Snappyflow UI click on the outputs in the deployment page 
 
-<img src="/img/snappyflow_self_hosted/azure_ms_template.png" />
+<img src="/img/snappyflow_self_hosted/azure_deployment_completed.PNG" />
 
 4. Copy the snappyflow server url and open in browser to access the UI
 
