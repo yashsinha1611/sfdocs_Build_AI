@@ -134,7 +134,7 @@ Make sure while adding the service endpoint, select the subnet which will not ac
 
 #### Steps for creating the Storage Account 
  1. Go to the azure account
- 2. Search the virtual network in the azure account
+ 2. Search the storage account in the azure account
  3. Click on create option
  4. Provide Resource group (same as virtual network resource group) details and storage account name 
  5. Click the “Review” button and on successful validation, complete the creation
