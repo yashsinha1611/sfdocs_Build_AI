@@ -49,11 +49,9 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Setup SnappyFlow Self Hosted', 
+                    label: 'Setup SnappyFlow Self Hosted',
                     link: {
                         type: 'generated-index', 
-                        id: 'Quick_Start/snappyflow_self_hosted',
-                        image: '/img/docusaurus.png'
                     },
                     collapsed: true,
                     items: [
@@ -66,9 +64,10 @@ module.exports = {
                             type: 'doc',
                             id: 'Quick_Start/azure',
                             label: 'Azure',
-                        },
-                    ],
+                        } 
+                    ], 
                 },
+               
             ],
         },
         {
