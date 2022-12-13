@@ -117,7 +117,7 @@ logging:
           - error
           - warn
           - warning
-        log_path: "/opt/wildfly/<mode>log/server*.log"   ## mode is domain or standalone
+        log_path: "/opt/wildfly/<mode>/log/server*.log"   ## mode is domain or standalone
       ## If log format is incorrect
     - name: jboss-default-parser
       enabled: true
