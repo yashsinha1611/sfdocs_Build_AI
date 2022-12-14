@@ -1,36 +1,29 @@
 # Monitoring Apache Server on Instances
 
-## Overview[](https://docs.snappyflow.io/docs/Integrations/apache/overview#overview)
+## Overview
 
-Apache Server’s monitoring involves monitoring of the following elements:
+Apache Server’s monitoring involves monitoring of the following elements: 
 
-- Apache Access Logs
-- Apache Error Logs
-- Apache Server Health
+- Apache Access Logs 
+- Apache Error Logs 
+- Apache Server Health 
 
-## Pre-requisites[](https://docs.snappyflow.io/docs/Integrations/apache/overview#pre-requisites)
+## Pre-requisites
 
-1. **Ensure Apache access logs are in format expected by sfAgent parser**.
+1. **Ensure Apache access logs are in format expected by sfAgent parser**. 
 
-   Edit configuration file , conf file can be `/etc/apache2/apache2.conf, /etc/apache2/sites-enabled/000-default.conf, /etc/apache2/conf-enabled/other-vhosts-access-log.conf` and set log format as follows:
+   Edit configuration file , conf file can be `/etc/apache2/apache2.conf, /etc/apache2/sites-enabled/000-default.conf, /etc/apache2/conf-enabled/other-vhosts-access-log.conf` and set log format as follows: 
 
    ```
-   LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %D %v" combined  
+   LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %D" combined  
 
    CustomLog "logs/access_log" combined  
-
    ```
 
-   ​
-
-   After configuring log format, the expected log entry would be:
-
+   After configuring log format, the expected log entry would be: 
    ```
    45.112.52.50 - - [28/Jun/2020:23:34:10 -0700] "GET / HTTP/1.1" 302 242 "-" "Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36" 271  
-
    ```
-
-   ​
 
    Apache configuration file can be found in these paths:
 
@@ -41,39 +34,33 @@ Apache Server’s monitoring involves monitoring of the following elements:
 
    This is required to monitor Apache server health.
 
-   Apache web server exposes metrics through its status module, **mod_status**. If apache server is running and mod_status is enabled, apache server’s status page should be available at <http://127.0.0.1/server-status>.
+   Apache web server exposes metrics through its status module, **mod_status**. If apache server is running and mod_status is enabled, apache server’s status page should be available at http://127.0.0.1/server-status.
 
-   Alternatively, you can check is mod_status is enabled by running the following commands:
+   Alternatively, you can check is mod_status is enabled by running the following commands: 
 
-   Ubuntu(or Debian based systems):
+   Ubuntu(or Debian based systems): 
 
-   ```
+   ```shell
    sudo apache2ctl -M | grep status_module  
-
    ```
-
-   ​
 
    Centos/RHEL/Fedora
 
-   ```
+   ```shell
    sudo httpd -M | grep status_module  
-
    ```
-
-   ​
 
    if output of above command is `status_module` , then apache status module is enabled. If mod_status is not enabled , follow next step to enable it.
 
 3. **Enable Apache status module**
 
-   In order to enable mod_status ,  edit the status module’s configuration file (on Debian platforms), or your main Apache configuration file (all other Unix-like platforms). 
+   In order to enable mod_status ,  edit the status module’s configuration file (on Debian platforms), or your main Apache configuration file (all other Unix-like platforms).  
 
-   Debian users can find the status module’s configuration file in `/etc/apache2/mods-enabled/status.conf `
+   Debian users can find the status module’s configuration file in `/etc/apache2/mods-enabled/status.conf ` 
 
-   Users of other platforms (such as Red Hat–based systems) will find their main configuration file in `/etc/apache2/apache2.conf`, `/etc/httpd/conf/httpd.conf`, or `/etc/apache2/httpd.conf`. 
+   Users of other platforms (such as Red Hat–based systems) will find their main configuration file in `/etc/apache2/apache2.conf`, `/etc/httpd/conf/httpd.conf`, or `/etc/apache2/httpd.conf`.  
 
-    In the main configuration file, allow access from local or from a specific ip address as shown below:  
+    In the main configuration file, allow access from local or from a specific ip address as shown below:   
 
    ```
       <Location /server-status>  
@@ -82,36 +69,27 @@ Apache Server’s monitoring involves monitoring of the following elements:
     #     Require all granted  
           Require ip x.x.x.x  
       </Location>  
-
    ```
-
-   ​
 
    Check your configuration file for errors with the following command:
 
    ```
    apachectl configtest   
-
    ```
 
-   ​
-
-   Perform a graceful restart to apply the changes without interrupting live connections:
+   Perform a graceful restart to apply the changes without interrupting live connections: 
 
    ```
    (apachectl -k graceful or service apache2 graceful)  
-
    ```
-
-   ​
 
    After enabling mod_status and restarting Apache, status page is accessible at http://localhost/server-status  or http://ipaddress/server-status.
 
-## Configuration[](https://docs.snappyflow.io/docs/Integrations/apache/overview#configuration)
+## Configuration 
 
-sfAgent section provides steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory
+sfAgent section provides steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/` directory 
 
-```
+```yaml
 key: <profile key> 
 generate_name: true 
 tags: 
@@ -143,11 +121,12 @@ tags:
           - warning 
           - error 
         log_path: /var/log/apache2/error.log, /var/log/httpd/error_log 
-
 ```
 
-## Viewing data and dashboards[](https://docs.snappyflow.io/docs/Integrations/apache/overview#viewing-data-and-dashboards)
+**Note: while using secured connection set secure flag to true else set it to false**
 
-Data generated by plugin can be viewed in `browse data` page inside the respective application under `plugin=apache` and `documentType=apache`. Logger data is available inside `plugin=apache-access` with `documentType=apacheAccess` and `plugin=apache-error` with `documentType=apacheError`.
+## Viewing data and dashboards 
 
-Dashboard for this data can be instantiated by Importing dashboard template `Apache_Server` and `Apache_Access` to the application dashboard.
+Data generated by plugin can be viewed in `browse data` page inside the respective application under `plugin=apache` and `documentType=apache`. Logger data is available inside `plugin=apache-access` with `documentType=apacheAccess` and `plugin=apache-error` with `documentType=apacheError`. 
+
+Dashboard for this data can be instantiated by Importing dashboard template `Apache_Server` and `Apache_Access` to the application dashboard.  
