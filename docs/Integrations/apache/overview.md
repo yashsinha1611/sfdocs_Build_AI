@@ -6,6 +6,7 @@ Apache Server’s monitoring involves monitoring of the following elements:
 
 - Apache Access Logs 
 - Apache Error Logs 
+
 - Apache Server Health 
 
 ## Pre-requisites
@@ -21,6 +22,7 @@ Apache Server’s monitoring involves monitoring of the following elements:
    ```
 
    After configuring log format, the expected log entry would be: 
+
    ```
    45.112.52.50 - - [28/Jun/2020:23:34:10 -0700] "GET / HTTP/1.1" 302 242 "-" "Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36" 271  
    ```
@@ -103,7 +105,7 @@ tags:
       interval: 300 
       config: 
         port: <apache port number>
-        secure: false 
+        secure: false ## while using secured connection set secure flag to true
         location: server-status 
  logging: 
   plugins: 
@@ -120,10 +122,8 @@ tags:
           - notice 
           - warning 
           - error 
-        log_path: /var/log/apache2/error.log, /var/log/httpd/error_log 
+        log_path: /var/log/apache2/error.log, /var/log/httpd/error_log
 ```
-
-**Note: while using secured connection set secure flag to true else set it to false**
 
 ## Viewing data and dashboards 
 
