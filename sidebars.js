@@ -784,7 +784,76 @@ module.exports = {
                 title: 'Dashboards'
             },
             collapsed: true,
-            items: ['Dashboards/getting_started', 'Dashboards/dashboard_management'],
+            items: [
+                'Dashboards/getting_started', 
+                'Dashboards/dashboard_management',
+                {
+                    type: 'category',
+                    label: 'Components',
+                    // link: {
+                    //     type: 'doc',
+                    //     id: 'Dashboards/Components/table',
+                    // },
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/table',
+                            label: 'Table'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/drop_down',
+                            label: 'Drop Down'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/tabbed_table',
+                            label: 'Tabbed Table'
+                        },
+
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/bar_chart',
+                            label: 'Bar Chart'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/bar_chart_histo',
+                            label: 'Bar Chart Histogram'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/line_chart',
+                            label: 'Line Chart'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/key_based_line',
+                            label: 'Key Based Line Chart'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/pie_chart',
+                            label: 'Pie Chart'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/distribution',
+                            label: 'Distribution Chart'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/summary_box',
+                            label: 'Summary Box'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'Dashboards/Components/excel_table',
+                            label: 'Excel Table'
+                        },
+                    ]
+                }
+            ],
         },
         {
             type: 'category',
