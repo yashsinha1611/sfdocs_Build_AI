@@ -463,8 +463,7 @@ module.exports = {
                             label: 'MySQL with sfPoller',
                         },
                     ],
-                },
-
+                }, 
                 {
                     type: 'category',
                     label: 'Nginx',
@@ -486,7 +485,11 @@ module.exports = {
                         },
                     ],
                 },
-
+                {
+                    type: 'doc',
+                    id: 'Integrations/nodejs_prometheus',
+                    label: 'NodeJs',
+                },
                 {
                     type: 'category',
                     label: 'Operating Systems',
