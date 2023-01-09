@@ -48,7 +48,7 @@ Configuring `log_min_duration_statement = 200` will log any query which take
 ### Create a new user
 
 ```shell
-create user <username> with password '<password>'
+create user <username> with password '<password>';
 ```
 
 ### Set access permissions
