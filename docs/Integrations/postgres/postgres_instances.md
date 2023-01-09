@@ -45,6 +45,12 @@ log_line_prefix = '< %m > '
 
 Configuring `log_min_duration_statement = 200` will log any query which takes more than 200ms to execute which. Set the value to appropriate value 
 
+### Create a new user
+
+```shell
+create user <username> with password '<password>'
+```
+
 ### Set access permissions
 
 Username used for DB access should have appropriate permissions
