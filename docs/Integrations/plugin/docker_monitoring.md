@@ -198,7 +198,9 @@ Add the health check instruction with options and a command or a blank health ch
       ```
       docker service create --name <service name> -p 80:80 httpd
       ```
- 
+
+    
+
 
 ## Viewing data and dashboards
 
@@ -207,3 +209,11 @@ Data collected by plugins can be viewed in SnappyFlow’s browse data section 
 -  Plugin = `docker` 
 - documentType= `docker, containerStatic, containerUtils, containerNetwork, dockerSwarm ` 
 - Dashboard template: `Docker`
+
+#### Tested on Docker versions:
+
+| **Docker version**                  | **Client API version**                                              | **Server API Version**  |
+| --------------------------- | ------------------------------------------------------------ | --------- |
+| 20.10.9                 | 1.41 | 1.41 |
+| 19.03.9                 | 1.40 | 1.40 |
+| 218.09.9                | 1.39 | 1.39 |
