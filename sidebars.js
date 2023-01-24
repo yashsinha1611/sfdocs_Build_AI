@@ -338,6 +338,30 @@ module.exports = {
                             label: 'Monitoring JAVA in Kubernetes',
                         },
                         {
+                            type: 'category',
+                            label: 'ECS',
+                            link: {
+                                type: 'generated-index',
+                                title: 'ECS Overview',
+                                description: 'SnappyFlow provides the two types of agents which help you to collect the application metrics like JVM metrics and tracing.',
+                                //id: 'Integrations/java/ecs_overview',
+                            },
+                            collapsed: true, 
+                            items:[
+                                {
+                                    type: 'doc',
+                                    id: 'Integrations/java/java_ecs_fargate',
+                                    label: 'Fargate launch type',
+                                },
+                                {
+                                    type: 'doc',
+                                    id: 'Integrations/java/java_ecs_ec2',
+                                    label: 'EC2 launch type',
+                                },
+                            ]
+                        },
+                       
+                        {
                             Profiler: [
                                 {
                                     type: 'doc',
