@@ -28,9 +28,9 @@ Once you done the sfpoller setup as mentioned in the documentation to enable the
     - Click on the + icon under the actions tab for a specific project and it will open add application pop up
     - Select Discover option and click on next
     - Under the search criteria select the cloud account and provide the relevant tags which you are provided in the ECS cluster service as shown below<br/><br/>
-        <img src="/img/java/Enable_ECS_service_tag.png" />
+        <img src="/img/java/Enable_ECS_service_tag.PNG" />
     - after providing the tags click on add rule. <br/><br/>
-        <img src="/img/java/Enable_ECS_Add_Tags.png" />
+        <img src="/img/java/Enable_ECS_Add_Tags.PNG" />
     - Click on the discover the endpoints and it will show the list of services matching with the tags in your aws account. 
     - Select the required endpoints and click on save.
     
@@ -41,7 +41,7 @@ Once you done the sfpoller setup as mentioned in the documentation to enable the
     - Expand the project and select the application
     - By default, you will navigate the end points page<br/><br/>
 
-        <img src="/img/java/Enable_ECS_Endpoints.png" />
+        <img src="/img/java/Enable_ECS_Endpoints.PNG" />
 
     - Click on add endpoint and it will open add endpoint popup
     - Add the below details 
@@ -57,16 +57,16 @@ Once you done the sfpoller setup as mentioned in the documentation to enable the
     - Click on save
 -  Once added the endpoints, you need to click on global save option which will shown at the top right corner. This option is used for restarting the controller after adding the new services
 
-<img src="/img/java/Enable_ECS_Endpoints1.png" />
+<img src="/img/java/Enable_ECS_Endpoints1.PNG" />
 
 :::note
 For each service you need to add the one endpoint. One service per one endpoint.
 :::note
     
-<img src="/img/java/Enable_ECS_Inventory.png" />
-<img src="/img/java/Enable_ECS_Dashboard.png" />
-<img src="/img/java/Enable_ECS-Dashboard_TaskDetails.png"/>
-<img src="/img/java/Enable_ECS-Dashboard_Alerts.png"/>
+<img src="/img/java/Enable_ECS_Inventory.PNG" />
+<img src="/img/java/Enable_ECS_Dashboard.PNG" />
+<img src="/img/java/Enable_ECS-Dashboard_TaskDetails.PNG"/>
+<img src="/img/java/Enable_ECS-Dashboard_Alerts.PNG"/>
         
 
 

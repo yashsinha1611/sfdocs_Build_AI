@@ -59,7 +59,7 @@ To collect the jvm metrics for fargate type follow the below steps
     | JMX_OPTS  | -Dcom.sun.management.jmxremote -Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=5555 -Dcom.sun.management.jmxremote.rmi.port=5555 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false |
     | ELASTIC_APM_TRANSACTION_IGNORE_URLS |  /jolokia/* |
 	
-	<img src="/img/java/setup_snappyflow_agent_env.png" /> <br/>
+	<img src="/img/java/setup_snappyflow_agent_env.PNG" /> <br/>
 
 5.	Click on update, it will close the application container page.
 6.	Click on create, it will create the new revision for the task definition.
@@ -72,6 +72,6 @@ To collect the jvm metrics for fargate type follow the below steps
 	-	Click on the force new deployment
 	-	Click on the next step and finally click on the update service.
 	-	Once the tasks are running under the service, you can see the service discovery and jvm metrics in the snappyflow APM 
-	<img src="/img/java/Setup_snappyflow_agent_inventory.png" />
-	<img src="/img/java/setup_snappyflow_agent_dashboard.png" />
+	<img src="/img/java/Setup_snappyflow_agent_inventory.PNG" />
+	<img src="/img/java/setup_snappyflow_agent_dashboard.PNG" />
 

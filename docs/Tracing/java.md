@@ -266,7 +266,7 @@ If you are using the fargate type, add the following information to the existing
 1.	Go to the task definitions in ECS page
 2.	Select your task definition
 3.	Click on create new revision
-<img src="/img/java/setup_snappyflow_trace_agent1.png" />
+<img src="/img/java/setup_snappyflow_trace_agent1.PNG" />
 5.	Under container definitions select the container in which your application docker container is running and it will open edit container window.
 6.	In edit container window under the environment section add the below details
 	
@@ -305,5 +305,5 @@ If you are using the fargate type, add the following information to the existing
     - Click on the next step and finally click on the update service.
     - Once the tasks are running under the service, trigger the request in your application and you will see the traces in SnappyFlow APM .
 
-    <img src="/img/java/Setup_snappyflow_trace_agent2.png" /><br/>
+    <img src="/img/java/Setup_snappyflow_trace_agent2.PNG" /><br/>
 
