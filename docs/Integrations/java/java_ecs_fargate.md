@@ -99,8 +99,12 @@ To collect the jvm metrics for fargate type follow the below steps
     - wget -O /sfagent/jolokia-jvm-1.6.2-agent.jar https://repo1.maven.org/maven2/org/jolokia/jolokia-jvm/1.6.2/jolokia-jvm-1.6.2-agent.jar   this command is used for download the jolokia jar and will place under the sfagent folder.
     -   javaagent:/sfagent/jolokia-jvm-1.6.2-agent.jar=host=0.0.0.0 ${JMX_OPTS} this command is used for attaching the jolokia jar while running the application.
 4.	Add the below property under the environment variable
- 
-<img src="/img/java/setup_snappyflow_agent_env.png" /> <br/>
+ 	|  Key | Value  |
+   	| --- | --- |
+    	| JMX_OPTS  | -Dcom.sun.management.jmxremote -Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=5555 -Dcom.sun.management.jmxremote.rmi.port=5555 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false |
+    	| ELASTIC_APM_TRANSACTION_IGNORE_URLS |  /jolokia/* |
+	
+	<img src="/img/java/setup_snappyflow_agent_env.png" /> <br/>
 
 5.	Click on update, it will close the application container page.
 6.	Click on create, it will create the new revision for the task definition.
