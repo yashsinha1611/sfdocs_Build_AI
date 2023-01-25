@@ -262,6 +262,11 @@ module.exports = {
                 },
                 {
                     type: 'doc',
+                    id: 'Integrations/ecs',
+                    label: 'ECS',
+                },
+                {
+                    type: 'doc',
                     id: 'Integrations/elb/elb_rds',
                     label: 'Elastic Load Balancer',
                 },
@@ -342,21 +347,23 @@ module.exports = {
                             label: 'ECS',
                             link: {
                                 type: 'generated-index',
-                                title: 'ECS Overview',
-                                description: 'SnappyFlow provides the two types of agents which help you to collect the application metrics like JVM metrics and tracing.',
-                                //id: 'Integrations/java/ecs_overview',
+                                title: 'ECS Monitoring',
+                                // description: 'SnappyFlow provides the two types of agents which help you to collect the application metrics like JVM metrics and tracing.',
+                                // type:'doc',
+                                // id: 'Integrations/java/ecs_overview',
+                                // label: 'ECS Overview',
                             },
                             collapsed: true, 
                             items:[
                                 {
                                     type: 'doc',
                                     id: 'Integrations/java/java_ecs_fargate',
-                                    label: 'Fargate launch type',
+                                    label: 'Fargate',
                                 },
                                 {
                                     type: 'doc',
                                     id: 'Integrations/java/java_ecs_ec2',
-                                    label: 'EC2 launch type',
+                                    label: 'EC2',
                                 },
                             ]
                         },

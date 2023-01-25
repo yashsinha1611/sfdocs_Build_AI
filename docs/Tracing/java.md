@@ -260,42 +260,50 @@ sfTrace is run as an initContainer in the application pod. User can deploy this 
 **Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with `SFTRACE-CONFIG` description
 
 ## ECS
+### [**Fargate**](java#deploying-the-snappyflow-trace-agent)  
+#### Deploying the SnappyFlow trace agent
+If you are using the fargate type, add the following information to the existing task definition where your application docker container is running
+1.	Go to the task definitions in ECS page
+2.	Select your task definition
+3.	Click on create new revision
+<img src="/img/java/setup_snappyflow_trace_agent1.png" />
+5.	Under container definitions select the container in which your application docker container is running and it will open edit container window.
+6.	In edit container window under the environment section add the below details
+	
+    - In the entry point text box provided the sh,-c
+	- In the command text box add the below command which is highlighted
+  
+  ```shell
+  mkdir /sfagent && wget -O /sfagent/sftrace-agent.tar.gz https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz && cd /sfagent && tar -xvzf sftrace-agent.tar.gz && java -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar -jar applicationjarfile.jar  
+  ```
+     - Add the environmental variables which is required to send the trace data to snappyflow server
+ 
+    |  Key | Value  |
+    | --- | --- |
+    | ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME  | true |
+    | ELASTIC.APM.CAPTURE_BODY |  all |
+    | SFTRACE_APP_NAME | APP_NAME |
+    | SFTRACE_PROFILE_KEY | Profile_key |
+    | SFTRACE_PROJECT_NAME | Project_Name |
+    |  SFTRACE_SERVICE_NAME| Service_Name |
 
-### Create the Task definition
+    :::note
+    Snappyflow trace agent s should not discover the new project, the values which you are providing like app name and project name must and should already be available in the snappyflow APM.
+    :::note
 
-- Open Amazon ECS, in navigation pane, choose task definition and click on Create New Task Definition and select the launch type as EC2 or Fargate, click on Next step. 
+    -  Click on update, it will close the edit container pop up.
 
-- Give the Task definition Name 
-- Task Role, choose an IAM role that provides permissions for containers in  your task to make calls to AWS APIs on your behalf and Network Mode
-- Click on Add containers. Give a Container name, and give the Image of your Java Application. Set Memory limit and port mappings as per your task requirements. In the environment section, for Entry Point give sh , -c For Command paste the following lines 
-```
-mkdir /sfagent && wget -O /sfagent/sftrace-agent.tar.gz
-https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz && cd /sfagent && tar -xvzf sftrace-agent.tar.gz && java -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar -jar <your_jar_name>
-```
-:::note
-Some EC2 task definitions may be running on host containers that don’t recoginise the wget command in such case, add below lines in the above command, apt update && apt -y upgrade.
-Add the following Environment Variables:
+6. Click on create, it will create the new revision for your task definition
+7. Once the new revision is completed, follow the below steps to update your service in the cluster.
 
-```
-SFTRACE_PROJECT_NAME <project_name>
-SFTRACE_APP_NAME <app_name>
-SFTRACE_SERVICE_NAME <service_name>
-SFTRACE_PROFILE_KEY <profile_key>
-```
-The below environment variables are only applicable for springmvc and optional.
-```
-ELASTIC_APM_DISABLE_INSTRUMENTATIONS spring-mvc
-ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME "true"
-```
-:::
+    - Navigate to the cluster.
+    - Select the cluster
+    - Select the service
+    - Click on the update service, it will open the update service page
+    - Under the configure service select the task definition with latest revision.
+    - Click on the force new deployment
+    - Click on the next step and finally click on the update service.
+    - Once the tasks are running under the service, trigger the request in your application and you will see the traces in SnappyFlow APM .
 
-### Create the Cluster
+    <img src="/img/java/Setup_snappyflow_trace_agent2.png" /><br/>
 
-- In the Navigation pane, select Clusters and click on Create Cluster
-- Select the template as per your requirement
-- Give a Cluster name and give instance, networking Configurations IAM role as per your task requirements
-### Create the Service
-- Click on the Cluster Name you created in the step2
-- Click on Create , Select the Launch type matching to your task definition.  Select the Task Definition Name and Version in the Drop down matching to the task definition you created in step 1
-- Give a Service Name and select other requirements as per your task compatibility
-- Click on next step and start your service
