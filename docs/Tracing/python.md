@@ -165,8 +165,7 @@
       SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
       # Add below line to provide destination index (Default:"log"):
       SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
-      # End trace to log section
-
+      # End trace to log section 
       ```
 
    3. Initialize elastic apm and instrument it to flask app
@@ -472,8 +471,7 @@
       SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
       # Add below line to provide destination index (Default:"log"):
       SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
-      # End trace to log section
-
+      # End trace to log section 
       ```
 
    3. Initialize elastic apm and instrument it to flask app
@@ -974,8 +972,6 @@
       # Add below line to provide destination index (Default:"log"):
       SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
       # End trace to log section
-
-
       ```
 
    3. Initialize elastic apm and instrument it to flask app
