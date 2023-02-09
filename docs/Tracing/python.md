@@ -65,6 +65,7 @@
       try: 
          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
          # Add below part to manually configure the initialization 
+         # import os module
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
          SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
@@ -74,12 +75,12 @@
       
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
          # Add below line to provide custom documentType (Default:"user-input"):
-	      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+	      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
          # Add below line to provide destination index (Default:"log"):
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
       
          ELASTIC_APM={ 
@@ -158,12 +159,12 @@
 
       # Start Trace to log feature section
       # Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
       # Option Configs for trace to log
       # Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
       # Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
       # End trace to log section
 
       ```
@@ -365,6 +366,7 @@
       try: 
          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
          # Add below part to manually configure the initialization 
+         
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
          SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
@@ -374,12 +376,12 @@
       
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
          # Add below line to provide custom documentType (Default:"user-input"):
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
          # Add below line to provide destination index (Default:"log"):
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
       
          ELASTIC_APM={ 
@@ -464,12 +466,12 @@
 
       # Start Trace to log feature section
       # Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
       # Option Configs for trace to log
       # Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
       # Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
       # End trace to log section
 
       ```
@@ -607,6 +609,7 @@
          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
       
          # Add below part to manually configure the initialization 
+         # import os module
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
          SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
@@ -617,12 +620,12 @@
       
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
          # Add below line to provide custom documentType (Default:"user-input"):
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
          # Add below line to provide destination index (Default:"log"):
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
       
          ELASTIC_APM={ 
@@ -704,6 +707,7 @@
       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
 
       # Add below part to manually configure the initialization 
+      # import os module
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
       SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
@@ -714,12 +718,12 @@
 
       # Start Trace to log feature section
       # Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
       # Option Configs for trace to log
       # Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
       # Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
       # End trace to log section
 
       ```
@@ -865,6 +869,7 @@
          sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
          
          # Add below part to manually configure the initialization 
+         # import os module
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
          SF_APP_NAME = os.getenv('SF_APP_NAME') 
          SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
@@ -875,12 +880,12 @@
       
          # Start Trace to log feature section
          # Add below line of code to enable Trace to log feature:
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
          # Add below line to provide custom documentType (Default:"user-input"):
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
          # Add below line to provide destination index (Default:"log"):
-         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
          # End trace to log section
       
          ELASTIC_APM={ 
@@ -951,6 +956,7 @@
       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
       
       # Add below part to manually configure the initialization 
+      # import os module
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
       SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
@@ -961,12 +967,12 @@
       
       # Start Trace to log feature section
       # Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
       # Option Configs for trace to log
       # Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
       # Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
       # End trace to log section
 
 
@@ -1023,6 +1029,7 @@
       sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
 
       # Add below part to manually configure the initialization 
+      
       SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
       SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
       SF_PROFILE_KEY = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
