@@ -53,8 +53,9 @@ To Enable the tracing for the Django Framework based application follow the belo
    pip install sf-elastic-apm==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
-2. If sfAgent is installed in your vm follow the below steps
+2. If sfAgent is installed in your vm follow the below instructions
    
+   Add following entries in settings.py
    
    1. Add import statement 
 
@@ -86,13 +87,13 @@ To Enable the tracing for the Django Framework based application follow the belo
          SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
          # Add below line to provide custom documentType (Default:"user-input"):
-	      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+	      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
          # Add below line to provide destination index (Default:"log"):
-         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log' # Applicable values(log, metric)
          # End trace to log section
       
          ELASTIC_APM={ 
-            'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
+            'SERVICE_NAME': "custom-service" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
             'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
             'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
@@ -107,12 +108,15 @@ To Enable the tracing for the Django Framework based application follow the belo
       except Exception as error: 
          print("Error while fetching snappyflow tracing configurations", error) 
       ```
-3. If sfAgent is not installed in your follow the below instructions <br/> <br/>
+3. If sfAgent is not installed in your machine, follow the below instructions <br/> <br/>
 
    1. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable. <br/> 
    :::note
     Make sure PROJECTNAME and APPNAME is created in the SnappyFlow Server.
    :::note
+   <br/>
+   
+   Add following entries in settings.py
 
    1. Add import statement 
 
@@ -152,13 +156,13 @@ To Enable the tracing for the Django Framework based application follow the belo
          SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
          # Add below line to provide custom documentType (Default:"user-input"):
-	      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
+	      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
          # Add below line to provide destination index (Default:"log"):
-         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=metric' # Applicable values(log, metric)
          # End trace to log section
       
          ELASTIC_APM={ 
-            'SERVICE_NAME': "<Service name>" , # Specify your service name for tracing 
+            'SERVICE_NAME': "custom-service" , # Specify your service name for tracing 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
             'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
             'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
