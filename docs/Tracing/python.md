@@ -271,9 +271,11 @@ For the complete code, click the below link:
 
       For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
 
-      Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab
+      Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab<br/><br/>
 
-   5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+ :::note 
+    'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
+ :::note
 
 
 ### Script
@@ -599,7 +601,9 @@ For the complete code, click the below link:
 
    Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
-5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+ :::note 
+   'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
+ :::note
 
 ### Celery
 
@@ -870,7 +874,9 @@ For the complete code, click the below link:
 
    Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
-5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+ :::note 
+   'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
+ :::note
 
 ### Celery
 
@@ -1119,7 +1125,10 @@ For the complete code, click the below link:
 
    Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
-5. <b>Note</b>: <i> 'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+ :::note 
+   'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
+ :::note
+
 ### Celery
 
 1. Install following requirements (Following example is based on redis broker)
@@ -1399,7 +1408,9 @@ spec:
       restartPolicy: Always
 ```
 
-<b><i>Note: For kubernetes mode we need sfagent pods to be running inside kubernetes cluster where your application pods are deployed.</i></b> 
+:::note
+   For kubernetes mode we need sfagent pods to be running inside kubernetes cluster where your application pods are deployed.
+:::note
 
 For viewing trace and logs in Snappyflow server make sure project and app name is created or discovered.
 Once project and app name is created.
