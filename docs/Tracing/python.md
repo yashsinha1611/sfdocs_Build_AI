@@ -53,7 +53,7 @@ To Enable the tracing for the Django Framework based application follow the belo
    pip install sf-elastic-apm==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
-2. If sfAgent is installed in your vm follow the below instructions
+2. If sfAgent is installed in your vm follow the below instructions, else skip this point.
    
    Add following entries in settings.py
    
@@ -112,7 +112,7 @@ To Enable the tracing for the Django Framework based application follow the belo
 
    1. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable. <br/> 
    :::note
-    Make sure PROJECTNAME and APPNAME is created in the SnappyFlow Server.
+    Make sure project and application is created in the SnappyFlow Server.
    :::note
    <br/>
    
@@ -181,9 +181,9 @@ To Enable the tracing for the Django Framework based application follow the belo
 
 4. Once your server is up and running you can check trace in Snappyflow Server. 
 
-   For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+   For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point 3.
 
-   Once project and app name is created go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
+   Once project and app name is created, go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
 5. For complete code refer sample app refer at: 
 
