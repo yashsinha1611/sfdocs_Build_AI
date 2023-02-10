@@ -17,7 +17,7 @@ The sfAPM python agent sends tracing metrics and correlated application logs to 
 
 
 
-For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)**
+For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)
 
 ## Virtual Machines/Instances
 
