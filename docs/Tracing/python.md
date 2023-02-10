@@ -5,7 +5,7 @@ The sfAPM python agent sends tracing metrics and correlated application logs to 
 
 #### Supported Platforms
 
-**[Virtual Machines/Instances](python#virtual-machines)**
+**[Instances](python#instances)**
 
 **[Docker](python#docker)**
 
@@ -19,7 +19,7 @@ The sfAPM python agent sends tracing metrics and correlated application logs to 
 
 For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)
 
-## Virtual Machines/Instances
+## Instances 
 
 #### Supported Frameworks
 
@@ -111,12 +111,13 @@ To Enable the tracing for the Django Framework based application follow the belo
       ```
 3. If sfAgent is not installed in your machine, follow the below instructions <br/> <br/>
 
-   1. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable. <br/> 
+   1. Provide SF_PROJECT_NAME, SF_APP_NAME, SF_PROFILE_KEY as an environment variable. <br/> <br/> 
    :::note
     Make sure project and application is created in the SnappyFlow Server.
    :::note
-   <br/>
-   Add following entries in settings.py
+    
+   
+   **Add following entries in settings.py**
 
    1. Add import statement 
 
