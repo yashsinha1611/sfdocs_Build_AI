@@ -5,7 +5,7 @@ The sfAPM python agent sends tracing metrics and correlated application logs to 
 
 #### Supported Platforms
 
-**[Virtual Machines](python#virtual-machines)**
+**[Virtual Machines/Instances](python#virtual-machines)**
 
 **[Docker](python#docker)**
 
@@ -15,10 +15,11 @@ The sfAPM python agent sends tracing metrics and correlated application logs to 
 
 **[AWS Lambda](python#aws-lambda)**
 
-**For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)**
 
 
-## Virtual Machines
+For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)**
+
+## Virtual Machines/Instances
 
 #### Supported Frameworks
 
@@ -36,14 +37,14 @@ The sfAPM python agent sends tracing metrics and correlated application logs to 
 
 To Enable the tracing for the Django Framework based application follow the below instructions
 
-1. Add 
+#### Configuration/Steps
+
+1. Add below entries in requirements.txt file and install these in your project environment 
 
    ```
    sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
    ```
-
-   entries in requirements.txt file and install these in your project environment 
 
    or 
 
@@ -176,22 +177,23 @@ To Enable the tracing for the Django Framework based application follow the belo
       except Exception as error: 
          print("Error while fetching snappyflow tracing configurations", error) 
       ```
- 
+#### Verification
 
-4. Once your server is up and running you can check trace in Snappyflow Server. 
+1. Once your server is up and running you can check trace in Snappyflow Server. 
 
-   For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point 3.
+2. For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point 3.
 
-   Once project and app name is created, go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
-
-5. For complete code refer sample app refer at: 
-
-   https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django
+3. Once project and app name is created, go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
 
 :::note
 If you want to enable the Trace to Log feature, 'CAPTURE_BODY':'all' config should be present in <b>ELASTIC_APM</b> section.
 :::note
 
+
+For complete code refer sample app refer at: 
+
+   https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django
+   
 ### Flask
 
 1. Add 
