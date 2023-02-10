@@ -115,7 +115,6 @@ To Enable the tracing for the Django Framework based application follow the belo
     Make sure project and application is created in the SnappyFlow Server.
    :::note
    <br/>
-   
    Add following entries in settings.py
 
    1. Add import statement 
