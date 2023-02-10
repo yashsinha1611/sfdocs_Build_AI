@@ -15,7 +15,7 @@ The sfAPM python agent sends tracing metrics and correlated application logs to 
 
 **[AWS Lambda](python#aws-lambda)**
 
-
+<br/>
 
 For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)
 
