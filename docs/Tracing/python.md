@@ -407,7 +407,7 @@ For the complete code, click the below link:
 
 Follow the below steps to enable tracing for the applications that are based on Django Framework.
 
-#### Configuration/Steps
+#### Configuration
 
 1. Add the below mentioned entries in requirements.txt file to install sf-elastic-apm and sf-apm-lib in your environment.
 
