@@ -115,7 +115,7 @@ Follow the below steps to enable tracing for the application that are based on D
       print("Error while fetching snappyflow tracing configurations", error) 
    ```
 
- **b**  If the sfAgent is not installed in your vm, then follow the below steps <br/>
+ **b**  If the sfAgent is not installed in your instance, then follow the below steps <br/>
 
    i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow  
 	
