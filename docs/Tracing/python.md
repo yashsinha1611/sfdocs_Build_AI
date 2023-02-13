@@ -1,7 +1,11 @@
-
 # Python tracing
+The sfAPM python agent send the tracing metrics and the corelated app logs to the APM server. (more presice)
 
-The sfAPM python agent send the tracing metrics and the co-related app logs to the APM server.
+#### Supported Trace Features (more precise)
+
+[Log Correlation](#log-correlation)
+
+[Trace to Log](#log-correlation) link to the note
 
 #### Supported Platforms
 
@@ -15,9 +19,6 @@ The sfAPM python agent send the tracing metrics and the co-related app logs to t
 
 **[AWS Lambda](python#aws-lambda)**
 
-<br/>
-
-For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)
 
 ## Instances 
 
@@ -33,6 +34,7 @@ For Log Correlation, scroll to the bottom of this page or [click here](#log-corr
 
 **[Celery](python#celery)**
 
+
 ### Django
 
 Follow the below steps to enable tracing for the app that are based on Django Framework.
@@ -40,7 +42,8 @@ Follow the below steps to enable tracing for the app that are based on Django Fr
 #### Configuration
 
 1. Add the below mentioned entries in requirements.txt file to install sf-elastic-apm and sf-apm-lib in your environment.
-
+   sf-elastic-apm library used for collecting trace metrics and sf-apm-lib is internally used by SnappyFlow.
+  
    ```
    sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
@@ -54,13 +57,21 @@ Follow the below steps to enable tracing for the app that are based on Django Fr
    pip install sf-elastic-apm==6.7.2 
    pip install sf-apm-lib==0.1.1 
    ```
-2. If the sfAgent is installed in your vm, then add the following entries in the `settings.py` file.
-     
-   1. Add the import statement. 
 
-      ```python
-      from sf_apm_lib.snappyflow import Snappyflow 
-      ```
+2. Enable Tracing  (more meaning ful)
+
+   **[sfAgent is installed]()**
+   
+   **[sfAgent is not installed]()**
+
+   #### sfAgent is installed
+    If the sfAgent is installed in your instance, then add the following entries in the `settings.py` file.
+
+     1. Add the import statement. 
+
+        ```python
+        from sf_apm_lib.snappyflow import Snappyflow 
+        ```
 
    2. Add the following entry in `INSTALLED_APPS` block.
 
@@ -75,19 +86,19 @@ Follow the below steps to enable tracing for the app that are based on Django Fr
       ```
 
    4. Add the following source code to integrate the Django app to the SnappyFlow.
-
       ```python
       try: 
-         sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml  
+         # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+         sf = Snappyflow()  
          SFTRACE_CONFIG = sf.get_trace_config()
-      
-         # Start Trace to log feature section
-         # Add below line of code to enable Trace to log feature:
+ 
+         # Trace to log feature configuration
+	     # To enable the Trace to Log feature, update the ELASTIC_APM block with the following key-value pair 'CAPTURE_BODY':'all'
          SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-         # Option Configs for trace to log
-         # Add below line to provide custom documentType (Default:"user-input"):
-	      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
-         # Add below line to provide destination index (Default:"log"):
+         # Optional Configs for trace to log
+         # Add below line to provide custom documentType (Default:"user-input")
+	     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
+         # Add below line to provide destination index (Default:"log")
          SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log' # Applicable values(log, metric)
          # End trace to log section
       
@@ -107,73 +118,87 @@ Follow the below steps to enable tracing for the app that are based on Django Fr
       except Exception as error: 
          print("Error while fetching snappyflow tracing configurations", error) 
       ```
-3. If the sfAgent is not installed in your vm, then follow the below steps. <br/>
+ 
+   #### sfAgent is not installed
+    If the sfAgent is not installed in your vm, then follow the below steps. <br/>
 
-   a. Give `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as the environment variables.
-   
-   b. Make sure that the project and the app are created in the SnappyFlow server.
-   
-   c. Add the following entries in the `settings.py` file.
-  
-   1. Add the import statement.
+    a. Make sure the project and application is created in the SnappyFlow Server. To know how to create the project and application in SnappyFlow  **(click here)[]**
 
-      ```python
-      from sf_apm_lib.snappyflow import Snappyflow
-      import os
-      ```
-
-   2. Add the following entry in `INSTALLED_APPS` block.
-
-      ```python
-      'elasticapm.contrib.django'
-      ```
-
-   3. Add the following entry in `MIDDLEWARE` block.
-
-      ```python
-      'elasticapm.contrib.django.middleware.TracingMiddleware'
-      ```
-
-   4. Add the following source code to integrate the Django app to the SnappyFlow.
-
-      ```python
-      try: 
-         sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
-         # Add below part to manually configure the initialization 
-         # import os module
-         SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
-         SF_APP_NAME = os.getenv('SF_APP_NAME') 
-         SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
-         sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
-         # End of manual configuration   
-         SFTRACE_CONFIG = sf.get_trace_config()
+    b. Export `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as the environment variables.
       
-         # Start Trace to log feature section
-         # Add below line of code to enable Trace to log feature:
-         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-         # Option Configs for trace to log
-         # Add below line to provide custom documentType (Default:"user-input"):
-	      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
-         # Add below line to provide destination index (Default:"log"):
-         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=metric' # Applicable values(log, metric)
-         # End trace to log section
-      
-         ELASTIC_APM={ 
-            'SERVICE_NAME': "custom-service" , # Specify your service name for tracing 
-            'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-            'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-            'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-            'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-            'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-            'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-            'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
-            'CENTRAL_CONFIG': False, 
-            'DEBUG': True,
-            'METRICS_INTERVAL': '0s'
-         } 
-      except Exception as error: 
-         print("Error while fetching snappyflow tracing configurations", error) 
+      ```python
+      export SF_PROJECT_NAME=<<SF_PROJECT_NANE>>
+      export SF_APP_NAME=<<SF_APP_NAME>>
+      export SF_PROFILE_KEY=<<SF_PROFILE_KEY>>  
       ```
+      
+    c. Add the following entries in the `settings.py` file.
+
+     1. Add the import statement.
+
+        ```python
+        from sf_apm_lib.snappyflow import Snappyflow
+        import os
+        ```
+
+     2. Add the following entry in `INSTALLED_APPS` block.
+
+        ```python
+        'elasticapm.contrib.django'
+        ```
+
+     3. Add the following entry in `MIDDLEWARE` block.
+
+        ```python
+        'elasticapm.contrib.django.middleware.TracingMiddleware'
+        ```
+
+     4. Add the following source code to integrate the Django app to the SnappyFlow.
+
+        ```python
+        try: 
+           sf = Snappyflow() 
+           # Add below part to manually configure the initialization 
+           SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+           SF_APP_NAME = os.getenv('SF_APP_NAME') 
+           SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+           sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
+           # End of manual configuration   
+           SFTRACE_CONFIG = sf.get_trace_config()
+
+           # Trace to log feature configuration
+           # To enable the Trace to Log feature, update the ELASTIC_APM block with the following key-value pair 'CAPTURE_BODY':'all'
+           SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+           # Optional Configuration for trace to log feature.
+           # Add below line to provide custom documentType (Default:"user-input"):
+           SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
+           # Add below line to provide destination index (Default:"log"):
+           SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log' # Applicable values(log, metric)
+           # End trace to log section
+
+           ELASTIC_APM={ 
+               # Specify your service name for tracing 
+              'SERVICE_NAME': "custom-service" , 
+              'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+              'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+              'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+              'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+              'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+              'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+              'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
+              'CENTRAL_CONFIG': False, 
+              'DEBUG': True,
+              'METRICS_INTERVAL': '0s'
+           } 
+        except Exception as error: 
+           print("Error while fetching snappyflow tracing configurations", error) 
+        ```
+
+:::note
+To enable the Trace to Log feature, update the **ELASTIC_APM** block with the following key-value pair.
+      'CAPTURE_BODY':'all'
+:::note
+
 #### Verification
 
 Once your server is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces from the Django app.
@@ -184,16 +209,11 @@ Once your server is up and running, follow the below steps to verfiy that the Sn
 4. In the **Tracing** section, click the **View Transactions** button.
 5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 
-:::note
-To enable the Trace to Log feature, update the **ELASTIC_APM** block with the following key-value pair.
-      'CAPTURE_BODY':'all'
-:::note
+To View how SnappyFlow render the trace data on the dashboard **(click here)[]** <br/>
 
-
-For the complete code, click the below link:
-
+For the complete code, click the below link: (revision)
    https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django
-   
+
 ### Flask
 
 1. Add 
