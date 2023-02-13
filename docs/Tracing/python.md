@@ -467,7 +467,7 @@ Follow the below steps to enable tracing for the applications that are based on 
 
       ```python
       try: 
-         sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+         sf = Snappyflow()  
          # Add below part to manually configure the initialization 
          
          SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
@@ -488,7 +488,7 @@ Follow the below steps to enable tracing for the applications that are based on 
          # End trace to log section
       
          ELASTIC_APM={ 
-	    # Specify your service name for tracing 
+	      # Specify your service name for tracing 
             'SERVICE_NAME': "custom-service" , 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
             'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
@@ -740,8 +740,8 @@ Follow the below steps to enable tracing for the application that are based on D
       
          SFTRACE_CONFIG = sf.get_trace_config()
 	 
-      	 # Trace to log feature configuration
-	 # To enable the Trace to Log feature, update the ELASTIC_APM block with the following key-value pair 'CAPTURE_BODY':'all'
+         # Trace to log feature configuration
+	      # To enable the Trace to Log feature, update the ELASTIC_APM block with the following key-value pair 'CAPTURE_BODY':'all'
          SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
          # Add below line to provide custom documentType (Default:"user-input")
@@ -751,7 +751,7 @@ Follow the below steps to enable tracing for the application that are based on D
          # End trace to log section
       
          ELASTIC_APM={ 
-	    # Specify your service name for tracing
+	      # Specify your service name for tracing
             'SERVICE_NAME': "custom-service" ,  
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
             'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
@@ -1022,7 +1022,7 @@ Follow the below steps to enable tracing for the applications that are based on 
       
          SFTRACE_CONFIG = sf.get_trace_config()
 
-  	 	 # Trace to log feature configuration
+  	 	   # Trace to log feature configuration
          # To enable the Trace to Log feature, update the ELASTIC_APM block with the following key-value pair 'CAPTURE_BODY':'all'
          SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          # Option Configs for trace to log
@@ -1033,7 +1033,7 @@ Follow the below steps to enable tracing for the applications that are based on 
          # End trace to log section
       
          ELASTIC_APM={ 
-	     # Specify your service name for tracing 
+	      # Specify your service name for tracing 
             'SERVICE_NAME': "custom-service" , 
             'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
             'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
