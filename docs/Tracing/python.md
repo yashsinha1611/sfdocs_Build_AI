@@ -1,13 +1,18 @@
 # Python tracing
 
-The sfAPM python agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server.The sfAPM collects the detailed  information about the database queries, external HTTP requests,incoming requests and their response time.
+The Python tracing automatically instruments APIs, frameworks and application servers. The sfAPM python agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server. Currently sfTrace supports the following
 
+<div class="blue_textbox">
+	<b>Supported Python versions</b> 
+	<p>
+	  Python 3.6, 3.7, 3.8, 3.9, ,3.10, 3.11 <br/></br>
+	<b>Supported Web Frameworks</b>
+	<p>
+	  Django 1.11, 2.0, 2.1, 2.2, 3.0,3.1, 3.2, 4.0 <br/>
+	  Flask  1.0, 1.1, 2.0 <br>
+	</p>
+</div>
 
-#### Supported Trace Features 
-
-**[Log Correlation](#log-correlation)**
-
-**[Trace to Log](#trace-to-log)**
 
 #### Supported Platforms
 
@@ -20,6 +25,16 @@ The sfAPM python agent collects and sends the tracing metrics and the correlated
 **[ECS](python#ecs)**
 
 **[AWS Lambda](python#aws-lambda)**
+
+#### Supported Trace Features 
+
+The Supported trace features are 
+
+* Distributed Tracing
+* Transaction Mapping
+* Log Correlation
+* Trace to Log
+* Service Map
 
 
 ## Instances 
@@ -86,17 +101,7 @@ Follow the below steps to enable tracing for the application that are based on D
       # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
       sf = Snappyflow()  
       SFTRACE_CONFIG = sf.get_trace_config()
-
-      # Trace to log feature configuration
-      # To enable the Trace to Log feature, update the ELASTIC_APM block with the following key-value pair 'CAPTURE_BODY':'all'
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      # Optional Configs for trace to log
-      # Add below line to provide custom documentType (Default:"user-input")
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
-      # Add below line to provide destination index (Default:"log"), Applicable values(log, metric)
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
-      # End trace to log section
-   
+  
       ELASTIC_APM={ 
          # Specify your service name for tracing 
          'SERVICE_NAME': "custom-service" , 
@@ -159,17 +164,7 @@ Follow the below steps to enable tracing for the application that are based on D
       sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
       # End of manual configuration   
       SFTRACE_CONFIG = sf.get_trace_config()
-
-      # Trace to log feature configuration
-      # To enable the Trace to Log feature, update the ELASTIC_APM block with the following key-value pair 'CAPTURE_BODY':'all'
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      # Optional Configs for trace to log
-      # Add below line to provide custom documentType (Default:"user-input")
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
-      # Add below line to provide destination index (Default:"log"),Applicable values(log, metric)
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
-      # End trace to log section
-   
+      
       ELASTIC_APM={ 
           # Specify your service name for tracing
          'SERVICE_NAME': "custom-service" , 
@@ -187,28 +182,24 @@ Follow the below steps to enable tracing for the application that are based on D
    except Exception as error: 
       print("Error while fetching snappyflow tracing configurations", error) 
    ```
-### Trace to Log 
-To enable the Trace to Log feature, update the **ELASTIC_APM** block with the following key-value pair.
-    
-   ```python
-    'CAPTURE_BODY': 'all'
-   ```
+   
 #### Verification
 
 Once your server is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces from the Django app.
 
 1. Make sure that the project and the application is created.
-2. In the app, click the **View Dashboard** icon.
-       <img src="/img/Trace_Inventory.png" /><br/>
-4. In the **Dashboard** window, go to **Tracing** section.
-      <img src="/img/Trace_Dashboard.png" /><br/>
-6. In the **Tracing** section, click the **View Transactions** button.
+2. In the app, click the **View Dashboard** icon
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
       <img src="/img/Trace_Service_Map.png" /><br/>
-7. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
        
+#### Sample Application Code
 
+ The below Application contains the details trace configuration mentioned in the above sections.
+ 
 [Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application code.
 
 ### Flask
@@ -525,22 +516,24 @@ To enable the Trace to Log feature, update the **ELASTIC_APM** block with the fo
    ```
 
 
+
 #### Verification
 
 Once your server is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces from the Django app.
 
 1. Make sure that the project and the application is created.
-2. In the app, click the **View Dashboard** icon.
-       <img src="/img/Trace_Inventory.png" /><br/>
-4. In the **Dashboard** window, go to **Tracing** section.
-      <img src="/img/Trace_Dashboard.png" /><br/>
-6. In the **Tracing** section, click the **View Transactions** button.
+2. In the app, click the **View Dashboard** icon
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
       <img src="/img/Trace_Service_Map.png" /><br/>
-7. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
        
+#### Sample Application Code
 
+ The below Application contains the details trace configuration mentioned in the above sections.
+ 
 [Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application code.
 
 ### Flask
@@ -798,19 +791,19 @@ To enable the Trace to Log feature, update the **ELASTIC_APM** block with the fo
 Once your server is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces from the Django app.
 
 1. Make sure that the project and the application is created.
-2. In the app, click the **View Dashboard** icon.
-       <img src="/img/Trace_Inventory.png" /><br/>
-4. In the **Dashboard** window, go to **Tracing** section.
-      <img src="/img/Trace_Dashboard.png" /><br/>
-6. In the **Tracing** section, click the **View Transactions** button.
+2. In the app, click the **View Dashboard** icon
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
       <img src="/img/Trace_Service_Map.png" /><br/>
-7. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
        
+#### Sample Application Code
 
+ The below Application contains the details trace configuration mentioned in the above sections.
+ 
 [Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application code.
-
 
 ### Flask
 
@@ -1071,19 +1064,20 @@ To enable the Trace to Log feature, update the **ELASTIC_APM** block with the fo
 Once your server is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces from the Django app.
 
 1. Make sure that the project and the application is created.
-2. In the app, click the **View Dashboard** icon.
-       <img src="/img/Trace_Inventory.png" /><br/>
-4. In the **Dashboard** window, go to **Tracing** section.
-      <img src="/img/Trace_Dashboard.png" /><br/>
-6. In the **Tracing** section, click the **View Transactions** button.
+2. In the app, click the **View Dashboard** icon
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
       <img src="/img/Trace_Service_Map.png" /><br/>
-7. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
        
+#### Sample Application Code
 
+ The below Application contains the details trace configuration mentioned in the above sections.
+ 
 [Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application code.
-   
+
 ### Flask
 
 1. Add 
