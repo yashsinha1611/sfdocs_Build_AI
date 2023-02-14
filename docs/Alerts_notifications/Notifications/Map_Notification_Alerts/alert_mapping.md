@@ -35,12 +35,12 @@ Follow the below steps to map the alerts in an application.
 
 12. You have defined the notification channels to an alert.
 
-    ![img](/img/notifications/images/Notification_7.png)
+    <img src="/img/notifications/images/Notification_7.png" /><br />
 
 13. Select the required alert type (**1**) in the **`Alerts`** column.
 
 14. Click the **`Enable Notification`** (**2**) button.
-    ![img](/img/notifications/images/Image_5.png)
+    <img src="/img/notifications/images/Image_5.png" /><br />
 
 15. In the **`Enable Notification`** (**1**) window, **Select alert severity** (**2**) based on your requirement.
 
