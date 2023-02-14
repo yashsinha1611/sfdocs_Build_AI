@@ -59,5 +59,5 @@ Follow the below steps to create an Email notification channel in SnappyFlow.
 
 8. Click the **` Add new`**  (**1**) button to create multiple Email notification profiles.
 
-   **You have successfully created a Email notification channel.** [Click here](/docs/Alerts_notifications/notifications/Map_Notification_Alerts/Map_Projects_to_Channels) to map the notification channel to your project.
+   **You have successfully created a Email notification channel.** [Click here](/docs/Alerts_notifications/notifications/Map_Notification_Alerts/map_projects_to_channels) to map the notification channel to your project.
 
