@@ -2,16 +2,19 @@
 
 The Python tracing automatically instruments APIs, frameworks and application servers. The sfAPM python agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server. Currently sfTrace supports the following
 
+
+<div class="blue_textbox">
+	<b>Supported Python versions</b> 
+	<p>
+		Python 3.6, 3.7, 3.8, 3.9, ,3.10, 3.11 </p>
+	<b>Supported Web Frameworks</b>
+	<p>
+		Django 1.11, 2.0, 2.1, 2.2, 3.0,3.1, 3.2, 4.0 <br/>
+      Flask  1.0, 1.1, 2.0 <br/>
+	</p>
+	 
+</div>
  
-**Supported Python versions**
-
-Python 3.6, 3.7, 3.8, 3.9, ,3.10, 3.11 
-
-**Supported Web Frameworks**
-			 
-Django 1.11, 2.0, 2.1, 2.2, 3.0,3.1, 3.2, 4.0 
-Flask  1.0, 1.1, 2.0 
-		 
 
 
 #### Supported Platforms
@@ -123,22 +126,21 @@ Follow the below steps to enable tracing for the application that are based on D
  **b**  If the sfAgent is not installed in your instance, then follow the below steps <br/>
 
    i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow  
-	
+
    ii. Export `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as the environment variables
       
    ``` 
    export SF_PROJECT_NAME=<<SF_PROJECT_NANE>>
    export SF_APP_NAME=<<SF_APP_NAME>>
    export SF_PROFILE_KEY=<<SF_PROFILE_KEY>>  
-   ```
-      
-   iii. Add the following entries in the `settings.py` file.
+   ``` 
+   iii. Add the following entries in the `settings.py` file. 
    
-
- 1. Add the import statement. 
-   ```python
-   from sf_apm_lib.snappyflow import Snappyflow 
-   ```
+    
+   1. Add the import statement. 
+      ```python
+      from sf_apm_lib.snappyflow import Snappyflow 
+      ```
 
    2. Add the following entry in `INSTALLED_APPS` block.
 
@@ -153,7 +155,7 @@ Follow the below steps to enable tracing for the application that are based on D
    ```
 
    4. Add the following source code to integrate the Django app to the SnappyFlow.
-   
+
    ```python
    try: 
       sf = Snappyflow()  
@@ -166,7 +168,7 @@ Follow the below steps to enable tracing for the application that are based on D
       SFTRACE_CONFIG = sf.get_trace_config()
       
       ELASTIC_APM={ 
-          # Specify your service name for tracing
+         # Specify your service name for tracing
          'SERVICE_NAME': "custom-service" , 
          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
