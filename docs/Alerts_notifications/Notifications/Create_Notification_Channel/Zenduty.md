@@ -1,14 +1,14 @@
 ---
 sidebar_position: 3 
 ---
-# SEND NOTIFICATION TO ZENDUTY
+# Send End Notifications to Zenduty
 ### Prerequisites
 
 - Application Program Interface (API) integration key from Zenduty.
 
 ### Get the Zenduty API key
 
-![img](/img/Notifications/Images/Image_11.png)
+![img](/img/Notifications/images/Image_11.png)
 
 1. Login into your **Zenduty** account.
 
@@ -16,19 +16,19 @@ sidebar_position: 3
 
 3. Select a **Team** (**2**).
 
-   ![img](/img/Notifications/Images/Image_12.png)
+   ![img](/img/Notifications/images/Image_12.png)
 
 4. In the **Team** (**1**) window, go to the **Services** (2) section.
 
 5. In the **Services** (**2**) section, select a **Service** (**3**).
 
-   ![img](/img/Notifications/Images/Image_13.png)
+   ![img](/img/Notifications/images/Image_13.png)
 
 6. In **Service** window (**1**), go to **Integration** (**2**) tab.
 
 7. Click  **`+ Add Integration`** (**3**) button.
 
-   ![img](/img/Notifications/Images/Image_14.png)
+   ![img](/img/Notifications/images/Image_14.png)
 
 8. In **Add Integration** (**1**) window, select **API** (**2**) as the integration type.
 
@@ -37,13 +37,13 @@ sidebar_position: 3
 10. Copy the **Integration Key** generated.
 ### Create Zenduty Channel in SnappyFlow
 
-![img](/img/Notifications/Images/Image_15.png)
+![img](/img/Notifications/images/Image_15.png)
 
 1. Go to the **Manage** (**1**) tab.
 
 2. Click the **`down arrow`**  (**2**) icon near your profile.
 
-   ![img](/img/Notifications/Images/Image_16.png)
+   ![img](/img/Notifications/images/Image_16.png)
 
 3. Go to the **Notification**  (**1**) section.
 
@@ -54,13 +54,13 @@ sidebar_position: 3
 
 5. Click the **`Verify`** (**2**) button.
 
-   ![img](/img/Notifications/Images/Image_17.png)
+   ![img](/img/Notifications/images/Image_17.png)
 
 6.  **`Valid API Key` **message will be generated if the API key is valid.
 
 7. Click the **`Add`** (**1**) button.
 
-   ![img](/img/Notifications/Images/Image_18.png)
+   ![img](/img/Notifications/images/Image_18.png)
 
 8. The table with user details will be auto-generated as shown in the above image. The table has the following details.
 

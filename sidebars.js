@@ -897,28 +897,92 @@ module.exports = {
                 id: 'Alerts_notifications/getting_started',
             },
             collapsed: true,
-            items: [
-                {
-                    type: 'doc',
-                    id: 'Alerts_notifications/getting_started',
-                    label: 'Alerts overview',
-                },
-                {
-                    type: 'doc',
-                    id: 'Alerts_notifications/slo',
-                    label: 'SLO',
-                },
-                {
-                    type: 'doc',
-                    id: 'Alerts_notifications/pager_duty',
-                    label: 'Pager Duty',
-                },
-                {
-                    type: 'doc',
-                    id: 'Alerts_notifications/slack',
-                    label: 'Slack',
-                },
+            items: [ 
+				{
+                    type: 'category',
+                    label: 'Notifications',
+                    link: {
+                            type: 'doc',
+                            id: 'Alerts_notifications/Notifications/Introduction',
+                          },
+                          collapsed: true,
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'Alerts_notifications/Notifications/Introduction',
+                                   label: 'Introduction',
+                               },
+							   {
+                                   type: 'category',
+                                   label: 'Create Notification Channel',
+                                   link: {
+                                           type: 'doc',
+                                           id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Email',
+                                         },
+                                         collapsed: true,
+                                         items: [
+						                     {
+                                                type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Email',
+                                                label: 'Email',
+                                             },
+											 {
+												type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Zenduty',
+                                                label: 'Zenduty',
+											 },
+											 {
+												type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/OpsGenie',
+                                                label: 'OpsGenie',
+											 },
+											 {
+												type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Slack',
+                                                label: 'Slack',
+											 },
+											 {
+												type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Teams',
+                                                label: 'Teams',
+											 },
+											 {
+												type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Webhook',
+                                                label: 'Webhook',
+											 },
+											 {
+												type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/PagerDuty',
+                                                label: 'PagerDuty',
+											 },
+											 ],
+							   },
+						       {
+                                   type: 'category',
+                                   label: 'Map the Notification',
+                                   link: {
+                                           type: 'doc',
+                                           id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/Map_Projects_to_Channels',
+                                         },
+                                         collapsed: true,
+                                         items: [
+						                     {
+                                                type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/Map_Projects_to_Channels',
+                                                label: 'Map the Notification Channel',
+                                             },
+											 {
+												type: 'doc',
+                                                id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/Alert_Mapping',
+                                                label: 'Map the Alerts',
+											 },
+											 ],
+							   },
+							   ],
+				},
             ],
+			
         },
         {
             type: 'category',

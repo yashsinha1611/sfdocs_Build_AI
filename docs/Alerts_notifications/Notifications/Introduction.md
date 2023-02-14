@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-
 ---
+
 # Introduction
 
 **SnappyFlow's notification feature sends notifications to your team through your choice of communication channel when an alert is generated in SnappyFlow.**
