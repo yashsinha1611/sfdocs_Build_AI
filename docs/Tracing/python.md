@@ -2,19 +2,14 @@
 
 The Python tracing automatically instruments APIs, frameworks and application servers. The sfAPM python agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server. Currently sfTrace supports the following
 
+**Supported Python versions**
 
-<div class="blue_textbox">
-	<b>Supported Python versions</b> 
-	<p>
-		Python 3.6, 3.7, 3.8, 3.9, ,3.10, 3.11 </p>
-	<b>Supported Web Frameworks</b>
-	<p>
-		Django 1.11, 2.0, 2.1, 2.2, 3.0,3.1, 3.2, 4.0 <br/>
-      Flask  1.0, 1.1, 2.0 <br/>
-	</p>
-	 
-</div>
+Python 3.6, 3.7, 3.8, 3.9, ,3.10, 3.11 
  
+**Supported Web Frameworks**
+			 
+Django 1.11, 2.0, 2.1, 2.2, 3.0,3.1, 3.2, 4.0 
+Flask  1.0, 1.1, 2.0 
 
 
 #### Supported Platforms
