@@ -71,5 +71,5 @@ sidebar_position: 3
 
 9. Click the **` Add new`**  (**1**) button to create multiple Zenduty notification profiles.
 
-   **You have successfully created a Zenduty notification channel.** [Click here](docs/Alerts_notifications/notifications/Map_Notification_Alerts/map_projects_to_channels)  to map the notification to your project.
+   **You have successfully created a Zenduty notification channel.** [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels)  to map the notification to your project.
 
