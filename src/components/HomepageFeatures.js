@@ -168,7 +168,7 @@ const FeatureList = [
       },
       {
         label: "Notifications",
-        url: '/docs/Alerts_notifications/Notifications/Introduction'
+        url: '/docs/Alerts_notifications/Notifications/introduction'
       }
     ]
   },

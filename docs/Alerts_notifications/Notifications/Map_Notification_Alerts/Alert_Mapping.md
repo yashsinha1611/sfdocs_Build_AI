@@ -5,7 +5,7 @@ sidebar_position: 4
 
 Follow the below steps to map the alerts in an application.
 
-![img](/img/Notifications/images/Image_6.png)
+![img](/img/notifications/images/Image_6.png)
 
 1. Go to the **Applications** (**1**) tab.
 
@@ -13,7 +13,7 @@ Follow the below steps to map the alerts in an application.
 
 3. Click the application's **`View Dashboard`**  (**1**) icon.
 
-   ![img](/img/Notifications/images/Image_7.png)
+   ![img](/img/notifications/images/Image_7.png)
 
 4. In the **Dashboard** window, go to the **`Alerts`** (**1**) tab.
 
@@ -23,7 +23,7 @@ Follow the below steps to map the alerts in an application.
 
 7. In the **`Alert Operations`** column, click the **`Edit`** (**4**) button.
 
-   ![img](/img/Notifications/images/Image_8.png)
+   ![img](/img/notifications/images/Image_8.png)
 
 8. In the **Edit Alerts** (**1**) window, go to the **Notification** (**2**) section.
 
@@ -35,12 +35,12 @@ Follow the below steps to map the alerts in an application.
 
 12. You have defined the notification channels to an alert.
 
-    ![img](/img/Notifications/images/Notification_7.png)
+    ![img](/img/notifications/images/Notification_7.png)
 
 13. Select the required alert type (**1**) in the **`Alerts`** column.
 
 14. Click the **`Enable Notification`** (**2**) button.
-    ![img](/img/Notifications/images/Image_5.png)
+    ![img](/img/notifications/images/Image_5.png)
 
 15. In the **`Enable Notification`** (**1**) window, **Select alert severity** (**2**) based on your requirement.
 

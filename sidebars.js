@@ -903,13 +903,13 @@ module.exports = {
                     label: 'Notifications',
                     link: {
                             type: 'doc',
-                            id: 'Alerts_notifications/Notifications/Introduction',
+                            id: 'Alerts_notifications/Notifications/introduction',
                           },
                           collapsed: true,
                           items: [
 						       {
                                    type: 'doc',
-                                   id: 'Alerts_notifications/Notifications/Introduction',
+                                   id: 'Alerts_notifications/Notifications/introduction',
                                    label: 'Introduction',
                                },
 							   {
@@ -917,43 +917,43 @@ module.exports = {
                                    label: 'Create Notification Channel',
                                    link: {
                                            type: 'doc',
-                                           id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Email',
+                                           id: 'Alerts_notifications/Notifications/Create_Notification_Channel/email',
                                          },
                                          collapsed: true,
                                          items: [
 						                     {
                                                 type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Email',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/email',
                                                 label: 'Email',
                                              },
 											 {
 												type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Zenduty',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/zenduty',
                                                 label: 'Zenduty',
 											 },
 											 {
 												type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/OpsGenie',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/opsGenie',
                                                 label: 'OpsGenie',
 											 },
 											 {
 												type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Slack',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/slack',
                                                 label: 'Slack',
 											 },
 											 {
 												type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Teams',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/teams',
                                                 label: 'Teams',
 											 },
 											 {
 												type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/Webhook',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/webhook',
                                                 label: 'Webhook',
 											 },
 											 {
 												type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/PagerDuty',
+                                                id: 'Alerts_notifications/Notifications/Create_Notification_Channel/pagerDuty',
                                                 label: 'PagerDuty',
 											 },
 											 ],
@@ -963,18 +963,18 @@ module.exports = {
                                    label: 'Map the Notification',
                                    link: {
                                            type: 'doc',
-                                           id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/Map_Projects_to_Channels',
+                                           id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels',
                                          },
                                          collapsed: true,
                                          items: [
 						                     {
                                                 type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/Map_Projects_to_Channels',
+                                                id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels',
                                                 label: 'Map the Notification Channel',
                                              },
 											 {
 												type: 'doc',
-                                                id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/Alert_Mapping',
+                                                id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/alert_mapping',
                                                 label: 'Map the Alerts',
 											 },
 											 ],
