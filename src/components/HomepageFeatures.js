@@ -167,8 +167,8 @@ const FeatureList = [
         url: '/docs/Alerts_notifications/getting_started'
       },
       {
-        label: "SLO",
-        url: '/docs/Alerts_notifications/slo'
+        label: "Notifications",
+        url: '/docs/Alerts_notifications/Notifications/introduction'
       }
     ]
   },
