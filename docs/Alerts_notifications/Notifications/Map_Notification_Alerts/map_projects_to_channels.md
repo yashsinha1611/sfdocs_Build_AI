@@ -5,7 +5,7 @@ sidebar_position: 1
 
 Follow the below steps to map a notification channel to a project.
 
-<img src="/img/Notifications/Images/Notification_1.png" /><br />
+<img src="/img/Notifications/Images/Notification_1.PNG" /><br />
 
 1. Go to the **Application** (**1**) tab.
 
@@ -13,7 +13,7 @@ Follow the below steps to map a notification channel to a project.
 
 3. Select the  **Edit Project ** (**3**) option.
 
-   <img src="/img/Notifications/Images/Notification_2.png" /><br />
+   <img src="/img/Notifications/Images/Notification_2.PNG" /><br />
 
 4. In the **Edit Project** (1) window, go to the **Notification** (**2**) tab.
 
@@ -23,7 +23,7 @@ Follow the below steps to map a notification channel to a project.
 
 7. Click the **Configure** (**4**) button.
 
-   <img src="/img/Notifications/Images/Image_9.png" /><br /> 
+   <img src="/img/Notifications/Images/Image_9.PNG" /><br /> 
 
 8. For the Email channel, follow the below steps:
 
@@ -43,7 +43,7 @@ Follow the below steps to map a notification channel to a project.
 
    e. Click the **`Save`** (**5**) button.
 
-   <img src="/img/Notifications/Images/Image_10.png" /><br /> 
+   <img src="/img/Notifications/Images/Image_10.PNG" /><br /> 
 
 9. For channels like Zenduty, PagerDuty, OpsGenie, etc.., follow the below steps:
 
