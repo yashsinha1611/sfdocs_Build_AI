@@ -7,7 +7,7 @@ sidebar_position: 1
 **SnappyFlow's notification feature sends notifications to your team through your choice of communication channel when an alert is generated in SnappyFlow.**
 
 ##### Supporting Channels
-SnappyFlow supports wide variety of communication channels like ***Email***, ***Zenduty***, ***OpsGenie***, ***Slack***, ***Teams***, ***Webhook***, ***PagerDuty***, etc.
+SnappyFlow supports wide variety of communication channels like  ***Email***, ***Zenduty***, ***OpsGenie***, ***Slack***, ***Teams***, ***Webhook***, ***PagerDuty***, etc..
 
 ##### How to receive notifications from SnappyFlow?
 
