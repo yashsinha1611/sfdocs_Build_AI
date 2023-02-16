@@ -87,6 +87,7 @@ Follow the below steps to enable the tracing for the application based on Django
    from sf_apm_lib.snappyflow import Snappyflow 
    ```
    <br/>
+
    ii. Add the following entry in `INSTALLED_APPS` block.
 
    ```
@@ -126,7 +127,7 @@ Follow the below steps to enable the tracing for the application based on Django
 <br/>
    - If the sfAgent is not installed in your instance, then follow the below steps:<br/><br/>
    
-      i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/><br/>
+   i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/><br/>
 
       ii. Export `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as the environment variables.
 
@@ -136,7 +137,8 @@ Follow the below steps to enable the tracing for the application based on Django
       export SF_APP_NAME=<SF_APP_NAME>
       export SF_PROFILE_KEY=<SF_PROFILE_KEY> 
       ``` 
-      <br/>
+   <br/> 
+   
       iii. Add the following entries in the `settings.py` file. <br/><br/>
    
     
