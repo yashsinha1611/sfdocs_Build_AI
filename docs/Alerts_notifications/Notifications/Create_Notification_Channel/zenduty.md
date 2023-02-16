@@ -35,7 +35,7 @@ Application Program Interface (API) integration key from Zenduty.
 9. Click the **`Add Integration`** (**3**) button.
 
 10. Copy the **Integration Key** generated.
-### Create Zenduty Channel in SnappyFlow
+### Create a Zenduty Notification Channel in SnappyFlow
 
 <img src="/img/Notifications/Images/image_1.PNG" /><br />
 
@@ -71,5 +71,5 @@ Application Program Interface (API) integration key from Zenduty.
 
 9. Click the **` Add new`**  (**1**) button to create multiple Zenduty notification profiles.
 
-   **You have successfully created a Zenduty notification channel.** The next step is to map the notification to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
+   You have successfully created a Zenduty notification channel. The next step is to map the notification to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
 

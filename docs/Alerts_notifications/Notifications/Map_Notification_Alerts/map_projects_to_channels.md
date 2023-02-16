@@ -45,7 +45,7 @@ Follow the below steps to map a notification channel to a project.
 
    <img src="/img/Notifications/Images/image_15.PNG" /><br /> 
 
-9. For channels like Zenduty, PagerDuty, OpsGenie, etc.. follow the below steps:
+9. For channels like Zenduty, PagerDuty, OpsGenie, etc... follow the below steps:
 
    a. Select the **Notification profile(s)** (**1**)
 
