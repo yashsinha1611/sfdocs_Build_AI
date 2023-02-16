@@ -203,7 +203,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 
 1. After following the above steps, if the trace data not collected in the SnappyFlow server check the trace configuration you added in the `settings.py`.
 
-2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block in the `settings.py`.
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
 
    ```
    'DEBUG':'true'
@@ -1290,7 +1290,14 @@ The below link contains the sample application with the trace enabled by followi
 
 ## Trace to Log Body
 
-For the transactions that are HTTP requests which contain the request body, the python trace agent capture the request body (e.g: POST, PUT variables) and store it in the SnappyFlow with the specific index and document type.
+For the transactions that are HTTP requests which contain the request body, the sfPython trace agent capture the request body and store it in the SnappyFlow with the specific index and document type.
+
+:::caution
+
+Request bodies usually contain sensitive data like passwords and credit card numbers. If your service handles data like this, we advise you to enable this feature with care.
+
+:::
+
 
 1. Add the below values to enable this feature
 
@@ -1306,17 +1313,15 @@ For the transactions that are HTTP requests which contain the request body, the 
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
      ```
     
-2. Below lines of the configuration are optional
+2. Follow the below steps in the try block of `settings.py` to customize the document type and destination index. (Optional) 
 
-   We also provide the custom document type and destination index configuration for this feature in the `settings.py`.
-
-     1. Add below line to provice destination index (Default:"log"), Applicable values(log, metric).
+     1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 
      ```
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
      ```
      
-     2. Add below line to provide custom document type (Default:"user-input").
+     2. Add the below line to customize the document type (Default:"user-input").
      
      ```
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
@@ -1338,12 +1343,6 @@ except Exception as error:
    print("Error while fetching snappyflow tracing configurations", error) 
 
 ```    
-
-:::caution
-
-Request bodies usually contain sensitive data like passwords and credit card numbers. If your service handles data like this, we advise only enabling this feature with care. 
-
-:::
 
 
 ## Log Correlation
