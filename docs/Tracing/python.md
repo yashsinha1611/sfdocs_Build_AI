@@ -80,13 +80,14 @@ Follow the below steps to enable the tracing for the application based on Django
 
 
 2. 
-   - If the agent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in the `settings.py` file <br/><br/>
+   - If the agent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in the `settings.py` file. <br/><br/>
 
    i. Add the import statement. 
    ```
    from sf_apm_lib.snappyflow import Snappyflow 
    ```
    <br/>
+
    ii. Add the following entry in `INSTALLED_APPS` block.
 
    ```
@@ -98,8 +99,9 @@ Follow the below steps to enable the tracing for the application based on Django
    ```
    'elasticapm.contrib.django.middleware.TracingMiddleware'
    ```
-   
-   iv. Add the following source code to integrate the Django application to the SnappyFlow.      
+<br/>
+   iv. Add the following source code to integrate the Django application to the SnappyFlow. 
+
    ```
    try: 
       # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
@@ -125,7 +127,7 @@ Follow the below steps to enable the tracing for the application based on Django
 <br/>
    - If the sfAgent is not installed in your instance, then follow the below steps:<br/><br/>
    
-      i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/><br/>
+   i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/><br/>
 
       ii. Export `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as the environment variables.
 
@@ -135,7 +137,8 @@ Follow the below steps to enable the tracing for the application based on Django
       export SF_APP_NAME=<SF_APP_NAME>
       export SF_PROFILE_KEY=<SF_PROFILE_KEY> 
       ``` 
-      <br/>
+   <br/> 
+   
       iii. Add the following entries in the `settings.py` file. <br/><br/>
    
     
@@ -201,9 +204,9 @@ Once your application is up and running, follow the below steps to verfiy that t
 	  
 #### Troubleshoot Steps
 
-1. After following the above steps, if the trace data not collected in the SnappyFlow server check the trace configuration you added in the `settings.py`.
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
 
-2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block in the `settings.py`.
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
 
    ```
    'DEBUG':'true'
@@ -520,9 +523,7 @@ Follow the below steps to enable the tracing for the applications based on Djang
             value: <project_name>
          - name: SF_APP_NAME
             value: <app-name>
-      ```
-
-
+      ``` 
    If the deployment is with helm charts, provide the above variables in the `values.yaml` and use them in the deployment file of charts. 
 
       ```yaml
@@ -531,8 +532,6 @@ Follow the below steps to enable the tracing for the applications based on Djang
       # update the sfappname, sfprojectname and key with the proper values
       sfappname: <app-name>
       sfprojectname: <project-name>
-      sfappname_key: snappyflow/appname
-      sfprojectname_key: snappyflow/projectname
       key: <profile-key>
 
       replicaCount: 1
@@ -545,7 +544,7 @@ Follow the below steps to enable the tracing for the applications based on Djang
       Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
 
       ```yaml
-      #deploymet.yaml
+      #deployment.yaml
       apiVersion: apps/v1
       kind: Deployment
       spec:
@@ -765,7 +764,7 @@ Follow the below steps to enable the tracing for the application based on Django
       ```
       'elasticapm.contrib.django.middleware.TracingMiddleware'
       ```
-
+      
    4. Add the following source code to integrate the Django application to the SnappyFlow.
 
       ```
@@ -827,6 +826,18 @@ Once your application is up and running, follow the below steps to verfiy that t
 5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
          <img src="/img/Trace_RealTime.png" /><br/>
+	 
+
+#### Troubleshoot Steps
+
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
+
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
+
+   ```
+   'DEBUG':'true'
+   ```
+
        
 #### Sample Application Code
 
@@ -1081,6 +1092,18 @@ Once your application is up and running, follow the below steps to verfiy that t
 5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+
+#### Troubleshoot Steps
+
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
+
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
+
+   ```
+   'DEBUG':'true'
+   ```
+
        
 #### Sample Application Code
 
@@ -1290,7 +1313,14 @@ The below link contains the sample application with the trace enabled by followi
 
 ## Trace to Log Body
 
-For the transactions that are HTTP requests which contain the request body, the python trace agent capture the request body (e.g: POST, PUT variables) and store it in the SnappyFlow with the specific index and document type.
+For the transactions that are HTTP requests which contain the request body, the sfPython trace agent capture the request body and store it in the SnappyFlow with the specific index and document type.
+
+:::caution
+
+Request bodies usually contain sensitive data like passwords and credit card numbers. If your service handles data like this, we advise you to enable this feature with care.
+
+:::
+
 
 1. Add the below values to enable this feature
 
@@ -1306,17 +1336,15 @@ For the transactions that are HTTP requests which contain the request body, the 
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
      ```
     
-2. Below lines of the configuration are optional
+2. Follow the below steps in the try block of `settings.py` to customize the document type and destination index. (Optional) 
 
-   We also provide the custom document type and destination index configuration for this feature in the `settings.py`.
-
-     1. Add below line to provice destination index (Default:"log"), Applicable values(log, metric).
+     1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 
      ```
-     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>'
      ```
      
-     2. Add below line to provide custom document type (Default:"user-input").
+     2. Add the below line to customize the document type (Default:"user-input").
      
      ```
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
@@ -1338,12 +1366,6 @@ except Exception as error:
    print("Error while fetching snappyflow tracing configurations", error) 
 
 ```    
-
-:::caution
-
-Request bodies usually contain sensitive data like passwords and credit card numbers. If your service handles data like this, we advise only enabling this feature with care. 
-
-:::
 
 
 ## Log Correlation
