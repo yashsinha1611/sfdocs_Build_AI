@@ -532,8 +532,6 @@ Follow the below steps to enable the tracing for the applications based on Djang
       # update the sfappname, sfprojectname and key with the proper values
       sfappname: <app-name>
       sfprojectname: <project-name>
-      sfappname_key: snappyflow/appname
-      sfprojectname_key: snappyflow/projectname
       key: <profile-key>
 
       replicaCount: 1
@@ -546,7 +544,7 @@ Follow the below steps to enable the tracing for the applications based on Djang
       Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
 
       ```yaml
-      #deploymet.yaml
+      #deployment.yaml
       apiVersion: apps/v1
       kind: Deployment
       spec:
@@ -828,6 +826,18 @@ Once your application is up and running, follow the below steps to verfiy that t
 5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
          <img src="/img/Trace_RealTime.png" /><br/>
+	 
+
+#### Troubleshoot Steps
+
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
+
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
+
+   ```
+   'DEBUG':'true'
+   ```
+
        
 #### Sample Application Code
 
@@ -1082,6 +1092,18 @@ Once your application is up and running, follow the below steps to verfiy that t
 5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+
+#### Troubleshoot Steps
+
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
+
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
+
+   ```
+   'DEBUG':'true'
+   ```
+
        
 #### Sample Application Code
 
@@ -1319,7 +1341,7 @@ Request bodies usually contain sensitive data like passwords and credit card num
      1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 
      ```
-     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>'
      ```
      
      2. Add the below line to customize the document type (Default:"user-input").
