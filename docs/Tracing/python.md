@@ -201,9 +201,9 @@ Once your application is up and running, follow the below steps to verfiy that t
 	  
 #### Troubleshoot Steps
 
-1. After following the above steps, if the trace data not collected in the SnappyFlow server check the trace configuration you added.
+1. After following the above steps, if the trace data not collected in the SnappyFlow server check the trace configuration you added in the `settings.py`.
 
-2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block.
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block in the `settings.py`.
 
    ```
    'DEBUG':'true'
@@ -1294,13 +1294,13 @@ For the transactions that are HTTP requests which contain the request body, the 
 
 1. Add the below values to enable this feature
 
-    1. Update the **ELASTIC_APM** block with the following key-value pair.
+    1. Update the **ELASTIC_APM** block with the following key-value pair in the `settings.py`.
 
       ```
       'CAPTURE_BODY': 'all'
       ```
 
-    2. Add the below line in the try block of tracing instrumentation code.
+    2. Add the below line in the try block of tracing instrumentation code in the `settings.py`.
 
      ```
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
@@ -1308,7 +1308,7 @@ For the transactions that are HTTP requests which contain the request body, the 
     
 2. Below lines of the configuration are optional
 
-   We also provide the custom document type and destination index configuration for this feature.
+   We also provide the custom document type and destination index configuration for this feature in the `settings.py`.
 
      1. Add below line to provice destination index (Default:"log"), Applicable values(log, metric).
 
