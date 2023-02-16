@@ -774,7 +774,16 @@ ol li ul {
 .katex{
   font-size: 1em !important;
 }
-
+.trace_feature{
+  width: fit-content;
+}
+.trace_feature li input{
+  display: none;
+}
+.trace_feature li:hover input{
+  display: block;
+  float: right;
+}
 @media screen and (max-width: 550px) and (min-width: 320px) {
   nav.navbar--fixed-top{
       height: 85px;
