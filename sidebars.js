@@ -901,10 +901,7 @@ module.exports = {
 				{
                     type: 'category',
                     label: 'Notifications',
-                    link: {
-                            type: 'doc',
-                            id: 'Alerts_notifications/Notifications/introduction',
-                          },
+                    collapsed: true, 
                           collapsed: true,
                           items: [
 						       {
@@ -961,11 +958,7 @@ module.exports = {
 						       {
                                    type: 'category',
                                    label: 'Map the Notification',
-                                   link: {
-                                           type: 'doc',
-                                           id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels',
-                                         },
-                                         collapsed: true,
+                                   collapsed: true,
                                          items: [
 						                     {
                                                 type: 'doc',
