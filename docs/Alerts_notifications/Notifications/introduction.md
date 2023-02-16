@@ -6,16 +6,16 @@ sidebar_position: 1
 
 **SnappyFlow's notification feature sends notifications to your team through your choice of communication channel when an alert is generated in SnappyFlow.**
 
-##### Supporting Channels
-SnappyFlow supports wide variety of communication channels like  ***Email***, ***Zenduty***, ***OpsGenie***, ***Slack***, ***Teams***, ***Webhook***, ***PagerDuty***, etc..
+##### Supported Channels
+SnappyFlow supports a wide variety of communication channels like  ***Email***, ***Zenduty***, ***OpsGenie***, ***Slack***, ***Teams***, ***Webhook***, ***PagerDuty***, etc...
 
 ##### How to receive notifications from SnappyFlow?
 
 To receive notifications from SnappyFlow, you have to configure the notifications. 
 
-Configuring notification is a simple three step process.
+Configure the notifications in three simple steps.
 
-1. **Create Notification Channel** -  Creating notification channel is a process of adding your choice of communication channel(s) to the profile.
+1. **Create Notification Channel** -  Creating a notification channel is a process of adding your choice of communication channel(s) to the profile.
 
    **[Email](/docs/Alerts_notifications/Notifications/Create_Notification_Channel/email)** 
    
