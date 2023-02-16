@@ -4,13 +4,13 @@ sidebar_position: 3
 # Send Notifications to Email
 Follow the below steps to create an Email notification channel in SnappyFlow.
 
-<img src="/img/Notifications/Images/image_1.PNG" /><br />
+<img src="/img/Notifications/Images/Image_1.PNG" /><br />
 
    1. Go to the **Manage** (**1**) tab.
 
    2. Click the **`down arrow`**  (**2**) icon near your profile.
 
-     <img src="/img/Notifications/Images/image_2.PNG" /><br /> 
+     <img src="/img/Notifications/Images/Image_2.PNG" /><br /> 
 
    3. Go to the **Notification**  (**1**) section.
 
@@ -47,7 +47,7 @@ Follow the below steps to create an Email notification channel in SnappyFlow.
 
 6. Click the **`Add`** (**3**) button to complete the creation.
 
-   <img src="/img/Notifications/Images/image_3.PNG" /><br /> 
+   <img src="/img/Notifications/Images/Image_3.PNG" /><br /> 
 
 7. The table with user details will be auto-generated as shown in the above image. The table consists of the following details.
 
