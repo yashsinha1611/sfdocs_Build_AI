@@ -80,7 +80,7 @@ Follow the below steps to enable the tracing for the application based on Django
 
 
 2. 
-   - If the agent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in the `settings.py` file <br/><br/>
+   - If the agent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in the `settings.py` file. <br/><br/>
 
    i. Add the import statement. 
    ```
@@ -202,7 +202,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 	  
 #### Troubleshoot Steps
 
-1. After following the above steps, if the trace data not collected in the SnappyFlow server check the trace configuration you added in the `settings.py`.
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
 
 2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
 
