@@ -98,8 +98,9 @@ Follow the below steps to enable the tracing for the application based on Django
    ```
    'elasticapm.contrib.django.middleware.TracingMiddleware'
    ```
-   
-   iv. Add the following source code to integrate the Django application to the SnappyFlow.      
+<br/>
+   iv. Add the following source code to integrate the Django application to the SnappyFlow. 
+
    ```
    try: 
       # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
@@ -520,9 +521,7 @@ Follow the below steps to enable the tracing for the applications based on Djang
             value: <project_name>
          - name: SF_APP_NAME
             value: <app-name>
-      ```
-
-
+      ``` 
    If the deployment is with helm charts, provide the above variables in the `values.yaml` and use them in the deployment file of charts. 
 
       ```yaml
@@ -765,7 +764,7 @@ Follow the below steps to enable the tracing for the application based on Django
       ```
       'elasticapm.contrib.django.middleware.TracingMiddleware'
       ```
-
+      
    4. Add the following source code to integrate the Django application to the SnappyFlow.
 
       ```
