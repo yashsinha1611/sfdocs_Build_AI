@@ -31,15 +31,13 @@ The Python tracing automatically instruments APIs, frameworks and application se
 
 Below is the list of the supported trace features:
  
- <div class="trace_feature">
-   <ul >
-   <li>Distributed Tracing  </li>
-   <li>Transaction Mapping</li>
-   <li><span>Log Correlation</span> <a href="#log-correlation"><input type="image" src="/img/link-icon.png" width="18px" /></a></li>
-   <li><span>Trace to Log Body</span> <a href="#trace-to-log-body"><input type="image" src="/img/link-icon.png"  width="18px" /></a></li>
-   <li>Service Map</li>
-   </ul>
- </div>
+* Distributed Tracing
+* Transaction Mapping
+* **[Log Correlation](python#log-correlation)**
+* **[Capture request Body from Trace](python#capture-request-body-from-trace)**
+* Service Map
+
+The Log Correlation and Capture Request Body from Trace features are not enabled by default. Users need to add additional configurations.
 
 ## Instances 
 
@@ -80,7 +78,7 @@ Follow the below steps to enable the tracing for the application based on Django
 
 
 2. 
-   - If the agent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in the `settings.py` file. <br/><br/>
+   - If the sfAgent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in the `settings.py` file. <br/><br/>
 
    i. Add the import statement. 
    ```
@@ -202,7 +200,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
 	  
-#### Troubleshoot Steps
+#### Troubleshooting
 
 1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
 
@@ -573,6 +571,17 @@ Once your application is up and running, follow the below steps to verfiy that t
 5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+#### Troubleshooting
+
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
+
+2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
+
+   ```
+   'DEBUG':'true'
+   ```
+
        
 #### Sample Application Code
 
@@ -1311,9 +1320,9 @@ The below link contains the sample application with the trace enabled by followi
    2. Add environment variables `SF_APP_NAME` and `SF_PROJECT_NAME` with appropriate values. 
    ![](images/python_aws_picture1.png)
 
-## Trace to Log Body
+## Capture Request Body from Trace
 
-For the transactions that are HTTP requests which contain the request body, the sfPython trace agent capture the request body and store it in the SnappyFlow with the specific index and document type.
+This feature allows you to save the request body of the HTTP transactions to a specific index such as a log.
 
 :::caution
 
@@ -1333,6 +1342,7 @@ Request bodies usually contain sensitive data like passwords and credit card num
     2. Add the below line in the try block of tracing instrumentation code in the `settings.py`.
 
      ```
+     # default value is true, 
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
      ```
     
@@ -1341,12 +1351,14 @@ Request bodies usually contain sensitive data like passwords and credit card num
      1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 
      ```
-     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>'
+     # default indexType is log, applicable values are log and metric
+     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
      ```
      
-     2. Add the below line to customize the document type (Default:"user-input").
+     2. Add the below line to customize the document type
      
      ```
+     # default documentType is user-input
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
      ```
 
