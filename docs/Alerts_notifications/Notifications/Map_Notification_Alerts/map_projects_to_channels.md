@@ -23,7 +23,7 @@ Follow the below steps to map a notification channel to a project.
 
 7. Click the **Configure** (**4**) button.
 
-   <img src="/img/Notifications/Images/image_22.PNG" /><br /> 
+   <img src="/img/Notifications/Images/image_22.png" /><br /> 
 
 8. For the Email channel, follow the below steps:
 

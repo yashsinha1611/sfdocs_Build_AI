@@ -901,8 +901,7 @@ module.exports = {
 				{
                     type: 'category',
                     label: 'Notifications',
-                    collapsed: true, 
-                          collapsed: true,
+                    collapsed: true,  
                           items: [
 						       {
                                    type: 'doc',
@@ -911,12 +910,8 @@ module.exports = {
                                },
 							   {
                                    type: 'category',
-                                   label: 'Create Notification Channel',
-                                   link: {
-                                           type: 'doc',
-                                           id: 'Alerts_notifications/Notifications/Create_Notification_Channel/email',
-                                         },
-                                         collapsed: true,
+                                   label: 'Create Notification Channel', 
+                                    collapsed: true,
                                          items: [
 						                     {
                                                 type: 'doc',
