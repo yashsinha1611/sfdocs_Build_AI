@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Map Notification to Project
+# Step 2: Adding Notification Channel to a Project
 
 Follow the below steps to map a notification channel to a project.
 
