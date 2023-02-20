@@ -2,7 +2,7 @@
 
 ## Setting up SnappyFlow in your own environment
 
-SnappyFlow can be consumed via SnappyFlow Cloud or it can be setup in your own environment such as on-prem data center or it can be setup in your cloud account in AWS and Azure.
+SnappyFlow can be consumed via SnappyFlow Cloud or it can be setup in your own environment such as an on-prem data center or it can be setup in your cloud account in AWS and Azure.
 
 :::caution
 
@@ -14,7 +14,7 @@ The below guide is applicable for setups with an **ingest rate below 500 GB/day*
 
 - A SnappyFlow account. An account can be created [here](https://accounts.snappyflow.io).
 
-- An approximate idea of your monthly ingest rates. The more accurate your data is, the better. This data is useful to ensure right sizing of your infrastructure
+- An approximate idea of your monthly ingest rates. The more accurate your data is, the better. This data is useful to ensure the right-sizing of your infrastructure
 
 ## Size your infrastructure using the sizing tool
 
@@ -66,7 +66,57 @@ These templates are pre-loaded with the required stack information such as serve
 ### Pre-Requisites ###
 
 - AWS account
-- Pre-configured IAM roles with appropriate access levels
+
+-  Copy and paste the below-mentioned JSON code into the policy editor to configure the IAM roles for the required permissions.
+
+  ```
+  {
+    "Version": "2012-10-17",
+  
+    "Statement": [
+  
+      {
+  
+         "Sid": "VisualEditor0",
+  
+         "Effect": "Allow",
+  
+         "Action": [
+  
+          "rds:*",
+  
+          "aws-marketplace:*",
+  
+          "s3:*",
+  
+         "cloudwatch:*",
+  
+          "cloudformation:*",
+  
+          "ec2:*",
+  
+          "elasticloadbalancing:*",
+  
+         "acm:*",
+  
+          "iam:GetServerCertificate",
+  
+         "iam:UploadServerCertificate"
+  
+       ],
+  
+        "Resource": "*"
+  
+      }
+  
+    ]
+  
+  }
+  ```
+
+   
+
+- Subscription for SnappyFlow Appliance & Ubuntu from the AWS Marketplace.
 
 ### Uploading the template ###
 
@@ -154,7 +204,7 @@ SnappyFLow portal can be accessed using the server URL provided here. The defaul
 SnappyFlow will complete the installation automatically. This process takes upto 30 minutes.
 
 <img src="/img/snappyflow_self_hosted/portal.png" />
- 
+
 ## Create SnappyFlow stack on AWS
 
 ### Pre-Requisites ###
@@ -248,4 +298,3 @@ SnappyFLow portal can be accessed using the server URL provided here. The defaul
 SnappyFlow will complete the installation automatically. This process takes upto 30 minutes.
 
 <img src="/img/snappyflow_self_hosted/portal.png" />
- 
