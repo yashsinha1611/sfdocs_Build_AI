@@ -29,6 +29,9 @@ After changing log pattern to combined or the above mentioned pattern, sample lo
 49.206.1.85 - - [30/Jun/2020:13:12:32 +0000] "GET / HTTP/1.1" 200 11286 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
 ```
 
+:::note
+  Supported Tomcat version 8 or larger.
+:::note
 
 ## Configuration
 

@@ -685,6 +685,11 @@ module.exports = {
                     items: [
                         {
                             type: 'doc',
+                            id: 'Integrations/tomcat/tomcat_linux',
+                            label: 'Tomcat in Linux'
+                        },
+                        {
+                            type: 'doc',
                             id: 'Integrations/tomcat/tomcat_windows',
                             label: 'Tomcat in Windows'
                         },
