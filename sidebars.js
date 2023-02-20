@@ -819,8 +819,22 @@ module.exports = {
             },
             collapsed: true,
             items: [
+			    'Dashboards/introduction',
                 'Dashboards/getting_started', 
                 'Dashboards/dashboard_management',
+			
+				{
+                    type: 'category',
+                    label: 'dashboard_customization',
+                        collapsed: true,
+                        items: [
+						    {
+                                type: 'doc',
+                                id: 'Dashboards/dashboard_customization/creating_components',
+                                label: 'Creating Components',
+                            },
+							    ],
+				},
                 {
                     type: 'category',
                     label: 'Components',

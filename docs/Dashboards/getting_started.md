@@ -8,13 +8,43 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wAA9Vo_noQ4" title="Create your first dashboard in SnappyFlow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Create a Summary Box
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/v7vij77v3hQ" title="Create a Summary Box" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Basic Dashboard Concepts
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AMF2TnQCYkU" title="SnappyFlow dashboard concepts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Global vs Custom timeline
+
+- A component by default uses the timeline selected in the global component
+
+  ![img](/img/display-by-time.png)
+
+- However, a user can evaluate a component for a specific custom using the following steps
+
+  - Edit the component and go to the advanced section
+
+  - Select “Custom Time”
+
+  - Go to the JSON Editor and edit the time fields as shown below. In this example, we evaluate the component for last 1 hour. User can specify 30m for 30 minutes, 1d for 1day etc.
+
+    ![img](/img/edit-component.webp)
+
+## Template
+
+#### What is a template?
+
+##### Change Template
+
+##### Save as a Template
+
+##### Upload Template
+
+##### Delete Custom Template
+
+##### Clear Dashboard
+
+##### Restore Backup
 
 ## Types of Aggregation
 
@@ -29,22 +59,6 @@ Use the following extensions to achieve the required aggregation on a metric
 | Count       | .count               |                                                                                                                                                                  |
 | Terminal    | .term                | Retrieves the last value of the metric from DBDocument type has to be specified in the query                                                                     |
 | Current     | .curr                | Retrieves the last value of the metric in the last 8 mins. If no value is available, the result is displayed as NADocument type has to be specified in the query |
-
-## Global vs Custom timeline
-
-- A component by default uses the timeline selected in the global component
-  
-  ![img](/img/display-by-time.png)
-
-- However, a user can evaluate a component for a specific custom using the following steps
-  
-  - Edit the component and go to the advanced section
-  
-  - Select “Custom Time”
-  
-  - Go to the JSON Editor and edit the time fields as shown below. In this example, we evaluate the component for last 1 hour. User can specify 30m for 30 minutes, 1d for 1day etc.
-    
-    ![img](/img/edit-component.webp)
 
 ## Constructing Queries
 
@@ -291,7 +305,6 @@ Based on the type of the selected field, operator recommendations will be provid
 
 - If the field type is **number**, then the operators will be `>`, `>=`, `<`, `<=`, `!=`, `==`  
   
-
 - If the field type is **text**, then the operators will be `~`(contains), `~-`(does not contain), `==`(equal to). 
 
 :::note

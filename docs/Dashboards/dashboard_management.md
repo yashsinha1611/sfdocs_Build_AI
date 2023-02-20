@@ -4,8 +4,6 @@ The dashboard management document provides step-by-step instructions to manage a
 
 Follow the below steps to view and edit your dashboard list.
 
-![img](C:\sfdocs\static\img\Dashboard\image_3.png)
-
 1. Go to the **Application** (**1**) tab. 
 
 2. Click the ` +` (**2**) icon.
