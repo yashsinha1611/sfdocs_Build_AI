@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 ---
-# Map the Alerts
+# Step 3: Mapping Alerts to Notification Channel
 
 Follow the below steps to map the alerts in an application.
 

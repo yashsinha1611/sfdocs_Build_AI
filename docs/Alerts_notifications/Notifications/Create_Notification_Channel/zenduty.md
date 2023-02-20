@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3 
 ---
-# Send Notifications to Zenduty
-### Prerequisites
+# Create Zenduty Notification Channel
+## Prerequisites
 
-Application Program Interface (API) integration key from Zenduty.
+Application Program Interface (API) integration key from Zenduty
 
-### Get the Zenduty API key
+## Get Zenduty API key
 
 <img src="/img/Notifications/Images/image_4.PNG" /><br /> 
 
@@ -35,7 +35,7 @@ Application Program Interface (API) integration key from Zenduty.
 9. Click the **`Add Integration`** (**3**) button.
 
 10. Copy the **Integration Key** generated.
-### Create a Zenduty Notification Channel in SnappyFlow
+## Create a Zenduty Notification Channel in SnappyFlow
 
 <img src="/img/Notifications/Images/image_1.PNG" /><br />
 

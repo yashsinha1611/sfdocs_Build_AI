@@ -1,8 +1,22 @@
 ---
 sidebar_position: 3 
 ---
-# Send Notifications to Email
-Follow the below steps to create an Email notification channel in SnappyFlow.
+# Create an Email Notification Channel
+
+
+## Prerequisites
+
+You need an active SMTP compatible email server or email subscription. To get SMTP username, password and port details reach out to your email server admin. 
+
+- SMTP username
+- SMTP password
+- SMTP port
+
+For Gmail users, your account email and password will be the SMTP username and password respectively. The deault SMTP port is 465. For more information, check this [link](https://support.google.com/mail/answer/7126229?hl=en#zippy=%2Cstep-change-smtp-other-settings-in-your-email-client).
+
+## Step by Step Guide
+
+Follow the below steps to create an Email notification channel in SnappyFlow. Only SMTP is supported. 
 
 <img src="/img/Notifications/Images/image_1.PNG" /><br />
 
@@ -12,36 +26,36 @@ Follow the below steps to create an Email notification channel in SnappyFlow.
 
      <img src="/img/Notifications/Images/image_2.PNG" /><br /> 
 
-   3. Go to the **Notification**  (**1**) section.
+   3. Go to the **Notification**s  (**1**) section.
 
-   4. Enter the required details as shown below:
-      - **Type** - Click the **drop-down** icon and select **`Email`**
+   4. Enter the required details
+      - **Type** - Select **`Email`**.
 
-      - **Time Zone** - Click the **drop-down** icon and choose your time zone
+      - **Time Zone** - Choose your time zone.
 
-      - **Name** - Type a UserName
+      - **Name** - Provide a meaningful name to this channel.
 
-      - **SMTP User** - Type your Email address
+      - **SMTP User** - Email account using which emails notifications will be sent.
 
-      - **Password** -Type the Simple Mail Transfer Protocol (SMTP) user password
+      - **Password** -Type the Simple Mail Transfer Protocol (SMTP) user password.
 
-      - **SMTP Server**- Type the SMTP server address (Eg: smtp.gmail.com)
+      - **SMTP Server**- Type the SMTP server address (Eg: smtp.gmail.com).
 
-      - **SMTP Port** -Type SMTP port number (Eg: For Gmail - 507)
+      - **SMTP Port** -Type SMTP port number (Eg: For Gmail - 507).
 
-      - **Sender's Email** - Type the Email id from which the alerts need to be notified
+      - **Sender's Email** - The email notification will display this email as sender. 
 
    5. Send a test Email to verify your SMPT server. Follow the  below steps:
 
-​             a. Enter your Email address in the **`Test Email ID`** column
+​             a. Enter your Email address in the **`Test Email ID`** column.
 
-​             b. Click the **`Send test email`**  (**2**) button
+​             b. Click the **`Send test email`**  (**2**) button.
 
-​             c. You will receive a test email notification
+​             c. You will receive a test email .
 
-:::note
+:::note Where's the receiver's email id?
 
- If you did not receive a test email notification, check that the parameters are correct.
+Receriver email id is configured in Step 3: Map Alerts to Notification Channel. For each alert, a differnt receiver id can be configured if required.
 
 :::
 

@@ -685,6 +685,11 @@ module.exports = {
                     items: [
                         {
                             type: 'doc',
+                            id: 'Integrations/tomcat/tomcat_linux',
+                            label: 'Tomcat in Linux'
+                        },
+                        {
+                            type: 'doc',
                             id: 'Integrations/tomcat/tomcat_windows',
                             label: 'Tomcat in Windows'
                         },
@@ -915,6 +920,10 @@ module.exports = {
 				{
                     type: 'category',
                     label: 'Notifications',
+					link: {
+						type: 'doc',
+						id: 'Alerts_notifications/Notifications/introduction',
+					},
                     collapsed: true,  
                           items: [
 						       {
@@ -924,7 +933,7 @@ module.exports = {
                                },
 							   {
                                    type: 'category',
-                                   label: 'Create Notification Channel', 
+                                   label: 'Step 1: Create Notification Channel', 
                                     collapsed: true,
                                          items: [
 						                     {
@@ -964,23 +973,18 @@ module.exports = {
 											 },
 											 ],
 							   },
-						       {
-                                   type: 'category',
-                                   label: 'Map the Notification',
-                                   collapsed: true,
-                                         items: [
+						       
 						                     {
                                                 type: 'doc',
                                                 id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels',
-                                                label: 'Map the Notification Channel',
+                                                label: 'Step 2: Add Notification Channel to Project',
                                              },
 											 {
 												type: 'doc',
                                                 id: 'Alerts_notifications/Notifications/Map_Notification_Alerts/alert_mapping',
-                                                label: 'Map the Alerts',
+                                                label: 'Step 3: Map Alerts to Notification Channels',
 											 },
-										],
-							   },
+										
 							   ],
 				},
             ],
