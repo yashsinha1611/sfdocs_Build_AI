@@ -66,57 +66,93 @@ These templates are pre-loaded with the required stack information such as serve
 ### Pre-Requisites ###
 
 - AWS account
-
--  Copy and paste the below-mentioned JSON code into the policy editor to configure the IAM roles for the required permissions.
-
-  ```
-  {
-    "Version": "2012-10-17",
-  
-    "Statement": [
-  
-      {
-  
-         "Sid": "VisualEditor0",
-  
-         "Effect": "Allow",
-  
-         "Action": [
-  
-          "rds:*",
-  
-          "aws-marketplace:*",
-  
-          "s3:*",
-  
-         "cloudwatch:*",
-  
-          "cloudformation:*",
-  
-          "ec2:*",
-  
-          "elasticloadbalancing:*",
-  
-         "acm:*",
-  
-          "iam:GetServerCertificate",
-  
-         "iam:UploadServerCertificate"
-  
-       ],
-  
-        "Resource": "*"
-  
-      }
-  
-    ]
-  
-  }
-  ```
-
-   
-
+- IAM role with required permissions. [Click here](###Create-an-IAM-Role)
 - Subscription for SnappyFlow Appliance & Ubuntu from the AWS Marketplace.
+
+### Create an IAM Role
+
+1. Sign in to the AWS Management Console and open the IAM console at https://console.aws.amazon.com/iam/
+
+2. Follow the below steps to create a policy in the IAM console.
+
+   <img src="/img/iam_role/image_11.png" />
+
+   - Navigate to **Access management > Policies**
+
+   - In the **Policies** window, click the `Create policy` button
+
+     <img src="/img/iam_role/image_3.png" />
+
+   - In the **Create policy** window, go to the **JSON** tab
+
+   - Copy and paste the below-mentioned **JSON code** into the policy editor
+
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+         {
+           "Sid": "VisualEditor0",
+           "Effect": "Allow",
+           "Action": [
+               "rds:*",
+               "aws-marketplace:*",
+               "s3:*",
+               "cloudwatch:*",
+               "cloudformation:*",
+               "ec2:*",
+               "elasticloadbalancing:*",
+               "acm:*",
+               "iam:GetServerCertificate",
+               "iam:UploadServerCertificate"
+               ],
+               "Resource": "*"
+            }
+        ]
+   }
+   ```
+
+   - Click the `Next: Tags` > `Next: Review` button
+
+     <img src="/img/iam_role/image_4.png" />
+
+   - In the **Review policy** window, give a unique **Name** and **Description** (Optional) for the policy and review the list of permissions
+
+   - Click the `Create policy` button
+
+3. Follow the below steps to create an IAM role.
+
+   <img src="/img/iam_role/image_15.png" />
+
+   - Navigate to **Access management > Roles**
+
+   - Click the `Create role` button
+
+     <img src="/img/iam_role/image_16.png" />
+
+   - In the **Select trusted entity** window, select the **AWS service**
+
+   - Select the **Use case** as **EC2** and click `Next`
+
+     <img src="/img/iam_role/image_14.png" />
+
+   - Go to the **Add permissions** section
+
+   - Select the policy created in **Step 2**
+
+   - Click the `Next` button
+
+     <img src="/img/iam_role/image_17.png" />
+     
+   - In the Role details, give a **Role name** and **Description** (optional).
+   
+     <img src="/img/iam_role/image_18.png" />
+     
+   - Review the entities and permissions.
+   
+   - Click the `Create role`  button
+   
+     
 
 ### Uploading the template ###
 
