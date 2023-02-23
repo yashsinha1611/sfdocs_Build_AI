@@ -4,82 +4,74 @@ The dashboard management document provides step-by-step instructions to manage a
 
 Follow the below steps to view and edit your dashboard list.
 
+<img src="/img/dashboard/image_3.png" />
+
 1. Go to the **Application** (**1**) tab. 
-
 2. Click the ` +` (**2**) icon.
+3. Click the **Application Menu** `...`  (**3**) icon.
 
-3. Click the **Project Menu** `...`  (**3**) icon.
 
-   ![image2](C:\sfdocs\static\img\Dashboard\image_5.png)
+<img src="/img/dashboard/image_6.png" />
 
-   
+4. Select the **Dashboard List** option.
 
-4. Select the **Dashboard List** (**1**) option.
+<img src="/img/dashboard/image_7.png" />
 
-   ![image3](C:\sfdocs\static\img\Dashboard\image_7.png)
+5. In the **Dashboard List** window, the *Dashboards* table with the following details will be auto-generated.
 
-5. In the **Dashboard List** (1) window, select a Project (2) and an Application (3).
+- **Name** - Title of the dashboard
 
-6. The Dashboards (4) table with the following details will be auto-generated.
+- **Project** - Title of the project
 
-   - **Name** - Title of the dashboard.
+- **Applications** - Title of the project
 
-   - **Project** - Title of the project.
+- **Created by** - Name of the creator
 
-   - **Applications** - Title of the project.
+- **Created on** - Dashboard creation date
 
-   - **Created by** - Name of the creator.
+- **Actions** - The actions column has the option to *Copy the Dashboard link*, *Clone the dashboard*, *Edit the dashboard*, *Add or Restrict users to the dashboard*, and *Delete the dashboard*
 
-   - **Created on** - Dashboard creation date.
+  - **Copy the Dashboard link**-  Click the **Copy** (**1**) icon to copy the dashboard link 
+  
+  - **Clone the dashboard**- Click the **Clone** (**2**) icon to duplicates the dashboard. It also allows you to edit the cloned dashboard
+  
+  - **Edit the dashboard**- Click the **Edit** (**3**) icon to edit the information in an existing dashboard
+    
+  - **Add or Restrict users to the dashboard**- Follow the below steps to add or restrict users to the dashboard
+  
+    a. Click the **User** (4) icon 
+  
+    <img src="/img/dashboard/image_9.png" />
+  
+    b. In the **User access control** window, select a user and the user's permission (Read and Write).
+  
+    c. Click the **`Add`** > **`Save`** button
+  
+    d. To restrict a user, select a user and the permission as Deny
+  
+    e. Click the **`Save`** button
+  
+  - **Delete the dashboard**- Click the **Delete** (**5**) icon to delete a dashboard.
+  
+  
 
-   - **Actions** - The actions column has the option to *Copy the Dashboard link* (**5**), *Clone the dashboard* (**6**), *Edit the dashboard* (**7**), *Add users to the dashboard* (**8**), and *Delete the dashboard* (**9**).
+#### Create a New Dashboard
 
-     ##### Copy the Dashboard link 
-     Click the **Copy the Dashboard link** (**5**) icon to copy the dashboard link. 
+<img src="/img/dashboard/image_8.png" />
 
-     ##### Edit the dashboard
-     Edit the dashboard (**6**)
+1. Click the **`Add Dashboard`** button.
 
-     ##### Clone the dashboard
-     The Clone the dashboard (**7**) option duplicates the dashboard and also allows you to edit the cloned dashboard.
+   <img src="/img/dashboard/image_4.png" />
 
-     ##### Add users to the dashboard
-     
-     Add users to the dashboard (**8**)
-     
-       a. Click the user icon
-     
-       b. In the User access control window, Select a user and the user permission.
-     
-       c. Click the Add button.
-     
-       d. Click the Save button.
-     
-     ##### Delete the dashboard
-     
-     Delete the dashboard (**9**).
+2. In the **Add Dashboard** window, select the following details: 
 
-   #### Create a New Dashboard
+   a. **Project Name**- Select the title of the project.
 
-   ![image3](C:\sfdocs\static\img\Dashboard\image_1.png)
+   b. **Application Name** - Select the title of the application.
 
-   
+   c. **Dashboard Name**- Type a user name
 
-   1. Click the **Add dashboard** (**1**) button.
+   d. **Feature** - Click the check box of the required feature. (Optional)
 
-      ![image4](C:\sfdocs\static\img\Dashboard\image_6.png)
-
-      
-
-   2. In the **Add Dashboard** (**1**) window, select the following details:
-
-      a. **Project Name** (**2**) - Select the title of the project.
-
-      b. **Application Name** (**3**) - Select the title of the application.
-
-      c. **Dashboard Name** (**4**) - Type a user name
-
-      d. **Feature** (**5**) - Select the check box of the required feature. (Optional)
-
-   3. Click the **Save** (**6**) button.
+3. Click the **`Save`** button.
 

@@ -827,8 +827,7 @@ module.exports = {
 			    'Dashboards/introduction',
                 'Dashboards/getting_started', 
                 'Dashboards/dashboard_management',
-			
-				{
+		        {
                     type: 'category',
                     label: 'dashboard_customization',
                         collapsed: true,
