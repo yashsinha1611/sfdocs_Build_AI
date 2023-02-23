@@ -1150,7 +1150,7 @@ Request bodies usually contain sensitive data like passwords and credit card num
     1. Update the apm code try block of tracing instrumentation code with the following key-value pair.
 
          ```
-         'CAPTURE_BODY': 'all'
+	 captureBody: 'all'
          ```
 
     2. Add the below line to capture the request body.
