@@ -1148,11 +1148,9 @@ Request bodies usually contain sensitive data like passwords and credit card num
 1. Add the below entries in your application’s main file at starting of the file (usually `index.js`, `server.js` or `app.js`)
 
     1. Update the apm code try block of tracing instrumentation code with the following key-value pair.
-
-         ```
-	 captureBody: 'all'
-         ```
-
+		```
+		captureBody: 'all'
+		```
     2. Add the below line to capture the request body.
 
          ```
@@ -1195,14 +1193,20 @@ The overall sample configuration is below:
 
 1. In the app, click the **View Dashboard** icon.
 2. If you provided the index type is log:
-   1. In the **Dashboard** window, go to **Logs** section.
-   2. In the **Overview** windows, select the **Source** and **Log Type**.
-   3. Now you can view the logs in the dashboard.
 
+   a. In the **Dashboard** window, go to **Logs** section.
+   
+   b. In the **Overview** windows, select the **Source** and **Log Type**.
+   
+   c. Now you can view the logs in the dashboard.
+   
 3. If you provided the index type as metric:
-   1. In the **Dashboard** window, go to **Browse Data** section.
-   2. select the plugin as **trace_body** and document type.
-   3. Now you can view the logs in the dashboard.
+
+   a. In the **Dashboard** window, go to **Browse Data** section.
+   
+   b. select the plugin as **trace_body** and document type.
+   
+   c. Now you can view the logs in the dashboard.
 
 	  <img src="/img/Trace-to-body.png" /><br/>
 
