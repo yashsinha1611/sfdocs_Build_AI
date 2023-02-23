@@ -4,7 +4,7 @@ The dashboard management document provides step-by-step instructions to manage a
 
 Follow the below steps to view and edit your dashboard list.
 
-<img src="/img/dashboard/image_11.png" />
+<img src="/img/dashboard/image_11.PNG" />
 
 1. Go to the **Application** (**1**) tab. 
 2. Click the ` +` (**2**) icon.
@@ -16,23 +16,23 @@ Follow the below steps to view and edit your dashboard list.
 
 <img src="/img/dashboard/image_7.png" />
 
-5. In the **Dashboard List** window, the *Dashboards* table with the following details will be auto-generated.
+5. In the **Dashboard List** window, the Dashboards table with the following details will be auto-generated.
 
 - **Name** - Title of the dashboard
 
 - **Project** - Title of the project
 
-- **Applications** - Title of the project
+- **Applications** - Title of the application
 
 - **Created by** - Name of the creator
 
 - **Created on** - Dashboard creation date
 
-- **Actions** - The actions column has the option to *Copy the Dashboard link*, *Clone the dashboard*, *Edit the dashboard*, *Add or Restrict users to the dashboard*, and *Delete the dashboard*
+- **Actions** - The actions column has the options to *Copy the Dashboard link*, *Clone the dashboard*, *Edit the dashboard*, *Add or Restrict users to the dashboard*, and *Delete the dashboard*
 
   - **Copy the Dashboard link**-  Click the **Copy** (**1**) icon to copy the dashboard link 
   
-  - **Clone the dashboard**- Click the **Clone** (**2**) icon to duplicates the dashboard. It also allows you to edit the cloned dashboard
+  - **Clone the dashboard**- Click the **Clone** (**2**) icon to replicate the dashboard. It also allows you to edit the cloned dashboard
   
   - **Edit the dashboard**- Click the **Edit** (**3**) icon to edit the information in an existing dashboard
     
@@ -42,7 +42,7 @@ Follow the below steps to view and edit your dashboard list.
   
     <img src="/img/dashboard/image_9.png" />
   
-    b. In the **User access control** window, select a user and the user's permission (Read and Write).
+    b. To add a user, select a user and the user's permission (Read and Write) in the **User access control** window.
   
     c. Click the **`Add`** > **`Save`** button
   
