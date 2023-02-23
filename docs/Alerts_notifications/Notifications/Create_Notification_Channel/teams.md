@@ -38,13 +38,13 @@ Incoming Webhook Uniform Resource Locator (URL)
 8. Click the **`Done`** button.
 
 ## Create a Teams Notification Channel in SnappyFlow
-<img src="/img/Notifications/Images/image_1.png" />
+<img src="/img/Notifications/image_1.png" />
 
 1. Go to the **Manage** (**1**) tab.
 
 2. Click the **`down arrow`**  (**2**) icon near your profile.
 
-   <img src="/img/Notifications/Images/image_34.png" />
+   <img src="/img/Notifications/image_34.png" />
 
 3. Go to the **Notification** section.
 
