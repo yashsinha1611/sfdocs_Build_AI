@@ -66,7 +66,7 @@ These templates are pre-loaded with the required stack information such as serve
 ### Pre-Requisites ###
 
 - AWS account
-- IAM role with required permissions. [Click here](###Create-an-IAM-Role)
+- IAM role with required permissions. 
 - Subscription for SnappyFlow Appliance & Ubuntu from the AWS Marketplace.
 
 ### Create an IAM Role
@@ -81,7 +81,7 @@ These templates are pre-loaded with the required stack information such as serve
 
    - In the **Policies** window, click the `Create policy` button
 
-     <img src="/img/iam_role/image_3.png" />
+     <img src="/img/iam_role/image_19.png" />
 
    - In the **Create policy** window, go to the **JSON** tab
 
@@ -107,8 +107,8 @@ These templates are pre-loaded with the required stack information such as serve
                "iam:UploadServerCertificate"
                ],
                "Resource": "*"
-            }
-        ]
+           }
+       ]
    }
    ```
 
