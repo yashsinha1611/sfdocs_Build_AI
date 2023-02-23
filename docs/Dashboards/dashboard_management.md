@@ -4,12 +4,11 @@ The dashboard management document provides step-by-step instructions to manage a
 
 Follow the below steps to view and edit your dashboard list.
 
-<img src="/img/dashboard/image_3.png" />
+<img src="/img/dashboard/image_11.png" />
 
 1. Go to the **Application** (**1**) tab. 
 2. Click the ` +` (**2**) icon.
 3. Click the **Application Menu** `...`  (**3**) icon.
-
 
 <img src="/img/dashboard/image_6.png" />
 
