@@ -11,34 +11,34 @@ Incoming Webhook Uniform Resource Locator (URL)
 
 1. Log in to your **Teams** account.
 
-   <img src="/img/Notifications/Images/image_27.PNG" />
+   <img src="/img/Notifications/Images/image_27.png" />
 
 2. Navigate to **Apps** (**1**) > **Incoming Webhook** (**2**).
 
-   <img src="/img/Notifications/Images/image_28.PNG" />
+   <img src="/img/Notifications/Images/image_28.png" />
 
 3. Click the **`Add to a team`** button.
 
-   <img src="/img/Notifications/Images/image_29.PNG" />
+   <img src="/img/Notifications/Images/image_29.png" />
 
 4. Select a team and click the **`Set up a connector`** button .
 
-   <img src="/img/Notifications/Images/image_30.PNG" />
+   <img src="/img/Notifications/Images/image_30.png" />
 
 5. Click the **`Configure`** button of the Incoming Webhook.
 
-   <img src="/img/Notifications/Images/image_31.PNG" />
+   <img src="/img/Notifications/Images/image_31.png" />
 
 6. Provide a name to **`Incoming Webhook`** and click the **`Create`** button.
 
-   <img src="/img/Notifications/Images/image_26.PNG" />
+   <img src="/img/Notifications/Images/image_26.png" />
 
 7. Copy the **Incoming Webhook URL** (**1**) and save the URL.
 
 8. Click the **`Done`** button.
 
 ## Create a Teams Notification Channel in SnappyFlow
-<img src="/img/Notifications/Images/image_1.PNG" />
+<img src="/img/Notifications/Images/image_1.png" />
 
 1. Go to the **Manage** (**1**) tab.
 
@@ -61,7 +61,7 @@ Incoming Webhook Uniform Resource Locator (URL)
 
 7. Click the **`Add`** button.
 
-   <img src="/img/Notifications/Images/image_24.PNG" /> 
+   <img src="/img/Notifications/Images/image_24.png" /> 
 
 8. The table with user details will be auto-generated as shown in the above image. The table has the following details:
 
