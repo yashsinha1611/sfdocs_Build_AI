@@ -852,7 +852,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 Follow the below steps to enable the tracing for the application based on Node.JS Express.
 
 
-#### Configuration
+### Configuration
 1. Install the below nodejs libraries using CLI.
 
    ```javascript
@@ -1142,7 +1142,7 @@ Request bodies usually contain sensitive data like passwords and credit card num
 
 ### Configuration
 
-1. Add the below entries in your application’s main file at starting of the file (usually `index.js`, `server.js` or `app.js`)
+1. Add the below entries in your application’s main file.(usually `index.js`, `server.js` or `app.js`)
 
     1. Update the apm code try block of tracing instrumentation code with the following key-value pair.
 		```
@@ -1155,7 +1155,7 @@ Request bodies usually contain sensitive data like passwords and credit card num
          sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          ```
          
-2. Follow the below steps in the to customize the document type and destination index. (Optional) 
+2. Follow the below steps in the starting of the main file to customize the document type and destination index. (Optional) 
 
      1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 

@@ -31,7 +31,15 @@ sfTrace Java Agent automatically instruments APIs, frameworks and application se
 
 [**ECS**](java#ecs)
 
+#### Supported Trace Features
 
+Below is the list of the supported trace features:
+ 
+* Distributed Tracing
+* Transaction Mapping
+* **[Log Correlation](java#log-correlation)**
+* **[Capture request Body from Trace](java#capture-request-body-from-trace)**
+* Service Map
 
 
 ## Instances
@@ -307,3 +315,210 @@ If you are using the fargate type, add the following information to the existing
 
     <img src="/img/java/Setup_snappyflow_trace_agent2.PNG" /><br/>
 
+## Capture Request Body from Trace
+
+This feature allows you to save the request body of the HTTP transactions to a specific index such as a log.
+
+:::caution
+
+Request bodies usually contain sensitive data like passwords and credit card numbers. If your service handles data like this, we advise you to enable this feature with care.
+
+:::
+
+### Configuration
+
+1. If you packaged application as a jar file, add the following properties while running the jar file.
+
+	1. Add the below properties to enable this feature.
+	  ```
+	  -Delastic.apm.global_labels="_tag_redact_body=true"
+	  -Delastic.apm.capture_body=all 
+	  ```
+	2. Add the below properties to customize the document type and destination index. (Optional)
+	  ```
+	  # default indexType is log, applicable values are log and metric
+	  -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log"
+	  # default documentType is user-input
+	  -Delastic.apm.global_labels="_tag_redact_body=true,_tag_documentType=custom-document"
+	  ```
+	
+	After adding the above properties the command looks like:
+	  ```
+	  java -Delastic.apm.capture_body=all -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document" -jar (application jar name)
+	  ```
+
+2.  If you packaged application as a war file, add the following properties in the `tomcat_setenv.sh` file.
+	
+	
+     1. Add the below properties to enable this feature.
+		```
+		export CATALINA_OPTS="$CATALINA_OPTS  -Delastic.apm.global_labels='_tag_redact_body=true'"
+		export CATALINA_OPTS="$CATALINA_OPTS  -Delastic.apm.capture_body=all' 
+		```
+	
+	 2. Add the below properties to customize the document type and destination index. (Optional)
+	    ```
+	    # default indexType is log, applicable values are log and metric
+	    export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_IndexType=log'"
+	    # default documentType is user-input
+	    export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_documentType=custom-document'"
+	    ```
+
+	After adding the above properties the file looks like:
+	```
+	export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.capture_body=all'
+	export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document'"
+	```
+	
+
+### Verification
+
+1. In the app, click the **View Dashboard** icon.
+2. If you provided the index type is log:
+
+   a. In the **Dashboard** window, go to **Logs** section.
+   
+   b. In the **Overview** windows, select the **Source** and **Log Type**.
+   
+   c. Now you can view the logs in the dashboard.
+   
+3. If you provided the index type as metric:
+
+   a. In the **Dashboard** window, go to **Browse Data** section.
+   
+   b. select the plugin as **trace_body** and document type.
+   
+   c. Now you can view the logs in the dashboard.
+
+	  <img src="/img/Trace-to-body.png" /><br/>
+
+## Log Correlation
+log correlation refers to the ability to linking log events from different sources, applications or components of a system to gain a holistic understanding of the system's behavior. When logs are captured, they are automatically correlated with the relevant transaction and span information. This correlation is done based on the shared context information, such as the transaction ID or the span ID.
+
+For example, when an error occurs in an application, SnappyFlow APM capture the error stack trace and link it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
+
+### Configuration
+
+1. Create a file with name `logback.xml` in your application `src/main/resources` folder. 
+
+2. Add the Following lines of configuration and provide the log file path.
+
+   ```xml
+   <?xml version = "1.0" encoding = "UTF-8"?> 
+   <configuration> 
+      <appender name = "FILE" class = "ch.qos.logback.core.FileAppender"> 
+         <!-- Add path for your log file eg. -->
+         <File>/var/log/spring-app.log </File> 
+         <encoder> 
+            <pattern> [%d{yyyy-MM-dd'T'HH:mm:ss.sss'Z'}] [%-2p] [%m] | elasticapm transaction.id=%X{transaction.id} trace.id=%X{trace.id} span.id=None %n </pattern> 
+         </encoder> 
+      </appender> 
+      <root level = "INFO"> 
+         <appender-ref ref = "FILE"/> 
+      </root> 
+   </configuration> 
+   ```
+
+3. Add logging statements to your application code through a logging framework such as Logback or Log4j. This will typically involve configuring a logging appender that sends log messages to the specified path.
+For example:
+
+  ```java
+  package org.springframework.samples;
+  import org.slf4j.Logger;
+  import org.slf4j.LoggerFactory;
+  class CustomController {
+    Logger logger = LoggerFactory.getLogger(CustomController.class);
+         
+    @GetMapping("/getCustomer")
+    public void getCustomer() {
+    	logger.info("Query success called GET /owners/*/pets/{petId}/visits/new");
+    }
+  }
+  ```
+
+4. Build your application and Add the below property.
+
+   1. Your application is packaged as a jar file, then add the `elastic.apm.enable_log_correlation` property  like below while running your application jar.
+      
+      For Example:
+      ```
+      java -Delastic.apm.enable_log_correlation=true -jar applicationjar.jar
+      ```
+      The Overall Configuration after enable the tracing, Capture request Body from Trace and log correlation:
+
+      ```
+      java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
+      -Dsftrace.service_name=spring-service 
+      -Delastic.apm.disable_instrumentations=spring-mvc
+      -Delastic.apm.use_path_as_transaction_name=true
+      -Delastic.apm.transaction_ignore_urls=/jolokia/*
+      -Delastic.apm.enable_log_correlation=true 
+      -Delastic.apm.capture_body=all
+      -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document" 
+      -jar <application jar>
+      ```
+
+   2. you application is packaged as a war file, add the `elastic.apm.enable_log_correlation` property in the `tomcat_setenv.sh` file.
+   
+      For Example: 
+      ```
+      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.enable_log_correlation=true"
+      ```
+      The Overall Configuration after enable the tracing, Capture request Body from Trace and log correlation:
+
+      ```sh
+      export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar"
+      export CATALINA_OPTS="$CATALINA_OPTS -Dsftrace.apm.service_name=custom-service"
+      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.disable_instrumentation=spring-mvc"
+      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.use_path_as_transaction_name=true"
+      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.enable_log_correlation=true"
+      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.capture_body=all"
+      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document'" 
+      ```
+
+### Steps to send log correlation data to SnappyFlow APM
+---
+### Instance
+
+Add the elasticApmLog plugin under logging section in the sfagent `config.yaml` file.
+
+For Example:
+
+   ```
+   key: <SF_PROFILE_KEY>
+   tags:
+   Name: <any-name>
+   appName: <SF_APP_NAME>
+   projectName: <SF_PROJECT_NAME>
+   logging:
+   plugins:
+      - name: elasticApmTraceLog
+         enabled: true
+         config:
+            log_level:
+               - error
+               - warning
+               - info
+            # Your app log file path
+            log_path: /var/log/spring-app.log
+   ```
+
+##### Verification
+
+To view the logs
+1. In the app, click the View **Dashboard** icon.
+2. In the Dashboard window, go to **Logs** section.
+3. Select the logType as **elasticApmTraceLog**
+4. Now you can view the logs in the dashboard.
+
+### Kubernetes
+Add the following elasticApmLog plugin under logging section in the sfkubeagent `config.yaml` file which is running as side car container. 
+```
+logging:
+  plugins:
+   - name: elasticApmTraceLog
+      enabled: true
+      config:
+         log_path: /var/log/spring-app.log
+
+```
