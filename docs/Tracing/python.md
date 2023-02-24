@@ -143,6 +143,7 @@ Follow the below steps to enable the tracing for the application based on Django
       1. Add the import statement. 
          ```
          from sf_apm_lib.snappyflow import Snappyflow 
+         import os
          ```
 
       2. Add the following entry in `INSTALLED_APPS` block.
@@ -219,14 +220,16 @@ The below link contains the sample application with the trace enabled by followi
 
 ### Flask
 
-1. Add 
+Follow the below steps to enable the tracing for the application based on Flask Framework.
 
-   ```python
+#### Configuration
+
+1. Add the below mentioned entries in requirements.txt file to install sf-elastic-apm and sf-apm-lib in your environment.
+    
+   ```
    sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
-
-   entries in requirements.txt file and install these in your project environment 
 
    or 
 
@@ -237,69 +240,103 @@ The below link contains the sample application with the trace enabled by followi
    pip install sf-apm-lib==0.1.1 
    ```
 
-2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable. 
-
-3. Add following entries in `app.py` 
-
-   1. Add imports statement
-
-      ```python
-      from elasticapm.contrib.flask import ElasticAPM 
+2. 
+   - If the sfAgent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in the `app.py` file. <br/>
+    i.  Add the import statement. 
+      ```
+      from elasticapm.contrib.flask import ElasticAPM
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
 
-   2. Get trace config
-
-      ```python
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
-
-      # Add below part to manually configure the initialization 
-      SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
-      SF_APP_NAME = os.getenv('SF_APP_NAME') 
-      SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
-      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
-      # End of manual configuration
-
+    ii. Add the following source code to integrate the Express application to the SnappyFlow.
+      ```
+      # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
+      sf = Snappyflow() 
       SFTRACE_CONFIG = sf.get_trace_config()
-
-      # Start Trace to log feature section
-      # Add below line of code to enable Trace to log feature:
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      # Option Configs for trace to log
-      # Add below line to provide custom documentType (Default:"user-input"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      # Add below line to provide destination index (Default:"log"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
-      # End trace to log section 
-      ```
-
-   3. Initialize elastic apm and instrument it to flask app
-
-      ```python
       app.config['ELASTIC_APM'] = { 
-          'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
-          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
-          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
-          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-          'DEBUG': True,
-          'METRICS_INTERVAL': '0s'
+         # Specify your service name for tracing 
+         'SERVICE_NAME': 'flask-service', 
+         'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+         'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+         'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+         'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+         'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+         'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+         'METRICS_INTERVAL': '0s'
       } 
-      apm = ElasticAPM(app) 
+      apm = ElasticAPM(app)
       ```
+   - If the sfAgent is not installed in your instance, then follow the below steps:<br/>
+     i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/><br/>
 
-   4. Once your server is up and running you can check trace in Snappyflow Server. 
+     ii. Export `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as the environment variables.
 
-      For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+      ```         
+      #Update the below default values with proper values
+      SF_PROJECT_NAME=<project name>
+      SF_APP_NAME=<app-name>
+      SF_PROFILE_KEY=<profile-key>
+      ```
+      <br/>
+      iii. Add the following entries in the app.py file. <br/>
 
-      Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab<br/><br/>
+      1. Add the import statement. 
+         ```
+         from elasticapm.contrib.flask import ElasticAPM 
+         from sf_apm_lib.snappyflow import Snappyflow 
+         import os
+         ```
 
- :::note 
-    'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
- :::note
+      2.  Add the following source code to integrate the Flask application to the SnappyFlow. 
 
+         ```
+         sf = Snappyflow() 
+         # Add below part to manually configure the initialization 
+         SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
+         SF_APP_NAME = os.getenv('SF_APP_NAME') 
+         SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
+         sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
+         # End of manual configuration   
+         SFTRACE_CONFIG = sf.get_trace_config()
+         app.config['ELASTIC_APM'] = { 
+            # Specify your service name for tracing 
+            'SERVICE_NAME': 'flask-service', 
+            'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+            'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+            'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
+            'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+            'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
+            'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
+            'METRICS_INTERVAL': '0s'
+         } 
+         apm = ElasticAPM(app) 
+         ```
+      
+#### Verification
+
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+#### Troubleshooting
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `app.py`.
+2. To enable the debug logs, add the below key-value pair in the app.config block of the `app.py`.
+
+   ```
+   'DEBUG':'true'
+   ```
+  
+#### Sample Application Code
+
+The below link contains the sample application with the trace enabled by following the configuration mentioned in the above sections.
+
+[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the reference application.
 
 ### Script
 
@@ -312,7 +349,7 @@ The below link contains the sample application with the trace enabled by followi
 
 2. Add following code at start of script file to setup elastic apm client
 
-   ```python
+   ```
    import elasticapm 
    from sf_apm_lib.snappyflow import Snappyflow 
 
@@ -339,7 +376,7 @@ The below link contains the sample application with the trace enabled by followi
 
    Example
 
-   ```python
+   ```
    def main(): 
        sess = requests.Session() 
        for url in [ 'https://www.elastic.co', 'https://benchmarks.elastic.co' ]: 
@@ -383,7 +420,7 @@ The below link contains the sample application with the trace enabled by followi
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```python
+   ```
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
    from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
@@ -434,7 +471,7 @@ Follow the below steps to enable the tracing for the applications based on Djang
 
 1. Add the below mentioned entries in requirements.txt file to install sf-elastic-apm and sf-apm-lib in your environment.
 
-   ```python
+   ```
    sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
    ```
@@ -448,7 +485,9 @@ Follow the below steps to enable the tracing for the applications based on Djang
    pip install sf-apm-lib==0.1.1 
    ```
 
-2. Add the following entries in `settings.py` file.
+2. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  
+
+3. Add the following entries in `settings.py` file.
 
    1. Add the import statements.
 
@@ -500,7 +539,7 @@ Follow the below steps to enable the tracing for the applications based on Djang
          print("Error while fetching snappyflow tracing configurations", error)
       ```
 
-3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file.
+4. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file.
    
       ```yaml
       #deployment.yaml
@@ -559,7 +598,7 @@ Follow the below steps to enable the tracing for the applications based on Djang
             value: {{ .Values.global.sfappname }}
       ```
 
-#### Verification
+##### Verification
 
 Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
 
@@ -572,7 +611,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 	 <img src="/img/Trace_AggregateTab.png" /><br/>
 	  <img src="/img/Trace_RealTime.png" /><br/>
 	  
-#### Troubleshooting
+##### Troubleshooting
 
 1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
 
@@ -583,7 +622,7 @@ Once your application is up and running, follow the below steps to verfiy that t
    ```
 
        
-#### Sample Application Code
+##### Sample Application Code
 
 The below link contains the sample application with the trace enabled by following the configuration mentioned in the above sections.
  
@@ -591,92 +630,145 @@ The below link contains the sample application with the trace enabled by followi
 
 ### Flask
 
-1. Add 
+Follow the below steps to enable the tracing for the application based on Flask Framework.
 
-   ```python
+##### Configuration
+
+1. Add the below mentioned entries in requirements.txt file to install sf-elastic-apm and sf-apm-lib in your environment.
+    
+   ```
    sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
 
-   entries in requirements.txt file and install these in your project environment 
-
    or 
 
-   Install through CLI using 
+   Install the below libraries using CLI.
 
-   ```docker
-   RUN pip install sf-elastic-apm[flask]==6.7.2 
-   RUN pip install sf-apm-lib==0.1.1 
    ```
+   pip install sf-elastic-apm[flask]==6.7.2 
+   pip install sf-apm-lib==0.1.1 
+   ```
+2. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  
 
-2. Add following entries in app.py 
+3. Add following entries in the `app.py`. 
 
    1. Add imports statement
 
-      ```python
+      ```
       from elasticapm.contrib.flask import ElasticAPM 
       from sf_apm_lib.snappyflow import Snappyflow 
+      import os
       ```
 
-   2. Get trace config
-
-      ```python
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
-
+   2. Add the following source code to integrate the Flask application to the SnappyFlow.
+   
+      ```
+      sf = Snappyflow() 
       # Add below part to manually configure the initialization 
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
       SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
       sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
-      # End of manual configuration 
-
+      # End of manual configuration   
       SFTRACE_CONFIG = sf.get_trace_config()
-
-      # Start Trace to log feature section
-      # Add below line of code to enable Trace to log feature:
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      # Option Configs for trace to log
-      # Add below line to provide custom documentType (Default:"user-input"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      # Add below line to provide destination index (Default:"log"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
-      # End trace to log section 
-      ```
-
-   3. Initialize elastic apm and instrument it to flask app
-
-      ```python
       app.config['ELASTIC_APM'] = { 
-         'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
+          # Specify your service name for tracing 
+         'SERVICE_NAME': 'flask-service', 
          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-         'DEBUG': True,
          'METRICS_INTERVAL': '0s'
-      } 
-      apm = ElasticAPM(app) 
+       } 
+       apm = ElasticAPM(app) 
+      ```
+4. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file.
+   
+      ```yaml
+      #deployment.yaml
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+      name: python-app
+      labels:
+         app: python-app
+      spec:
+      containers:
+      - name: python-app
+         image: imagename/tag:version
+         env:
+         - name: SF_PROFILE_KEY
+            value: <profle-key>
+         - name: SF_PROJECT_NAME
+            value: <project_name>
+         - name: SF_APP_NAME
+            value: <app-name>
+      ``` 
+   If the deployment is with helm charts, provide the above variables in the `values.yaml` and use them in the deployment file of charts. 
+
+      ```yaml
+      #values.yaml
+      global:
+      # update the sfappname, sfprojectname and key with the proper values
+      sfappname: <app-name>
+      sfprojectname: <project-name>
+      key: <profile-key>
+
+      replicaCount: 1
+      image:
+      repository: djangoapp
+      pullPolicy: IfNotPresent
+      tag: "latest"
       ```
 
-3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file. 
+      Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
 
-   https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
+      ```yaml
+      #deployment.yaml
+      apiVersion: apps/v1
+      kind: Deployment
+      spec:
+      containers:
+         - name: {{ .Chart.Name }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            imagePullPolicy: {{ .Values.image.pullPolicy }}
+            env:
+            - name: SF_PROFILE_KEY
+            value: {{ .Values.global.key }}
+            - name: SF_PROJECT_NAME
+            value: {{ .Values.global.sfprojectname }}
+            - name: SF_APP_NAME
+            value: {{ .Values.global.sfappname }}
+      ```
+ 
+##### Verification
 
-   If deploying with helm provide above variables in values.yaml and use them in deployment file of charts. 
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+##### Troubleshooting
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `app.py`.
+2. To enable the debug logs, add the below key-value pair in the app.config block of the `app.py`.
 
-   https://phoenixnap.com/kb/helm-environment-variables
+   ```
+   'DEBUG':'true'
+   ```
+  
+##### Sample Application Code
 
-4. Once your server is up and running you can check trace in Snappyflow Server. 
+The below link contains the sample application with the trace enabled by following the configuration mentioned in the above sections.
 
-   For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
-
-   Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
-
- :::note 
-   'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
- :::note
+[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the reference application.
 
 ### Celery
 
@@ -690,7 +782,7 @@ The below link contains the sample application with the trace enabled by followi
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```python
+   ```
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
    from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
@@ -737,7 +829,7 @@ Follow the below steps to enable the tracing for the application based on Django
 
 1. Add below mentioned entries in requirements.txt file and install these in your project environment.
 
-   ```python
+   ```
    sf-elastic-apm==6.7.2
    sf-apm-lib==0.1.1
    ```
@@ -818,7 +910,6 @@ Follow the below steps to enable the tracing for the application based on Django
    -e SF_APP_NAME='' \ 
    -e SF_PROFILE_KEY='' \ 
    -p 80:80 \ 
-   --link redis:redis \   
    --name <container_name> <dockerhub_id/image_name> 
    ```
 
@@ -856,101 +947,97 @@ The below link contains the sample application with the trace enabled by followi
 
 ### Flask
 
-1. Add 
+Follow the below steps to enable the tracing for the application based on Flask Framework.
 
-   ```python
+##### Configuration
+
+1. Add the below mentioned entries in requirements.txt file to install sf-elastic-apm and sf-apm-lib in your environment.
+    
+   ```
    sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
 
-   entries in requirements.txt file and install these in your project environment 
-
    or 
 
-   Install through CLI using
+   Install the below libraries using CLI.
 
-   ```docker
-   RUN pip install sf-elastic-apm[flask]==6.7.2 
-   RUN pip install sf-apm-lib==0.1.1 
    ```
+   pip install sf-elastic-apm[flask]==6.7.2 
+   pip install sf-apm-lib==0.1.1 
+   ```
+2. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  
 
-2. Add following entries in app.py
+3. Add following entries in the `app.py`. 
 
    1. Add imports statement
 
       ```
       from elasticapm.contrib.flask import ElasticAPM 
       from sf_apm_lib.snappyflow import Snappyflow 
+      import os
       ```
 
-   2. Get trace config
-
-      ```python
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
-
+   2. Add the following source code to integrate the Flask application to the SnappyFlow.
+   
+      ```
+      sf = Snappyflow() 
       # Add below part to manually configure the initialization 
-      # import os module
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
       SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
       sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
-      # End of manual configuration 
-
+      # End of manual configuration   
       SFTRACE_CONFIG = sf.get_trace_config()
-
-      # Start Trace to log feature section
-      # Add below line of code to enable Trace to log feature:
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      # Option Configs for trace to log
-      # Add below line to provide custom documentType (Default:"user-input"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      # Add below line to provide destination index (Default:"log"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
-      # End trace to log section
-
-      ```
-
-   3. Initialize elastic apm and instrument it to flask app
-
-      ```python
       app.config['ELASTIC_APM'] = { 
-         'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
+          # Specify your service name for tracing 
+         'SERVICE_NAME': 'flask-service', 
          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-         'DEBUG': True,
          'METRICS_INTERVAL': '0s'
-      } 
-      apm = ElasticAPM(app) 
+       } 
+       apm = ElasticAPM(app) 
       ```
 
-3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in docker-compose.yml or docker stack deployment file or at command line when using docker run command for deployment.  
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in `docker-compose.yml` or docker stack deployment file or at command line when using docker run command for deployment. 
 
-   Eg: 
+   Follow the below referrence documentation:
 
-   Docker-compose and stack: https://docs.docker.com/compose/environment-variables/ 
+   https://docs.docker.com/compose/environment-variables/ 
 
-   Docker run cli command: 
+   Docker RUN: 
 
    ```docker
-   docker run -d -t -i -e SF_PROJECT_NAME='<SF_PROJECT_NAME>' \  
-   -e SF_APP_NAME='<SF_APP_NAME>' \ 
-   -e SF_PROFILE_KEY='<snappyflow profile key>' \ 
-   --name <container_name>  <dockerhub_id/image_name> 
+   docker run -d -t -i -e SF_PROJECT_NAME='' \  
+   -e SF_APP_NAME='' \ 
+   -e SF_PROFILE_KEY='' \ 
+   -p 80:80 \ 
+   --name <container_name> <dockerhub_id/image_name> 
    ```
 
-4. Once your server is up and running you can check trace in Snappyflow Server. 
+##### Verification
 
-   For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+##### Troubleshooting
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `app.py`.
+2. To enable the debug logs, add the below key-value pair in the app.config block of the `app.py`.
 
-   Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
-
- :::note 
-   'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
- :::note
+   ```
+   'DEBUG':'true'
+   ```
 
 ### Celery
 
@@ -964,7 +1051,7 @@ The below link contains the sample application with the trace enabled by followi
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```python
+   ```
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
    from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation
@@ -1122,89 +1209,93 @@ The below link contains the sample application with the trace enabled by followi
 
 ### Flask
 
-1. Add 
+Follow the below steps to enable the tracing for the application based on Flask Framework.
 
-   ```python
+##### Configuration
+
+1. Add the below mentioned entries in requirements.txt file to install sf-elastic-apm and sf-apm-lib in your environment.
+    
+   ```
    sf-elastic-apm[flask]==6.7.2
    sf-apm-lib==0.1.1
    ```
 
-   entries in requirements.txt file and install these in your project environment 
-
    or 
 
-   Install through CLI using
+   Install the below libraries using CLI.
 
-   ```docker
-   RUN pip install sf-elastic-apm[flask]==6.7.2 
-   RUN pip install sf-apm-lib==0.1.1 
    ```
+   pip install sf-elastic-apm[flask]==6.7.2 
+   pip install sf-apm-lib==0.1.1 
+   ```
+2. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  
 
-2. Add following entries in `app.py` 
+3. Add following entries in the `app.py`. 
 
    1. Add imports statement
 
-      ```python
+      ```
       from elasticapm.contrib.flask import ElasticAPM 
       from sf_apm_lib.snappyflow import Snappyflow 
+      import os
       ```
 
-   2. Get trace config
-
-      ```python
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml
-      
+   2. Add the following source code to integrate the Flask application to the SnappyFlow.
+   
+      ```
+      sf = Snappyflow() 
       # Add below part to manually configure the initialization 
-      # import os module
       SF_PROJECT_NAME = os.getenv('SF_PROJECT_NAME') 
       SF_APP_NAME = os.getenv('SF_APP_NAME') 
       SF_PROFILE_KEY = os.getenv('SF_PROFILE_KEY') 
       sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
-      # End of manual configuration
-      
+      # End of manual configuration   
       SFTRACE_CONFIG = sf.get_trace_config()
-      
-      # Start Trace to log feature section
-      # Add below line of code to enable Trace to log feature:
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      # Option Configs for trace to log
-      # Add below line to provide custom documentType (Default:"user-input"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      # Add below line to provide destination index (Default:"log"):
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' # Applicable values(log, metric)
-      # End trace to log section
-      ```
-
-   3. Initialize elastic apm and instrument it to flask app
-
-      ```python
       app.config['ELASTIC_APM'] = { 
-         'SERVICE_NAME': '<SERVICE_NAME>', # Specify your service name for tracing 
+          # Specify your service name for tracing 
+         'SERVICE_NAME': 'flask-service', 
          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
          'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
-         'DEBUG': True,
          'METRICS_INTERVAL': '0s'
-      } 
-      apm = ElasticAPM(app)
+       } 
+       apm = ElasticAPM(app) 
       ```
+4. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
-3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
+   Refer the below documentation:
+  
+	https://catalog.us-east-1.prod.workshops.aws/workshops/c6bdf8dc-d2b2-4dbd-b673-90836e954745/en-US/container-migration/create-task-definition
+   
 
-   https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
+##### Verification
 
-4. Once your server is up and running you can check trace in Snappyflow Server. 
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+##### Troubleshooting
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `app.py`.
+2. To enable the debug logs, add the below key-value pair in the app.config block of the `app.py`.
 
-   For viewing trace in snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+   ```
+   'DEBUG':'true'
+   ```
+  
+##### Sample Application Code
 
-   Once project and app name is created, Go to View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
+The below link contains the sample application with the trace enabled by following the configuration mentioned in the above sections.
 
- :::note 
-   'CAPTURE_BODY':'all' config should be present in apm agent code instrumentation for Trace to Log feature. 
- :::note
+[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the reference application.
 
 ### Celery
 
@@ -1218,7 +1309,7 @@ The below link contains the sample application with the trace enabled by followi
 
 2. Add following code at start of the file where celery app is initialized to setup elastic apm client
 
-   ```python
+   ```
    from sf_apm_lib.snappyflow import Snappyflow 
    from elasticapm import Client, instrument 
    from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation
@@ -1265,7 +1356,7 @@ The below link contains the sample application with the trace enabled by followi
 
 1.  Add these python libraries in requirements.txt file. Follow the AWS lambda doc on adding runtime dependency to lambda function. 
 
-   ```python
+   ```
    sf-apm-lib==0.1.1 
    sf-elastic-apm==6.7.2 
    ```
@@ -1276,7 +1367,7 @@ The below link contains the sample application with the trace enabled by followi
 
    1. Import Libraries
 
-      ```python
+      ```
       import elasticapm 
       from sf_apm_lib.snappyflow import Snappyflow 
       ```
@@ -1379,115 +1470,152 @@ except Exception as error:
 
 ```    
 
-
 ## Log Correlation
+log correlation refers to the ability to linking log events from different sources, applications or components of a system to gain a holistic understanding of the system's behavior. When logs are captured, they are automatically correlated with the relevant transaction and span information. This correlation is done based on the shared context information, such as the transaction ID or the span ID.
 
-For enabling the log correlation, follow the below instructions.
+For example, when an error occurs in an application, SnappyFlow APM capture the error stack trace and link it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
+
+**Django**
+
+**Flask**
 
 ### Django
 
-a.	Add import statement in settings.py
-```python
-from elasticapm.handlers.logging import Formatter
-```
+To enable log correlation in a Django application, follow the below steps:
 
-b.	Add following logging configuration in settings.py.
-```python
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True, // Disable existing logger
-    'formatters': {
-       'elastic': { // Add elastic formatter
-            'format': '[%(asctime)s] [%(levelname)s] [%(message)s]',
-            'class': 'elasticapm.handlers.logging.Formatter',
-            'datefmt': "%d/%b/%Y %H:%M:%S"
-        }
-    },
-    'handlers': {
-        'elasticapm_log': {
-            'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/var/log/trace/django.log', //specify you log file path
-            'formatter': 'elastic'
-        }
-    },
-    'loggers': {
-        'elasticapm': {
-            'handlers': ['elasticapm_log'],
-            'level': 'INFO',
-        }
-    }
-}
-```
-c. Usage:
-```python
-import logging
-log = logging.getLogger('elasticapm')
+#### Configuration
 
-class ExampleView(APIView):
-   def get(self, request):
-      log.info('Get API called')
+1. Add the import statement in `settings.py`.
 
-```
-Refer code: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-django
+   ```
+   from elasticapm.handlers.logging import Formatter
+   ```
+2. Add the following logging configuration in `settings.py`.
+
+   ```python
+   LOGGING = {
+      'version': 1,
+      'disable_existing_loggers': True, // Disable existing logger
+      'formatters': {
+         'elastic': { // Add elastic formatter
+               'format': '[%(asctime)s] [%(levelname)s] [%(message)s]',
+               'class': 'elasticapm.handlers.logging.Formatter',
+               'datefmt': "%d/%b/%Y %H:%M:%S"
+         }
+      },
+      'handlers': {
+         'elasticapm_log': {
+               'level': 'INFO',
+               'class': 'logging.handlers.RotatingFileHandler',
+               'filename': '/var/log/django.log', //specify you log file path
+               'formatter': 'elastic'
+         }
+      },
+      'loggers': {
+         'elasticapm': {
+               'handlers': ['elasticapm_log'],
+               'level': 'INFO',
+         }
+      }
+   }
+   ```
+3. Add logging statements to your Django views file and other application code using the Python `logging` module. For example:
+
+   ```
+   import logging
+   log = logging.getLogger('elasticapm')
+
+   class ExampleView(APIView):
+      def get(self, request):
+         log.info('Get API called')
+   ```
+
+##### Sample Application Code
+
+The below link contains the sample application with the log correlation enabled by following the configuration mentioned in the above sections.
+
+[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application.
 
 ### Flask
 
-1.	Add following code in app.py after import statements to set logger configuration
-```python
-import logging
-from elasticapm.handlers.logging import Formatter
-fh = logging.FileHandler('/var/log/trace/flask.log') 
+To enable log correlation in a Flask application, follow the below steps:
 
-# we imported a custom Formatter from the Python Agent earlier 
-formatter = Formatter("[%(asctime)s] [%(levelname)s] [%(message)s]", "%d/%b/%Y %H:%M:%S") 
-fh.setFormatter(formatter) 
-logging.getLogger().addHandler(fh)
+1. Add the import statement in `app.py`
 
-# Once logging is configured get log object using following code  
-log = logging.getLogger()
-log.setLevel('INFO')
+   ```
+   import logging
+   from elasticapm.handlers.logging import Formatter
+   ```
 
-@app.route('/')
-def home():
-   log.info('Home API called')
-   return 'Welcome to Home'
-```
-Refer code: https://github.com/snappyflow/tracing-reference-apps/blob/master/refapp-flask/app.py
+2. Add  the following code in `app.py` after import statements to set logger configuration.
+ 
+   ```
+   fh = logging.FileHandler('/var/log/trace/flask.log') 
 
+   # we imported a custom Formatter from the Python Agent earlier 
+   formatter = Formatter("[%(asctime)s] [%(levelname)s] [%(message)s]", "%d/%b/%Y %H:%M:%S") 
+   fh.setFormatter(formatter) 
+   logging.getLogger().addHandler(fh)
+
+   # Once logging is configured get log object using following code  
+   log = logging.getLogger()
+   log.setLevel('INFO')
+   ```
+3. Add logging statements to your Flask `app.py` using the Python `logging` module. 
+
+   For example:
+   ```
+   @app.route('/')
+   def home():
+      log.info('Home API called')
+      return 'Welcome to Home'
+
+   ```
+##### Sample Application Code
+
+The below link contains the sample application with the log correlation enabled by following the configuration mentioned in the above sections.
+
+[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask/app.py) to view the reference application.
+
+### Steps to send log correlation data to SnappyFlow APM
 ---
+#### Instance
 
-## Send log correlation data to snappyflow server
+To send the Log Correlation data to SnappyFlow APM, you need to install the sfAgent in the instance. See [documentation to install sfAgent](https://stage-docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux) in the instance.
 
-Below are the modes for sending log correlated data to snappyflow server
+After installing the sfAgent and configuring the profileKey, appName and projectName in the `config.yaml` file, add the elasticApmLog plugin under logging section in the sfagent `config.yaml` file.
 
-### <b> For Appliance: </b>
+For Example:
 
-Install sfagent and create config file.
+   ```
+   key: <SF_PROFILE_KEY>
+   tags:
+   Name: <any-name>
+   appName: <SF_APP_NAME>
+   projectName: <SF_PROJECT_NAME>
+   logging:
+   plugins:
+      - name: elasticApmTraceLog
+         enabled: true
+         config:
+            log_level:
+               - error
+               - warning
+               - info
+            # Your app log file path
+            log_path: /var/log/ntrace.log
+   ```
 
-Refer: https://docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux
+##### Verification
 
-Add elasticApmLog plugin to sfagent config.yaml and restart sfagent service.
-Eg. Config.yaml
-```yaml
-key: <SF_PROFILE_KEY>
-tags:
-  Name: <any-name>
-  appName: <SF_APP_NAME>
-  projectName: <SF_PROJECT_NAME>
-logging:
-  plugins:
-    - name: elasticApmTraceLog
-      enabled: true
-      config:
-         log_level:
-            - error
-            - warning
-            - info
-         log_path: /var/log/trace/ntrace.log  # Your app log file path
-```
+To view the logs
+1. In the app, click the View **Dashboard** icon.
+2. In the Dashboard window, go to **Logs** section.
+3. Select the logType as **elasticApmTraceLog**
+4. Now you can view the logs in the dashboard.
 
-### <b> For Kubernetes: </b>
+
+#### Kubernetes
 
 Specify following values in metadata labels section of deployment file.
 ```yaml
@@ -1495,7 +1623,7 @@ snappyflow/appname: <SF_APP_NAME>
 snappyflow/projectname: <SF_PROJECT_NAME>
 snappyflow/component: gen-elastic-apm-log # This is must for tracing log correlation
 ```
-### Sample deployment file
+##### Sample deployment file
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
