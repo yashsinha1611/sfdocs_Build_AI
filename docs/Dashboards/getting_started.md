@@ -16,42 +16,62 @@
 
 
 
-## Step-by-step guide to create a dashboard
+## A step-by-step guide to create a dashboard
 
-1. Go to the Application tab.
-2. Navigate to Project
+1. Go to the **Application** tab.
 
-## Global vs Custom timeline
+2. Navigate to **Project** > **Application**.
 
-- A component by default uses the timeline selected in the global component
+3. Click the Dashboard icon.
 
-  ![img](/img/display-by-time.png)
+4. The **Recommended Dashboard** window will pop up. 
 
-- However, a user can evaluate a component for a specific custom using the following steps
+   :::note
 
-  - Edit the component and go to the advanced section
+   The **Recommended Dashboard** is based on the services running in your application.
 
-  - Select “Custom Time”
+   :::
 
-  - Go to the JSON Editor and edit the time fields as shown below. In this example, we evaluate the component for last 1 hour. User can specify 30m for 30 minutes, 1d for 1day etc.
+5. Select the services as per the requirement.
 
-    ![img](/img/edit-component.webp)
+6. Click the **`Apply`** button.
 
-## Template
+## Dashboard Features
 
-#### What is a template?
+#### 1. Metrics
 
-##### Change Template
+Metrics are the graphical representations of the data collected from your application. 
+The SnappyFlow segregates the data based on the services in your application and enables you to visualize each set of data in a graphical form such as a bar chart, line chart, etc...
 
-##### Save as a Template
+#### 2. Logs
 
-##### Upload Template
+#### 3. Real User Monitoring 
 
-##### Delete Custom Template
+#### 4. Profiling
 
-##### Clear Dashboard
+#### 5. SIEM
 
-##### Restore Backup
+#### 6. Alerts
+
+#### 7. Browse Data
+
+#### 8. Timeline
+
+The time
+
+#### 9. Template
+
+The template feature gives you access to. This feat
+
+**Change Template**, **Save as a Template**, **Upload Template**, **Delete Custom** **Template**, **Clear Dashboard**, **Restore Backup**
+
+#### 10. Add Component
+
+The *Add Component* feature allows you to customize your dashboard.  
+
+#### 11. Share
+
+
 
 
 

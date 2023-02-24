@@ -134,7 +134,7 @@ These templates are pre-loaded with the required stack information such as serve
 
    - Select the **Use case** as **EC2** and click `Next`
 
-     <img src="/img/iam_role/image_14.png" />
+     <img src="/img/iam_role/image_20.png" />
 
    - Go to the **Add permissions** section
 
@@ -146,7 +146,9 @@ These templates are pre-loaded with the required stack information such as serve
      
    - In the Role details, give a **Role name** and **Description** (optional).
    
-     <img src="/img/iam_role/image_18.png" />
+     <img src="/img/iam_role/image_21.png" />
+     
+     <img src="/img/iam_role/image_22.png" />
      
    - Review the entities and permissions.
    

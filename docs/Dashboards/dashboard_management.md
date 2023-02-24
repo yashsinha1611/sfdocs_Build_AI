@@ -14,7 +14,7 @@ Follow the below steps to view and edit your dashboard list.
 
 4. Select the **Dashboard List** option.
 
-<img src="/img/dashboard/image_7.png" />
+<img src="/img/dashboard/image_15.png" />
 
 5. In the **Dashboard List** window, the Dashboards table with the following details will be auto-generated.
 
@@ -56,11 +56,11 @@ Follow the below steps to view and edit your dashboard list.
 
 #### Create a New Dashboard
 
-<img src="/img/dashboard/image_8.png" />
+<img src="/img/dashboard/image_14.png" />
 
 1. Click the **`Add Dashboard`** button.
 
-   <img src="/img/dashboard/image_4.png" />
+   <img src="/img/dashboard/image_13.png" />
 
 2. In the **Add Dashboard** window, select the following details: 
 

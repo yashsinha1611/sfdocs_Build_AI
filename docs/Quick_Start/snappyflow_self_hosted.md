@@ -1,5 +1,5 @@
 # Setup SnappyFlow Self Hosted
- 
+
 
 ##### [AWS](/docs/Quick_Start/aws)
 

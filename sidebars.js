@@ -824,8 +824,7 @@ module.exports = {
             },
             collapsed: true,
             items: [
-			    'Dashboards/introduction',
-                'Dashboards/getting_started', 
+			    'Dashboards/getting_started', 
                 'Dashboards/dashboard_management',
 		        {
                     type: 'category',
