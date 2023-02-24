@@ -1,6 +1,7 @@
  
 
 # NodeJS tracing
+The NodeJS tracing automatically instruments APIs, frameworks and application servers. The sfAPM trace agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server.
 
 #### Available Platforms
 
@@ -14,67 +15,57 @@
 
 **[AWS Lambda](nodejs#aws-lambda)**
 
-**For Log Correlation, scroll to the bottom of this page or [click here](#log-correlation)**
+#### Supported Trace Features 
 
+Below is the list of the supported trace features:
+ 
+* Distributed Tracing
+* Transaction Mapping
+* **[Log Correlation](nodejs#log-correlation)**
+* **[Capture request Body from Trace](nodejs#capture-request-body-from-trace)**
+* Service Map
+
+The Log Correlation and Capture Request Body from Trace features are not enabled by default. Users need to add additional configurations.
 
 ## Instances
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in `package.json` using
+Follow the below steps to enable the tracing for the application based on Node.JS Express.
+
+### Configuration
+1. Install the below nodejs libraries using CLI.
 
    ```javascript
    npm install --save elastic-apm-node@^3.20.0
    npm install --save sf-apm-lib@^1.0.2
    ```
 
-   or update `package.json` file with following entries
+   or update the `package.json` file with following entries.
 
    ```javascript
    "elastic-apm-node": "^3.20.0"
    "sf-apm-lib": "^1.0.2" 
    ```
 
-   and run `npm install` to install dependencies
+   and run  the `npm install` command in the CLI to install dependencies.
+   
 
-
-2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable in `.env` file and load it using `require('dotenv').config()` and access it in code using `process.env.<ENV_VAR>`
-
-3. Add initilization code at start of the file 
-
-   1. Get Snappyflow trace config using
-
+2. 
+   - If the sfAgent is already installed in your instance, the trace agent picks up the profileKey, projectName, and appName from the config.yaml file. Add the below entries in your application’s main file at starting of the file (usually `index.js`, `server.js` or `app.js`). <br/><br/>
+    i. Add the following source code to integrate the Express application to the SnappyFlow.
+   
       ```javascript
-      const Snappyflow = require('sf-apm-lib');
-      var sfObj = new Snappyflow(); // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
       
-      // Add below part to manually configure the initialization 
-      let projectName = process.env.SF_PROJECT_NAME; 
-      let appName = process.env.SF_APP_NAME; 
-      let profileKey = process.env.SF_PROFILE_KEY; 
-      sfObj.init(profileKey, projectName, appName); // Manual override
-
-      let sfTraceConfig = sfObj.getTraceConfig();
-
-      // Start Trace to log feature section
-      // Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      // Option Configs for trace to log
-      // Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      // Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
-      // End trace to log section
-
-      ```
-
-   2. Initialize apm object using
-
-      ```javascript
+      const Snappyflow = require('sf-apm-lib');
+      // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
+      var sfObj = new Snappyflow(); 
+      
       var apm; 
       try { 
          apm = require('elastic-apm-node').start({ 
-               serviceName: '<SERVICE_NAME>', // Specify your service name for tracing 
+               // Specify your service name for tracing.
+               serviceName: 'node-trace',  
                serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
                globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
                verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
@@ -88,24 +79,80 @@
          console.log(e); 
       } 
       ```
+   - If the sfAgent is not installed in your instance, then follow the below steps:<br/>
+     i. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/><br/>
+     ii. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable in `.env` file. Follow the below steps to use custom environment variables in Node.
+      1. Create an .env file, add the following variables. The file should be placed in the root of your project.
+         ``` 
+         # Update the below default values with proper values
+          SF_PROJECT_NAME=<project name>
+          SF_APP_NAME=<app-name>
+          SF_PROFILE_KEY=<profile-key>
+         ``` 
+      2. Install the dotenv library.
+         ```
+         npm install dotenv
+         ```
+      3. Add the below code in your application main file to read environment variables from `.env` file and load it using require('dotenv').config() and access the variables it in code using process.env.<ENV_VAR>.
+         ```
+           require('dotenv').config();
+         ```
+     iii. Add the following source code in the main file to integrate the Express application to the SnappyFlow.
 
-   3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
+       ```javascript
 
-      https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
+       const Snappyflow = require('sf-apm-lib');
+       // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
+       var sfObj = new Snappyflow(); 
 
-   4. Once your server is up and running you can check trace in Snappyflow Server. 
+       // Add below part to manually configure the initialization 
+       let projectName = process.env.SF_PROJECT_NAME; 
+       let appName = process.env.SF_APP_NAME; 
+       let profileKey = process.env.SF_PROFILE_KEY; 
+       sfObj.init(profileKey, projectName, appName);
+       let sfTraceConfig = sfObj.getTraceConfig();
 
-      For viewing trace in Snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+       var apm; 
+       try { 
+          apm = require('elastic-apm-node').start({ 
+                // Specify your service name for tracing.
+                serviceName: 'node-trace',  
+                serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
+                globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
+                verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
+                active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
+                stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
+                captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+                metricsInterval: '0s',
+                usePathAsTransactionName: true
+           }) 
+       } catch (e) { 
+          console.log(e); 
+       } 
+       ```
 
-      Once project and app name is created go to:
+#### Verification
 
-      View dashboard -> Click on Tracing on left side bar   -> Click on view transaction -> Go to real time tab 
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
 
-   5. For complete code refer sample app refer at:
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
+	  
+#### Troubleshooting
 
-      https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express
-   
-   6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the application main file.
+
+2. To enable the debug logs, add the below key-value pair in the apm code try block of the main file.
+
+   ```
+   logLevel:'debug'
+   ```
 
 ### Node.JS Script
 
@@ -218,32 +265,36 @@
 2. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variable in .env file and load it using `require('dotenv').config()` and access it in code using `process.env.<ENV_VAR>`
 
 3. Add initilization code at start of the file in `globals.js` present in config folder.
+   1. Get Snappyflow trace config using.
+       ```javascript
+       const Snappyflow = require('sf-apm-lib');
+       // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
+       var sfObj = new Snappyflow(); 
 
-   1. Get Snappyflow trace config using:  
-
-      ```javascript
-      const Snappyflow = require('sf-apm-lib');
-
-      var sfObj = new Snappyflow(); // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml.
-
-      // Add below part to manually configure the initialization 
-      let projectName = process.env.SF_PROJECT_NAME; 
-      let appName = process.env.SF_APP_NAME; 
-      let profileKey = process.env.SF_PROFILE_KEY; 
-      sfObj.init(profileKey, projectName, appName); // Manual override
-
-      let sfTraceConfig = sfObj.getTraceConfig();
-
-      // Start Trace to log feature section
-      // Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      // Option Configs for trace to log
-      // Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      // Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
-      // End trace to log section 
-      ```
+       // Add below part to manually configure the initialization 
+       let projectName = process.env.SF_PROJECT_NAME; 
+       let appName = process.env.SF_APP_NAME; 
+       let profileKey = process.env.SF_PROFILE_KEY; 
+       sfObj.init(profileKey, projectName, appName);
+       let sfTraceConfig = sfObj.getTraceConfig();
+       var apm; 
+       try { 
+             apm = require('elastic-apm-node').start({ 
+             // Specify your service name for tracing.
+             serviceName: 'node-trace',  
+             serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
+             globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
+             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
+             active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
+             stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
+             captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+             metricsInterval: '0s',
+             usePathAsTransactionName: true
+             }) 
+          } catch (e) { 
+              console.log(e); 
+           } 
+       ```
 
    2. Initialize apm object using:
 
@@ -317,86 +368,140 @@
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in `package.json` using
+Follow the below steps to enable the tracing for the application based on Node.JS Express.
+
+
+### Configuration
+1. Install the below nodejs libraries using CLI.
 
    ```javascript
-   npm install --save elastic-apm-node@^3.20.0  
-   npm install --save sf-apm-lib@^1.0.2 
+   npm install --save elastic-apm-node@^3.20.0
+   npm install --save sf-apm-lib@^1.0.2
    ```
 
-   or update `package.json` file with following entries: 
+   or update the `package.json` file with following entries.
 
    ```javascript
-   "elastic-apm-node": "^3.20.0"  
+   "elastic-apm-node": "^3.20.0"
    "sf-apm-lib": "^1.0.2" 
    ```
 
-     and run `npm install` to install dependencies
+   and run  the `npm install` command in the CLI to install dependencies.
 
-2. Add initilization code at start of the file in `app.js`
+2. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/>
+3.  Add the below entries in your application’s main file at starting of the file (usually `index.js`, `server.js` or `app.js`).
 
-   1. Get Snappyflow trace config using
+    ```javascript
+    const Snappyflow = require('sf-apm-lib');
+    // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
+    var sfObj = new Snappyflow(); 
 
-      ```javascript
-      const Snappyflow = require('sf-apm-lib'); 
-      var sfObj = new Snappyflow(); // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml.
+    // Add below part to manually configure the initialization 
+    let projectName = process.env.SF_PROJECT_NAME; 
+    let appName = process.env.SF_APP_NAME; 
+    let profileKey = process.env.SF_PROFILE_KEY; 
+    sfObj.init(profileKey, projectName, appName);
+    let sfTraceConfig = sfObj.getTraceConfig();
+    var apm; 
+    try { 
+          apm = require('elastic-apm-node').start({ 
+          // Specify your service name for tracing.
+          serviceName: 'node-trace',  
+          serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
+          globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
+          verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
+          active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
+          stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
+          captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+          metricsInterval: '0s',
+          usePathAsTransactionName: true
+          }) 
+       } catch (e) { 
+           console.log(e); 
+        } 
+    ```
+3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file.
+   
+      ```yaml
+      #deployment.yaml
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+      name: node-app
+      labels:
+         app: node-app
+      spec:
+      containers:
+      - name: node-app
+         image: imagename/tag:version
+         env:
+         - name: SF_PROFILE_KEY
+            value: <profle-key>
+         - name: SF_PROJECT_NAME
+            value: <project_name>
+         - name: SF_APP_NAME
+            value: <app-name>
+      ``` 
+   If the deployment is with helm charts, provide the above variables in the `values.yaml` and use them in the deployment file of charts. 
 
-      // Add below part to manually configure the initialization 
-      let projectName = process.env.SF_PROJECT_NAME; 
-      let appName = process.env.SF_APP_NAME; 
-      let profileKey = process.env.SF_PROFILE_KEY; 
-      sfObj.init(profileKey, projectName, appName); // Manual override
+      ```yaml
+      #values.yaml
+      global:
+      # update the sfappname, sfprojectname and key with the proper values
+      sfappname: <app-name>
+      sfprojectname: <project-name>
+      key: <profile-key>
 
-      let sfTraceConfig = sfObj.getTraceConfig();
-
-      // Start Trace to log feature section
-      // Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      // Option Configs for trace to log
-      // Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      // Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
-      // End trace to log section 
+      replicaCount: 1
+      image:
+      repository: nodeapp
+      pullPolicy: IfNotPresent
+      tag: "latest"
       ```
+      Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
 
-   2. Initialize apm object using
-
-      ```javascript
-      var apm; 
-      try { 
-         apm = require('elastic-apm-node').start({ 
-            serviceName: '<SERVICE_NAME>', // Specify your service name for tracing 
-            serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
-            globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
-            verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
-            active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
-            stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
-            metricsInterval: '0s',
-            usePathAsTransactionName: true
-         }) 
-      } catch (e) { 
-         console.log(e); 
-      } 
+      ```yaml
+      #deployment.yaml
+      apiVersion: apps/v1
+      kind: Deployment
+      spec:
+      containers:
+         - name: {{ .Chart.Name }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            imagePullPolicy: {{ .Values.image.pullPolicy }}
+            env:
+            - name: SF_PROFILE_KEY
+            value: {{ .Values.global.key }}
+            - name: SF_PROJECT_NAME
+            value: {{ .Values.global.sfprojectname }}
+            - name: SF_APP_NAME
+            value: {{ .Values.global.sfappname }}
       ```
+#### Verification
 
-   3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in Kubernetes deployment file. 
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
 
-      https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/ 
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
+   
+#### Troubleshooting
 
-   4. Once your server is up and running you can check trace in Snappyflow Server. 
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the application main file.
 
-      For viewing trace in Snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+2. To enable the debug logs, add the below key-value pair in the apm code try block of the main file.
 
-      Once project and app name is created go to: View dashboard -> Click on Tracing on left side bar   -> Click on view transaction -> Go to real time tab 
+   ```
+   logLevel:'debug'
+   ```
 
-   5. For complete code refer sample app refer at: 
-
-      https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express
-
-   6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
-
+   
+   
 ### Node.JS Sails
 
 1. Install nodejs dependencies and save it in `package.json` using
@@ -522,101 +627,98 @@
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in `package.json` using
+Follow the below steps to enable the tracing for the application based on Node.JS Express.
 
-   ```docker
-   RUN npm install --save elastic-apm-node@^3.20.0 
-   RUN npm install --save sf-apm-lib@^1.0.2 
-   ```
-
-   or update `package.json` file with following entries: 
+### Configuration
+1. Install the below nodejs libraries using CLI.
 
    ```javascript
-   "elastic-apm-node": "^3.20.0" 
+   npm install --save elastic-apm-node@^3.20.0
+   npm install --save sf-apm-lib@^1.0.2
+   ```
+
+   or update the `package.json` file with following entries.
+
+   ```javascript
+   "elastic-apm-node": "^3.20.0"
    "sf-apm-lib": "^1.0.2" 
    ```
 
-    And run `npm install` to install dependencies
+   and run  the `npm install` command in the CLI to install dependencies.
 
-2. Add initilization code at start of the file in `app.js`
+2. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  <br/>
 
-   1. Get Snappyflow trace config using
+3.  Add the below entries in your application’s main file at starting of the file (usually `index.js`, `server.js` or `app.js`).
+  
+    ```javascript
+    const Snappyflow = require('sf-apm-lib');
+    // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
+    var sfObj = new Snappyflow(); 
 
-      ```javascript
-      const Snappyflow = require('sf-apm-lib'); 
-      var sfObj = new Snappyflow(); // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml.
+    // Add below part to manually configure the initialization 
+    let projectName = process.env.SF_PROJECT_NAME; 
+    let appName = process.env.SF_APP_NAME; 
+    let profileKey = process.env.SF_PROFILE_KEY; 
+    sfObj.init(profileKey, projectName, appName);
+    let sfTraceConfig = sfObj.getTraceConfig();
+    var apm; 
+    try { 
+          apm = require('elastic-apm-node').start({ 
+          // Specify your service name for tracing.
+          serviceName: 'node-trace',  
+          serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
+          globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
+          verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
+          active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
+          stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
+          captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
+          metricsInterval: '0s',
+          usePathAsTransactionName: true
+          }) 
+       } catch (e) { 
+           console.log(e); 
+        } 
+    ```
 
-      // Add below part to manually configure the initialization 
-      let projectName = process.env.SF_PROJECT_NAME; 
-      let appName = process.env.SF_APP_NAME; 
-      let profileKey = process.env.SF_PROFILE_KEY; 
-      sfObj.init(profileKey, projectName, appName); // Manual override
+4. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in `docker-compose.yml` or docker stack deployment file or at command line while using docker run command for deployment. 
 
-      let sfTraceConfig = sfObj.getTraceConfig();
+   Follow the below referrence documentation:
 
-      // Start Trace to log feature section
-      // Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      // Option Configs for trace to log
-      // Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      // Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
-      // End trace to log section
+   https://docs.docker.com/compose/environment-variables/ 
 
-      ```
-
-   2. Initialize apm object using
-
-      ```javascript
-      var apm; 
-      try { 
-         apm = require('elastic-apm-node').start({ 
-            serviceName: '<SERVICE_NAME>', // Specify your service name for tracing 
-            serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
-            globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
-            verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
-            active: sfTraceConfig['SFTRACE_SERVER_URL'] === undefined ? false : true, 
-            stackTraceLimit: sfTraceConfig['SFTRACE_STACK_TRACE_LIMIT'], 
-            captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
-            metricsInterval: '0s',
-            usePathAsTransactionName: true
-         }) 
-      } catch (e) { 
-         console.log(e); 
-      } 
-      ```
-
-3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in `docker-compose.yml` or docker stack deployment file or at command line when using docker run command for deployment. 
-
-   Eg: 
-
-   Docker-compose and stack: https://docs.docker.com/compose/environment-variables/ 
-
-   Docker run cli command: 
+   Docker RUN: 
 
    ```docker
-   docker run -d -t -i -e SF_PROJECT_NAME='<Project name>' \  
-   -e SF_APP_NAME='<SF_APP_NAME>' \ 
-   -e SF_PROFILE_KEY='<snappyflow profile key>' \ 
-   --name <container_name>  <dockerhub_id/image_name> 
+   docker run -d -t -i -e SF_PROJECT_NAME='' \  
+   -e SF_APP_NAME='' \ 
+   -e SF_PROFILE_KEY='' \ 
+   -p 80:80 \ 
+   --link redis:redis \   
+   --name <container_name> <dockerhub_id/image_name> 
    ```
+#### Verification
 
-4. Once your server is up and running you can check trace in Snappyflow Server. 
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
 
-   // Project related info 
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
 
-   For viewing trace in Snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+#### Troubleshooting
 
-   Once project and app name is created go to  
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the application main file.
 
-   View dashboard -> Click on Tracing on lef side bar -> Click on view transaction -> Go to real time tab 
+2. To enable the debug logs, add the below key-value pair in the apm code try block of the main file.
 
-5. For complete code refer sample app refer at: 
-
-   https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express 
-
-6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+   ```
+   logLevel:'debug'
+   ```
+   
 ### Node.JS Sails
 
 1. Install nodejs dependencies and save it in `package.json` using 
@@ -749,57 +851,46 @@
 
 ### Node.JS Express
 
-1. Install nodejs dependencies and save it in `package.json` using
+Follow the below steps to enable the tracing for the application based on Node.JS Express.
+
+
+### Configuration
+1. Install the below nodejs libraries using CLI.
 
    ```javascript
-   npm install --save elastic-apm-node@^3.20.0 
-   npm install --save sf-apm-lib@^1.0.2 
+   npm install --save elastic-apm-node@^3.20.0
+   npm install --save sf-apm-lib@^1.0.2
    ```
 
-   or update `package.json` file with following entries
+   or update the `package.json` file with following entries.
 
    ```javascript
-   "elastic-apm-node": "^3.20.0" 
+   "elastic-apm-node": "^3.20.0"
    "sf-apm-lib": "^1.0.2" 
    ```
 
-   And run `npm install` to install dependencies 
+   and run  the `npm install` command in the CLI to install dependencies.
 
-2. Add initilization code at start of the file in `app.js`
-
-   1. Get Snappyflow trace config using:
-
+2. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.  
+ 
+3.  Add the below entries in your application’s main file at starting of the file (usually `index.js`, `server.js` or `app.js`). 
+  
       ```javascript
-      const Snappyflow = require('sf-apm-lib'); 
-      var sfObj = new Snappyflow(); // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml.
+      const Snappyflow = require('sf-apm-lib');
+      // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
+      var sfObj = new Snappyflow(); 
 
       // Add below part to manually configure the initialization 
       let projectName = process.env.SF_PROJECT_NAME; 
       let appName = process.env.SF_APP_NAME; 
       let profileKey = process.env.SF_PROFILE_KEY; 
-      sfObj.init(profileKey, projectName, appName); // Manual override
-
+      sfObj.init(profileKey, projectName, appName);
       let sfTraceConfig = sfObj.getTraceConfig();
-
-      // Start Trace to log feature section
-      // Add below line of code to enable Trace to log feature:
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      // Option Configs for trace to log
-      // Add below line to provide custom documentType (Default:"user-input"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=<document-type>'
-      // Add below line to provide destination index (Default:"log"):
-      sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=<index-type>' // Applicable values(log, metric)
-      // End trace to log section
-
-      ```
-
-   2. Initialize apm object using
-
-      ```javascript
       var apm; 
       try { 
-         apm = require('elastic-apm-node').start({ 
-            serviceName: '<SERVICE_NAME>', // Specify your service name for tracing 
+            apm = require('elastic-apm-node').start({ 
+            // Specify your service name for tracing.
+            serviceName: 'node-trace',  
             serverUrl: sfTraceConfig['SFTRACE_SERVER_URL'], 
             globalLabels: sfTraceConfig['SFTRACE_GLOBAL_LABELS'], 
             verifyServerCert: sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'] === undefined ? false : sfTraceConfig['SFTRACE_VERIFY_SERVER_CERT'], 
@@ -808,27 +899,38 @@
             captureSpanStackTraces: sfTraceConfig['SFTRACE_CAPTURE_SPAN_STACK_TRACES'],
             metricsInterval: '0s',
             usePathAsTransactionName: true
-         }) 
-      } catch (e) { 
-         console.log(e); 
-      } 
+            }) 
+         } catch (e) { 
+            console.log(e); 
+         } 
       ```
+4. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
-3. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
+   Refer the below documentation:
+	  https://catalog.us-east-1.prod.workshops.aws/workshops/c6bdf8dc-d2b2-4dbd-b673-90836e954745/en-US/container-migration/create-task-definition
 
-   https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html 
+#### Verification
 
-4. Once your server is up and running you can check trace in Snappyflow Server. 
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
 
-   For viewing trace in Snappyflow server make sure project and app name is created or discovered with project name and app name specified in point no.2 
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+      <img src="/img/Trace_Service_Map.png" /><br/>
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	 <img src="/img/Trace_AggregateTab.png" /><br/>
+	  <img src="/img/Trace_RealTime.png" /><br/>
 
-   Once project and app name is created go to: View dashboard -> Click on Tracing on left side bar   -> Click on view transaction -> Go to real time tab 
+#### Troubleshooting
 
-5. For complete code refer sample app refer at: 
+1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the application main file.
 
-   https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-express 
+2. To enable the debug logs, add the below key-value pair in the apm code try block of the main file.
 
-6. <b>Note</b>: <i> 'captureBody':'all' config should be present in apm agent code instrumentation for Trace to Log feature. </i>
+   ```
+   logLevel:'debug'
+   ```
 
 ### Node.JS Sails
 
@@ -1029,6 +1131,84 @@
         <img src="images\nodejs_lambda_1.png" />
 
    5. At this point you can trigger lambda function and get tracing data in SnappyFlow.
+
+
+## Capture Request Body from Trace
+
+This feature allows you to save the request body of the HTTP transactions to a specific index such as a log.
+
+:::caution
+
+Request bodies usually contain sensitive data like passwords and credit card numbers. If your service handles data like this, we advise you to enable this feature with care.
+
+:::
+
+### Configuration
+
+1. Add the below entries in your application’s main file at starting of the file (usually `index.js`, `server.js` or `app.js`)
+
+    1. Update the apm code try block of tracing instrumentation code with the following key-value pair.
+		```
+		captureBody: 'all'
+		```
+    2. Add the below line to capture the request body.
+
+         ```
+         # default value is true, 
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         ```
+         
+2. Follow the below steps in the to customize the document type and destination index. (Optional) 
+
+     1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
+
+         ```
+         # default indexType is log, applicable values are log and metric
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
+         ```
+     
+     2. Add the below line to customize the document type
+     
+         ```
+         # default documentType is user-input
+         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
+         ```
+
+The overall sample configuration is below:
+
+   ```
+   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true';
+   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log';
+   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input';
+   try {
+       apm = require('elastic-apm-node').start({
+          captureBody: 'all' 
+       });
+     } catch (e) {
+      console.log(e);
+    }
+   ```    
+
+### Verification
+
+1. In the app, click the **View Dashboard** icon.
+2. If you provided the index type is log:
+
+   a. In the **Dashboard** window, go to **Logs** section.
+   
+   b. In the **Overview** windows, select the **Source** and **Log Type**.
+   
+   c. Now you can view the logs in the dashboard.
+   
+3. If you provided the index type as metric:
+
+   a. In the **Dashboard** window, go to **Browse Data** section.
+   
+   b. select the plugin as **trace_body** and document type.
+   
+   c. Now you can view the logs in the dashboard.
+
+	  <img src="/img/Trace-to-body.png" /><br/>
 
    
 ## Log Correlation
