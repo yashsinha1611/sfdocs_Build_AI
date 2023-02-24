@@ -33,7 +33,7 @@ The Log Correlation and Capture Request Body from Trace features are not enabled
 
 Follow the below steps to enable the tracing for the application based on Node.JS Express.
 
-### Configuration
+#### Configuration
 1. Install the below nodejs libraries using CLI.
 
    ```javascript
@@ -60,7 +60,7 @@ Follow the below steps to enable the tracing for the application based on Node.J
       const Snappyflow = require('sf-apm-lib');
       // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
       var sfObj = new Snappyflow(); 
-      
+      let sfTraceConfig = sfObj.getTraceConfig();
       var apm; 
       try { 
          apm = require('elastic-apm-node').start({ 
@@ -371,7 +371,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 Follow the below steps to enable the tracing for the application based on Node.JS Express.
 
 
-### Configuration
+#### Configuration
 1. Install the below nodejs libraries using CLI.
 
    ```javascript
@@ -393,7 +393,6 @@ Follow the below steps to enable the tracing for the application based on Node.J
 
     ```javascript
     const Snappyflow = require('sf-apm-lib');
-    // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
     var sfObj = new Snappyflow(); 
 
     // Add below part to manually configure the initialization 
@@ -629,7 +628,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 
 Follow the below steps to enable the tracing for the application based on Node.JS Express.
 
-### Configuration
+#### Configuration
 1. Install the below nodejs libraries using CLI.
 
    ```javascript
@@ -652,7 +651,6 @@ Follow the below steps to enable the tracing for the application based on Node.J
   
     ```javascript
     const Snappyflow = require('sf-apm-lib');
-    // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
     var sfObj = new Snappyflow(); 
 
     // Add below part to manually configure the initialization 
@@ -854,7 +852,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 Follow the below steps to enable the tracing for the application based on Node.JS Express.
 
 
-### Configuration
+#### Configuration
 1. Install the below nodejs libraries using CLI.
 
    ```javascript
@@ -877,7 +875,6 @@ Follow the below steps to enable the tracing for the application based on Node.J
   
       ```javascript
       const Snappyflow = require('sf-apm-lib');
-      // Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml. 
       var sfObj = new Snappyflow(); 
 
       // Add below part to manually configure the initialization 
@@ -1155,7 +1152,7 @@ Request bodies usually contain sensitive data like passwords and credit card num
 
          ```
          # default value is true, 
-         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
          ```
          
 2. Follow the below steps in the to customize the document type and destination index. (Optional) 
@@ -1164,22 +1161,22 @@ Request bodies usually contain sensitive data like passwords and credit card num
 
          ```
          # default indexType is log, applicable values are log and metric
-         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
          ```
      
      2. Add the below line to customize the document type
      
          ```
          # default documentType is user-input
-         SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
+         sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
          ```
 
 The overall sample configuration is below:
 
    ```
-   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true';
-   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log';
-   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input';
+   sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true';
+   sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log';
+   sfTraceConfig['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input';
    try {
        apm = require('elastic-apm-node').start({
           captureBody: 'all' 
