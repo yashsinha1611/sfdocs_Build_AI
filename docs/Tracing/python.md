@@ -1475,10 +1475,6 @@ log correlation refers to the ability to linking log events from different sourc
 
 For example, when an error occurs in an application, SnappyFlow APM capture the error stack trace and link it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
 
-**Django**
-
-**Flask**
-
 ### Django
 
 To enable log correlation in a Django application, follow the below steps:

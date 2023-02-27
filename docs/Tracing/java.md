@@ -50,7 +50,7 @@ Link the application with sfTrace Java Agent
 
 ### Command Line
 
-Use the following arguments while starting your application using java `–jar` command, in IDE, Maven or Gradle script: 
+Use the following arguments while starting your application using the `java -jar` command in IDE, Maven or Gradle script: 
 
 ```
 java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar -Dsftrace.service_name=<my-service> -jar <application jar> 
@@ -63,7 +63,7 @@ If `service_name` is not provided, an auto discovered service name will be a
 
 #### Additional features available for Spring Boot Applications
 
-By default, transaction names of unsupported Servlet API-based frameworks are in the form of $method unknown route. To modify this and to report the transactions names in the form of $method $path, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
+By default, transaction names of unsupported Servlet API-based frameworks are in the form of `$method` unknown route. To modify this and to report the transactions names in the form of `$method $path`, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
 
 ```
 -Delastic.apm.disable_instrumentations=spring-mvc  
@@ -96,37 +96,6 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
 
-#### Enable Trace to Log feature
-
-1. Add below system property to enable the feature:
-	```java
-	-Delastic.apm.global_labels="_tag_redact_body=true"
-	```
-
-	We also provide custom document type and destination index configs for this feature.(Optional)
-
-	a. Add below label to provide custom documentType (Default:"log"):
-
-	```java
-	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=metric" // Applicable values(log, metric)
-	```
-	b. Add below label to provide custom documentType (Default:"user-input"):
-	```java
-	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_documentType=<document-type>"
-	```
-	<b>Note </b>: <i>-Delastic.apm.capture_body=all properties needs to added when enabling trace to log feature</i>
-
-	Run Command:
-	```java
-	java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
-	-Dsftrace.service_name=spring-service 
-	-Delastic.apm.use_path_as_transaction_name=true
-	-Delastic.apm.capture_body=all 
-	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=<index_type>,_tag_documentType=<document_type>"
-	-Delastic.apm.metrics_interval=0s -jar target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
-	```
-
-
 ### Apache Tomcat
 
 Add the agent configuration in setenv.sh. If this file is not present,  create the file in below folder
@@ -134,13 +103,13 @@ Add the agent configuration in setenv.sh. If this file is not present,  create t
 <tomcat installation path>/bin
 ```
 Refer to [tomcat_setenv.sh](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/tomcat_setenv.sh)  for tracing specific configuration that needs to be copied to setenv.sh file. 
-Make the file executable using `chmod +x bin/setenv.sh` and start the server
+Make the file executable using `chmod +x bin/tomcat_setenv.sh` and start the server
 
 
 
 #### Additional features available for Spring Boot Applications
 
-By default, transaction names of unsupported Servlet API-based frameworks are in the form of $method unknown route. To modify this and to report the transactions names in the form of $method $path, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
+By default, transaction names of unsupported Servlet API-based frameworks are in the form of `$method` unknown route. To modify this and to report the transactions names in the form of `$method $path`, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
 
 ```
 -Delastic.apm.disable_instrumentations=spring-mvc  
@@ -173,37 +142,6 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
 
-#### Enable Trace to Log feature
-
-1. Add below system property to enable the feature:
-	```java
-	-Delastic.apm.global_labels="_tag_redact_body=true"
-	```
-
-	We also provide custom document type and destination index configs for this feature.(Optional)
-
-	a. Add below label to provide custom documentType (Default:"log"):
-
-	```java
-	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=metric" // Applicable values(log, metric)
-	```
-	b. Add below label to provide custom documentType (Default:"user-input"):
-	```java
-	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_documentType=<document-type>"
-	```
-	<b>Note </b>: <i>-Delastic.apm.capture_body=all properties needs to added when enabling trace to log feature</i>
-
-	Run Command:
-	```java
-	java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
-	-Dsftrace.service_name=spring-service 
-	-Delastic.apm.use_path_as_transaction_name=true
-	-Delastic.apm.capture_body=all 
-	-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=<index_type>,_tag_documentType=<document_type>"
-	-Delastic.apm.metrics_interval=0s -jar target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
-	```
-
-
 ### JBOSS EAP
 
 #### Standalone Mode 
@@ -217,7 +155,7 @@ Refer to [JBOSS_domain.xml](https://github.com/snappyflow/website-artefacts/bl
 After updating the configuration, restart the application. 
 
 #### Additional features available for Spring Boot Applications
-By default, transaction names of unsupported Servlet API-based frameworks are in the form of $method unknown route. To modify this and to report the transactions names in the form of $method $path, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
+By default, transaction names of unsupported Servlet API-based frameworks are in the form of `$method` unknown route. To modify this and to report the transactions names in the form of `$method $path`, use the following in javaagent configuration. This option is applicable only for spring-boot based applications.
 
 ```
 -Delastic.apm.disable_instrumentations=spring-mvc  
