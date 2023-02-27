@@ -5,9 +5,9 @@ sidebar_position: 3
 
 ## Prerequisites
 
-Incoming Webhook URL
+The incoming Webhook URL from your Teams account is required to integrate the SnappyFlow with Teams.
 
-## Get Incoming Webhook URL
+## Generate Incoming Webhook URL
 
 1. Log in to your **Teams** account.
 
@@ -27,24 +27,24 @@ Incoming Webhook URL
 
 5. Click the **`Configure`** button of the Incoming Webhook.
 
-   <img src="/img/Notifications/image_24.png" />
+   <img src="/img/Notifications/image_28.png" />
 
 6. Give a profile name to the **`Incoming Webhook`** and click the **`Create`** button.
 
-   <img src="/img/Notifications/image_20.png" />
+   <img src="/img/Notifications/image_25.png" />
 
-7. Copy the **Incoming Webhook URL** (**1**).
+7. Copy the **Incoming Webhook URL**.
 
 8. Click the **`Done`** button.
 
 ## Create a Teams Notification Channel in SnappyFlow
-<img src="/img/Notifications/image_1.PNG" />
+<img src="/img/Notifications/image_1.png" />
 
 1. Go to the **Manage** (**1**) tab.
 
 2. Click the **`down arrow`**  (**2**) icon near your profile.
 
-   <img src="/img/Notifications/image_12.PNG" />
+   <img src="/img/Notifications/image_12.png" />
 
 3. Go to the **Notification** section.
 

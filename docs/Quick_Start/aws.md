@@ -66,8 +66,8 @@ These templates are pre-loaded with the required stack information such as serve
 ### Pre-Requisites ###
 
 - AWS account
-- IAM role with required permissions. 
-- Subscription for SnappyFlow Appliance & Ubuntu from the AWS Marketplace.
+- IAM role with required permissions
+- Subscription for SnappyFlow Appliance & Ubuntu from the AWS Marketplace
 
 ### Create an IAM Role
 
@@ -144,13 +144,13 @@ These templates are pre-loaded with the required stack information such as serve
 
      <img src="/img/iam_role/image_17.png" />
      
-   - In the Role details, give a **Role name** and **Description** (optional).
+   - In the Role details, give a **Role name** and **Description** (optional)
    
      <img src="/img/iam_role/image_21.png" />
      
      <img src="/img/iam_role/image_22.png" />
      
-   - Review the entities and permissions.
+   - Review the entities and permissions
    
    - Click the `Create role`  button
    
