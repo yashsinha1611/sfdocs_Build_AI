@@ -1,8 +1,21 @@
 # Dashboard Management
 
-The dashboard management document provides step-by-step instructions to manage a dashboard and add new dashboards to your dashboard list.
+The dashboard management refers to the process of creating a new dashboard, editing the dashboard, controlling the permission of the users to the dashboard.
 
-Follow the below steps to view and edit your dashboard list.
+#### Use Cases
+
+1. To create multiple dashboards for an application.
+2. To grant or restrict permission to a user to access the dashboard.
+
+#### Terminology:
+
+Project Dashboard
+
+**Application Dashboard**- An application dashboard displays the data collected from the services 
+
+**Dashboard list**- The dashboard list shows the list of dashboards created for an application.
+
+Follow the below steps to manage the dashboards.
 
 <img src="/img/dashboard/image_11.PNG" />
 
@@ -16,7 +29,7 @@ Follow the below steps to view and edit your dashboard list.
 
 <img src="/img/dashboard/image_15.png" />
 
-5. In the **Dashboard List** window, the Dashboards table with the following details will be auto-generated.
+5. In the **Dashboard List** window, the Dashboards table with the following details will be generated.
 
 - **Name** - Title of the dashboard
 
