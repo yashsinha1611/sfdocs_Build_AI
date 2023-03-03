@@ -53,7 +53,7 @@ Dashboard management refers to creating a new dashboard, editing the dashboard, 
 
 ### Create a New Dashboard
 
- <img src="/img/dashboard/image_14.png" />
+ <img src="/img/dashboard/dash_manage/image_11.png" />
 
 1. Click the **`Add Dashboard`** button.
 
