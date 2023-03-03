@@ -1,75 +1,59 @@
 # Dashboard Management
 
-The dashboard management refers to the process of creating a new dashboard, editing the dashboard, controlling the permission of the users to the dashboard.
+Dashboard management refers to creating a new dashboard, editing the dashboard, and controlling the users' permission to the dashboard.
 
-#### Use Cases
+### Use Cases
 
 1. To create multiple dashboards for an application.
-2. To grant or restrict permission to a user to access the dashboard.
+2. To add a user to the dashboard.
+3. To grant or restrict permission to a user to access the dashboard.
 
-#### Terminology:
+## Manage Dashboard
 
-Project Dashboard
+   <img src="/img/dashboard/dash_manage/image_5.png" />
 
-**Application Dashboard**- An application dashboard displays the data collected from the services 
+1. Go to the **Application** tab. 
 
-**Dashboard list**- The dashboard list shows the list of dashboards created for an application.
+2. Navigate to the **Project** > **Application** (Example: default > Nested test).
 
-Follow the below steps to manage the dashboards.
+3. Click the **Application Menu** `...` icon.
 
-<img src="/img/dashboard/image_11.PNG" />
-
-1. Go to the **Application** (**1**) tab. 
-2. Click the ` +` (**2**) icon.
-3. Click the **Application Menu** `...`  (**3**) icon.
-
-<img src="/img/dashboard/image_6.png" />
+   <img src="/img/dashboard/dash_manage/image_6.png" />
 
 4. Select the **Dashboard List** option.
 
-<img src="/img/dashboard/image_15.png" />
+5. In the **Dashboard List** window, a Dashboard table with the following details (**Name**, **Project**, **Applications**, **Created by**, **Created on**, **Actions**) will be generated.
 
-5. In the **Dashboard List** window, the Dashboards table with the following details will be generated.
+ <img src="/img/dashboard/dash_manage/image_8.png" />
 
-- **Name** - Title of the dashboard
+- **Copy** - Click the Copy (**1**) icon to copy the dashboard URL
 
-- **Project** - Title of the project
+- **Clone**- Click the Clone (**2**) icon to replicate the dashboard. It also allows you to edit the cloned dashboard
 
-- **Applications** - Title of the application
+- **Edit**- Click the Edit (**3**) icon to edit the information in an existing dashboard
 
-- **Created by** - Name of the creator
+-  **User**- Click the User (**4**) icon to add a user and allow or restrict a user's permission to access the Dashboard
 
-- **Created on** - Dashboard creation date
+- **Delete**- Click the Delete (**5**) icon to delete a dashboard
 
-- **Actions** - The actions column has the options to *Copy the Dashboard link*, *Clone the dashboard*, *Edit the dashboard*, *Add or Restrict users to the dashboard*, and *Delete the dashboard*
+### User Access Control
 
-  - **Copy the Dashboard link**-  Click the **Copy** (**1**) icon to copy the dashboard link 
-  
-  - **Clone the dashboard**- Click the **Clone** (**2**) icon to replicate the dashboard. It also allows you to edit the cloned dashboard
-  
-  - **Edit the dashboard**- Click the **Edit** (**3**) icon to edit the information in an existing dashboard
-    
-  - **Add or Restrict users to the dashboard**- Follow the below steps to add or restrict users to the dashboard
-  
-    a. Click the **User** (4) icon 
-  
-    <img src="/img/dashboard/image_9.png" />
-  
-    b. To add a user, select a user and the user's permission (Read and Write) in the **User access control** window.
-  
-    c. Click the **`Add`** > **`Save`** button
-  
-    d. To restrict a user, select a user and the permission as Deny
-  
-    e. Click the **`Save`** button
-  
-  - **Delete the dashboard**- Click the **Delete** (**5**) icon to delete a dashboard.
-  
-  
+1. Click the **User** icon in the action column of the dashboard table.
 
-#### Create a New Dashboard
+   <img src="/img/dashboard/dash_manage/image_10.png" />
 
-<img src="/img/dashboard/image_14.png" />
+2. To add a user, select a user and the user's permission (**Read or Write**) in the **User access control** window.
+
+3. Click the **`Add`** > **`Save`** button.
+
+4. To restrict a user, select a user and the permission as **Deny**.
+
+5. Click the **`Save`** button.
+
+
+### Create a New Dashboard
+
+ <img src="/img/dashboard/image_14.png" />
 
 1. Click the **`Add Dashboard`** button.
 
@@ -77,13 +61,15 @@ Follow the below steps to manage the dashboards.
 
 2. In the **Add Dashboard** window, select the following details: 
 
-   a. **Project Name**- Select the title of the project.
+   a. **Project Name**- Select the title of the project
 
-   b. **Application Name** - Select the title of the application.
+   b. **Application Name**- Select the title of the application
 
    c. **Dashboard Name**- Type a user name
 
-   d. **Feature** - Click the check box of the required feature. (Optional)
+   d. **Feature**- Click the check box of the required feature (Optional)
 
 3. Click the **`Save`** button.
+
+   
 
