@@ -6,7 +6,7 @@ sidebar_position: 3
 
 API key from the OpsGenie platform.
 
-## Generate API key
+## Generate API key from Opsgenie
 
 1. Login into your Opsgenie account.
 
@@ -32,39 +32,39 @@ API key from the OpsGenie platform.
 
 7. Scroll up and copy the **API Key** to the clipboard.
 
-## Create an Opsgenie Notification Channel in SnappyFlow
+## Set up Opsgenie Notification Channel
 
 ​        <img src="/img/Notifications/opsgenie/image_41.png" />
 
 1. Go to the **Manage** tab.
 
-2. Click the **`down arrow`** icon near your profile.
-
-3. Go to the **Notification** section.
+2. Navigate to your **Profile** > **Notification** section.
 
    <img src="/img/Notifications/opsgenie/image_7.png" />
 
-4. Enter the required details in the **Notification** section.
+3. In the **Notification** section, enter the required details: 
 
-   - **Type** - Click the **drop-down** icon and select **`Opsgenie`**
-   - **Name** - Type a UserName
+   - **Type** - Click the **`drop-down`** icon and select **`OpsGenie`**
+   - **Name** - Provide a meaningful name for this channel
    - **API Key** - Enter the API key generated in your Opsgenie account
 
-5. Click the **Verify** button to validate to API Key.
+4. Click the **`Verify`** button to validate to API Key.
 
-6. **`valid API Key` **message will pop up if the API key is valid.
+5. **`valid API Key` **message will pop up if the API key is valid.
 
-7. Click the **`Add`** button. 
+6. Click the **`Add`** button. 
 
    <img src="/img/Notifications/opsgenie/image_40.png" />
 
-8. The table with user details will be generated as shown in the above image. The table has the following details:
+7. A table with channel details will be generated as shown in the above image. The table has the following information:
 
 - **Type** - Notification type
-- **Name** - Profile Name
-- **Status** - State of integration
-- **Action** - The action column has options to **Edit** and **Delete** the profile
+- **Name** - Name of the notification channel
+- **Status** - Current state of integration
+- **Actions** - The actions column has options to **Edit** and **Delete** the profile
 
 9. Click the **` Add new`** button to create multiple Opsgenie notification profiles.
 
-You have successfully created an Opsgenie notification channel. The next step is to map the notification to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
+## Add the Channel to the Project
+
+The next step is to add the notification channel to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
