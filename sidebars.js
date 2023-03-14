@@ -592,6 +592,22 @@ module.exports = {
                     id: 'Integrations/plugin/oracleASH',
                     label: 'Oracle ASH',
                 },
+				{
+                    type: 'category',
+                    label: 'PgBouncer',
+                    link: {
+                        type: 'doc',
+                        id: 'Integrations/pgBouncer/overview',
+                    },
+                    collapsed: true,
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Integrations/pgBouncer/pgBouncer_on_instance',
+                            label: 'PgBouncer on Instance'
+                        },
+                    ],
+                },
                 {
                     type: 'category',
                     label: 'Postgres',
@@ -711,6 +727,7 @@ module.exports = {
                     id: 'Integrations/zookeeper',
                     label: 'ZooKeeper',
                 },
+				
 
 
 
