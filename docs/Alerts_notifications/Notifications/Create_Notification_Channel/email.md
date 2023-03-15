@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Prerequisites
 
-You need an active SMTP compatible email server or email subscription. To get SMTP username, password and port details reach out to your email server admin. 
+You need an active Simple Mail Transfer Protocol (SMTP) compatible email server or email subscription. To get SMTP username, password and port details reach out to your email server admin. 
 
 - SMTP username
 - SMTP password
@@ -18,7 +18,7 @@ For Gmail users, your account email and password will be the SMTP username and p
 
 Follow the below steps to create an Email notification channel in SnappyFlow. Only SMTP is supported. 
 
-<img src="/img/Notifications/Images/image_1.PNG" /><br />
+<img src="/img/Notifications/email/image_1.png" />
 
    1. Go to the **Manage** (**1**) tab.
 
@@ -33,11 +33,11 @@ Follow the below steps to create an Email notification channel in SnappyFlow. On
 
       - **Time Zone** - Choose your time zone.
 
-      - **Name** - Provide a meaningful name to this channel.
+      - **Name** - Provide a meaningful name for this channel.
 
-      - **SMTP User** - Email account using which emails notifications will be sent.
+      - **SMTP User** - Email account using which email notifications will be sent.
 
-      - **Password** -Type the Simple Mail Transfer Protocol (SMTP) user password.
+      - **Password** -Type the SMTP user password.
 
       - **SMTP Server**- Type the SMTP server address (Eg: smtp.gmail.com).
 
@@ -53,9 +53,11 @@ Follow the below steps to create an Email notification channel in SnappyFlow. On
 
 ​             c. You will receive a test email .
 
-:::note Where's the receiver's email id?
+:::note 
 
-Receriver email id is configured in Step 3: Map Alerts to Notification Channel. For each alert, a differnt receiver id can be configured if required.
+Where's the receiver's email id?
+
+Receiver email id is configured in Step 3: Map Alerts to Notification Channel. For each alert, a different receiver id can be configured if required.
 
 :::
 
@@ -73,5 +75,7 @@ Receriver email id is configured in Step 3: Map Alerts to Notification Channel. 
 
 8. Click the **` Add new`**  (**1**) button to create multiple Email notification profiles.
 
-   You have successfully created an Email notification channel. The next step is to map the notification channel to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
+## Add the Channel to the Project
+
+The next step is to add the notification channel to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
 
