@@ -964,7 +964,7 @@ module.exports = {
 											 {
 												type: 'doc',
                                                 id: 'Alerts_notifications/Notifications/Create_Notification_Channel/opsGenie',
-                                                label: 'OpsGenie',
+                                                label: 'Opsgenie',
 											 },
 											 {
 												type: 'doc',

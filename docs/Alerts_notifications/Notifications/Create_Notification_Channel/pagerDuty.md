@@ -14,9 +14,9 @@ sidebar_position: 3
 
    <img src="/img/Notifications/pagerduty/image_4.png" />
 
-3. In the **Services** window, go to the **Integration** tab.
+3. In the **Services** window, go to the **Integrations** tab.
 
-4. Select the `+ Add another integration` (1) button.
+4. Select the `+ Add another integration` (1).
 
    <img src="/img/Notifications/pagerduty/image_6.png" />
 
@@ -30,7 +30,7 @@ sidebar_position: 3
 
    <img src="/img/Notifications/pagerduty/image_5.png" />
 
-6. In the **Integration** tab, click the `drop-down` of the SnappyFlow integration.
+6. In the **Integrations** tab, click the `drop-down` icon of the SnappyFlow integration.
 
 7. Copy the integration key and use the same while setting up the notification channel in SnappyFlow UI.
 
@@ -42,13 +42,14 @@ sidebar_position: 3
 
 1. Go to the **Manage** tab.
 
-2. Navigate to your **Profile** > **Notification** section.
+2. Navigate to your **Profile** > **Notifications** section.
 
    <img src="/img/Notifications/pagerduty/image_8.png" />
 
-3. In the **Notification** section, enter the required details: 
+3. In the **Notifications** section, enter the required details: 
 
    - **Type** - Click the **`drop-down`** icon and select **`PagerDuty`**
+   - **Time**- Select a time zone
    - **Name** - Provide a meaningful name for this channel
    - **Integration Key** - Enter the Integration key generated in your PageDuty account
 
@@ -61,9 +62,9 @@ sidebar_position: 3
 - **Type** - Notification type
 - **Name** - Name of the notification channel
 - **Status** - Current state of integration
-- **Actions** - The actions column has options to **Edit** and **Delete** the profile
+- **Actions** - The actions column has options to **Edit** and **Delete** the channel
 
-9. Click the **` Add new`** button to create multiple PagerDuty notification profiles.
+9. Click the **` Add new`** button to create multiple PagerDuty notification channels.
 
 ## Add the Channel to the Project
 

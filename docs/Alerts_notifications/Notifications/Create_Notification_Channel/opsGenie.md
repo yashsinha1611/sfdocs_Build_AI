@@ -4,7 +4,7 @@ sidebar_position: 3
 # Create Opsgenie Notification Channel 
 ## Prerequisites
 
-API key from the OpsGenie platform.
+API key from the Opsgenie platform.
 
 ## Generate API key from Opsgenie
 
@@ -38,11 +38,11 @@ API key from the OpsGenie platform.
 
 1. Go to the **Manage** tab.
 
-2. Navigate to your **Profile** > **Notification** section.
+2. Navigate to your **Profile** > **Notifications** section.
 
    <img src="/img/Notifications/opsgenie/image_7.png" />
 
-3. In the **Notification** section, enter the required details: 
+3. In the **Notifications** section, enter the required details: 
 
    - **Type** - Click the **`drop-down`** icon and select **`OpsGenie`**
    - **Name** - Provide a meaningful name for this channel
@@ -61,9 +61,9 @@ API key from the OpsGenie platform.
 - **Type** - Notification type
 - **Name** - Name of the notification channel
 - **Status** - Current state of integration
-- **Actions** - The actions column has options to **Edit** and **Delete** the profile
+- **Actions** - The actions column has options to **Edit** and **Delete** the channel
 
-9. Click the **` Add new`** button to create multiple Opsgenie notification profiles.
+9. Click the **` Add new`** button to create multiple Opsgenie notification channels.
 
 ## Add the Channel to the Project
 
