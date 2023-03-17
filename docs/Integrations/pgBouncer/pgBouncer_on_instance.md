@@ -46,9 +46,9 @@ Add the following configuration to the *config.yaml* file:
 
 
 ```yaml 
-key: <profile key> 
-tags: 
-  Name: <unique instance name or will be generated from IP> 
+key: <profile key>
+tags:   
+  Name: <unique instance name or will be generated from IP>  
   appName: <add application name> 
   projectName: <add project name> 
 metrics: 
@@ -62,11 +62,11 @@ metrics:
       	user: <username>
       	password: <password>
 logging:
-   plugins: 
+  plugins: 
     - name: pgbouncer
       enabled: true 
       config:
-        log_path: "/var/log/postgresql/pgbouncer.log" 
+        log_path: "/var/log/postgresql/pgbouncer.log"
        
 ```
 
