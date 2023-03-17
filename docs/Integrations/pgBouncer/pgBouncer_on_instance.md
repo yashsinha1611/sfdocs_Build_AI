@@ -61,11 +61,61 @@ metrics:
       	host: <host/IP>
       	user: <username>
       	password: <password>
+logging:
+   plugins: 
+    - name: pgbouncer
+      enabled: true 
+      config:
+        log_path: "/var/log/postgresql/pgbouncer.log" 
+       
 ```
 
+## View Metrics and Logs
+
+<img src="/img/integration/pgBouncer/image_2.png" />
+
+1. Login into SnappyFlow.
+
+2. Navigate to the **Application** tab > **Project** > **Application** and click the **Dashboard** icon.
+
+3. Click the **tab menu** `...` icon on the **Metric** tab.
+
+4. Select the **Import from template** option.
+
+   <img src="/img/integration/pgBouncer/image_1.png" />
+
+5. In the **Import to Metrics Panes** window, select **Filter By**: *`All`* or *`Custom`*, **Template Name**: *`PgBouncer`*.
+
+6. Click the `Save` button.
+
+### General logs 
+
+To view general logs:
+1. Navigate to your **Application's dashboard** > ** Log management** > **Primary storage**. 
+2. In the **Primary Storage** window, set the **Log Type** to a general log as per the requirement.
+
+**OR**
+
+In the **Browse Data** window, set the following filters:
+
+- **Index**: Log
+- **Instance**: Select your instance
+- **Plugin**: pgbouncer
+- **Document type**: `pgbouncerLogs`
 
 
- ### Metrics list
+### Metrics
+
+To view database metrics:
+
+1. Navigate to **Application's dashboard**> **Browse Data**.
+2. In the **Browse Data** window, set the following filters:
+- **Index**: Metrics
+- **Instance**: Select your instance
+- **Plugin**: pgbouncer
+- **Document type**: `pgbouncerDetails`, `databaseStats`, `databasePools`
+
+### Metrics list
 
 ##### PgbouncerDetails
 
@@ -124,33 +174,5 @@ metrics:
 | **numClientsWait**           | Client connections that have sent queries but have not yet got a server connection. |
 | **maximumWaitTimeinSeconds** | Maximum wait time of the first (oldest) client in the queue has waited, in seconds |
 | **maximumWaitMicroseconds**  | Microsecond part of the maximum waiting time.                |
-| **poolMode**                 | The pooling mode in use.                                     |
+| **poolMode**                 | The pooling mode in use.
 
-
-
-## View Metrics
-
-<img src="/img/integration/pgBouncer/image_2.png" />
-
-1. Login into SnappyFlow.
-
-2. Navigate to the **Application** tab > **Project** > **Application** and click the **Dashboard** icon.
-
-3. Click the **tab menu** `...` icon on the **Metric** tab.
-
-4. Select the **Import from template** option.
-
-   <img src="/img/integration/pgBouncer/image_1.png" />
-
-5. In the **Import to Metrics Panes** window, select **Filter By**: *`All`* or *`Custom`*, **Template Name**: *`PgBouncer`*.
-
-6. Click the `Save` button.
-
-7. To view database metrics, navigate to ***Application's dashboard*** > ***Browse Data***.
-
-8. In the **Browse Data** window, set the following filters:
-
-- **Index**: Metrics
-- **Instance**: Select your instance
-- **Plugin**: pgbouncer
-- **Document type**: pgbouncerDetails, databaseStats, databasePools
