@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # Create Slack Notification Channel
 
-## Step 1: Generate Slack Token
+## Generate Slack Token
 ### Create New App For Your Workspace
 
 1. Visit https://api.slack.com/apps
@@ -66,38 +66,42 @@ sidebar_position: 3
 
 3. Copy the `Bot User OAuth Token` and paste token in Slack notification settings in SnappyFlow.
 
-## Step 2: Create a Slack Notification Channel in SnappyFlow
+## Set up a Slack Notification Channel
 
-​       <img src="/img/Notifications/Slack/image_18.png" />
+Follow the below steps to set up a slack notification channel in SnappyFlow.
+
+​       <img src="/img/Notifications/Slack/image_21.png" />
 
 1. Go to the **Manage** tab.
 
-2. Click the **`down arrow`**  icon near your profile.
+2. Navigate to your **Profile** > **Notifications** section.
 
-3. Go to the **Notification** section.
+   <img src="/img/Notifications/Slack/image_18.png" />
 
-4. Enter the required details.
+3. In the **Notification** section, enter the required details:
 
-   - **Type** - Click the **drop-down** icon and select **`Slack`**
-   - **Name** - Type a UserName
+   - **Type** - Click the **`drop-down`** icon and select **`Slack`**
+   - **Time**- Select a time zone
+   - **Name** - Provide a meaningful name for this channel
    - **Token** - Enter the Token generated from the Slack app
 
    <img src="/img/Notifications/Slack/image_19.png" />
 
-5. You can use the Standard template or Create new template using **JSON** format.
+4. You can use the Standard template or Create new template using **JSON** format.
 
-6. Click the **`Add`** button.
+5. Click the **`Add`** button.
 
 <img src="/img/Notifications/Slack/image_20.png" />
 
-7. The table with user details will be generated as shown in the above image. The table has the following details:
+7. A table with the channel details will be generated as shown in the above image. The table has the following details:
 
 - **Type** - Notification type
-- **Name** - Profile Name
-- **Status** - State of integration
-- **Action** - The action column has options to **Edit** and **Delete** the profile
+- **Name** - Name of the notification channel
+- **Status** - Current state of integration
+- **Action** - The action column has options to **Edit** and **Delete** the channel
 
-8. Click the **` Add new`**  button to create multiple Slack notification profiles.
+8. Click the **` Add new`** button to create multiple Slack notification channels.
 
-You have successfully created a Slack notification channel. The next step is to map the notification to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
+## Add the Channel to the Project
+The next step is to add the notification channel to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
 

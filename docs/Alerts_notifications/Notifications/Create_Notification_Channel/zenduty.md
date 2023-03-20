@@ -4,9 +4,9 @@ sidebar_position: 3
 # Create Zenduty Notification Channel
 ## Prerequisites
 
-Application Program Interface (API) integration key from Zenduty
+Application Program Interface (API) integration key from Zenduty.
 
-## Get Zenduty API key
+## Generate Zenduty API key
 
 <img src="/img/Notifications/Images/image_4.PNG" /><br /> 
 
@@ -34,42 +34,46 @@ Application Program Interface (API) integration key from Zenduty
 
 9. Click the **`Add Integration`** (**3**) button.
 
-10. Copy the **Integration Key** generated.
-## Create a Zenduty Notification Channel in SnappyFlow
+10. Copy the **Integration Key** generated and use the same while setting up the notification channel in SnappyFlow.
+## Set up a Zenduty Notification Channel
 
-<img src="/img/Notifications/Images/image_1.PNG" /><br />
+Follow the below steps to set up a Zenduty notification channel in SnappyFlow.
 
-1. Go to the **Manage** (**1**) tab.
+<img src="/img/Notifications/zenduty/image_7.png" /><br />
 
-2. Click the **`down arrow`**  (**2**) icon near your profile.
+1. Go to the **Manage** tab.
+
+2. Navigate to your **Profile** > **Notifications** section.
 
    <img src="/img/Notifications/Images/image_8.PNG" /><br />
 
-3. Go to the **Notification**  (**1**) section.
+3. In the **Notifications**  (**1**) section, enter the required details:
 
-4. Enter the required details.
-   - **Type** - Click the **drop-down** icon and select **`Zenduty`**
-   - **Name** - Type a UserName
+   - **Type** - Click the **`drop-down`** icon and select **`Zenduty`**
+   - **Name** - Provide a meaningful name for this channel
    - **API Key** - Enter the API key generated in your Zenduty account
 
 5. Click the **`Verify`** (**2**) button.
 
    <img src="/img/Notifications/Images/image_9.PNG" /><br />
 
-6.   **`valid API Key` **message will be generated if the API key is valid.
+6. **`valid API Key` **message will be generated if the API key is valid.
 
 7. Click the **`Add`** (**1**) button.
 
    <img src="/img/Notifications/Images/image_10.PNG" /><br /> 
 
-8. The table with user details will be auto-generated as shown in the above image. The table has the following details:
+8. A table with the channel details will be generated as shown in the above image. The table has the following details:
 
    - **Type** - Notification type
-   - **Name** - Profile Name
-   - **Status** - State of integration
-   - **Action** - The action column has options to **Edit** and **Delete** the profile
+   - **Name** - Name of the notification channel
+   - **Status** - Current state of integration
+   - **Action** - The action column has options to **Edit** and **Delete** the channel
 
-9. Click the **` Add new`**  (**1**) button to create multiple Zenduty notification profiles.
+9. Click the **` Add new`**  (**1**) button to create multiple Zenduty notification channels.
 
-   You have successfully created a Zenduty notification channel. The next step is to map the notification to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
+## Add the Channel to the Project
+
+
+The next step is to add the notification channel to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
 

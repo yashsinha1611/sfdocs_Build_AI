@@ -33,45 +33,49 @@ The incoming Webhook URL from your Teams account is required to integrate the Sn
 
    <img src="/img/Notifications/image_25.png" />
 
-7. Copy the **Incoming Webhook URL**.
+7. Copy the **Incoming Webhook URL** and use the same while setting up the notification channel in SnappyFlow.
 
 8. Click the **`Done`** button.
 
-## Create a Teams Notification Channel in SnappyFlow
-<img src="/img/Notifications/image_1.png" />
+## Set up Teams Notification Channel
 
-1. Go to the **Manage** (**1**) tab.
+Follow the below steps to set up a Teams notification channel in SnappyFlow.
 
-2. Click the **`down arrow`**  (**2**) icon near your profile.
+<img src="/img/Notifications/teams/image_1.png" />
+
+1. Go to the **Manage** tab.
+
+2. Navigate to your **Profile** > **Notifications** section.
 
    <img src="/img/Notifications/image_12.png" />
 
-3. Go to the **Notification** section.
+3. In the **Notifications** section, enter the required details:
 
-4. Enter the required details.
-   - **Type** - Click the **drop-down** icon and select **`Teams`**
-   - **Name** - Type a UserName
+   - **Type** - Click the **`drop-down`** icon and select **`Teams`**
+   - **Name** - Provide a meaningful name for this channel
    - **URL** - Enter the Webhook URL generated in your Teams account
 
-5. Click the **`Verify`** button.
+4. Click the **`Verify`** button.
 
    <img src="/img/Notifications/image_17.png" />
 
-6.   **`Verification successful` **message will be generated if the URL is valid.
+5. **`Verification successful` **message will be generated if the URL is valid.
 
-7. Click the **`Add`** button.
+6. Click the **`Add`** button.
 
    <img src="/img/Notifications/image_19.png" /> 
 
-8. The table with user details will be auto-generated as shown in the above image. The table has the following details:
+7. The table with user details will be auto-generated as shown in the above image. The table has the following details:
 
    - **Type** - Notification type
-   - **Name** - Profile Name
-   - **Status** - State of integration
+   - **Name** - Name of the notification channel
+   - **Status** - Current state of integration
    - **Info**- The incoming webhook URL
-   - **Action** - The action column has options to **Edit** and **Delete** the profile
+   - **Action** - The action column has options to **Edit** and **Delete** the channel
 
-9. Click the **` Add new`** button to create multiple Teams notification profiles.
+8. Click the **` Add new`** button to create multiple Teams notification profiles.
 
-   You have successfully created a Teams notification channel. The next step is to map the notification to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
+## Add the Channel to the Project
+
+The next step is to add the notification channel to your project [Click here](/docs/Alerts_notifications/Notifications/Map_Notification_Alerts/map_projects_to_channels).
 
