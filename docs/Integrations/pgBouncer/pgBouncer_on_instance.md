@@ -82,16 +82,16 @@ logging:
 
 4. Select the **Import from template** option.
 
-   <img src="/img/integration/pgBouncer/image_1.png" />
+   <img src="/img/integration/pgBouncer/image_3.png" />
 
-5. In the **Import to Metrics Panes** window, select **Filter By**: *`All`* or *`Custom`*, **Template Name**: *`PgBouncer`*.
+5. In the **Import to Metrics Panes** window, select **Filter By**: *`All`* or *`Standard`*, **Template Name**: *`PgBouncer`*.
 
 6. Click the `Save` button.
 
 ### General logs 
 
 To view general logs:
-1. Navigate to your **Application's dashboard** > ** Log management** > **Primary storage**. 
+1. Navigate to your **Application's dashboard** > **Log management** > **Primary storage**. 
 2. In the **Primary Storage** window, set the **Log Type** to a general log as per the requirement.
 
 **OR**
