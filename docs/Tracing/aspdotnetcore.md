@@ -81,7 +81,7 @@ Follow the below steps to enable the tracing for the .net application which are 
   ```
 
  Below is a example for `program.cs` with required code changes.
-<img src="/img/dotnet/dotnet6-programcs.PNG" />
+<img src="/img/dotnet/dotnet6-programcs.png" />
 
 #### Verification
 
