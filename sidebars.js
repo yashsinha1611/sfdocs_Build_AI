@@ -594,11 +594,7 @@ module.exports = {
                 },
 				{
                     type: 'category',
-                    label: 'PgBouncer',
-                    link: {
-                        type: 'doc',
-                        id: 'Integrations/pgBouncer/overview',
-                    },
+                    label: 'PgBouncer', 
                     collapsed: true,
                     items: [
                         {
