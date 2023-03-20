@@ -1,5 +1,5 @@
 # ASP.NET Core application
-## Available Platforms
+## Supported Platforms
 
 [**Instances**](#instances)
 
@@ -11,7 +11,7 @@
 
 | **Framework** | **Supported versions**       |
 | ------------- | ---------------------------- |
-| ASP.NET Core  | .NET core 2.1, 3.1, .NET 5.0 |
+| ASP.NET Core  | .NET core 2.1, 3.1, .NET 5.0, 6.0 |
 
 ### Prerequisite
 
@@ -29,8 +29,73 @@ These packages can be installed using Nuget package manager in Visual Studio or 
    ```
    dotnet add package Elastic.Apm.NetCoreAll --version 1.12.1
    ```
+### Configuration
+**[.NET 6](aspdotnetcore#.net-6)**
 
-### Steps to configure application
+[**.NET 5**](#containers)
+
+### .NET 6
+
+Follow the below steps to enable the tracing for the .net application which are developed using the version 6.
+
+1. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.
+2. Create the `sftraceConfig.yaml` file inside **wwwroot** directory. Add the below configuration in the sftraceConfig.yaml file and update the tags and key with correct values.
+
+  ```yaml
+  #sftraceConfig.yaml
+  tags:
+    projectName: CHANGEME
+    appName: CHANGEME
+    serviceName: CHANGEME
+  key: CHANGEME
+  ```
+
+3. Update the `program.cs` file with the following changes:
+
+ i. Add the below packages 
+  ```
+    using Elastic.Apm.NetCoreAll;
+    using SftraceDotNetcore;
+  ```
+ ii. Add the below code after the intializing the builder variable with the `WebApplication.CreateBuilder(args)`
+  ```c#
+  builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+  {
+      try
+      {
+          // sftraceConfigfile variable value should be match with file created in the wwwroot directory
+          string sftraceConfigfile = $"sftraceConfig.yaml";
+          config.AddInMemoryCollection(sftracedecrypt.Trace(sftraceConfigfile));
+      }
+      catch (Exception err)
+      {
+          System.Diagnostics.Debug.WriteLine("Error occurred in Snappyflow application trace" + err.Message);
+      }
+  }
+  );
+  ```
+ iii. Add the below line of code after calling the **build()** method on the **Builder**.
+
+  ```
+  app.UseAllElasticApm(app.Configuration);
+  ```
+
+ Below is a example for `program.cs` with required code changes.
+<img src="/img/dotnet/dotnet6-programcs.PNG" />
+
+#### Verification
+
+Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
+
+1. Make sure that the project and the application is created.
+2. In the app, click the **View Dashboard** icon.
+3. In the **Dashboard** window, go to **Tracing** section.
+4. In the **Tracing** section, click the **View Transactions** button.
+5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
+	  
+### .NET 5
+
+#### Configuration
 
 Create `sftraceConfig.<env_name>.yaml` file inside **wwwroot** directory. Copy below sftraceConfig.<env_name>.yaml content and configure it with correct profile key and tags.  Get profile key from the Manage-->profile in snappyflow portal. Create project and application(or use existing project and applicaition) using your profile. You can provide any name to service, this will be displayed in Trace Dashboard. 
 

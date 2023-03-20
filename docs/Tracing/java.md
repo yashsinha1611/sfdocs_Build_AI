@@ -369,7 +369,7 @@ For example:
          
     @GetMapping("/getCustomer")
     public void getCustomer() {
-    	logger.info("Query success called GET /owners/*/pets/{petId}/visits/new");
+    	logger.info("Query success called GET /getCustomer");
     }
   }
   ```
