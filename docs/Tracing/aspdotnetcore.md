@@ -11,7 +11,7 @@
 
 | **Framework** | **Supported versions**       |
 | ------------- | ---------------------------- |
-| ASP.NET Core  | .NET core 2.1, 3.1, .NET 5.0, 6.0 |
+| ASP.NET Core  | .NET core (2.1 & 3.1), .NET (5.0 & 6.0) |
 
 ### Prerequisite
 
@@ -20,7 +20,7 @@ Install the following Nuget packages
 - Elastic.Apm.NetCoreAll
 - Snappyflow.NetCoretrace.Utility
 
-These packages can be installed using Nuget package manager in Visual Studio or using .NET CLI commands given below. 
+These packages can be installed using the Nuget package manager in Visual Studio or using .NET CLI commands given below. 
 
    ```
    dotnet add package SnappyFlow.NetCoretrace.Utility --version 0.1.6
@@ -30,16 +30,17 @@ These packages can be installed using Nuget package manager in Visual Studio or 
    dotnet add package Elastic.Apm.NetCoreAll --version 1.12.1
    ```
 ### Configuration
-**[.NET 6](aspdotnetcore#.net-6)**
+[**.NET 6**](aspdotnetcore#.net-6)
 
 [**.NET 5**](#containers)
 
-### .NET 6
+#### .NET 6
 
-Follow the below steps to enable the tracing for the .net application which are developed using the version 6.
+Follow the below steps to enable the tracing for the .net applications which are developed using version 6.
 
-1. Make sure the project and application is created in the SnappyFlow Server. **[Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal)** to know how to create the project and application in SnappyFlow.
-2. Create the `sftraceConfig.yaml` file inside **wwwroot** directory. Add the below configuration in the sftraceConfig.yaml file and update the tags and key with correct values.
+1. Make sure that the project and the application are created in the SnappyFlow Server. [Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create the project and application in SnappyFlow.
+2. Create the `sftraceConfig.yaml` file inside the **wwwroot** directory. 
+3. Add the below configuration in the `sftraceConfig.yaml` file and update the tags and key with the correct values.
 
   ```yaml
   #sftraceConfig.yaml
@@ -50,7 +51,7 @@ Follow the below steps to enable the tracing for the .net application which are 
   key: CHANGEME
   ```
 
-3. Update the `program.cs` file with the following changes:
+4. Update the `program.cs` file with the following changes:
 
  i. Add the below packages 
   ```
@@ -83,23 +84,13 @@ Follow the below steps to enable the tracing for the .net application which are 
  Below is a example for `program.cs` with required code changes.
 <img src="/img/dotnet/dotnet6-programcs.png" />
 
-#### Verification
+#### .NET 5
 
-Once your application is up and running, follow the below steps to verfiy that the SnappyFlow has started to collect the traces.
+Follow the below steps to enable the tracing for the .net applications which are developed using version 5.
 
-1. Make sure that the project and the application is created.
-2. In the app, click the **View Dashboard** icon.
-3. In the **Dashboard** window, go to **Tracing** section.
-4. In the **Tracing** section, click the **View Transactions** button.
-5. Now you can view the traces in **Aggregate** and **Real Time tabs**.
-	  
-### .NET 5
+1. Create `sftraceConfig.<env_name>.yaml` file inside **wwwroot** directory. Copy below sftraceConfig.<env_name>.yaml content and configure it with correct profile key and tags.  Get profile key from the Manage-->profile in snappyflow portal. Create project and application(or use existing project and applicaition) using your profile. You can provide any name to service, this will be displayed in Trace Dashboard. 
 
-#### Configuration
-
-Create `sftraceConfig.<env_name>.yaml` file inside **wwwroot** directory. Copy below sftraceConfig.<env_name>.yaml content and configure it with correct profile key and tags.  Get profile key from the Manage-->profile in snappyflow portal. Create project and application(or use existing project and applicaition) using your profile. You can provide any name to service, this will be displayed in Trace Dashboard. 
-
-Change `<env_name>` to your current working environment. For example if your environment is Development, your file name should be `sftraceConfig.Development.yaml`
+2. Change `<env_name>` to your current working environment. For example if your environment is Development, your file name should be `sftraceConfig.Development.yaml`
 
 #### sftraceConfig.<env_name>.yaml
 
@@ -183,19 +174,27 @@ The below code should be added inside public static IHostBuilder **CreateHostBui
   }
 })
 ```
+### Verification
+
+Once your application is up and running, follow the below steps to verify that SnappyFlow has started to collect the traces.
+
+1. Navigate to the **Project** > **Application** > **Application's dashboard**.
+2. In the **Dashboard** window, go to the **Tracing** section.
+3. In the **Tracing** section, click the **`View Transactions`** button.
+4. You can view the traces in **Aggregate** and **Real Time** tabs.
 
 
 ## Containers
 
 ### Supported Web frameworks
 
-| **Framework** | **Supported versions**       |
-| ------------- | ---------------------------- |
-| ASP.NET Core  | .NET core 2.1, 3.1, .NET 5.0 |
+| **Framework** | **Supported versions**          |
+| ------------- | ------------------------------- |
+| ASP.NET Core  | .NET core (2.1 & 3.1), .NET 5.0 |
 
 ### Prerequisite
 
-1. Install the following Nuget packages
+Install the following Nuget packages:
 
 - **Elastic.Apm.AspNetFullFramework**
 - **Snappyflow.NetCoretrace.Utility**
@@ -211,27 +210,31 @@ dotnet add package SnappyFlow.NetCoretrace.Utility --version 0.1.6
 dotnet add package Elastic.Apm.AspNetFullFramework --version 1.12.1
    ```
 
-2. Enable the Docker in project. For referrence follow the official documentation (Click Here)
+2. Enable the Docker in the project. For reference follow the official documentation (Click Here)
 
 
 ### Steps to configure Application
-Copy below `docker-compose.override.yml` content and place it in under the environment variables in `docker-compose.yml` or `docker-compose.override.yml`. configure it with the correct profile key and tags. Get profile key from the Manage-->profile in snappyflow portal. Create a project and application using your profile (or use an existing project and application). You can provide any name to service, this will be displayed in Trace Dashboard.
-Below is an example `docker-compose.override.yml` with required code changes highlighted in blue color.
-#### docker-compose.override.yml
-   <img src="/img/dotnet/docker_compose_yml.png" />
-
-Copy the below lines in your docker-compose.override.yml file similar to the example above.
+1. Add the below content to the `docker-compose.override.yml` file. 
 ```yaml
 - PROJECTNAME=CHANGEME
 - APPNAME=CHANGEME
 - SERVICENAME=CHANGEME
 - PROFILEKEY=CHANGEME
 ```
+2. Place the  `docker-compose.override.yml` under the environment variables in `docker-compose.yml` or `docker-compose.override.yml`. 
+
+3. Get the profile key from the **Manage** > **Profile** in Snappyflow portal. Create a project and application using your profile (or use an existing project and application). You can provide any name to service, this will be displayed in Trace Dashboard.
+   Below is an example `docker-compose.override.yml` with required code changes highlighted in blue color.
+
 :::note
 		Similar to configuring the environment variable into the docker, the same way you can configure the Kubernetes environment also. Wherever you are using the environment variable there you can add the above variables
 :::
 
-Create a new class file called `Sftrace_class.cs` in location where **web.config** file is present. Copy the code below and don't forget to change `CHANGENAMESPACE`. 
+**Example**: 
+
+<img src="/img/dotnet/docker_compose_yml.png" />
+
+4. Create a new class file called `Sftrace_class.cs` in location where **web.config** file is present. Copy the code below and don't forget to change `CHANGENAMESPACE`. 
 
 #### Startup.cs file changes
 
