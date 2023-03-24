@@ -14,15 +14,15 @@ The fileStats Metric plugin is an agent-based plugin that collects the following
 
 - system used file handles percentage
 
-- system free inodes
+- free inodes for each mounted directory
 
-- system inodes in use
+- total inodes for each mounted directory
 
-- system total inodes
+- used inodes for each mounted directory
 
-- system used inodes
+- used inodes percentage for each mounted directory
+
   
-  ​
 
 ## Tested on[​](http://localhost:3000/docs/Integrations/os/linux/cpuloadstats_plugin#tested-on "Direct link to heading")
 
@@ -36,7 +36,7 @@ Ubuntu: 14.x, 16.x
 
 - [sfAgent](/docs/Quick_Start/getting_started#sfagent) must be installed
 
-- The cpuLoadStats plugin requires sysstat to be installed
+- The fileStats plugin requires sysstat to be installed
 
 To install Sysstat in CentOS/RHEL:
 
@@ -68,8 +68,8 @@ Default config
 - Data collected by plugin can be viewed in SnappyFlow’s browse data section under metrics
   
   - `plugin=fileStats`
-  - `documentType=fileStats`
+  - `documentType=fileStats` and `documentType=inodeStats`
 
-- Dashboard of fileStats data can be rendered using `Template= LinuxCpuLoad`
+- Dashboard of fileStats data can be rendered using `Template= Linux_CPULoad` 
   
-  ​
+- Alert of fileStats data can be rendered using  `Template= HighInodeUsage` 
