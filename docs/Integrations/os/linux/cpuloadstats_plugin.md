@@ -62,8 +62,6 @@ Default config
   - `plugin=cpuLoadStats`
   - `documentType=cpuLoadStats`
 
-- Dashboard of cpuLoadStats data can be rendered using `Template= LinuxCpuLoad`
+- Dashboard of cpuLoadStats data can be rendered using `Template=Linux_CPULoad`
   
-  ​
-
-## 
+  
