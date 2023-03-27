@@ -584,15 +584,15 @@ Make sure a project and an application are created in the SnappyFlow Server. [Cl
       #values.yaml
       global:
       # update the sfappname, sfprojectname and key with the proper values
-      sfappname: <app-name>
-      sfprojectname: <project-name>
-      key: <profile-key>
+        sfappname: <app-name>
+        sfprojectname: <project-name>
+        key: <profile-key>
       
       replicaCount: 1
       image:
-      repository: djangoapp
-      pullPolicy: IfNotPresent
-      tag: "latest"
+        repository: djangoapp
+        pullPolicy: IfNotPresent
+        tag: "latest"
       ```
 
 7. Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
@@ -608,11 +608,11 @@ Make sure a project and an application are created in the SnappyFlow Server. [Cl
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             env:
             - name: SF_PROFILE_KEY
-            value: {{ .Values.global.key }}
+              value: {{ .Values.global.key }}
             - name: SF_PROJECT_NAME
-            value: {{ .Values.global.sfprojectname }}
+              value: {{ .Values.global.sfprojectname }}
             - name: SF_APP_NAME
-            value: {{ .Values.global.sfappname }}
+              value: {{ .Values.global.sfappname }}
       ```
 
 
@@ -734,15 +734,15 @@ Make sure that a project and an application are created in the SnappyFlow Server
       #values.yaml
       global:
       # update the sfappname, sfprojectname and key with the proper values
-      sfappname: <app-name>
-      sfprojectname: <project-name>
-      key: <profile-key>
+        sfappname: <app-name>
+        sfprojectname: <project-name>
+        key: <profile-key>
       
       replicaCount: 1
       image:
-      repository: djangoapp
-      pullPolicy: IfNotPresent
-      tag: "latest"
+        repository: djangoapp
+        pullPolicy: IfNotPresent
+        tag: "latest"
       ```
 
 5. Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
@@ -758,11 +758,11 @@ Make sure that a project and an application are created in the SnappyFlow Server
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             env:
             - name: SF_PROFILE_KEY
-            value: {{ .Values.global.key }}
+              value: {{ .Values.global.key }}
             - name: SF_PROJECT_NAME
-            value: {{ .Values.global.sfprojectname }}
+              value: {{ .Values.global.sfprojectname }}
             - name: SF_APP_NAME
-            value: {{ .Values.global.sfappname }}
+              value: {{ .Values.global.sfappname }}
       ```
 
 #### Verification
@@ -1608,8 +1608,23 @@ To enable log correlation for a Flask application, follow the below steps:
 
    :::
 
-2. Add the following code in `app.py` to set the log configuration.
+2. Add  the following code in `app.py` after import statements to set logger configuration.
 
+   i. if the logs are printing on the standard console follow the below steps.
+   ```
+   fh = fh=logging.StreamHandler(sys.stdout)
+   
+   # we imported a custom Formatter from the Python Agent earlier 
+   formatter = Formatter("[%(asctime)s] [%(levelname)s] [%(message)s]", "%d/%b/%Y %H:%M:%S") 
+   fh.setFormatter(formatter) 
+   logging.getLogger().addHandler(fh)
+   
+   # Once logging is configured get log object using following code  
+   log = logging.getLogger()
+   log.setLevel('INFO')
+   ```
+   
+   ii. if the logs are storing in a specific file location follow the below steps.
    ```
    fh = logging.FileHandler('/var/log/flask.log') 
    
@@ -1622,7 +1637,6 @@ To enable log correlation for a Flask application, follow the below steps:
    log = logging.getLogger()
    log.setLevel('INFO')
    ```
-
 3. Add logging statements to the Flask `app.py` using the Python `logging` module. 
 
    For example:
@@ -1650,9 +1664,9 @@ For Example:
    ```
    key: <SF_PROFILE_KEY>
    tags:
-   Name: <any-name>
-   appName: <SF_APP_NAME>
-   projectName: <SF_PROJECT_NAME>
+     Name: <any-name>
+     appName: <SF_APP_NAME>
+     projectName: <SF_PROJECT_NAME>
    logging:
    plugins:
       - name: elasticApmTraceLog
@@ -1692,16 +1706,16 @@ Follow the below steps if the application logs are storing in specific location.
    ```yaml
    # values.yaml
    sfagent:
-   enabled: true
-   image:
+     enabled: true
+     image:
       repository: snappyflowml/sfagent
       tag: latest
       pullPolicy: Always
-   resources:
-      limits:
+     resources:
+       limits:
          cpu: 50m
          memory: 256Mi
-      requests:
+       requests:
          cpu: 50m
          memory: 256Mi
    ```
@@ -1716,20 +1730,20 @@ Follow the below steps if the application logs are storing in specific location.
    apiVersion: v1
    kind: ConfigMap
    metadata:
-   name: {{ include "flask-app.fullname" . }}-sfagent-config
-   labels:
-      {{ default "snappyflow/appname" .Values.global.sfappname_key }}: {{ default .Release.Name .Values.global.sfappname }}
-      {{ default "snappyflow/projectname" .Values.global.sfprojectname_key }}: {{ default .Release.Name .Values.global.sfprojectname }}
+     name: {{ include "flask-app.fullname" . }}-sfagent-config
+     labels:
+        {{ default "snappyflow/appname" .Values.global.sfappname_key }}: {{ default .Release.Name .Values.global.sfappname }}
+        {{ default "snappyflow/projectname" .Values.global.sfprojectname_key }}: {{ default .Release.Name .Values.global.sfprojectname }}
    data:
-   config.yaml: |+
-      ---
-      key: "{{ .Values.global.key }}"
-      logging:
-         plugins:
-         - name: elasticApmTraceLog
-         enabled: true
-         config:
-            log_path: /var/log/flask.log 
+     config.yaml: |+
+       ---
+       key: "{{ .Values.global.key }}"
+       logging:
+          plugins:
+          - name: elasticApmTraceLog
+            enabled: true
+            config:
+              log_path: /var/log/flask.log 
    {{- end }}
    
    ```
@@ -1750,7 +1764,7 @@ Follow the below steps if the application logs are storing in specific location.
        - name: PROJECT_NAME
          value: "{{ .Values.global.sfprojectname }}"
      resources:
-        {{ toYaml .Values.sfagent.resources }}
+       {{ toYaml .Values.sfagent.resources | nindent 12 }}
    ```
 
 4. Mount the log location path as shared folder location in volumeMounts section of your application container and sfkubeagent container. In the volumes section add the log-correlation and sfagent-config volume mounts.
