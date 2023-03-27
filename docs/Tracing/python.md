@@ -199,7 +199,7 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
 2. Go to the **Application** tab.
 3. In the **Application** tab, navigate to your **Project** > **Application**.
 4. Click the **Application's Dashboard** icon.
-5. Navigate to the **Tracing** section and click the `View Transactions` button
+5. Navigate to the **Tracing** section and click the `View Transactions` button.
    <img src="/img/Trace_Service_Map.png" />
 
 6. You can view the traces in the **Aggregate** and the **Real Time** tabs.
@@ -219,7 +219,7 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
   ​    
 #### Sample Application Code
 
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Flask
 
@@ -353,7 +353,7 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
 
 #### Sample Application Code
 
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Script
 
@@ -645,11 +645,11 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
    ​    
 ##### Sample Application Code
 
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Flask
 
-Follow the below steps to enable the tracing for the application based on Flask Framework.
+Follow the below steps to enable tracing for applications based on Flask Framework.
 
 #### Prerequisite
 To enable tracing for the application based on Flask Framework `sf-elastic-apm` and `sf-apm-lib` must be available in your environment. These libraries can be installed by following methods:
@@ -728,7 +728,7 @@ Make sure that a project and an application are created in the SnappyFlow Server
          - name: SF_APP_NAME
             value: <app-name>
       ```
-4. If the deployment is with **helm charts**, add the environament variable:  `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY`in the `values.yaml` and use them in the deployment file of charts. 
+4. If the application is deployed using **helm charts**, add the environment variables:  `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` in the `values.yaml` and use the same in the deployment file of charts. 
 
       ```yaml
       #values.yaml
@@ -787,7 +787,7 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
 
 #### Sample Application Code
 
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Celery
 
@@ -960,9 +960,7 @@ Once your application is up and running, follow the below steps to verfiy that t
    ​    
 #### Sample Application Code
 
-The below link contains the sample application with the trace enabled by following the configuration mentioned in the above sections.
-
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Flask
 
@@ -1222,9 +1220,7 @@ Once your application is up and running, follow the below steps to verfiy that t
    ​    
 #### Sample Application Code
 
-The below link contains the sample application with the trace enabled by following the configuration mentioned in the above sections.
-
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Flask
 
@@ -1312,9 +1308,7 @@ Once your application is up and running, follow the below steps to verfiy that t
 
 ##### Sample Application Code
 
-The below link contains the sample application with the trace enabled by following the configuration mentioned in the above sections.
-
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the reference application.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Celery
 
@@ -1591,26 +1585,30 @@ To enable log correlation in a Django application, follow the below steps:
 
 ##### Sample Application Code
 
-The below link contains the sample application with the log correlation enabled by following the configuration mentioned in the above sections.
-
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the reference application.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Flask
 
-To enable log correlation in a Flask application, follow the below steps:
+To enable log correlation for a Flask application, follow the below steps:
 
-1. Add the import statement in `app.py`
+1. Add the import statement in `app.py`.
 
    ```
    import logging
    from elasticapm.handlers.logging import Formatter
    ```
-2. Add the following import statement and code if the vm/instance is under ITC timezone. If the vm/instance is under the UTC timezone ignore this step.
    ```
    import time
    logging.Formatter.converter = time.gmtime
    ```
-3. Add  the following code in `app.py` after import statements to set logger configuration.
+   
+   :::note
+
+      The **`import time`** statement is applicable only when the vm/instance is deployed in India Standard Time (IST) timezone. In case of other time zones, you can ignore the **`import time`** statement.
+
+   :::
+
+2. Add the following code in `app.py` to set the log configuration.
 
    ```
    fh = logging.FileHandler('/var/log/flask.log') 
@@ -1624,7 +1622,8 @@ To enable log correlation in a Flask application, follow the below steps:
    log = logging.getLogger()
    log.setLevel('INFO')
    ```
-4. Add logging statements to your Flask `app.py` using the Python `logging` module. 
+
+3. Add logging statements to the Flask `app.py` using the Python `logging` module. 
 
    For example:
    ```
@@ -1636,9 +1635,7 @@ To enable log correlation in a Flask application, follow the below steps:
    ```
 ##### Sample Application Code
 
-The below link contains the sample application with the log correlation enabled by following the configuration mentioned in the above sections.
-
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask/app.py) to view the reference application.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask/app.py) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ### Steps to send log correlation data to SnappyFlow APM
 ---
@@ -1787,9 +1784,7 @@ Follow the below steps if the application logs are storing in specific location.
 
 ##### Sample Helm Chart deployment 
 
-The below link contains the sample helm chart deployment with the log correlation enabled by following the configuration mentioned in the above sections.
-
-[Click Here](https://github.com/snappyflow/tracing-reference-apps/tree/master/Log-Correlation-RefApps/flask-app) to view the reference application.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/Log-Correlation-RefApps/flask-app) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ---
 Follow the below steps if the application logs are storing in specific location.
