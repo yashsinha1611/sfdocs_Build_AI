@@ -62,7 +62,7 @@ The below steps explain how to enable the tracing for the application based on D
 
 #### Prerequisite
 
-To enable tracing for the application based on Django Framework **`sf-elastic-apm`** and **`sf-apm-lib` **must be available in your environment. These libraries can be installed by following methods:
+To enable tracing for the application based on Django Framework **`sf-elastic-apm`** and **`sf-apm-lib` **must be available in your environment. These libraries can be installed by the following methods:
 
 Add the below-mentioned entries in the `requirements.txt` file.
 
@@ -116,7 +116,7 @@ In this case, the trace agent picks up the `profileKey`, `projectName`, and `app
          'SERVER_URL': SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
          'GLOBAL_LABELS': SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
          'VERIFY_SERVER_CERT': SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT'), 
-         'SPAN_FRAMES_MIN_DURATION': SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
+         'SPAN_FRAMES_MIN_DURATION':    SFTRACE_CONFIG.get('SFTRACE_SPAN_FRAMES_MIN_DURATION'), 
          'STACK_TRACE_LIMIT': SFTRACE_CONFIG.get('SFTRACE_STACK_TRACE_LIMIT'), 
          'CAPTURE_SPAN_STACK_TRACES': SFTRACE_CONFIG.get('SFTRACE_CAPTURE_SPAN_STACK_TRACES'), 
          'DJANGO_TRANSACTION_NAME_FROM_ROUTE': True, 
@@ -131,7 +131,7 @@ In this case, the trace agent picks up the `profileKey`, `projectName`, and `app
 
 In this case, follow the below steps to enable tracing.
 
-1. Make sure that the project and application are created in the SnappyFlow Server. [Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create the project and application in SnappyFlow.  
+1. Make sure that the project and application are created in the SnappyFlow Server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create the project and application in SnappyFlow.  
 
 2. Export `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as the environment variables.
    ``` 
