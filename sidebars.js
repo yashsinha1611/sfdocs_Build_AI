@@ -169,6 +169,53 @@ module.exports = {
                         }
                     ]
                 },
+				{
+                    type: 'category',
+                    label: 'Python',
+                    link: {
+                        type: 'doc',
+                        id: 'Tracing/python/overview',
+                    },
+                    collapsed: true,
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Tracing/python/python_on_instance',
+                            label: 'Instance',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/python/python_in_kubernetes',
+                            label: 'Kubernetes',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/python/python_in_ECS',
+                            label: 'ECS',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/python/python_in_docker',
+                            label: 'Docker',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/python/aws_lamda',
+                            label: 'AWS Lamda',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/python/capture_request_body_from_trace',
+                            label: 'Capture Request Body',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/python/log_correlation',
+                            label: 'Log Correlation',
+                        },
+						
+					],
+				},		
             ],
 
 
