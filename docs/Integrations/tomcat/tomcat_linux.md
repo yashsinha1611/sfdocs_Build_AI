@@ -52,7 +52,7 @@ metrics:
       config: 
         username: xxxx 
         password: xxxx
-        documentTypes:
+        documentsTypes:
           - tomcatStats
           - requestProcessorStats
           - jvmStats
