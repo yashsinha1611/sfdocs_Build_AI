@@ -2,19 +2,17 @@
 sidebar_position: 3 
 ---
 # Python in Kubernetes
-|                **Supported Frameworks**          | 
-| ----------------------------------------------------------------| 
-|**[Django](python_in_kubernetes##django)**|
-|**[Flask](python_in_kubernetes##flask)**|
+**<u>Supported Frameworks</u>** 
 
+**[Django](python_in_kubernetes#django)** | **[Flask](python_in_kubernetes#flask)**
 
-| **Standard Library Modules** | 
-| ----------------------- |
-|**[Celery](python_in_kubernetes##Celery)**|
+**<u>Standard Library Modules</u>** 
+
+**[Celery](python_in_kubernetes#celery)**
 
 ## Django
 ### Prerequisite
-To enable tracing for the application based on Django Framework **`sf-elastic-apm`** and **`sf-apm-lib`** must be available in your environment. These libraries can be installed by the following methods:
+To enable tracing for an application developed by the **Django** framework, **`sf-elastic-apm`** and **`sf-apm-lib`** must be available in your environment. These libraries can be installed by the following methods:
 
 Add the below-mentioned entries in the `requirements.txt` file.
 ```
@@ -31,28 +29,29 @@ pip install sf-apm-lib==0.1.1
 ```
 ### Configuration
 
-Make sure a project and an application are created in the SnappyFlow Server. [Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create the project and application in SnappyFlow.  
+Make sure that the project and the application are created in the SnappyFlow server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create a project and an application in SnappyFlow.  
 
 **Add the following entries in the `settings.py` file.**
-1. Add the import statements.
+
+1. Add the following import statements.
    ```
    from sf_apm_lib.snappyflow import Snappyflow
    import os
    ```
 
-2. Add the following entry in `INSTALLED_APPS` block.
+2. Add the following entry in the `INSTALLED_APPS` block.
 
    ```
    'elasticapm.contrib.django'
    ```
 
-3. Add the following entry in `MIDDLEWARE` block.
+3. Add the following entry in the `MIDDLEWARE` block.
 
    ```
    'elasticapm.contrib.django.middleware.TracingMiddleware'
    ```
 
-4. Add the following source code to integrate the Django application to the SnappyFlow.
+4. Add the following source code to integrate a Django application with SnappyFlow.
 
    ```
    try: 
@@ -83,7 +82,7 @@ Make sure a project and an application are created in the SnappyFlow Server. [Cl
       print("Error while fetching snappyflow tracing configurations", error)
    ```
 
-5. In the **Kubernetes deployment** file, add `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as environment variables.
+5. In the **Kubernetes deployment** file, add `SF_PROFILE_KEY`,  `SF_PROJECT_NAME`, and `SF_APP_NAME`,  as environment variables.
 
    ```yaml
    #deployment.yaml
@@ -105,7 +104,7 @@ Make sure a project and an application are created in the SnappyFlow Server. [Cl
       - name: SF_APP_NAME
          value: <app-name>
    ```
-6. If the deployment is with **helm charts**, add the environment variables: `SF_PROJECT_NAME`, `SF_APP_NAME`, and `SF_PROFILE_KEY` in the `values.yaml` file and use them in the deployment file of charts. 
+6. If the deployment is with **Helm Charts**, add the environment variables: `SF_PROJECT_NAME`, `SF_APP_NAME`, and `SF_PROFILE_KEY` in the `values.yaml` file. 
 
       ```yaml
       #values.yaml
@@ -122,7 +121,7 @@ Make sure a project and an application are created in the SnappyFlow Server. [Cl
       tag: "latest"
       ```
 
-7. Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
+7. In the `deployment.yaml` file of the **Helm Charts**, give the key-value from the global section of the `value.yaml` file.
 
       ```yaml
       #deployment.yaml
@@ -141,9 +140,9 @@ Make sure a project and an application are created in the SnappyFlow Server. [Cl
             - name: SF_APP_NAME
             value: {{ .Values.global.sfappname }}
       ```
-### Verfication
+### Verification
 
-Follow the below steps to verify that SnappyFlow has started to collect the trace.
+Follow the below steps to verify and view the trace data.
 
 1. Login into  SnappyFlow.
 2. Go to the **Application** tab.
@@ -158,21 +157,21 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
 
 ### Troubleshoot
 
-1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `settings.py`.
+1. If the trace data is available in the SnappyFlow server, then check the trace configuration in the `settings.py` file.
 
-2. To enable the debug logs, add the below key-value pair in the ELASTIC_APM block of the `settings.py`.
+2. To enable the debug logs, add the key-value pair in the `ELASTIC_APM` block of the `settings.py` file.
 
    ```
    'DEBUG':'true'
    ```
 ##### Sample Application Code
 
-[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by the configuration mentioned in the above sections.
 
 ## Flask
 
 ### Prerequisite
-To enable tracing for the application based on Flask Framework `sf-elastic-apm` and `sf-apm-lib` must be available in your environment. These libraries can be installed by following methods:
+To enable tracing for an application that is developed by the **Flask** framework, `sf-elastic-apm` and `sf-apm-lib` must be available in your environment. These libraries can be installed by the following methods:
 
 Add the below-mentioned entries in the `requirements.txt` file.
 ```
@@ -189,11 +188,11 @@ pip install sf-apm-lib==0.1.1
 ```
 ### Configuration
 
-Make sure that a project and an application are created in the SnappyFlow Server. [Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create the project and application in SnappyFlow.  
+Make sure that the project and the application are created in the SnappyFlow Server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create a project and an application in SnappyFlow.  
 
-**Add following entries in the `app.py`file.** 
+**Add the following entries in the `app.py` file.**
 
-1. Add imports statement
+1. Add the following import statements.
 
    ```
    from elasticapm.contrib.flask import ElasticAPM 
@@ -201,7 +200,7 @@ Make sure that a project and an application are created in the SnappyFlow Server
    import os
    ```
 
-2. Add the following source code to integrate the Flask application to the SnappyFlow.
+2. Add the following source code to integrate a Flask application with SnappyFlow.
    
    ```
       sf = Snappyflow() 
@@ -225,7 +224,7 @@ Make sure that a project and an application are created in the SnappyFlow Server
        } 
        apm = ElasticAPM(app) 
    ```
-3. In the **Kubernetes deployment** file, add `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as environment variables.
+3. In the **Kubernetes deployment** file, add `SF_PROFILE_KEY`, `SF_PROJECT_NAME`, and `SF_APP_NAME` as environment variables.
    
       ```yaml
       #deployment.yaml
@@ -247,7 +246,7 @@ Make sure that a project and an application are created in the SnappyFlow Server
          - name: SF_APP_NAME
             value: <app-name>
       ```
-4. If the application is deployed using **helm charts**, add the environment variables:  `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` in the `values.yaml` and use the same in the deployment file of charts. 
+4. If the application is deployed using **Helm Charts**, add the environment variables:  `SF_APP_NAME`, `SF_PROJECT_NAME`, and `SF_PROFILE_KEY`  in the `values.yaml`. file
 
       ```yaml
       #values.yaml
@@ -264,7 +263,7 @@ Make sure that a project and an application are created in the SnappyFlow Server
       tag: "latest"
       ```
 
-5. Pass the global section key-value from the `value.yaml` by setting the `deployment.yaml` as below :
+5. In the `deployment.yaml` file of the **Helm Chart**, give the key-value from the global section of the `value.yaml` file.
 
       ```yaml
       #deployment.yaml
@@ -285,7 +284,7 @@ Make sure that a project and an application are created in the SnappyFlow Server
       ```
 ### Verification
 
-Follow the below steps to verify that SnappyFlow has started to collect the trace.
+Follow the below steps to verify and view the trace data.
 1. Login into  SnappyFlow.
 2. Go to the **Application** tab.
 3. In the **Application** tab, navigate to your **Project** > **Application**.
@@ -296,10 +295,9 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
 6. You can view the traces in the **Aggregate** and the **Real Time** tabs.
 	   <img src="/img/Trace_AggregateTab.png" /><br/>
 	   <img src="/img/Trace_RealTime.png" /><br/>
-	
 ### Troubleshooting
-1. If the trace data is not collected in the SnappyFlow server, then check the trace configuration in the `app.py`.
-2. To enable the debug logs, add the below key-value pair in the `app. config` block of the `app.py`.
+1. If the trace data is not available in the SnappyFlow server, then check the trace configuration in the `app.py` file.
+2. To enable the debug logs, add the key-value pair in the `app. config` block of the `app.py` file.
 
    ```
    'DEBUG':'true'
@@ -320,7 +318,9 @@ The Celery configuration explained below is based on redis broker.
 
 ### Prerequisite
 
-To enable tracing for the application based on Flask Framework **`sf-elastic-apm`**, **`redis`** and **`sf-apm-lib` **must be available in your environment. 
+To enable tracing for an application developed by **Celery**,  **`sf-elastic-apm`**, **`redis`**, and **`sf-apm-lib` **must be available in your environment. 
+
+Install the following requirements.
 
    ```
    pip install sf-elastic-apm==6.7.2 
@@ -330,43 +330,43 @@ To enable tracing for the application based on Flask Framework **`sf-elastic-apm
 
 ### Configuration 
 
-Add following code at start of the file where celery app is initialized to setup elastic apm client
+To setup the `elastic apm` client, add the following code at the beginning of the file where the celery app is initialized.
 
    ```
-   from sf_apm_lib.snappyflow import Snappyflow 
-   from elasticapm import Client, instrument 
-   from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
+from sf_apm_lib.snappyflow import Snappyflow 
+from elasticapm import Client, instrument 
+from elasticapm.contrib.celery import register_exception_tracking, register_instrumentation 
 
-   instrument()
+instrument()
 
-   try: 
-      sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
+try: 
+    sf = Snappyflow() # Initialize Snappyflow. By default intialization will take profileKey, projectName and appName from sfagent config.yaml 
       
-      # Add below part to manually configure the initialization 
-      SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
-      SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
-      SF_PROFILE_KEY = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
-      sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
-      # End of manual configuration 
+    # Add below part to manually configure the initialization 
+    SF_PROJECT_NAME = '<SF_PROJECT_NAME>' # Replace with appropriate Snappyflow project name 
+    SF_APP_NAME = '<SF_APP_NAME>' # Replace with appropriate Snappyflow app name 
+    SF_PROFILE_KEY = '<SF_PROFILE_KEY>' # Replace Snappyflow Profile key 
+    sf.init(SF_PROFILE_KEY, SF_PROJECT_NAME, SF_APP_NAME) 
+    # End of manual configuration 
 
-      SFTRACE_CONFIG = sf.get_trace_config() 
-      apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing
-         server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
-         global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
-         verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')
-      )
+    SFTRACE_CONFIG = sf.get_trace_config() 
+    apm_client = Client(service_name= '<Service_Name>', # Specify service name for tracing
+        server_url= SFTRACE_CONFIG.get('SFTRACE_SERVER_URL'), 
+        global_labels= SFTRACE_CONFIG.get('SFTRACE_GLOBAL_LABELS'), 
+        verify_server_cert= SFTRACE_CONFIG.get('SFTRACE_VERIFY_SERVER_CERT')
+        )
 
-      register_exception_tracking(apm_client) 
-      register_instrumentation(apm_client) 
-   except Exception as error: 
-      print("Error while fetching snappyflow tracing configurations", error) 
+    register_exception_tracking(apm_client) 
+    register_instrumentation(apm_client) 
+    except Exception as error: 
+    print("Error while fetching snappyflow tracing configurations", error) 
    ```
 
 ### Verification
 
-Once instrumentation is done and celery worker is running, we can see trace for each celery task in Snappyflow server. Follow the below steps to view the traces.
+Once the instrumentation is done and the celery worker is running, you can see a trace for each celery task in the Snappyflow server. Follow the below steps to verify and view the traces.
 
-1. Login into  SnappyFlow.
+1. Login into SnappyFlow.
 2. Go to the **Application** tab.
 3. In the **Application** tab, navigate to your **Project** > **Application**.
 4. Click the **Application's Dashboard** icon.
