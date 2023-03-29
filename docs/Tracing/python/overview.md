@@ -5,44 +5,41 @@ sidebar_position: 3
 
 ## Overview
 
-The Python tracing automatically instruments APIs, frameworks, and application servers. The sfAPM python agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server.
+The Python tracing feature automatically instruments APIs, frameworks, and application servers for the applications built using python. The sfAPM python agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server and you can view the tracing data in SnappyFlow's dashboard.
 
-<div class="grey_textbox">
-	<b>Supported Python versions</b> 
+<div class="blue_textbox">
+	<b><u>Supported Python versions</u></b> 
 	<p>
-		Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11 </p>
-	<b>Supported Web Frameworks</b>
+		<b>Python</b> [3.6, 3.7, 3.8, 3.9, 3.10, 3.11] </p>
+	<b><u>Supported Web Frameworks</u></b>
 	<p>
-		Django 1.11, 2.0, 2.1, 2.2, 3.0, 3.1, 3.2, 4.0 <br/>
-      Flask  1.0, 1.1, 2.0 <br/>
+		<b>Django</b> [1.11, 2.0, 2.1, 2.2, 3.0, 3.1, 3.2, 4.0]
 	</p>
+    <p>
+       <b>Flask</b>  [1.0, 1.1, 2.0]  
+    </p>
 </div>
 
 
-### Supported Platforms
+## Supported Platforms
 
-**[Instances](python#instances)**
+**Instances** | **Docker** | **Kubernetes** | **ECS** | **AWS Lambda**
 
-**[Docker](python#docker)**
 
-**[Kubernetes](python#kubernetes)**
 
-**[ECS](python#ecs)**
+## Supported Trace Features 
 
-**[AWS Lambda](python#aws-lambda)**
+**Distributed Tracing** | **Transaction Mapping**| **Log Correlation**| **Capture Request Body** | **Service Map** 
 
-### Supported Trace Features 
 
-Below is the list of the supported trace features:
-
-* Distributed Tracing
-* Transaction Mapping
-* [Log Correlation](python#log-correlation)
-* [Capture request Body from Trace](python#capture-request-body-from-trace)
-* Service Map
 
 :::note
 
-**Log Correlation** and **Capture Request Body** are not default trace features. Based on the requirement user can enable them by adding additional configurations.
+**Log Correlation** and **Capture Request Body** are not default trace features. Based on the requirement you can enable them by adding additional configurations.
 
 :::
+
+
+
+
+
