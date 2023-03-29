@@ -389,7 +389,7 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
    elasticapm.instrument()  # Only call this once, as early as possible. 
    ```
 
-3. Once instrumentation is completed we can create custom transaction and span
+3. Once instrumentation is completed we can create custom transaction and span.
 
    Example
 
@@ -427,7 +427,7 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
 
 ### Celery
 
-1. Install following requirements (Following example is based on redis broker)
+1. Install following requirements (Following example is based on redis broker).
 
    ```
    pip install sf-elastic-apm==6.7.2 
@@ -435,7 +435,7 @@ Follow the below steps to verify that SnappyFlow has started to collect the trac
    pip install sf-apm-lib==0.1.1 
    ```
 
-2. Add following code at start of the file where celery app is initialized to setup elastic apm client
+2. Add following code at start of the file where celery app is initialized to setup elastic apm client.
 
    ```
    from sf_apm_lib.snappyflow import Snappyflow 
@@ -1528,7 +1528,7 @@ app.config['ELASTIC_APM'] = {
 
 
 ## Log Correlation
-log correlation refers to the ability to linking log events from different sources, applications or components of a system to gain a holistic understanding of the system's behavior. When logs are captured, they are automatically correlated with the relevant transaction and span information. This correlation is done based on the shared context information, such as the transaction ID or the span ID.
+Log correlation refers to the ability to linking log events from different sources, applications or components of a system to gain a holistic understanding of the system's behavior. When logs are captured, they are automatically correlated with the relevant transaction and span information. This correlation is done based on the shared context information, such as the transaction ID or the span ID.
 
 For example, when an error occurs in an application, SnappyFlow APM capture the error stack trace and link it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
 
@@ -1589,7 +1589,7 @@ To enable log correlation in a Django application, follow the below steps:
 
 ### Flask
 
-To enable log correlation for a Flask application, follow the below steps:
+To enable log correlation for an application based on Flask framework, follow the below steps:
 
 1. Add the import statement in `app.py`.
 
@@ -1601,16 +1601,16 @@ To enable log correlation for a Flask application, follow the below steps:
    import time
    logging.Formatter.converter = time.gmtime
    ```
-   
+
    :::note
 
       The **`import time`** statement is applicable only when the vm/instance is deployed in India Standard Time (IST) timezone. In case of other time zones, you can ignore the **`import time`** statement.
 
    :::
 
-2. Add  the following code in `app.py` after import statements to set logger configuration.
+2. Add the following code in `app.py` file to set the logger configuration.
 
-   i. if the logs are printing on the standard console follow the below steps.
+   i. Follow the below-mentioned code, if the logs are printed on the standard console.
    ```
    fh = fh=logging.StreamHandler(sys.stdout)
    
@@ -1623,8 +1623,8 @@ To enable log correlation for a Flask application, follow the below steps:
    log = logging.getLogger()
    log.setLevel('INFO')
    ```
-   
-   ii. if the logs are storing in a specific file location follow the below steps.
+
+   ii. Follow the below-mentioned code, if the logs are stored in a specific file location. 
    ```
    fh = logging.FileHandler('/var/log/flask.log') 
    
@@ -1637,9 +1637,11 @@ To enable log correlation for a Flask application, follow the below steps:
    log = logging.getLogger()
    log.setLevel('INFO')
    ```
-3. Add logging statements to the Flask `app.py` using the Python `logging` module. 
 
-   For example:
+3. Add the log statements to the `app.py` file using the Python `logging` module.
+
+   **Example:**
+
    ```
    @app.route('/')
    def home():
@@ -1651,15 +1653,21 @@ To enable log correlation for a Flask application, follow the below steps:
 
 [Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask/app.py) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
-### Steps to send log correlation data to SnappyFlow APM
+### Send log correlation data to SnappyFlow APM
 ---
 #### Instance
 
-To send the Log Correlation data to SnappyFlow APM, you need to install the sfAgent in the instance. See [documentation to install sfAgent](https://stage-docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux) in the instance.
+**Prerequisite**
 
-After installing the sfAgent and configuring the profileKey, appName and projectName in the `config.yaml` file, add the elasticApmLog plugin under logging section in the sfagent `config.yaml` file.
+Install sfAgent in the instance. See [documentation to install sfAgent](https://stage-docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux) in the instance.
 
-For Example:
+**Configuration**
+
+1. Add the `profileKey`, `appName` and `projectName` in the `config.yaml` file.
+
+2. Add the `elasticApmLog` plugin under the logging section of the sfagent `config.yaml` file.
+
+  **Example:**
 
    ```
    key: <SF_PROFILE_KEY>
@@ -1682,26 +1690,26 @@ For Example:
 
 ##### Verification
 
-To view the logs
-1. In the app, click the View **Dashboard** icon.
-2. In the Dashboard window, go to **Logs** section.
-3. Select the logType as **elasticApmTraceLog**
-4. Now you can view the logs in the dashboard.
+To view the logs:
+
+1. Login into SnappyFlow.
+2. Go to the **Application** tab.
+3. In the **Application** tab, navigate to your **Project** > **Application**.
+4. Click the **Application's Dashboard** icon
+5. In the Dashboard window, go to **Logs** section.
+6. Select the logType as **elasticApmTraceLog**.
+7.  You can view the logs in the dashboard.
 
 
 #### Kubernetes
 
-Below are the two ways to send the Log Correlation data to SnappyFlow APM from the application which is deployed in the kubernetes.
+There are two ways to send the Log Correlation data to SnappyFlow APM based on how the application is deployed in kubernetes.
 
-1. The application are storing in the specific location with in the file, user has to use **sfKubeAgent** as a sidecar container in the existing deployment.
-2. The application logs are printing in the standard console, user has to use the **gen-elastic-apm-log** component to correlate the logs.
-
-
-Follow the below steps if the application logs are storing in specific location.
+**Case 1:** If the application logs are stored in a specific location within the file, use **sfKubeAgent** as a sidecar container in the existing deploymen
 
 **Helm chart deployment**
 
-1. Add the following configuration in the `values.yaml` file to download the sfKubeAgent image.
+1. To download the **sfKubeAgent image**, add the following configuration in the `values.yaml` file. 
 
    ```yaml
    # values.yaml
@@ -1720,9 +1728,9 @@ Follow the below steps if the application logs are storing in specific location.
          memory: 256Mi
    ```
 
-2. Create a `sfagent-configmap.yaml` file inside the template folders in the helm chart and add the **elasticApmTraceLog** logger plugin, which will collect the logs from the specific location and sends to the SnappyFlow APM.
+2. Create a `sfagent-configmap.yaml` file in the template folder of the helm chart and add the **elasticApmTraceLog** logger plugin. 
 
-   Below is the sample configuration.
+   **Sample configuration:**
 
    ```yaml
    # sfagent-configmap.yaml
@@ -1747,9 +1755,9 @@ Follow the below steps if the application logs are storing in specific location.
    {{- end }}
    
    ```
-3. Add the sfKubeAgent as a container in the existing `deployment.yaml` file.
+3. Add **sfKubeAgent** as a container in the existing `deployment.yaml` file.
 
-   Below is the sample configuration:
+   **Sample configuration:**
 
    ```yaml
    - name: sfagent
@@ -1767,9 +1775,9 @@ Follow the below steps if the application logs are storing in specific location.
        {{ toYaml .Values.sfagent.resources | nindent 12 }}
    ```
 
-4. Mount the log location path as shared folder location in volumeMounts section of your application container and sfkubeagent container. In the volumes section add the log-correlation and sfagent-config volume mounts.
+4.  In the `volumeMounts` section of your application container and sfkubeagent container, add the log location path as a shared folder location. In the `volumes` section, add the log correlation and `sfagent-config` volume mounts.
 
-   Below is the sample configuration:
+   **Sample configuration:**
 
    ``` yaml
    containers:
@@ -1801,14 +1809,16 @@ Follow the below steps if the application logs are storing in specific location.
 [Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/Log-Correlation-RefApps/flask-app) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
 ---
-Follow the below steps if the application logs are storing in specific location.
+**Case 2**: If the application logs are printed in the standard console, use the **gen-elastic-apm-log** component to correlate the logs.
 
-Specify following values in metadata labels section of deployment file.
+1Specify following values in metadata labels section of deployment file.
+
 ```yaml
 snappyflow/appname: <SF_APP_NAME>
 snappyflow/projectname: <SF_PROJECT_NAME>
 snappyflow/component: gen-elastic-apm-log # This is must for tracing log correlation
 ```
+
 ##### Sample deployment file
 ```yaml
 apiVersion: apps/v1
