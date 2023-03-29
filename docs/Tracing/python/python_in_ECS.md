@@ -2,10 +2,19 @@
 sidebar_position: 3 
 ---
 # ECS
+**<u>Supported Frameworks</u>**
+
+**[Django](python_in_ECS#django)** | **[Flask](python_in_ECS#flask)**
+
+**<u>Standard Library Modules</u>**
+
+**[Celery](python_in_ECS#celery)**
+
 ## Django
+
 ### Prerequisite
 
-To enable tracing for the application based on Django Framework **`sf-elastic-apm`** and **`sf-apm-lib` ** must be available in your environment. These libraries can be installed by the following methods:
+To enable tracing for the application based on Django Framework **`sf-elastic-apm`** and  must be available in your environment. These libraries can be installed by the following methods:
 
 Add the below-mentioned entries in the `requirements.txt` file.
  ```
@@ -21,7 +30,7 @@ pip install sf-apm-lib==0.1.1
 ```
 ### Configuration
 
-Make sure the project and application is created in the SnappyFlow Server. [Click Here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create the project and application in SnappyFlow.
+Make sure the project and application are created in the SnappyFlow Server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create the project and application in SnappyFlow.
 
 **Add the following entries in `settings.py` file.**
 
@@ -74,7 +83,7 @@ Make sure the project and application is created in the SnappyFlow Server. [Clic
   ```
 5. Provide `SF_PROJECT_NAME`, `SF_APP_NAME`, `SF_PROFILE_KEY` as an environment variables in add container section of task definitions. 
 
-Refer the below documentation:
+Refer to the below documentation:
 https://catalog.us-east-1.prod.workshops.aws/workshops/c6bdf8dc-d2b2-4dbd-b673-90836e954745/en-US/container-migration/create-task-definition
 
 
