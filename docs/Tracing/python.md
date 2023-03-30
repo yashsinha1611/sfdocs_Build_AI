@@ -1613,7 +1613,6 @@ To enable log correlation for an application based on Flask framework, follow th
    i. Follow the below-mentioned code, if the logs are printed on the standard console.
    ```
    fh = fh=logging.StreamHandler(sys.stdout)
-   
    # we imported a custom Formatter from the Python Agent earlier 
    formatter = Formatter("[%(asctime)s] [%(levelname)s] [%(message)s]", "%d/%b/%Y %H:%M:%S") 
    fh.setFormatter(formatter) 
