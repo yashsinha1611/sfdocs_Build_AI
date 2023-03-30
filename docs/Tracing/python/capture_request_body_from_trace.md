@@ -4,7 +4,7 @@ sidebar_position: 3
 # Capture Request Body from Trace
 ## Overview
 
-The capture request body feature allows you to save the request body of the HTTP transactions of a specific index.
+The **Capture Request Body** feature allows you to save the request body of an HTTP transaction.
 
 :::caution
 
@@ -12,24 +12,33 @@ Request bodies usually contain sensitive data like passwords and credit card num
 
 :::
 
+
+
+#### **<u>Supported Frameworks</u>** 
+
+#### **[Django](capture_request_body_from_trace#django)** | **[Flask](capture_request_body_from_trace#flask)**
+
 ### Django
+
+To **Capture Request Body** of an application based on the **Flask** framework, do the following steps in the `Settings.py` file.
 
 1. Add the below values to enable this feature
 
-      1. Update the **ELASTIC_APM** block with the following key-value pair in the `settings.py`.
+    1. Update the **ELASTIC_APM** block with the following key-value pair in the `settings.py`.
 
       ```
       'CAPTURE_BODY': 'all'
       ```
 
-      2. Add the below line in the try block of tracing instrumentation code in the `settings.py`.
+    2. Add the below line in the try block of tracing instrumentation code in the `settings.py`.
 
-      ```
-      # default value is true, 
-      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-      ```
+     ```
+     # default value is true, 
+     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+     ```
+
     
-2. Follow the below steps in the try block of `settings.py` to customize the document type and destination index. (Optional) 
+2. To customize the **Document Type** and **Destination Index**, do the following steps in the `try block` of the `settings.py` file. (Optional) 
 
    1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 
@@ -45,10 +54,18 @@ Request bodies usually contain sensitive data like passwords and credit card num
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
      ```
 
-The overall configuration is below:
+2. Add the below line to customize the document type.
+   
+   ```
+   # default documentType is user-input
+   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-    input'
+   ```
+   
 
-```
-try: 
+**Complete Configuration**
+
+  ```
+  try: 
          
    SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
    SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
@@ -60,8 +77,10 @@ try:
 except Exception as error: 
    print("Error while fetching snappyflow tracing configurations", error) 
 
-```
+  ```
 ### FLASK
+
+To **Capture Request Body** of an application based on the **Flask** framework, do the following steps in the `app.py` file.
 
 1. Add the below values to enable this feature
 
@@ -77,8 +96,8 @@ except Exception as error:
      # default value is true, 
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
      ```
-    
-2. Follow the below steps in the try block of `app.py` to customize the document type and destination index. (Optional) 
+
+2. To customize the **Document Type** and **Destination Index**, do the following steps in the `try block` of the `app.py` file. (Optional)
 
      1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 
@@ -94,7 +113,7 @@ except Exception as error:
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
      ```
 
-The overall sample configuration is below:
+**Complete Configuration**
 
 ```
 SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
