@@ -5,19 +5,19 @@ sidebar_position: 3
 
 ## Overview
 
-Log correlation refers to the ability to linking log events from different sources, applications or components of a system to gain a holistic understanding of the system's behavior. When logs are captured, they are automatically correlated with the relevant transaction and span information. This correlation is done based on the shared context information, such as the transaction ID or the span ID.
+Log correlation refers to the ability to link log events from different sources, applications, or components of a system to gain a holistic understanding of the system's behavior. When logs are captured, they are automatically correlated with the relevant transaction and span information. This correlation is done based on the shared context information, such as the transaction ID or the span ID.
 
 **Example:**
 
-when an error occurs in an application, SnappyFlow APM capture the error stack trace and link it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
+when an error occurs in an application, SnappyFlow APM captures the error stack trace and links it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
 
 **<u>Supported Frameworks</u>**
 
 **[Django](log_correlation#django)** | **[Flask](log_correlation#flask)**
 
-### Django
+## Django
 
-To enable log correlation for an application developed by **Django** framework, follow the below steps:
+To enable log correlation for an application developed by the **Django** framework, follow the below steps:
 
 #### Configuration
 
@@ -59,7 +59,7 @@ To enable log correlation for an application developed by **Django** framework, 
 
 3. Add the log statements to the Django view file and other application code using the Python `logging` module. 
 
-   **Example:**
+**Example:**
 
    ```
    import logging
@@ -74,11 +74,11 @@ To enable log correlation for an application developed by **Django** framework, 
 
 [Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
-### Flask
+## Flask
 
-To enable log correlation for an application developed by **Flask** framework, follow the below steps:
+To enable log correlation for an application developed by the **Flask** framework, follow the below steps:
 
-1. Add the import statement in `app.py` file.
+1. Add the import statement in the `app.py` file.
 
    ```
    import logging
@@ -95,7 +95,7 @@ To enable log correlation for an application developed by **Flask** framework, f
 
    :::
 
-2. Add the following code in `app.py` file to set the log configuration.
+2. Add the following code in the `app.py` file to set the log configuration.
 
    i. Follow the below-mentioned code, if the logs are printed on the standard console.
 
@@ -141,11 +141,11 @@ To enable log correlation for an application developed by **Flask** framework, f
 
 [Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask/app.py) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
----
-### Send Log Correlation Data to SnappyFlow
 
-#### Instance
-   Follow the below steps to send the correlate logs data to SnappyFlow from the application running in the instances.
+## Send Log Correlation Data to SnappyFlow
+
+### Instance
+Follow the below steps to send the correlate logs data to SnappyFlow from the application running in the instances.
 ##### Configuration
 
 Add the `elasticApmLog` plugin in the logging section of the sfagent `config.yaml` file and restart the sfagent service.
@@ -178,13 +178,13 @@ To view the logs:
 1. Login into SnappyFlow.
 2. Go to the **Application** tab.
 3. In the **Application** tab, navigate to your **Project** > **Application**.
-4. Click the **Application's Dashboard** icon
-5. In the Dashboard window, go to **Logs** section.
-6. Select the logType as **elasticApmTraceLog**.
+4. Click the **Application's Dashboard** icon.
+5. In the Dashboard window, go to the **Logs** section.
+6. Select the logType as **`elasticApmTraceLog`**.
 7. You can view the logs in the dashboard.
 
-#### Kubernetes
-  Follow the below steps to send the correlate logs data to SnappyFlow from the application running in the Kubernetes cluster.
+### Kubernetes
+ Follow the below steps to send the correlated logs data to SnappyFlow from the application running in the Kubernetes cluster.
 
 There are two ways to send the Log Correlation data to SnappyFlow APM. That is based on how the application is deployed in Kubernetes.
 
@@ -299,16 +299,14 @@ To view the logs:
 1. Login into SnappyFlow.
 2. Go to the **Application** tab.
 3. In the **Application** tab, navigate to your **Project** > **Application**.
-4. Click the **Application's Dashboard** icon
+4. Click the **Application's Dashboard** icon.
 5. In the Dashboard window, go to the **Logs** section.
 6. Select the logType as **`elasticApmTraceLog`**.
 7. You can view the logs in the dashboard.
 
 ##### Sample Helm Chart deployment 
 
-[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/Log-Correlation-RefApps/flask-app) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
-
----
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/Log-Correlation-RefApps/flask-app) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.<br/>
 
 **Case 2**: If the application logs are printed in the standard console, use the **gen-elastic-apm-log** component to correlate the logs.
 
@@ -450,7 +448,7 @@ To view the logs:
 1. Login into SnappyFlow.
 2. Go to the **Application** tab.
 3. In the **Application** tab, navigate to your **Project** > **Application**.
-4. Click the **Application's Dashboard** icon
+4. Click the **Application's Dashboard** icon.
 5. In the Dashboard window, go to the **Logs** section.
 6. Select the logType as **`elasticApmTraceLog`**.
 7. You can view the logs in the dashboard.
