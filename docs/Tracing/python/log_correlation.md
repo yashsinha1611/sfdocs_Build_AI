@@ -15,11 +15,11 @@ when an error occurs in an application, SnappyFlow APM capture the error stack t
 
 **[Django](log_correlation#django)** | **[Flask](log_correlation#flask)**
 
-## Django
+### Django
 
 To enable log correlation for an application developed by **Django** framework, follow the below steps:
 
-### Configuration
+#### Configuration
 
 1. Add the import statement in the `settings.py` file.
 
@@ -74,7 +74,7 @@ To enable log correlation for an application developed by **Django** framework, 
 
 [Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
-## Flask
+### Flask
 
 To enable log correlation for an application developed by **Flask** framework, follow the below steps:
 
@@ -141,11 +141,12 @@ To enable log correlation for an application developed by **Flask** framework, f
 
 [Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask/app.py) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
 
-## Send Log Correlation Data to SnappyFlow
+---
+### Send Log Correlation Data to SnappyFlow
 
-### Instance
-
-#### Configuration
+#### Instance
+   Follow the below steps to send the correlate logs data to SnappyFlow from the application running in the instances.
+##### Configuration
 
 Add the `elasticApmLog` plugin in the logging section of the sfagent `config.yaml` file and restart the sfagent service.
 
@@ -170,7 +171,7 @@ Add the `elasticApmLog` plugin in the logging section of the sfagent `config.yam
             log_path: <log path>
    ```
 
-#### Verification
+##### Verification
 
 To view the logs:
 
@@ -183,6 +184,7 @@ To view the logs:
 7. You can view the logs in the dashboard.
 
 #### Kubernetes
+  Follow the below steps to send the correlate logs data to SnappyFlow from the application running in the Kubernetes cluster.
 
 There are two ways to send the Log Correlation data to SnappyFlow APM. That is based on how the application is deployed in Kubernetes.
 
@@ -192,7 +194,7 @@ There are two ways to send the Log Correlation data to SnappyFlow APM. That is b
 
 Follow the below steps to send the correlated logs to SnappyFlow APM from the application deployed using the helm chart deployment.
 
-##### **Configuration**
+##### Configuration
 
 1. To download the **sfKubeAgent image**, add the following configuration in the `values.yaml` file. 
 
@@ -319,59 +321,59 @@ Follow the below steps to send the correlated logs to SnappyFlow APM from the ap
 1. Specify the following values in the `metadata labels` section of the `deployment.yaml` file.
 
  ```yaml
-snappyflow/appname: <SF_APP_NAME>
-snappyflow/projectname: <SF_PROJECT_NAME>
-# This is must for tracing log correlation
-snappyflow/component: gen-elastic-apm-log 
+ snappyflow/appname: <SF_APP_NAME>
+ snappyflow/projectname: <SF_PROJECT_NAME>
+ # This is must for tracing log correlation
+ snappyflow/component: gen-elastic-apm-log 
  ```
 
- **Sample deployment file**:
+ **Sample deployment file**
 
  ```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    io.kompose.service: python-app
-    snappyflow/appname: '<sf_app_name>'
-    snappyflow/projectname: '<sf_project_name>'
-    snappyflow/component: gen-elastic-apm-log
-  name: python-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      io.kompose.service: python-app
-  strategy: {}
-  template:
-    metadata:
-      labels:
-        io.kompose.service: python-app
-        snappyflow/appname: '<sf_app_name>'
-        snappyflow/projectname: '<sf_project_name>'
-        snappyflow/component: gen-elastic-apm-log
-    spec:
-      containers:
-        - env:
-            - name: SF_APP_NAME
-              value: '<sf_app_name>'
-            - name: SF_PROFILE_KEY
-              value: '<sf_profile_key>'
-            - name: SF_PROJECT_NAME
-              value: '<sf_project_name>'
-          image: refapp-node:latest
-          imagePullPolicy: Always
-          name: python-app
-          ports:
-            - containerPort: 3000
-          resources:
-            requests:
-              cpu: 10m
-              memory: 10Mi
-            limits:
-              cpu: 50m
-              memory: 50Mi
-      restartPolicy: Always
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   labels:
+     io.kompose.service: python-app
+     snappyflow/appname: '<sf_app_name>'
+     snappyflow/projectname: '<sf_project_name>'
+     snappyflow/component: gen-elastic-apm-log
+   name: python-app
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       io.kompose.service: python-app
+   strategy: {}
+   template:
+     metadata:
+       labels:
+         io.kompose.service: python-app
+         snappyflow/appname: '<sf_app_name>'
+         snappyflow/projectname: '<sf_project_name>'
+         snappyflow/component: gen-elastic-apm-log
+     spec:
+       containers:
+         - env:
+             - name: SF_APP_NAME
+               value: '<sf_app_name>'
+             - name: SF_PROFILE_KEY
+               value: '<sf_profile_key>'
+             - name: SF_PROJECT_NAME
+               value: '<sf_project_name>'
+           image: refapp-node:latest
+           imagePullPolicy: Always
+           name: python-app
+           ports:
+             - containerPort: 3000
+           resources:
+             requests:
+               cpu: 10m
+               memory: 10Mi
+             limits:
+               cpu: 50m
+               memory: 50Mi
+       restartPolicy: Always
  ```
 
 2. Install the **sfPod** in the Kubernetes cluster to collect the logs and metrics from the pods running inside the cluster. [Click here](https://stage-docs.snappyflow.io/docs/Integrations/kubernetes/kubernetes_monitoring_with_sfPod) to know how to install the sfPod in the Kubernetes cluster.
@@ -398,48 +400,45 @@ Follow the below steps to send the correlated logs to SnappyFlow APM from the ap
 ##### Configuration
 
 1. Specify the following values in the `metadata labels` section of the `deployment.yaml` file.
-
  ```yaml
- snappyflow/appname: {{ .Values.global.sfappname }}
- snappyflow/projectname: {{ .Values.global.sfprojectname }}
- # This is must for tracing log correlation
- snappyflow/component: gen-elastic-apm-log 
+  snappyflow/appname: {{ .Values.global.sfappname }}
+  snappyflow/projectname: {{ .Values.global.sfprojectname }}
+  # This is must for tracing log correlation
+  snappyflow/component: gen-elastic-apm-log 
  ```
-
-**Sample deployment file**
+**Samle deployment file**
 
    ```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-   name: {{ include "flask-app.fullname" . }}
-   labels:
-      snappyflow/appname: {{ .Values.global.sfappname }}
-      snappyflow/projectname: {{ .Values.global.sfprojectname }}
-      snappyflow/component: gen-elastic-apm-log
-spec:
-   template:
-      metadata:
-         labels:
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+      name: {{ include "flask-app.fullname" . }}
+      labels:
          snappyflow/appname: {{ .Values.global.sfappname }}
          snappyflow/projectname: {{ .Values.global.sfprojectname }}
          snappyflow/component: gen-elastic-apm-log
-      spec:
-         containers:
-            - name: {{ .Chart.Name }}
-              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-              imagePullPolicy: {{ .Values.image.pullPolicy }}
-              env:
-              - name: SF_PROFILE_KEY
-                value: {{ .Values.global.key }}
-              - name: SF_SERVICE_NAME
-                value: test-app
-              - name: SF_PROJECT_NAME
-                value: {{ .Values.global.sfprojectname }}
-              - name: SF_APP_NAME
-                value: {{ .Values.global.sfappname }}
+   spec:
+      template:
+         metadata:
+            labels:
+            snappyflow/appname: {{ .Values.global.sfappname }}
+            snappyflow/projectname: {{ .Values.global.sfprojectname }}
+            snappyflow/component: gen-elastic-apm-log
+         spec:
+            containers:
+               - name: {{ .Chart.Name }}
+                 image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+                 imagePullPolicy: {{ .Values.image.pullPolicy }}
+                 env:
+                 - name: SF_PROFILE_KEY
+                   value: {{ .Values.global.key }}
+                 - name: SF_SERVICE_NAME
+                   value: test-app
+                 - name: SF_PROJECT_NAME
+                   value: {{ .Values.global.sfprojectname }}
+                 - name: SF_APP_NAME
+                   value: {{ .Values.global.sfappname }}
    ```
-
 2. Install the **sfPod** in the Kubernetes cluster to collect the logs and metrics from the pods running inside the cluster. [Click here](https://stage-docs.snappyflow.io/docs/Integrations/kubernetes/kubernetes_monitoring_with_sfPod) to know how to install the sfPod in the Kubernetes cluster.
 
 3. Make sure that the `projectname` and the `appname` in the **sfPod** and the **values.yaml** file are same.

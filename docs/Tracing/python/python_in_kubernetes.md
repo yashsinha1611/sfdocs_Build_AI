@@ -89,36 +89,36 @@ Make sure that the project and the application are created in the SnappyFlow ser
    apiVersion: apps/v1
    kind: Deployment
    metadata:
-   name: python-app
-   labels:
-      app: python-app
+      name: python-app
+      labels:
+         app: python-app
    spec:
-   containers:
-   - name: python-app
-      image: imagename/tag:version
-      env:
-      - name: SF_PROFILE_KEY
-         value: <profle-key>
-      - name: SF_PROJECT_NAME
-         value: <project_name>
-      - name: SF_APP_NAME
-         value: <app-name>
-   ```
+      containers:
+        - name: python-app
+          image: imagename/tag:version
+          env:
+          - name: SF_PROFILE_KEY
+            value: <profle-key>
+          - name: SF_PROJECT_NAME
+            value: <project_name>
+          - name: SF_APP_NAME
+            value: <app-name>
+   ```   
 6. If the deployment is with **Helm Charts**, add the environment variables: `SF_PROJECT_NAME`, `SF_APP_NAME`, and `SF_PROFILE_KEY` in the `values.yaml` file. 
 
       ```yaml
       #values.yaml
       global:
       # update the sfappname, sfprojectname and key with the proper values
-      sfappname: <app-name>
-      sfprojectname: <project-name>
-      key: <profile-key>
+        sfappname: <app-name>
+        sfprojectname: <project-name>
+        key: <profile-key>
       
       replicaCount: 1
       image:
-      repository: djangoapp
-      pullPolicy: IfNotPresent
-      tag: "latest"
+        repository: djangoapp
+        pullPolicy: IfNotPresent
+        tag: "latest"
       ```
 
 7. In the `deployment.yaml` file of the **Helm Charts**, give the key-value from the global section of the `value.yaml` file.
@@ -134,11 +134,11 @@ Make sure that the project and the application are created in the SnappyFlow ser
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             env:
             - name: SF_PROFILE_KEY
-            value: {{ .Values.global.key }}
+              value: {{ .Values.global.key }}
             - name: SF_PROJECT_NAME
-            value: {{ .Values.global.sfprojectname }}
+              value: {{ .Values.global.sfprojectname }}
             - name: SF_APP_NAME
-            value: {{ .Values.global.sfappname }}
+              value: {{ .Values.global.sfappname }}
       ```
 ### Verification
 
@@ -225,42 +225,41 @@ Make sure that the project and the application are created in the SnappyFlow Ser
        apm = ElasticAPM(app) 
    ```
 3. In the **Kubernetes deployment** file, add `SF_PROFILE_KEY`, `SF_PROJECT_NAME`, and `SF_APP_NAME` as environment variables.
-   
-      ```yaml
-      #deployment.yaml
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
+   ```yaml
+   #deployment.yaml
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
       name: python-app
       labels:
          app: python-app
-      spec:
+   spec:
       containers:
-      - name: python-app
-         image: imagename/tag:version
-         env:
-         - name: SF_PROFILE_KEY
+        - name: python-app
+          image: imagename/tag:version
+          env:
+          - name: SF_PROFILE_KEY
             value: <profle-key>
-         - name: SF_PROJECT_NAME
+          - name: SF_PROJECT_NAME
             value: <project_name>
-         - name: SF_APP_NAME
+          - name: SF_APP_NAME
             value: <app-name>
-      ```
+   ```   
 4. If the application is deployed using **Helm Charts**, add the environment variables:  `SF_APP_NAME`, `SF_PROJECT_NAME`, and `SF_PROFILE_KEY`  in the `values.yaml`. file
 
       ```yaml
       #values.yaml
       global:
       # update the sfappname, sfprojectname and key with the proper values
-      sfappname: <app-name>
-      sfprojectname: <project-name>
-      key: <profile-key>
+        sfappname: <app-name>
+        sfprojectname: <project-name>
+        key: <profile-key>
       
       replicaCount: 1
       image:
-      repository: djangoapp
-      pullPolicy: IfNotPresent
-      tag: "latest"
+        repository: djangoapp
+        pullPolicy: IfNotPresent
+        tag: "latest"
       ```
 
 5. In the `deployment.yaml` file of the **Helm Chart**, give the key-value from the global section of the `value.yaml` file.
@@ -276,11 +275,11 @@ Make sure that the project and the application are created in the SnappyFlow Ser
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             env:
             - name: SF_PROFILE_KEY
-            value: {{ .Values.global.key }}
+              value: {{ .Values.global.key }}
             - name: SF_PROJECT_NAME
-            value: {{ .Values.global.sfprojectname }}
+              value: {{ .Values.global.sfprojectname }}
             - name: SF_APP_NAME
-            value: {{ .Values.global.sfappname }}
+              value: {{ .Values.global.sfappname }}
       ```
 ### Verification
 
