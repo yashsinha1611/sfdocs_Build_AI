@@ -12,33 +12,33 @@ Request bodies usually contain sensitive data like passwords and credit card num
 
 :::
 
-## Django
+### Django
 
-Follow the below steps to enable 
+1. Add the below values to enable this feature
 
-Update the **ELASTIC_APM** block with the following key-value pair in the `settings.py`.
+      1. Update the **ELASTIC_APM** block with the following key-value pair in the `settings.py`.
 
       ```
       'CAPTURE_BODY': 'all'
       ```
 
-Add the below line in the try block of tracing instrumentation code in the `settings.py`.
+      2. Add the below line in the try block of tracing instrumentation code in the `settings.py`.
 
-     ```
-     # default value is true, 
-     SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
-     ```
+      ```
+      # default value is true, 
+      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
+      ```
     
-Follow the below steps in the try block of `settings.py` to customize the document type and destination index. (Optional) 
+2. Follow the below steps in the try block of `settings.py` to customize the document type and destination index. (Optional) 
 
-     1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
+   1. Add below line to customize the destination index (Default:"log"), Applicable values(log, metric).
 
      ```
      # default indexType is log, applicable values are log and metric
      SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
      ```
      
-     2. Add the below line to customize the document type
+   2. Add the below line to customize the document type
      
      ```
      # default documentType is user-input

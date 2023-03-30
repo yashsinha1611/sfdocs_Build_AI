@@ -563,20 +563,20 @@ Make sure a project and an application are created in the SnappyFlow Server. [Cl
    apiVersion: apps/v1
    kind: Deployment
    metadata:
-   name: python-app
-   labels:
-      app: python-app
+      name: python-app
+      labels:
+         app: python-app
    spec:
-   containers:
-   - name: python-app
-      image: imagename/tag:version
-      env:
-      - name: SF_PROFILE_KEY
-         value: <profle-key>
-      - name: SF_PROJECT_NAME
-         value: <project_name>
-      - name: SF_APP_NAME
-         value: <app-name>
+      containers:
+        - name: python-app
+          image: imagename/tag:version
+          env:
+          - name: SF_PROFILE_KEY
+            value: <profle-key>
+          - name: SF_PROJECT_NAME
+            value: <project_name>
+          - name: SF_APP_NAME
+            value: <app-name>
    ```
 6. If the deployment is with **helm charts**, add the environment variables: `SF_PROJECT_NAME`, `SF_APP_NAME`, and `SF_PROFILE_KEY` in the `values.yaml` file and use them in the deployment file of charts. 
 
