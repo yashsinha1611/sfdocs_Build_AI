@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3 
 ---
-# ECS
+# Python in ECS
 **<u>Supported Frameworks</u>**
 
 **[Django](python_in_ECS#django)** | **[Flask](python_in_ECS#flask)**

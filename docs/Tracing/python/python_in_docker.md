@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3 
 ---
-# Docker
+# Python in Docker
 **<u>Supported Frameworks</u>** 
 
 **[Django](python_in_docker#django)** | **[Flask](python_in_docker#flask)**
