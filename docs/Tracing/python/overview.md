@@ -23,21 +23,13 @@ The Python tracing feature automatically instruments APIs, frameworks, and appli
 
 ## Supported Platforms
 
-**[AWS Lambda](/docs/Tracing/python/aws_lamda)** | **[Docker](/docs/Tracing/python/python_in_docker)** | **[ECS](/docs/Tracing/python/python_in_ECS)** | **[Kubernetes](/docs/Tracing/python/python_in_kubernetes)** | **[Instances](/docs/Tracing/python/python_on_instance)**
+**[Instances](/docs/Tracing/python/python_on_instance)** | **[Kubernetes](/docs/Tracing/python/python_in_kubernetes)** | **[ECS](/docs/Tracing/python/python_in_ECS)** | **[Docker](/docs/Tracing/python/python_in_docker)** |**[AWS Lambda](/docs/Tracing/python/aws_lamda)**
 
 
 
 ## Supported Trace Features 
 
-- **Distributed Tracing**
-
-- **Transaction Mapping**
-
-- **Log Correlation**
-
-- **Capture Request Body**
-
-- **Service Map**
+**Distributed Tracing** | **Transaction Mapping** | **Log Correlation** | **Capture Request Body** | **Service Map**
 
 <br/>
 
