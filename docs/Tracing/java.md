@@ -449,13 +449,119 @@ To view the logs
 4. Now you can view the logs in the dashboard.
 
 ### Kubernetes
-Add the following elasticApmLog plugin under logging section in the sfkubeagent `config.yaml` file which is running as side car container. 
-```
-logging:
-  plugins:
-   - name: elasticApmTraceLog
-      enabled: true
-      config:
-         log_path: /var/log/spring-app.log
+ Follow the below steps to send the correlated logs data to SnappyFlow from the application running in the Kubernetes cluster.
 
-```
+#### **Helm chart deployment**
+
+Follow the below steps to send the correlated logs to SnappyFlow APM from the application deployed using the helm chart deployment.
+
+##### Configuration
+
+1. To download the **sfKubeAgent image**, add the following configuration in the `values.yaml` file. 
+
+   ```yaml
+   # values.yaml
+   sfagent:
+     enabled: true
+     image:
+      repository: snappyflowml/sfagent
+      tag: latest
+      pullPolicy: Always
+     resources:
+       limits:
+         cpu: 50m
+         memory: 256Mi
+       requests:
+         cpu: 50m
+         memory: 256Mi
+   ```
+
+2. Create a `sfagent-configmap.yaml` file in the template folder of the **Helm Chart**. Then add the **`elasticApmTraceLog`** logger plugin. 
+
+   **Sample configuration:**
+
+   ```yaml
+   # sfagent-configmap.yaml
+   {{- if .Values.sfagent.enabled }}
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: {{ include "<chart-name>.fullname" . }}-sfagent-config
+     labels:
+        {{ default "snappyflow/appname" .Values.global.sfappname_key }}: {{ default .Release.Name .Values.global.sfappname }}
+        {{ default "snappyflow/projectname" .Values.global.sfprojectname_key }}: {{ default .Release.Name .Values.global.sfprojectname }}
+   data:
+     config.yaml: |+
+       ---
+       key: "{{ .Values.global.key }}"
+       logging:
+          plugins:
+          - name: elasticApmTraceLog
+            enabled: true
+            config:
+              log_path: <log-path location> 
+   {{- end }}
+   
+   ```
+
+3. Add the **sfKubeAgent** as a container in the existing `deployment.yaml` file.
+
+   **Sample configuration:**
+
+   ```yaml
+   - name: sfagent
+     image: "{{ .Values.sfagent.image.repository }}:{{ .Values.sfagent.image.tag }}"
+     imagePullPolicy: "{{ .Values.sfagent.image.pullPolicy }}"
+     command:
+        - /app/sfagent
+        - -enable-console-log
+     env:
+       - name: APP_NAME
+         value: "{{ .Values.global.sfappname }}"
+       - name: PROJECT_NAME
+         value: "{{ .Values.global.sfprojectname }}"
+     resources:
+       {{ toYaml .Values.sfagent.resources | nindent 12 }}
+   ```
+
+4. In the `volumeMounts` section of your application container and sfkubeagent container, add the log location path as a shared folder location. Then, in the `volumes` section, add the log correlation and `sfagent-config` volume mounts.
+
+   **Sample configuration:**
+
+   ``` yaml
+   containers:
+     - name: {{ .Chart.Name }}
+       image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+       imagePullPolicy: {{ .Values.image.pullPolicy }}
+       volumeMounts:
+         - name: log-correlation
+           mountPath: <mount path ex:/var/log>
+     - name: sfagent
+       image: "{{ .Values.sfagent.image.repository }}:{{ .Values.sfagent.image.tag }}"
+       imagePullPolicy: "{{ .Values.sfagent.image.pullPolicy }}"
+       volumeMounts:
+         - name: log-correlation
+           mountPath: <mount path ex:/var/log>
+         - name: sfagent-config
+           mountPath: /opt/sfagent/config.yaml
+           subPath: config.yaml
+   volumes:
+     - name: log-correlation
+       emptyDir: {}
+     - name: sfagent-config
+       configMap:
+         name: {{ include "<helm-chart name>.fullname" . }}-sfagent-config
+   ```
+
+##### Verification
+
+To view the logs:
+
+1. Login into SnappyFlow.
+2. Go to the **Application** tab.
+3. In the **Application** tab, navigate to your **Project** > **Application**.
+4. Click the **Application's Dashboard** icon.
+5. In the Dashboard window, go to the **Logs** section.
+6. Select the logType as **`elasticApmTraceLog`**.
+7. You can view the logs in the dashboard.
+
