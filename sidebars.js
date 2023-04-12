@@ -215,7 +215,23 @@ module.exports = {
                         },
 						
 					],
-				},		
+				},
+                {
+                    type: 'category',
+                    label: 'PHP',
+                    link: {
+                        type: 'doc',
+                        id: 'Tracing/php/overview',
+                    },
+                    collapsed: true,
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Tracing/php/instance',
+                            label: 'PHP on Instance',
+                        },
+                    ],
+                },				
             ],
 
 

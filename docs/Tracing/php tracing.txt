@@ -1,0 +1,26 @@
+PHP Tracing
+
+Overview
+
+Supported Versions:
+
+Supported Platforms:
+Docker, ECS, Instance
+
+Supported Features:
+
+
+Prerequisite:
+1. Install Sfagent
+2. Configure the config.yaml file
+
+
+Configuration:
+
+Verfication:
+
+Troubleshoot:
+
+
+
+
