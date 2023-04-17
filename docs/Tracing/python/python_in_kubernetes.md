@@ -103,7 +103,7 @@ Make sure that the project and the application are created in the SnappyFlow ser
             value: <project_name>
           - name: SF_APP_NAME
             value: <app-name>
-   ```   
+   ```
 6. If the deployment is with **Helm Charts**, add the environment variables: `SF_PROJECT_NAME`, `SF_APP_NAME`, and `SF_PROFILE_KEY` in the `values.yaml` file. 
 
       ```yaml
@@ -140,6 +140,15 @@ Make sure that the project and the application are created in the SnappyFlow ser
             - name: SF_APP_NAME
               value: {{ .Values.global.sfappname }}
       ```
+
+:::note
+
+if your app is in debug mode (eg: `settings.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
+
+
+
 ### Verification
 
 Follow the below steps to verify and view the trace data.
@@ -244,7 +253,7 @@ Make sure that the project and the application are created in the SnappyFlow Ser
             value: <project_name>
           - name: SF_APP_NAME
             value: <app-name>
-   ```   
+   ```
 4. If the application is deployed using **Helm Charts**, add the environment variables:  `SF_APP_NAME`, `SF_PROJECT_NAME`, and `SF_PROFILE_KEY`  in the `values.yaml`. file
 
       ```yaml
@@ -281,6 +290,13 @@ Make sure that the project and the application are created in the SnappyFlow Ser
             - name: SF_APP_NAME
               value: {{ .Values.global.sfappname }}
       ```
+
+:::note
+
+if your app is in debug mode (eg: `app.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
+
 ### Verification
 
 Follow the below steps to verify and view the trace data.

@@ -80,6 +80,14 @@ In this case, the trace agent picks up the `profileKey`, `projectName`, and `app
       print("Error while fetching snappyflow tracing configurations", error) 
    ```
 
+:::note
+
+if your app is in debug mode (eg: `settings.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
+
+
+
 ##### Case 2: sfAgent not installed in your instance
 
 In this case, follow the below steps to enable tracing.
@@ -141,6 +149,12 @@ In this case, follow the below steps to enable tracing.
        except Exception as error: 
           print("Error while fetching snappyflow tracing configurations", error) 
    ```
+
+:::note
+
+if your app is in debug mode (eg: `settings.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
 
 ### Verification
 
@@ -227,6 +241,12 @@ from sf_apm_lib.snappyflow import Snappyflow
    } 
    apm = ElasticAPM(app)
 ```
+:::note
+
+if your app is in debug mode (eg: `app.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
+
 ##### Case 2: sfAgent not installed in your instance
 
 In this case, follow the below steps to enable tracing.
@@ -275,6 +295,12 @@ In this case, follow the below steps to enable tracing.
         } 
        apm = ElasticAPM(app) 
       ```
+
+:::note
+
+if your app is in debug mode (eg: `app.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
 
 ### Verification
 

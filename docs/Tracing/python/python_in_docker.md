@@ -95,6 +95,12 @@ Make sure that the project and the application are created in the SnappyFlow Ser
 
 For more information on setting environment variables in docker refer to: https://docs.docker.com/compose/environment-variables/ 
 
+:::note
+
+if your app is in debug mode (eg: `settings.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
+
 ### Verification
 
 Follow the below steps to verify and view the trace data.
@@ -191,6 +197,12 @@ Make sure that the project and application are created in the SnappyFlow Server.
    ```
 
 For more information on setting environment variables in docker refer to: https://docs.docker.com/compose/environment-variables/ 
+
+:::note
+
+if your app is in debug mode (eg: `app.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
 
 ### Verification
 

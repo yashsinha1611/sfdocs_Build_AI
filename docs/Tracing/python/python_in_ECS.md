@@ -86,6 +86,11 @@ try:
 Refer to the below documentation:
 https://catalog.us-east-1.prod.workshops.aws/workshops/c6bdf8dc-d2b2-4dbd-b673-90836e954745/en-US/container-migration/create-task-definition
 
+:::note
+
+if your app is in debug mode (eg: `settings.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
 
 ### Verification
 
@@ -178,6 +183,12 @@ Add the following entries in the `app.py` file.
 
 Refer to the below documentation:
 https://catalog.us-east-1.prod.workshops.aws/workshops/c6bdf8dc-d2b2-4dbd-b673-90836e954745/en-US/container-migration/create-task-definition
+
+:::note
+
+if your app is in debug mode (eg: `app.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+
+:::
 
 ### Verification
 
