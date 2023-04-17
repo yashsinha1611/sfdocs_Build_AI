@@ -201,7 +201,7 @@ module.exports = {
 						{
                             type: 'doc',
                             id: 'Tracing/python/aws_lamda',
-                            label: 'AWS Lamda',
+                            label: 'AWS Lambda',
                         },
 						{
                             type: 'doc',
@@ -302,6 +302,11 @@ module.exports = {
                             label: 'Clickhouse on Kubernetes',
                         },
                     ]
+                },
+				{
+                    type: 'doc',
+                    id: 'Integrations/cloudwatch',
+                    label: 'CloudWatch',
                 },
                 {
                     type: 'doc',
