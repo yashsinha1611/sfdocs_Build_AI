@@ -88,7 +88,7 @@ https://catalog.us-east-1.prod.workshops.aws/workshops/c6bdf8dc-d2b2-4dbd-b673-9
 
 :::note
 
-if your app is in debug mode (eg: `settings.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+if your app is in debug mode (eg: `settings.Debug = true`), then the agent won’t send any tracing data to the SnappyFlow server. You can override it by adding **`'Debug':True`**  configuration in the `ELASTIC_APM` block.
 
 :::
 
@@ -109,16 +109,16 @@ Follow the below steps to verify and view the trace data.
 
 ### Troubleshoot
 
-1. If the trace data is not available in the SnappyFlow server, then check the trace configuration in the `settings.py`.
+1. If the trace data is unavailable in the SnappyFlow server, check the trace configuration in the `settings.py`.
 
-2. To enable the debug logs, add the key-value pair in the `ELASTIC_APM` block of the `settings.py` file.
+2. Add the key-value pair in the `ELASTIC_APM` block of the `settings.py` file to enable the debug logs.
 
    ```
    'DEBUG':'true'
    ```
 #### Sample Application Code
 
-[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-django) to view the sample application for which the configuration mentioned in the above sections enables the tracing feature.
 
 ## Flask
 
@@ -186,7 +186,7 @@ https://catalog.us-east-1.prod.workshops.aws/workshops/c6bdf8dc-d2b2-4dbd-b673-9
 
 :::note
 
-if your app is in debug mode (eg: `app.Debug= true`), then the agent won’t send any data to the SnappyFlow Server. You can override it by changing this setting to **`Debug:'True'`** in the `ELASTIC_APM` block.
+if your app is in debug mode (eg: `app.Debug = true`), then the agent won’t send any tracing data to the SnappyFlow server. You can override it by adding **`'Debug':True`** configuration in the `ELASTIC_APM` block.
 
 :::
 
@@ -206,8 +206,8 @@ Follow the below steps to verify and view the trace data.
        <img src="/img/Trace_RealTime.png" /><br/>
 	
 ### Troubleshoot
-1. If the trace data is not available in the SnappyFlow server, then check the trace configuration in the `app.py`.
-2. To enable the debug logs, add the key-value pair in the `app.config` block of the `app.py` file.
+1. If the trace data is unavailable in the SnappyFlow server, check the trace configuration in the `app.py`.
+2. Add the key-value pair in the `app.config` block of the `app.py` file to enable the debug logs.
 
    ```
    'DEBUG':'true'
@@ -215,7 +215,7 @@ Follow the below steps to verify and view the trace data.
 
 #### Sample Application Code
 
-[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the sample application for which the tracing feature is enabled by using the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/tracing-reference-apps/tree/master/refapp-flask) to view the sample application for which the configuration mentioned in the above sections enables the tracing feature.
 
 ## Celery
 :::note
