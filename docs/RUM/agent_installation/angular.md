@@ -9,24 +9,33 @@ Any web application developed using Angular.
 
 cd to the project directory and run the below command
 ```bash
-$ npm install --save sf-apm-rum 
+npm install --save sf-apm-rum 
 ```
 
 
 ## **Step 2: Import the sf-apm-rum package**
 
-Add following path in angular.json under scripts
+Add following path in angular.json under `architect/build/options/scripts`
 ```js
-'node_modules/sf-apm-rum/dist/sf-apm-rum.js'
+"node_modules/sf-apm-rum/dist/sf-apm-rum.js"
 ```
 Eg:
-```scripts: ['node_modules/sf-apm-rum/dist/sf-apm-rum.js']```
+```json
+"architect": {
+   "build": {
+      "options": {
+         "scripts": ["node_modules/sf-apm-rum/dist/sf-apm-rum.js"]
+      }
+   }
+}
+
+```
 
 
 ## **Step 3: Configure the error handler**
 
 
-Create a new file  `apm-error.handler.ts` in the add following code
+Create a new file `apm-error.handler.ts` at root level where your `app module` exists and add the following code
 
 ```js
 import { ErrorHandler } from "@angular/core";
@@ -38,7 +47,7 @@ export class ApmErrorHandler extends ErrorHandler {
 		super()
 	}
 
-	handleError(error) {
+	handleError(error:any) {
 		sfApm.apm.captureError(error.originalError || error)
 		super.handleError(error)
 	}
@@ -46,13 +55,13 @@ export class ApmErrorHandler extends ErrorHandler {
 }
 ```
 
-Then in `app.module.ts` add,
+Then in root module of the application add the following code, usually in `app.module.ts`
 ```js
 import { ErrorHandler, NgModule } from '@angular/core';
-import { ApmErrorHandler } from './apm.error-handler';
+import { ApmErrorHandler } from './apm-error.handler.ts';
 ```
 
-under imports add,
+In @NgModule unders providers add,
 ```js
 providers: [
 	{provide: ErrorHandler, useClass: ApmErrorHandler}
