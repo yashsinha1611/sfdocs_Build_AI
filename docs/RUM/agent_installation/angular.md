@@ -35,12 +35,13 @@ Eg:
 ## **Step 3: Configure the error handler**
 
 
-Create a new file `apm-error.handler.ts` at root level where your `app module` exists and add the following code
+Create a new file `apm-error.handler.ts` at the root level where `app.module.ts` exists and add the following code.
 
 ```js
 import { ErrorHandler } from "@angular/core";
 declare const sfApm: any;
 
+@Injectable()
 export class ApmErrorHandler extends ErrorHandler {
 
 	constructor() {
@@ -48,7 +49,7 @@ export class ApmErrorHandler extends ErrorHandler {
 	}
 
 	handleError(error:any) {
-		sfApm.apm.captureError(error.originalError || error)
+		sfApm.apm.captureError(error.originalError || error);
 		super.handleError(error)
 	}
 
@@ -58,7 +59,7 @@ export class ApmErrorHandler extends ErrorHandler {
 Then in root module of the application add the following code, usually in `app.module.ts`
 ```js
 import { ErrorHandler, NgModule } from '@angular/core';
-import { ApmErrorHandler } from './apm-error.handler.ts';
+import { ApmErrorHandler } from './apm-error.handler';
 ```
 
 In @NgModule unders providers add,
@@ -67,6 +68,8 @@ providers: [
 	{provide: ErrorHandler, useClass: ApmErrorHandler}
 ]
 ```
+Verify the configuration below,
+![image](../images/error-handler-rum.png)
 
 ## **Step 4: Create a project and application in Snappyflow portal**
 
@@ -125,10 +128,12 @@ const apmData = {
 };
 apmRum.init(apmData);
 ```
+Verify the configuration below,
+![image](../images/configure-rum.png)
 
 ## **Step 6: Verify the setup**
 
-Once the above mentioned steps are completed, restart the application and check for the RUM data in the Snappyflow APM server. 
+Once the above mentioned steps are completed, `restart the development server` and check for the RUM data in the Snappyflow APM server. 
 
 Click on View dashboard for the given application -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane.
 
