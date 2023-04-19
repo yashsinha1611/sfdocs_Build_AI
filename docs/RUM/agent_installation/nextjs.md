@@ -9,7 +9,7 @@ Any web application developed using Nextjs.
 
 cd to the project directory and run the below command
 ```bash
-$ npm install --save sf-apm-rum 
+npm install --save sf-apm-rum 
 ```
 
 
@@ -90,7 +90,7 @@ apmRum.init(apmData);
 
 ## **Step 5: Verify the setup**
 
-Once the above mentioned steps are completed, restart the application and check for the RUM data in the Snappyflow APM server.
+Once the above mentioned steps are completed, restart the development server and check for the RUM data in the Snappyflow APM server.
 
 Click on View dashboard for the given application -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane.
 

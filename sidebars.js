@@ -1088,9 +1088,25 @@ module.exports = {
                     collapsed: true,
                     items: [
                         {
-                            type: 'doc',
-                            id: 'RUM/agent_installation/angular',
-                            label: 'Angular'
+                            type: 'category',
+                            label: 'Angular',
+                            link: {
+                                type: 'doc',
+                                id: 'RUM/agent_installation/12x',
+                            },
+                            collapsed: true,
+                            items: [
+                                {
+                                    type: 'doc',
+                                    id: 'RUM/agent_installation/12x',
+                                    label: 'Version 12.x and below'
+                                },
+                                {
+                                    type: 'doc',
+                                    id: 'RUM/agent_installation/13x',
+                                    label: 'Version 13.x and above'
+                                },
+                            ]
                         },
                         {
                             type: 'doc',
