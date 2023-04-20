@@ -4,7 +4,7 @@
 
 CloudWatch Integration enables you to transfer logs from AWS CloudWatch to SnappyFlow. An AWS Lambda handler is specifically designed using AWS Lambda functions to integrate AWS CloudWatch and SnappyFlow.
 
-<img src="/img/integration/cloudwatch/image_9.png" />
+<img src="/img/integration/cloudwatch/image_14.png" />
 
 
 
@@ -56,9 +56,14 @@ https://github.com/snappyflow/apm-agent/releases/download/cloudwatch-logs-lambda
 <img src="/img/integration/cloudwatch/image_10.png" />
 
 1. Go to the **Code** > **Code Source** tab.
+
 2. Click the `Upload from` button and choose the `.zip file` option.
+
 3. Upload the `Lambda-handler.zip` file and save.
-4. Go to **Runtime settings**, click the `Edit` button, and change the default handler to `Sfagent`.
+
+   <img src="/img/integration/cloudwatch/image_13.png" />
+
+4. Go to **Runtime settings**, click the `Edit` button, and change the default handler to `sfagent`.
 
 ### Step 4: Add Environment variables
 
@@ -76,7 +81,7 @@ https://github.com/snappyflow/apm-agent/releases/download/cloudwatch-logs-lambda
 
    - **Key**: `APP_NAME`, **Value**: Name of the application
    - **Key**: `KEY`, **Value**: Profile key copied from SnappyFlow
-   - **Key**: `Name`, **Value**: Name of the Instance
+   - **Key**: `NAME`, **Value**: Name of the Instance
    - **Key**: `PROJECT_NAME`, **Value**: Name of the project
 
 
