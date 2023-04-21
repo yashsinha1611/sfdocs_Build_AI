@@ -3,7 +3,8 @@ sidebar_position: 3
 ---
 
 ## ECS
-### [**Fargate**](java#deploying-the-snappyflow-trace-agent)  
+Fargate 
+
 #### Deploying the SnappyFlow trace agent
 If you are using the fargate type, add the following information to the existing task definition where your application docker container is running
 1.	Go to the task definitions in ECS page
