@@ -116,6 +116,47 @@ module.exports = {
                     id: 'Tracing/java',
                     label: 'Java'
                 },
+				{
+                    type: 'category',
+                    label: 'Java',
+                    link: {
+                            type: 'doc',
+                            id: 'Tracing/java/overview',
+                          },
+                    collapsed: true,
+                    items: [
+                       {
+                          type: 'doc',
+                          id: 'Tracing/java/instance',
+                          label: 'Instance',
+                        },
+				        {
+                          type: 'doc',
+                          id: 'Tracing/java/docker',
+                          label: 'Docker',
+                        },
+				        {
+                          type: 'doc',
+                          id: 'Tracing/java/ecs',
+                          label: 'ECS',
+                        },
+			            {
+                          type: 'doc',
+                          id: 'Tracing/java/kubernetes',
+                          label: 'Kubernetes',
+                       },
+				       {
+                          type: 'doc',
+                          id: 'Tracing/java/capture_request_body',
+                          label: 'Capture Request Body',
+                       },
+			           {
+                          type: 'doc',
+                          id: 'Tracing/java/log_correlation',
+                          label: 'Log Correlation',
+                       },
+			       ],
+                },
                 {
                     type: 'doc',
                     id: 'Tracing/python',
