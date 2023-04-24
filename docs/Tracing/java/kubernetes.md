@@ -1,21 +1,19 @@
 ---
 sidebar_position: 3 
 ---
-## Kubernetes
+# Java Application in Kubernetes
+
+## Standard Deployment
 
 ### Prerequisite
 
-Install Sfagent.
+1. Install [Sftrace-agent](https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz).
+2. Make sure that the project and application are created in the SnappyFlow server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to create a project and an application in SnappyFlow. 
+3. `sfTrace` agent has to run as `initContainer` in the application pod. 
 
 ### Configuration
 
-1. Make sure that the project and the application are created in the SnappyFlow server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create a project and an application in SnappyFlow. 
-
-2. sfTrace agent has to run as `initContainer` in the application pod. You can deploy this either using a standard deployment yaml or a Helm chart.
-
-### Standard Deployment
-
-1. Add the below configuration to add the sfTrace agent as an initContainer in the application container.  
+1. Add the below configuration to add the `sfTrace` agent as `initContainer` in the application container.  
 
    ```yaml
       # deployment.yaml
@@ -32,29 +30,29 @@ Install Sfagent.
            name: sftrace-agent 
    ```
 
-2. Provide the SFTRACE_PROFILE_KEY, SFTRACE_PROFILE_KEY, SFTRACE_PROJECT_NAME , SFTRACE_APP_NAME and the SFTRACE_AGENT path.
+2. Provide the `SFTRACE_PROFILE_KEY`, `SFTRACE_PROFILE_KEY`, `SFTRACE_PROJECT_NAME` , `SFTRACE_APP_NAME` and the `SFTRACE_AGENT` path.
 
-  ```yaml
-        env: 
-        - name: SFTRACE_PROFILE_KEY 
-          value: <profile-key> 
-        - name: SFTRACE_SERVICE_NAME 
-          value: <service-name>
-        - name: SFTRACE_PROJECT_NAME 
-          value: <project-name> 
-        - name: SFTRACE_APP_NAME 
-          value: <app-name> 
-        - name: SFTRACE_AGENT 
-          value: -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar 
-        - name: ELASTIC_APM_DISABLE_INSTRUMENTATIONS 
-          value: spring-mvc 
-        - name: ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME 
-          value: "true" 
-  ```
+   ```yaml
+      env: 
+      - name: SFTRACE_PROFILE_KEY 
+        value: <profile-key> 
+      - name: SFTRACE_SERVICE_NAME 
+        value: <service-name>
+      - name: SFTRACE_PROJECT_NAME 
+        value: <project-name> 
+      - name: SFTRACE_APP_NAME 
+        value: <app-name> 
+      - name: SFTRACE_AGENT 
+        value: -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar 
+      - name: ELASTIC_APM_DISABLE_INSTRUMENTATIONS 
+        value: spring-mvc 
+      - name: ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME 
+        value: "true" 
+   ```
 
-3. Define a command in the application container and attach sftrace-agent in the application execution command.
+3. Add the below-given `command` section to your application container.
 
- ```yaml
+   ```yaml
      containers: 
        - name: sample-java-app 
          image: imagename:tag 
@@ -62,11 +60,11 @@ Install Sfagent.
          - sh 
          - -c 
          - java $(SFTRACE_AGENT) -jar jarname 
- ```
+   ```
 
-4. In the `volumeMounts` section of your application container add the sftrace-agent mount path which is same as the sfTrace initContainer.  in the volumes section, add the sftrace-agent volume mounts.
+4. In the `volumeMounts` section of your application container add the `mount path: /sfagent` and `name: sftrace-agent`. In the volumes section, add the `sftrace-agent` volume mounts.
 
-  ```yaml
+   ```yaml
     containers: 
       - name: sample-java-app 
         image: imagename:tag 
@@ -76,13 +74,43 @@ Install Sfagent.
     volumes: 
       - name: sftrace-agent 
         emptyDir: {} 
-  ```
+   ```
 
-##### Sample Deployment file
+### Sample Deployment file
 
-[Click here](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_standalone_deployment.yaml)  to view the sample applicatideployment yaml file for which the tracing feature is enabled by the configuration mentioned in the above sections.
+[Click here](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_standalone_deployment.yaml)  to view the sample application `deployment yaml` file for which the configuration mentioned in the above sections enables the tracing feature.
 
-### Helm Chart Deployment 
+### Verification
+
+Follow the below steps to verify whether SnappyFlow has started to collect the trace data.
+
+1. Login into SnappyFlow.
+
+2. Go to the **Application** tab.
+
+3. In the **Application** tab, navigate to your **Project** > **Application**.
+
+4. Click the **Application's Dashboard** icon.
+
+   <img src="/img/tracing/image_2.png" />
+
+5. Navigate to the **Tracing** section and click the `View Transactions` button.
+
+6. You can view the traces in the **Aggregate** and the **Real Time** tabs.
+
+   <img src="/img/tracing/image_1.png" />
+
+   <img src="/img/tracing/image_3.png" />
+
+## Helm Chart Deployment 
+
+### Prerequisite
+
+1. Install [Sftrace-agent](https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz).
+2. Make sure that the project and application are created in the SnappyFlow server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to create a project and an application in SnappyFlow. 
+3. `sfTrace` agent has to run as `initContainer` in the application pod.
+
+### Configuration
 
 1. Add the `SF_APP_NAME`, `SF_PROJECT_NAME`, and `SF_PROFILE_KEY`  in the `values.yaml` file of the helm chart.
 
@@ -101,7 +129,7 @@ Install Sfagent.
      tag: "latest"
    ```
 
-2. Add the below configuration to add the sfTrace agent as an initContainer in the application container.  
+2. Add the below configuration in the `deployment .yaml` file to add the `sfTrace` agent as an `initContainers` in the application container.  
 
    ```yaml
       # deployment.yaml
@@ -118,29 +146,29 @@ Install Sfagent.
            name: sftrace-agent 
    ```
 
-3. Provide the SFTRACE_PROFILE_KEY, SFTRACE_PROFILE_KEY, SFTRACE_PROJECT_NAME , SFTRACE_APP_NAME and the SFTRACE_AGENT path.
+3. Provide the `SFTRACE_PROFILE_KEY`, `SFTRACE_PROFILE_KEY`,      `SFTRACE_PROJECT_NAME` , `SFTRACE_APP_NAME` and the `SFTRACE_AGENT` path.
 
-  ```yaml
-        env: 
-        - name: SFTRACE_PROFILE_KEY 
-          value: {{ .Values.global.key }} 
-        - name: SFTRACE_SERVICE_NAME 
-          value: <service-name>
-        - name: SFTRACE_PROJECT_NAME 
-          value: {{ .Values.global.sfprojectname }} 
-        - name: SFTRACE_APP_NAME 
-          value: {{ .Values.global.sfappname }} 
-        - name: SFTRACE_AGENT 
-          value: -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar 
-        - name: ELASTIC_APM_DISABLE_INSTRUMENTATIONS 
-          value: spring-mvc 
-        - name: ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME 
-          value: "true" 
-  ```
+   ```yaml
+      env: 
+      - name: SFTRACE_PROFILE_KEY 
+        value: {{ .Values.global.key }} 
+      - name: SFTRACE_SERVICE_NAME 
+        value: <service-name>
+      - name: SFTRACE_PROJECT_NAME 
+        value: {{ .Values.global.sfprojectname }} 
+      - name: SFTRACE_APP_NAME 
+        value: {{ .Values.global.sfappname }} 
+      - name: SFTRACE_AGENT 
+        value: -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar 
+      - name: ELASTIC_APM_DISABLE_INSTRUMENTATIONS 
+        value: spring-mvc 
+      - name: ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME 
+        value: "true" 
+   ```
 
-4. Define a command in the application container and attach sftrace-agent in the application execution command.
+4. Add the below-given `command` section to your application container.
 
- ```yaml
+   ```yaml
      containers: 
        - name: sample-java-app 
          image: imagename:tag 
@@ -148,11 +176,11 @@ Install Sfagent.
          - sh 
          - -c 
          - java $(SFTRACE_AGENT) -jar jarname 
- ```
+   ```
 
-5. In the `volumeMounts` section of your application container add the sftrace-agent mount path which is same as the sfTrace initContainer.  in the volumes section, add the sftrace-agent volume mounts.
+5. In the `volumeMounts` section of your application container add the `mountPath: /sfagent` and `name: sftrace-agent`.  In the volumes section, add the `sftrace-agent` volume mounts.
 
-  ```yaml
+   ```yaml
     containers: 
       - name: sample-java-app 
         image: imagename:tag 
@@ -162,11 +190,37 @@ Install Sfagent.
     volumes: 
       - name: sftrace-agent 
         emptyDir: {} 
-  ```
+   ```
 
-#### Sample Helm chart deployment
+### Sample Helm chart deployment
 
-**Update values.yaml**: Refer to [java_k8s_with_helm_chart_values.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_values.yaml)  to configure agent specific properties. Look at sections with `SFTRACE-CONFIG` description 
+**Update values.yaml**: 
 
-**Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with `SFTRACE-CONFIG` description
+Refer to  the `SFTRACE-CONFIG` section in the [java_k8s_with_helm_chart_values.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_values.yaml)  file to configure agent-specific properties.
+
+**Update deployment.yam**l: 
+
+Refer to the `SFTRACE-CONFIG` section in the  [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  file and copy the trace agent to the container and start the container by attaching the agent.
+
+### Verification
+
+Follow the below steps to verify whether SnappyFlow has started to collect the trace data.
+
+1. Login into SnappyFlow.
+
+2. Go to the **Application** tab.
+
+3. In the **Application** tab, navigate to your **Project** > **Application**.
+
+4. Click the **Application's Dashboard** icon.
+
+   <img src="/img/tracing/image_2.png" />
+
+5. Navigate to the **Tracing** section and click the `View Transactions` button.
+
+6. You can view the traces in the **Aggregate** and the **Real Time** tabs.
+
+   <img src="/img/tracing/image_1.png" />
+
+   <img src="/img/tracing/image_3.png" />
 
