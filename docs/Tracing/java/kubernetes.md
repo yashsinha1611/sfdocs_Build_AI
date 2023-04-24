@@ -1,0 +1,172 @@
+---
+sidebar_position: 3 
+---
+## Kubernetes
+
+### Prerequisite
+
+Install Sfagent.
+
+### Configuration
+
+1. Make sure that the project and the application are created in the SnappyFlow server. [Click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to know how to create a project and an application in SnappyFlow. 
+
+2. sfTrace agent has to run as `initContainer` in the application pod. You can deploy this either using a standard deployment yaml or a Helm chart.
+
+### Standard Deployment
+
+1. Add the below configuration to add the sfTrace agent as an initContainer in the application container.  
+
+   ```yaml
+      # deployment.yaml
+       initContainers: 
+       - name: sftrace-java-agent 
+         image: busybox 
+         command: 
+         - sh 
+         - -c 
+         - -x 
+         - wget -O /sfagent/sftrace-agent.tar.gz https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz && cd /sfagent && tar -xvzf sftrace-agent.tar.gz && rm sftrace-agent.tar.gz 
+         volumeMounts: 
+         - mountPath: /sfagent 
+           name: sftrace-agent 
+   ```
+
+2. Provide the SFTRACE_PROFILE_KEY, SFTRACE_PROFILE_KEY, SFTRACE_PROJECT_NAME , SFTRACE_APP_NAME and the SFTRACE_AGENT path.
+
+  ```yaml
+        env: 
+        - name: SFTRACE_PROFILE_KEY 
+          value: <profile-key> 
+        - name: SFTRACE_SERVICE_NAME 
+          value: <service-name>
+        - name: SFTRACE_PROJECT_NAME 
+          value: <project-name> 
+        - name: SFTRACE_APP_NAME 
+          value: <app-name> 
+        - name: SFTRACE_AGENT 
+          value: -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar 
+        - name: ELASTIC_APM_DISABLE_INSTRUMENTATIONS 
+          value: spring-mvc 
+        - name: ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME 
+          value: "true" 
+  ```
+
+3. Define a command in the application container and attach sftrace-agent in the application execution command.
+
+ ```yaml
+     containers: 
+       - name: sample-java-app 
+         image: imagename:tag 
+         command: 
+         - sh 
+         - -c 
+         - java $(SFTRACE_AGENT) -jar jarname 
+ ```
+
+4. In the `volumeMounts` section of your application container add the sftrace-agent mount path which is same as the sfTrace initContainer.  in the volumes section, add the sftrace-agent volume mounts.
+
+  ```yaml
+    containers: 
+      - name: sample-java-app 
+        image: imagename:tag 
+        volumeMounts: 
+          - mountPath: /sfagent 
+            name: sftrace-agent 
+    volumes: 
+      - name: sftrace-agent 
+        emptyDir: {} 
+  ```
+
+##### Sample Deployment file
+
+[Click here](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_standalone_deployment.yaml)  to view the sample applicatideployment yaml file for which the tracing feature is enabled by the configuration mentioned in the above sections.
+
+### Helm Chart Deployment 
+
+1. Add the `SF_APP_NAME`, `SF_PROJECT_NAME`, and `SF_PROFILE_KEY`  in the `values.yaml` file of the helm chart.
+
+     ```yaml
+   #values.yaml
+   global:
+   # update the sfappname, sfprojectname and key with the proper values
+     sfappname: <app-name>
+     sfprojectname: <project-name>
+     key: <profile-key>
+   
+   replicaCount: 1
+   image:
+     repository: spring-app
+     pullPolicy: IfNotPresent
+     tag: "latest"
+   ```
+
+2. Add the below configuration to add the sfTrace agent as an initContainer in the application container.  
+
+   ```yaml
+      # deployment.yaml
+       initContainers: 
+       - name: sftrace-java-agent 
+         image: busybox 
+         command: 
+         - sh 
+         - -c 
+         - -x 
+         - wget -O /sfagent/sftrace-agent.tar.gz https://github.com/snappyflow/apm-agent/releases/download/latest/sftrace-agent.tar.gz && cd /sfagent && tar -xvzf sftrace-agent.tar.gz && rm sftrace-agent.tar.gz 
+         volumeMounts: 
+         - mountPath: /sfagent 
+           name: sftrace-agent 
+   ```
+
+3. Provide the SFTRACE_PROFILE_KEY, SFTRACE_PROFILE_KEY, SFTRACE_PROJECT_NAME , SFTRACE_APP_NAME and the SFTRACE_AGENT path.
+
+  ```yaml
+        env: 
+        - name: SFTRACE_PROFILE_KEY 
+          value: {{ .Values.global.key }} 
+        - name: SFTRACE_SERVICE_NAME 
+          value: <service-name>
+        - name: SFTRACE_PROJECT_NAME 
+          value: {{ .Values.global.sfprojectname }} 
+        - name: SFTRACE_APP_NAME 
+          value: {{ .Values.global.sfappname }} 
+        - name: SFTRACE_AGENT 
+          value: -javaagent:/sfagent/sftrace/java/sftrace-java-agent.jar 
+        - name: ELASTIC_APM_DISABLE_INSTRUMENTATIONS 
+          value: spring-mvc 
+        - name: ELASTIC_APM_USE_PATH_AS_TRANSACTION_NAME 
+          value: "true" 
+  ```
+
+4. Define a command in the application container and attach sftrace-agent in the application execution command.
+
+ ```yaml
+     containers: 
+       - name: sample-java-app 
+         image: imagename:tag 
+         command: 
+         - sh 
+         - -c 
+         - java $(SFTRACE_AGENT) -jar jarname 
+ ```
+
+5. In the `volumeMounts` section of your application container add the sftrace-agent mount path which is same as the sfTrace initContainer.  in the volumes section, add the sftrace-agent volume mounts.
+
+  ```yaml
+    containers: 
+      - name: sample-java-app 
+        image: imagename:tag 
+        volumeMounts: 
+          - mountPath: /sfagent 
+            name: sftrace-agent 
+    volumes: 
+      - name: sftrace-agent 
+        emptyDir: {} 
+  ```
+
+#### Sample Helm chart deployment
+
+**Update values.yaml**: Refer to [java_k8s_with_helm_chart_values.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_values.yaml)  to configure agent specific properties. Look at sections with `SFTRACE-CONFIG` description 
+
+**Update deployment.yam**l: Refer to [java_k8s_with_helm_chart_deployment.yaml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/java_k8s_with_helm_chart_deployment.yaml)  to copy trace agent to the container and start the container by attaching  the agent. Look at sections with `SFTRACE-CONFIG` description
+

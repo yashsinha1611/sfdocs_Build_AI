@@ -227,6 +227,48 @@ const AGENTS = [
 		'category': ['Cloud'],
 		'link': '/docs/Integrations/iis/iis_windows'
 	}, 
+		{
+		'src':'/img/integration/integration_list/email.svg',
+		'label':'Email',
+		'overText': 'Email Notification Channel',
+		'category': ['Alerts & Notifications'],
+		'link': '/docs/Alerts_notifications/Notifications/Create_Notification_Channel/email'
+	},
+	{
+		'src':'/img/integration/integration_list/opsgenie.svg',
+		'label':'Opsgenie',
+		'overText': 'Opsgenie Notification Channel',
+		'category': ['Alerts & Notifications'],
+		'link': '/docs/Alerts_notifications/Notifications/Create_Notification_Channel/opsgenie'
+	},
+	{
+		'src':'/img/integration/integration_list/teams.svg',
+		'label':'Teams',
+		'overText': 'Teams Notification Channel',
+		'category': ['Alerts & Notifications'],
+		'link': '/docs/Alerts_notifications/Notifications/Create_Notification_Channel/teams'
+	},
+	{
+		'src':'/img/integration/integration_list/zenduty.svg',
+		'label':'Zenduty',
+		'overText': 'Teams Notification Channel',
+		'category': ['Alerts & Notifications'],
+		'link': '/docs/Alerts_notifications/Notifications/Create_Notification_Channel/zenduty'
+	},
+	{
+		'src':'/img/integration/integration_list/webhook.svg',
+		'label':'Webhook',
+		'overText': 'Teams Notification Channel',
+		'category': ['Alerts & Notifications'],
+		'link': '/docs/Alerts_notifications/Notifications/Create_Notification_Channel/webhook'
+	},
+	{
+		'src': '/img/azure_DB.svg',
+		'label': 'AzureDB',
+		'overText': 'Azuredb Metric plugin collects metrics related to relational database services like Azure SQL, Azure database for MySQL and Azure database for PostgreSQL using insights data from Azure Monitor',
+		'category': ['Databases'],
+		'link': '/docs/Integrations/plugin/azuredb'
+	},
 ];
 
 const buttonLists = [
@@ -253,6 +295,9 @@ const buttonLists = [
 	// },
 	{
 		'label': 'Alerts & Notifications'
+	},
+	{
+		'label': 'Platform'
 	},
 ];
 

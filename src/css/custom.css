@@ -876,6 +876,10 @@ ol li ul {
    .navbar__brand{
     display: block !important;
    }
+   .navbar__items a{
+    font-size: 11px;
+    margin-right: 12px;
+  }
   
 }
 @media only screen and (max-width: 1320px) and (min-width: 1000px) {
@@ -895,13 +899,28 @@ ol li ul {
     width: 88%;
   }
 }
+@media only screen and (max-width: 1226px) and (min-width: 998px) {
+  .navbar__items a{
+    font-size: 12px;
+    margin-right: 15px;
+  }
+  .toggle_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module{
+    display: none;
+  }
+  .getStart,
+  .loginButton{
+    margin-right: 10px !important;
+    margin-left: 5px !important;
+    padding: 2px 8px !important;
+  }
+}
 @media only screen and (max-width: 1225px) and (min-width: 1001px) {
   .colorModeToggle_DEke, .footer__link-separator, .navbar__item, .tableOfContents_bqdL {
       display: none;
   }
   .navbar__toggle {
     display: inherit;
-  }
+  } 
 }
 @media only screen and (max-width: 1800px) and (min-width: 1321px) {
   main .padding-bottom--lg div.col:first-child{
