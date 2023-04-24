@@ -1,4 +1,4 @@
-# Steps to install SnappyFlow RUM agent - Angular
+# Steps to install SnappyFlow RUM agent - Angular 12 and below
 
 :::note Prerequisites
 
@@ -7,7 +7,7 @@ Any web application developed using Angular.
 
 ## **Step 1: Install the sf-apm-rum agent**
 
-cd to the project directory and run the below command
+cd to the project root directory and run the below command
 ```bash
 npm install --save sf-apm-rum 
 ```
@@ -15,7 +15,7 @@ npm install --save sf-apm-rum
 
 ## **Step 2: Import the sf-apm-rum package**
 
-Add following path in angular.json under `architect/build/options/scripts`
+Add following path in angular.json
 ```js
 "node_modules/sf-apm-rum/dist/sf-apm-rum.js"
 ```
@@ -38,7 +38,7 @@ Eg:
 Create a new file `apm-error.handler.ts` at the root level where `app.module.ts` exists and add the following code.
 
 ```js
-import { ErrorHandler } from "@angular/core";
+import { ErrorHandler, Injectable } from "@angular/core";
 declare const sfApm: any;
 
 @Injectable()
