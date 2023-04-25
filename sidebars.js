@@ -269,7 +269,17 @@ module.exports = {
                         {
                             type: 'doc',
                             id: 'Tracing/php/instance',
-                            label: 'PHP on Instance',
+                            label: 'Instance',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/php/docker',
+                            label: 'Docker',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Tracing/php/ecs',
+                            label: 'ECS',
                         },
                     ],
                 },				

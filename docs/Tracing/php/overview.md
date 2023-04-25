@@ -23,7 +23,7 @@ The PHP tracing feature automatically instruments APIs, frameworks, and applicat
 
 
 
- 
+ **[Instance](/docs/Tracing/php/instance)** | **[Docker](/docs/Tracing/php/docker)** | **[ECS](/docs/Tracing/php/ECS)**
 
 
 
