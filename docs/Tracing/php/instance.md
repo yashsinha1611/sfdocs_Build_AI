@@ -4,7 +4,7 @@ sidebar_position: 3
 # PHP Application on Instance
 ## Configuration
 
-1. Install [Sfagent](/docs.snappyflow.io/docs/Integrations/os/linux/sfagent_linux).
+1. Install [Sfagent](/docs/Integrations/os/linux/sfagent_linux).
 
 2. Make sure that the project and application are created in the SnappyFlow server. If not, [click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to create a project and an application in SnappyFlow.
 
