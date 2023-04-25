@@ -2,7 +2,7 @@
 
 :::note Prerequisites
 
-Any web application developed using Angular.
+Any web application developed using Angular version 12 or below.
 :::
 
 ## **Step 1: Install the sf-apm-rum agent**
@@ -58,7 +58,7 @@ export class ApmErrorHandler extends ErrorHandler {
 
 Then in root module of the application add the following code, usually in `app.module.ts`
 ```js
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler } from '@angular/core';
 import { ApmErrorHandler } from './apm-error.handler';
 ```
 
@@ -69,7 +69,7 @@ providers: [
 ]
 ```
 Verify the configuration below,
-![image](../images/error-handler-rum.png)
+![image](../images/error-handler.png)
 
 ## **Step 4: Create a project and application in Snappyflow portal**
 
@@ -115,14 +115,17 @@ Add the following code in the applications root component,
 usually in app.component.ts
 
 ```js
-declare const sfApm: any; // add it outside class
+declare const sfApm: any; // add it before @Component decorator
+```
 
+```js
+// add below code in ngOnInit method
 let apmRum = new sfApm.ApmRum(); // initialize the library
 
 const apmData = {
 	baseUrl: '<add-snappyflow-server-url-here>', // provide the URL of the snappyflow APM server that you are using to view the data
 	profileKey: '<add-profile-key-here>', // paste the profile key copied from SF profile
-	serviceName: '<your-apm-service-name>', // specify service name for RUM
+	serviceName: '<your-apm-service-name>', // specify service name for RUM. This can be anyname of your choice (allowed characters: a-z, A-Z, 0-9, _, -, <space>)
 	projectName: '<add-project-name-here>', // provide the snappyflow project name from step 4
 	appName: '<add-application-name-here>', // provide the snappyflow application name from step 4
 };
@@ -133,7 +136,7 @@ Verify the configuration below,
 
 ## **Step 6: Verify the setup**
 
-Once the above mentioned steps are completed, `restart the development server` and check for the RUM data in the Snappyflow APM server. 
+Once the above mentioned steps are completed, **restart the development server** using `npm start` command and check for the RUM data in the Snappyflow APM server. 
 
 Click on View dashboard for the given application -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane.
 
