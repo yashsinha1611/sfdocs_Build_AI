@@ -7,7 +7,9 @@ By enabling log correlation, you can link log events from different sources, app
 
 **Example:**
 
-when an error occurs in an application, SnappyFlow APM captures the error stack trace and links it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
+when an error occurs in your application, SnappyFlow's trace agent captures the error stack trace and links it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
+
+## Enable Log Correlation
 
 ### Configuration
 
@@ -31,75 +33,82 @@ when an error occurs in an application, SnappyFlow APM captures the error stack 
    </configuration> 
    ```
 
-3. Add logging statements to your application code through a logging framework such as Logback or Log4j. This will typically involve configuring a logging appender that sends log messages to the specified path.
-For example:
+3. Add log statements to your application code through a logging framework such as **Logback** or **Log4j**. This will typically involve configuring a logging appender that sends log messages to a specified path.
+   **Example**:
 
-  ```java
-  package org.springframework.samples;
-  import org.slf4j.Logger;
-  import org.slf4j.LoggerFactory;
-  class CustomController {
-  Logger logger = LoggerFactory.getLogger(CustomController.class);
+   ```java
+   package org.springframework.samples;
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   class CustomController {
+   Logger logger = LoggerFactory.getLogger(CustomController.class);
        
-  @GetMapping("/getCustomer")
-  public void getCustomer() {
-  logger.info("Query success called GET /getCustomer");
+   @GetMapping("/getCustomer")
+   public void getCustomer() {
+   logger.info("Query success called GET /getCustomer");
+    }
    }
-  }
-  ```
+   ```
 
-4. Build your application and Add the below property.
+### Add Properties to the Application
 
-   1. Your application is packaged as a jar file, then add the `elastic.apm.enable_log_correlation` property  like below while running your application jar.
+##### Application Packaged as a Jar File
 
-      For Example:
+Add the `elastic.apm.enable_log_correlation` property while running your application jar.
 
-      ```
-      java -Delastic.apm.enable_log_correlation=true -jar applicationjar.jar
-      ```
+**Example**:
 
-      The Overall Configuration after enable the tracing, Capture request Body from Trace and log correlation:
+```
+java -Delastic.apm.enable_log_correlation=true -jar applicationjar.jar
+```
 
-      ```
-      java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
-      -Dsftrace.service_name=spring-service 
-      -Delastic.apm.disable_instrumentations=spring-mvc
-      -Delastic.apm.use_path_as_transaction_name=true
-      -Delastic.apm.transaction_ignore_urls=/jolokia/*
-      -Delastic.apm.enable_log_correlation=true 
-      -Delastic.apm.capture_body=all
-      -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document" 
-      -jar <application jar>
-      ```
+The Overall Configuration after enabling the tracing feature with Capture request Body from Trace and log correlation:
 
-   2. you application is packaged as a war file, add the `elastic.apm.enable_log_correlation` property in the `tomcat_setenv.sh` file.
+```
+java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar 
+-Dsftrace.service_name=spring-service 
+-Delastic.apm.disable_instrumentations=spring-mvc
+-Delastic.apm.use_path_as_transaction_name=true
+-Delastic.apm.transaction_ignore_urls=/jolokia/*
+-Delastic.apm.enable_log_correlation=true 
+-Delastic.apm.capture_body=all
+-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document" 
+-jar <application jar>
+```
 
-      For Example: 
+##### Application Packaged as a War File
 
-      ```
-      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.enable_log_correlation=true"
-      ```
+Add the `elastic.apm.enable_log_correlation` property in the `tomcat_setenv.sh` file.
 
-      The Overall Configuration after enable the tracing, Capture request Body from Trace and log correlation:
+**Example**: 
 
-      ```sh
-      export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar"
-      export CATALINA_OPTS="$CATALINA_OPTS -Dsftrace.apm.service_name=custom-service"
-      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.disable_instrumentation=spring-mvc"
-      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.use_path_as_transaction_name=true"
-      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.enable_log_correlation=true"
-      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.capture_body=all"
-      export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document'" 
-      ```
+```
+export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.enable_log_correlation=true"
+```
 
-## Send log correlation data to SnappyFlow
+The Overall Configuration after enabling the tracing feature along with Capture request Body from Trace and Log Correlation:
+
+```sh
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar"
+export CATALINA_OPTS="$CATALINA_OPTS -Dsftrace.apm.service_name=custom-service"
+export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.disable_instrumentation=spring-mvc"
+export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.use_path_as_transaction_name=true"
+export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.enable_log_correlation=true"
+export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.capture_body=all"
+export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document'" 
+```
+
+## Send Log Correlation Data to SnappyFlow
 
 ### Instance
+
+Follow the below steps to send the correlated logs to SnappyFlow from the application running in the instance.
+
 #### Configuration
 
-Add the elasticApmLog plugin under logging section in the sfagent `config.yaml` file.
+Add the `elasticApmLog` plugin under the `logging` section of the sfagent `config.yaml` file.
 
-For Example:
+**Example**:
 
    ```
 key: <SF_PROFILE_KEY>
@@ -127,19 +136,17 @@ To view the logs:
 2. Go to the **Application** tab.
 3. In the **Application** tab, navigate to your **Project** > **Application**.
 4. Click the **Application's Dashboard** icon.
-5. In the Dashboard window, go to the Logs section.
+5. In the **Dashboard** window, go to the Logs section.
 6. Select the logType as `elasticApmTraceLog`.
 7. You can view the logs in the dashboard.
 
 ### Kubernetes
 
- Follow the below steps to send the correlated logs data to SnappyFlow from the application running in the Kubernetes cluster.
+Follow the below steps to send the correlated logs to SnappyFlow from the application running in the Kubernetes cluster.
 
-#### **Helm chart deployment**
+#### **Helm chart deployment** Configuration
 
-##### Configuration
-
-1. To download the **sfKubeAgent image**, add the following configuration in the `values.yaml` file. 
+1.  Add the following configuration in the `values.yaml` file to download the **sfKubeAgent image**.
 
    ```yaml
    # values.yaml
@@ -158,9 +165,11 @@ To view the logs:
          memory: 256Mi
    ```
 
-2. Create a `sfagent-configmap.yaml` file in the template folder of the **Helm Chart**. Then add the **`elasticApmTraceLog`** logger plugin. 
+2. Create a `sfagent-configmap.yaml` file in the template folder of the **Helm Chart**. 
 
-   **Sample configuration:**
+3. Add the **`elasticApmTraceLog`** log plugin in the `sfagent-configmap.yaml` file.
+
+   **Example configuration:**
 
    ```yaml
    # sfagent-configmap.yaml
@@ -186,9 +195,9 @@ To view the logs:
    
    ```
 
-3. Add the **sfKubeAgent** as a container in the existing `deployment.yaml` file.
+4. Add the `sfKubeAgent` as a container in the existing `deployment.yaml` file.
 
-   **Sample configuration:**
+   **Example configuration:**
 
    ```yaml
      {{- if .Values.sfagent.enabled }}
@@ -207,7 +216,9 @@ To view the logs:
        {{ toYaml .Values.sfagent.resources | nindent 12 }}
    ```
 
-4. In the `volumeMounts` section of your application container and sfkubeagent container, add the log location path as a shared folder location. Then, in the `volumes` section, add the log correlation and `sfagent-config` volume mounts.
+5.  Add the log location path as a shared folder location in the `volumeMounts` section of your application container and `sfkubeagent` container.
+
+6. Add the log correlation and `sfagent-config` volume mounts in the `volumes` section.
 
    **Sample configuration:**
 
@@ -237,7 +248,7 @@ To view the logs:
          name: {{ include "<helm-chart name>.fullname" . }}-sfagent-config
    ```
 
-##### Verification
+#### Verification
 
 To view the logs:
 

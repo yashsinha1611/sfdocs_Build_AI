@@ -2,9 +2,11 @@
 sidebar_position: 3 
 ---
 
-## Capture Request Body from Trace
+# Capture Request Body from Trace
 
-This feature allows you to save the request body of the HTTP transactions to a specific index such as a log.
+## Overview
+
+The **Capture Request Body** feature allows you to save the request body of an HTTP transaction.
 
 :::caution
 
@@ -12,76 +14,75 @@ Request bodies usually contain sensitive data like passwords and credit card num
 
 :::
 
-### Configuration
+## Enable Capture Request Body
 
-1. If you packaged application as a jar file, add the following properties while running the jar file.
+### Application packaged as  Jar file.
 
-   1. Add the below properties to enable this feature.
+1. Add the below properties in the `Jar` file.
 
-     ```
-   -Delastic.apm.global_labels="_tag_redact_body=true"
-   -Delastic.apm.capture_body=all 
-     ```
+```
+-Delastic.apm.global_labels="_tag_redact_body=true"
+-Delastic.apm.capture_body=all 
+```
 
-   2. Add the below properties to customize the document type and destination index. (Optional)
+2. Add the below line to customize the document type and destination index. (Optional)
 
-     ```
-   # default indexType is log, applicable values are log and metric
-   -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log"
-   # default documentType is user-input
-   -Delastic.apm.global_labels="_tag_redact_body=true,_tag_documentType=custom-document"
-     ```
+```
+# default indexType is log, applicable values are log and metric
+-Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log"
+# default documentType is user-input
+-Delastic.apm.global_labels="_tag_redact_body=true,_tag_documentType=custom-document"
+```
 
-   After adding the above properties the command looks like:
+**Complete Configuration**
 
-     ```
-   java -Delastic.apm.capture_body=all -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document" -jar (application jar name)
-     ```
+```
+java -Delastic.apm.capture_body=all -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document" -jar (application jar name)
+```
 
-2. If you packaged application as a war file, add the following properties in the `tomcat_setenv.sh` file.
+### Application packaged as War file.
 
-
-    1. Add the below properties to enable this feature.
-
-       ```
-       export CATALINA_OPTS="$CATALINA_OPTS  -Delastic.apm.global_labels='_tag_redact_body=true'"
-       export CATALINA_OPTS="$CATALINA_OPTS  -Delastic.apm.capture_body=all' 
-       ```
-
-    2. Add the below properties to customize the document type and destination index. (Optional)
-
-       ```
-       # default indexType is log, applicable values are log and metric
-       export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_IndexType=log'"
-       # default documentType is user-input
-       export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_documentType=custom-document'"
-       ```
-
-   After adding the above properties the file looks like:
-
+1. Add the following properties in the `tomcat_setenv.sh` file.
+   
    ```
-   export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.capture_body=all'
-   export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document'"
+   export CATALINA_OPTS="$CATALINA_OPTS  -  Delastic.apm.global_labels='_tag_redact_body=true'"
+   export CATALINA_OPTS="$CATALINA_OPTS  -Delastic.apm.capture_body=all' 
    ```
+2. Add the below properties to customize the **document type** and **destination index**. (Optional)
 
-### Verification
+  ```
+  # default indexType is log, applicable values are log and metric
+  export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_IndexType=log'"
+  # default documentType is user-input
+  export CATALINA_OPTS="$CATALINA_OPTS -    Delastic.apm.global_labels='_tag_documentType=custom-document'"
+  ```
+3. Complete Configuration:
 
-1. In the app, click the **View Dashboard** icon.
+  ```
+  export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.capture_body=all"
+  export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.global_labels='_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document'"
+  ```
 
-2. If you provided the index type is log:
 
-   a. In the **Dashboard** window, go to **Logs** section.
+## Verification
 
-   b. In the **Overview** windows, select the **Source** and **Log Type**.
+Follow the below steps to verify and view the trace data.
 
-   c. Now you can view the logs in the dashboard.
+1. Login into SnappyFlow.
 
-3. If you provided the index type as metric:
+2. Go to the **Application** tab.
 
-   a. In the **Dashboard** window, go to **Browse Data** section.
+3. In the **Application** tab, navigate to your **Project** > **Application**.
 
-   b. select the plugin as **trace_body** and document type.
+4. Click the **Application's Dashboard** icon.
 
-   c. Now you can view the logs in the dashboard.
+5. In the **Dashboard** window, go to the **Logs** section.
 
-     <img src="/img/Trace-to-body.png" /><br/>
+6. Select the **Source** and **Log Type** to view logs in the dashboard.
+
+7. To see the raw data, go to the **Browse Data** section.
+
+8. Select the plugin as `trace_body` and document type.
+
+   <img src="/img/Trace-to-body.png" /><br/>
+
