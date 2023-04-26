@@ -15,6 +15,9 @@ The PHP tracing feature automatically instruments APIs, frameworks, and applicat
 	<p>
 		<b>Laravel</b> [6 - 9]
 	</p>
+    <p>
+        Frameless PHP Application
+    </p>
 </div>
 
 

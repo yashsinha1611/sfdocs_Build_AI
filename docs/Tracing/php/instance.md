@@ -14,37 +14,18 @@ sidebar_position: 3
 
    https://raw.githubusercontent.com/snappyflow/apm-agent-php/1.x/install_elastic_apm.sh
 
-5. Use the below given command to assign executable permission.
+5. Use the below-given command to assign executable permission.
    ```
    chmod +x install_sf_php_agent.sh
    ```
 
-6. Run script with **sudo** and provide tracing service name as first argument to the script.
+6. Run the script with **sudo** and provide the tracing service name as the first argument to the script.
 
    **Example**: `sudo ./install_sf_php_agent.sh <service_name>`
 
-7. Configure the settings in the `php.ini` file
-
-   ```ini
-   elastic_apm.server_url=http://localhost:8200
-   elastic_apm.service_name="My service"
-   ```
-
-8. The agent can also be configured using environment variables:
-   ```
-   export ELASTIC_APM_SERVER_URL="http://localhost:8200"
-   export ELASTIC_APM_SERVICE_NAME="My service"
-   ```
-
 :::note
 
-If you use environment variables to configure the agent, make sure the process running your PHP code inherits those environment variables after they were set.
-
-:::
-
-:::note
-
-In case, if you need to update snappyflow `projectName`, `appName` or `profileKey` then you need to uninstall the existing `elastic php` agent. 
+In case, if you need to update Snappyflow `projectName`, `appName` or `profileKey` then you need to uninstall the existing `elastic php` agent. 
 
 :::
 
