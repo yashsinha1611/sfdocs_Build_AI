@@ -321,6 +321,11 @@ module.exports = {
                     id: 'Integrations/plugin/rds',
                     label: 'AWS RDS',
                 },
+				{
+                    type: 'doc',
+                    id: 'Integrations/plugin/auroraDB',
+                    label: 'AuroraDB',
+                },
                 {
                     type: 'doc',
                     id: 'Integrations/plugin/azuredb',
