@@ -1,12 +1,14 @@
-# AuroraDB
+# Monitor Aurora Database
 
 ## Overview
 
-Amazon Aurora is a relational database engine that is fully managed and supports compatibility with both MySQL and PostgreSQL.
+Amazon Aurora is a cloud-native relational database engine and it is compatible with both MySQL and PostgreSQL. The metrics of Aurora DB are gathered by sfPoller and displayed within the dashboard of SnappyFlow.
 
 ## Prerequisites
 
-IAM Role with access to CloudWatch.
+To collect metrics of Aurora DB, it is necessary to have an IAM Role with CloudWatch access and sfpoller set up within your AWS environment. 
+
+[Click here](/docs/sfPoller/aws_setup) to learn more about setting up sfpoller in your AWS environment.
 
 ##### Create a Policy to Access CloudWatch
 
@@ -53,21 +55,21 @@ IAM Role with access to CloudWatch.
 3. Attach the `CloudWatchReadOnlyAccess` policy to a dedicated IAM Role for read-only access.
 
 
-## Set Up Sf Poller 
+## Configure sfPoller 
 
-Ensure that both the project and application are created within Sfpoller. If they have not been created yet, you can [click here](/docs/sfPoller/aws_setup#configure-sfpoller) to learn how to create a project and application in Sfpoller.
+Ensure that both the project and application are created within sfPoller. If they have not been created yet, you can [click here](/docs/sfPoller/aws_setup#configure-sfpoller) to learn how to create a project and application in sfPoller.
 
-Follow the below step to add endpoints:
+Follow the below step to add endpoints and plugins:
 
 <img src="/img/integration/auroradb/image_1.png" />
 
-1. In the Application tab, Navigate to your Project > Application.
+1. In the **Application** tab of sfPoller, navigate to your **Project** > **Application**.
 
-2. Click on the Application, it will take you to the `Endpoint` page.
+2. Click on the **Application**, it will take you to the `Endpoint` page.
 
    <img src="/img/integration/auroradb/image_2.png" />
 
-3. Click the `Add Endpoint` button, add the following data and save.
+3. Click the `Add Endpoint` button, add the following data, and save.
 
    <img src="/img/integration/auroradb/image_3.png" />
 
@@ -97,25 +99,25 @@ Follow the below step to add endpoints:
 
 6. Click the global `Save` button in the window's top right corner to save all the changes made so far.
 
-## View Metrics
+## View Database Metrics
 
-Follow the below steps to view the metrics collected from AWS Aurora DB.
+Follow the below steps to view the metrics collected from Aurora DB.
 
-1. Go to the **Application** tab of SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
 
    <img src="/img/integration/auroradb/image_6.png" />
 
-2. You can view the data in the **Metrics** section.
+2. You can view the database metrics in the **Metrics** section.
 
 :::note
 
-The plugins that are added in Sfpoller will be auto-detected within the Metric section. If the plugins added in Sfpoller are not auto-detected within the Metrics section, you can import templates to view the corresponding metrics.
+Once plugins are added to sfPoller, they will be automatically detected within the Metrics section. However, if the plugins are not detected, you can import templates to view the corresponding metrics.
 
 :::
 
 ​       <img src="/img/integration/auroradb/image_8.png" />
 
-3. To access the unprocessed data gathered from the plugins, navigate to the Browse data section and choose the `Index: Metric`, `Instance: Endpoint`, `Plugin,` and `Document Type`.
+3. To access the unprocessed data gathered from the plugins, navigate to the **Browse data** section and choose the `Index: Metric`, `Instance: Endpoint`, `Plugin,` and `Document Type`.
 
 #### Template Details
 
