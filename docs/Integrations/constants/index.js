@@ -2,18 +2,12 @@ import React, { useState } from "react";
 import $ from 'jquery';
 
 const AGENTS = [
-	{
-		'src': '/img/mysql-logo.svg',
-		'label': 'Linux',
-		'overText': 'MySQL Infrastructure platform is built for enterprises',
-		'category': ['Cloud'],
-		'link': '/docs/Integrations/os/linux/overview'
-	},
+	
 	{
 		'src': '/img/postgres-logo.svg',
 		'label': 'Postgres',
 		'overText': 'Postgres Infrastructure platform is built for enterprises',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/Integrations/postgres/overview'
 	},
 	{
@@ -27,14 +21,14 @@ const AGENTS = [
 		'src': '/img/golang.svg',
 		'label': 'Go',
 		'overText': 'Oracle Cloud Infrastructure platform is built for enterprises',
-		'category': ['App Tier'],
+		'category': ['Profiling'],
 		'link': '/docs/integrations/go/profiler'
 	},
 	{
 		'src': '/img/mongodb.svg',
 		'label': 'MongoDB',
 		'overText': 'MongoDB Infrastructure platform is built for enterprises',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/integrations/mongodb'
 
 	},
@@ -42,7 +36,7 @@ const AGENTS = [
 		'src': '/img/oracle_ash.svg',
 		'label': 'Oracle ASH',
 		'overText': 'OracleASH plugin fetch and parse the oracle ASH report from AWS-RDS.',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/Integrations/plugin/oracleASH'
 
 	},
@@ -75,24 +69,17 @@ const AGENTS = [
 		'link': '/docs/integrations/plugin/blazemeter'
 	},
 	{
-		'src': '/img/azure_DB.svg',
-		'label': 'AzureDB',
-		'overText': 'Azuredb Metric plugin collects metrics related to relational database services like Azure SQL, Azure database for MySQL and Azure database for PostgreSQL using insights data from Azure Monitor',
-		'category': ['Cloud'],
-		'link': '/docs/Integrations/plugin/azuredb'
-	},
-	{
 		'src': '/img/azure_blob.svg',
 		'label': 'Azure Blob',
 		'overText': 'Azure blob storage is to store large amount of unstructured data on data storage platform',
-		'category': ['Cloud'],
+		'category': ['Cloud Services'],
 		'link': '/docs/Integrations/plugin/blob'
 	},
 	{
 		'src': '/img/aws_rds.svg',
 		'label': 'AWS RDS',
 		'overText': 'Amazon Relational Database Service (Amazon RDS) is a managed SQL database service provided by Amazon Web Services (AWS)',
-		'category': ['Cloud'],
+		'category': ['Database'],
 		'link': '/docs/Integrations/plugin/rds'
 	}, 
 	{
@@ -106,28 +93,28 @@ const AGENTS = [
 		'src': '/img/kubernetes-clusters.svg',
 		'label': 'Kubernetes',
 		'overText': 'Kubernetes clusters Infrastructure platform is built for enterprises',
-		'category': ['Kubernetes'],
+		'category': ['Platform'],
 		'link': '/docs/Integrations/kubernetes/overview'
 	},
 	{
 		'src': '/img/clickhouse.svg',
 		'label': 'Clickhouse',
 		'overText': 'Clickhouse running in Kubernetes can be monitored in SnappyFlow using Prometheus exporter',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/Integrations/clickhouse_kubernetes'
 	}, 
 	{
 		'src': '/img/mysql.svg',
 		'label': 'MySQL',
 		'overText': 'MYSQL Infrastructure platform is built for enterprises',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/Integrations/mysql/overview'
 	}, 
 	{
 		'src': '/img/mssql.svg',
 		'label': 'MSSQL',
 		'overText': 'Monitoring MS SQL databases',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/Integrations/mssql_windows'
 	}, 
 	{
@@ -162,21 +149,21 @@ const AGENTS = [
 		'src':'/img/aws-elastic-cache.svg',
 		'label':'ElastiCache', 
 		'overText': 'ElastiCache is the distributed in memory cache environments in the AWS cloud.',
-		'category': ['Cloud'],
+		'category': ['Cloud Services'],
 		'link': '/docs/Integrations/elasticache/elasticache'
 	}, 
 	{
 		'src':'/img/public-cloud-elbs.svg',
 		'label':'Elastic Load Balancer',
 		'overText': 'Public cloud elbs Infrastructure platform is built for enterprises',
-		'category': ['Cloud'],
+		'category': ['Cloud Services'],
 		'link': '/docs/Integrations/elb/elb_rds'
 	}, 
 	{
 		'src': '/img/redis.svg',
 		'label': 'Redis',
 		'overText': 'Redis Infrastructure platform is built for enterprises',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/integrations/redis/overview'
 	},
 	{
@@ -204,14 +191,14 @@ const AGENTS = [
 		'src': '/img/windows-vms.svg',
 		'label': 'Windows',
 		'overText': 'Windows VMs Infrastructure platform is built for enterprises',
-		'category': ['Cloud'],
+		'category': ['Operating System'],
 		'link': '/docs/Integrations/os/windows/sfagent_windows'
 	}, 
 	{
 		'src': '/img/aws_lambda.svg',
 		'label': 'AWS Lambda',
 		'overText': 'AWS ECS Infrastructure platform is built for enterprises',
-		'category': ['Cloud']
+		'category': ['Cloud Services']
 	}, 
 	{
 		'src': '/img/custom-metrics-using-statsd.svg',
@@ -224,8 +211,8 @@ const AGENTS = [
 		'src':'/img/iis-server.svg',
 		'label':'IIS Server',
 		'overText': 'IIS Server Infrastructure platform is built for enterprises',
-		'category': ['Cloud'],
-		'link': '/docs/Integrations/iis/iis_windows'
+		'category': [''],
+		'link': '/docs/IntCloud Servicesegrations/iis/iis_windows'
 	}, 
 		{
 		'src':'/img/integration/integration_list/email.svg',
@@ -266,7 +253,7 @@ const AGENTS = [
 		'src': '/img/azure_DB.svg',
 		'label': 'AzureDB',
 		'overText': 'Azuredb Metric plugin collects metrics related to relational database services like Azure SQL, Azure database for MySQL and Azure database for PostgreSQL using insights data from Azure Monitor',
-		'category': ['Databases'],
+		'category': ['Database'],
 		'link': '/docs/Integrations/plugin/azuredb'
 	},
 	{
@@ -297,6 +284,171 @@ const AGENTS = [
 		'category': ['Framework'],
 		'link': '/docs/Tracing/python/overview'
 	},
+	{
+		'src': '/img/java.svg',
+		'label': 'Java Profiler',
+		'overText': 'Java Profiler',
+		'category': ['Profiling'],
+		'link': '/docs/Tracing/python/overview'
+	},
+	{
+		'src': '/img/mysql-logo.svg',
+		'label': 'Linux',
+		'overText': 'MySQL Infrastructure platform is built for enterprises',
+		'category': ['Operating System'],
+		'link': '/docs/Integrations/os/linux/overview'
+	},
+	{
+		'src': '/img/integration/integration_list/django.svg',
+		'label': 'Django',
+		'overText': 'Python Framework',
+		'category': ['App Tier'],
+		//'link': '/docs/Integrations/os/linux/overview'
+	},
+	{
+		'src': '/img/integration/integration_list/asp-dot-net.svg',
+		'label': 'ASP.NET',
+		'overText': 'C# framework',
+		'category': ['App Tier'],
+		'link': '/docs/Tracing/aspdotnetcore'
+	},
+	{
+		'src': '/img/integration/integration_list/dot-net.svg',
+		'label': '.Net',
+		'overText': 'C# framework',
+		'category': ['App Tier'],
+		'link': '/docs/Tracing/dotnetframework'
+	},
+	{
+		'src': '/img/integration/integration_list/flask.svg',
+		'label': 'Flask',
+		'overText': 'Python Framework',
+		'category': ['App Tier'],
+		//'link': '/docs/Tracing/dotnetframework'
+	},
+	{
+		'src': '/img/integration/integration_list/angular.svg',
+		'label': 'Angular',
+		'overText': 'for Real user monitoring',
+		'category': ['App Tier'],
+		'link': '/docs/RUM/agent_installation/angular'
+	},
+	{
+		'src': '/img/integration/integration_list/react.svg',
+		'label': 'React',
+		'overText': 'for Real user monitoring',
+		'category': ['App Tier'],
+		'link': '/docs/RUM/agent_installation/react'
+	},
+	{
+		'src': '/img/integration/integration_list/nextjs.svg',
+		'label': 'Nextjs',
+		'overText': 'for Real user monitoring',
+		'category': ['App Tier'],
+		'link': '/docs/RUM/agent_installation/nextjs'
+	},
+	{
+		'src': '/img/integration/integration_list/ruby.svg',
+		'label': 'Ruby',
+		'overText': 'Tracing for ruby application',
+		'category': ['App Tier'],
+		'link': '/docs/Tracing/ruby'
+	},
+	{
+		'src': '/img/integration/integration_list/c-sharp-net.svg',
+		'label': 'C#',
+		'overText': 'Tracing for C# application',
+		'category': ['App Tier'],
+		'link': '/docs/Tracing/csharp'
+	},
+	{
+		'src': '/img/golang.svg',
+		'label': 'Go',
+		'overText': 'Tracing for Go application',
+		'category': ['App Tier'],
+		'link': 'docs/Tracing/go'
+	},
+	{
+		'src': '/img/integration/integration_list/python.svg',
+		'label': 'Python',
+		'overText': 'Tracing for Python application',
+		'category': ['App Tier'],
+		'link': '/docs/Tracing/python/overview'
+	},
+	{
+		'src': '/img/integration/integration_list/php.svg',
+		'label': 'PHP',
+		'overText': 'Tracing for PHP application',
+		'category': ['App Tier'],
+		//'link': '/docs/Tracing/php/overview'
+	},
+	{
+		'src': '/img/integration/integration_list/aws.svg',
+		'label': 'aws',
+		'overText': 'Monitor AWS infra',
+		'category': ['Infrastructure'],
+		'link': '/docs/Integrations/plugin/aws'
+	},
+	{
+		'src': '/img/integration/integration_list/azure.svg',
+		'label': 'azure',
+		'overText': 'Monitor azure infra',
+		'category': ['Infrastructure'],
+		//'link': ''
+	},
+	{
+		'src': '/img/integration/integration_list/v-center.svg',
+		'label': 'V-center',
+		'overText': 'Monitor V center infra',
+		'category': ['Infrastructure'],
+		'link': '/docs/Integrations/plugin/vcenter'
+	},
+	{
+		'src': '/img/integration/integration_list/docker.svg',
+		'label': 'Docker',
+		'overText': 'Platform',
+		'category': ['Platform'],
+		//'link': 
+	},
+	{
+		'src': '/img/integration/integration_list/cloudwatch.svg',
+		'label': 'CloudWatch',
+		'overText': 'to collect cloud watch logs',
+		'category': ['Cloud Services'],
+		'link': '/docs/Integrations/cloudwatch'
+	},
+	{
+		'src': '/img/integration/integration_list/aurora-db.svg',
+		'label': 'Aurora',
+		'overText': 'Monitor Aurora DB',
+		'category': ['Database'],
+		//'link': ''
+	},
+	{
+		'src': '/img/integration/integration_list/node-js.svg',
+		'label': 'Nodejs',
+		'overText': 'Monitor Nodejs',
+		'category': ['Web Tier'],
+		'link': '/docs/Integrations/nodejs_prometheus'
+	},
+	{
+		'src': '/img/integration/integration_list/documentdb.svg',
+		'label': 'DocumentDB',
+		'overText': 'Monitor DocumentDB',
+		'category': ['Database'],
+		'link': '/docs/Integrations/docdb'
+	},
+	{
+		'src': '/img/integration/integration_list/hashicorp.svg',
+		'label': 'HCP Consul',
+		'overText': 'Monitor DocumentDB',
+		'category': [''],
+		'link': '/docs/Integrations/hcp_consul'
+	},
+	
+	
+	
+	
 ];
 
 const buttonLists = [
@@ -304,7 +456,14 @@ const buttonLists = [
 		'label': 'All'
 	},
 	{
-		'label': 'Cloud'
+		'label': 'Operating System'
+	},
+	{
+	
+		'label': 'Infrastructure'
+	},
+	{
+		'label': 'Platform'
 	},
 	{
 		'label': 'App Tier'
@@ -313,10 +472,13 @@ const buttonLists = [
 		'label': 'Web Tier'
 	},
 	{
-		'label': 'Databases'
+		'label': 'Cloud Services'
 	},
 	{
-		'label': 'Kubernetes'
+		'label': 'Database'
+	},
+	{
+		'label': 'Profiling'
 	},
 	// {
 	// 	'label': 'Services'
@@ -324,12 +486,13 @@ const buttonLists = [
 	{
 		'label': 'Alerts & Notifications'
 	},
-	{
-		'label': 'Platform'
-	},
-	{
-		'label': 'Framework'
-	},
+	
+	
+	
+	
+	
+	
+	
 ];
 
 const IntegrationsList = () => {
