@@ -4,6 +4,8 @@
 
 Amazon Aurora is a cloud-native relational database engine and it is compatible with both MySQL and PostgreSQL. The metrics of Aurora DB are gathered by sfPoller and displayed within the dashboard of SnappyFlow.
 
+<img src="/img/integration/auroradb/image_12.png" />
+
 ## Prerequisites
 
 To collect metrics of Aurora DB, it is necessary to have an IAM Role with CloudWatch access and sfpoller set up within your AWS environment. 
