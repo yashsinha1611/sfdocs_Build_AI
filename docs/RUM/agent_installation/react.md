@@ -50,6 +50,8 @@ Use the above project name and application name in the [sf-apm-rum agent configu
 
 
 ## **Step 3: Import the sf-apm-rum package**
+Add the following code in the applications root component,
+usually in index.js or index.tsx if you are using typescript
 
 ```js
 import * as sfApm from 'sf-apm-rum';
@@ -66,7 +68,7 @@ let apmRum = new sfApm.ApmRum(); // initialize the library
 const apmData = {
 	baseUrl: '<add-snappyflow-server-url-here>', // provide the URL of the snappyflow APM server that you are using to view the data
 	profileKey: '<add-profile-key-here>', // paste the profile key copied from SF profile
-	serviceName: '<your-apm-service-name>', // specify service name for RUM
+	serviceName: '<your-apm-service-name>', // specify service name for RUM. This can be anyname of your choice (allowed characters: a-z, A-Z, 0-9, _, -, <space>)
 	projectName: '<add-project-name-here>', // provide the snappyflow project name from step 2
 	appName: '<add-application-name-here>', // provide the snappyflow application name from step 2
 };
@@ -75,7 +77,7 @@ apmRum.init(apmData);
 
 ## **Step 5: Verify the setup**
 
-Once the above mentioned steps are completed, restart the development server and check for the RUM data in the Snappyflow APM server.
+Once the above mentioned steps are completed, **restart the development server** using `npm start` command and check for the RUM data in the Snappyflow APM server.
 
 Click on View dashboard for the given application -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane.  
 ## **Step 6: Debugging (In case of No Data in RUM Dashboard)**

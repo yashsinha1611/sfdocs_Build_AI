@@ -60,6 +60,9 @@ Use the above project name and application name in the [sf-apm-rum agent configu
 Since the library requires Web APIs to work, which are not available when Next.js pre-renders the page on the server-side, we have to use dynamic import here
 :::
 
+Add the following code in the applications root component,
+usually in pages/_app.js or pages/index.js or _app.tsx if you are using typescript
+
 ```js
  useEffect(() => {
  	const initFunction = async () => {
@@ -73,7 +76,7 @@ Since the library requires Web APIs to work, which are not available when Next.j
 ## **Step 4: Configure the sf-apm-rum agent**
 
 Add the following code in the applications root component,
-usually in pages/_app.js or _app.tsx if you are using typescript
+usually in pages/_app.js or pages/index.js or _app.tsx if you are using typescript
 
 ```js
 let apmRum = new sfApm.ApmRum(); // initialize the library
@@ -81,7 +84,7 @@ let apmRum = new sfApm.ApmRum(); // initialize the library
 const apmData = {
 	baseUrl: '<add-snappyflow-server-url-here>', // provide the URL of the snappyflow APM server that you are using to view the data
 	profileKey: '<add-profile-key-here>', // paste the profile key copied from SF profile
-	serviceName: '<your-apm-service-name>', // specify service name for RUM
+	serviceName: '<your-apm-service-name>', // specify service name for RUM. This can be anyname of your choice (allowed characters: a-z, A-Z, 0-9, _, -, <space>)
 	projectName: '<add-project-name-here>', // provide the snappyflow project name from step 2
 	appName: '<add-application-name-here>', // provide the snappyflow application name from step 2
 };
@@ -90,7 +93,7 @@ apmRum.init(apmData);
 
 ## **Step 5: Verify the setup**
 
-Once the above mentioned steps are completed, restart the development server and check for the RUM data in the Snappyflow APM server.
+Once the above mentioned steps are completed, **restart the development server** using `npm run dev` command and check for the RUM data in the Snappyflow APM server.
 
 Click on View dashboard for the given application -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane.
 

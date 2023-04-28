@@ -65,7 +65,7 @@ let apmRum = new sfApm.ApmRum(); // initialize the library
 const apmData = {
 	baseUrl: '<add-snappyflow-server-url-here>', // provide the URL of the snappyflow APM server that you are using to view the data
 	profileKey: '<add-profile-key-here>', // paste the profile key copied from SF profile
-	serviceName: '<your-apm-service-name>', // specify service name for RUM
+	serviceName: '<your-apm-service-name>', // specify service name for RUM. This can be anyname of your choice (allowed characters: a-z, A-Z, 0-9, _, -, <space>)
 	projectName: '<add-project-name-here>', // provide the snappyflow project name from step 2
 	appName: '<add-application-name-here>', // provide the snappyflow application name from step 2
 };
