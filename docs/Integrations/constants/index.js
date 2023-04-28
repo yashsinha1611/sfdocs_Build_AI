@@ -257,34 +257,6 @@ const AGENTS = [
 		'link': '/docs/Integrations/plugin/azuredb'
 	},
 	{
-		'src': '/img/integration/integration_list/django.svg',
-		'label': 'Django',
-		'overText': 'Python Framework',	
-		'category': ['Framework'],
-		'link': '/docs/Tracing/python/overview'
-	},
-	{
-		'src': '/img/integration/integration_list/asp-dot-net.svg',
-		'label': 'ASP.NET',
-		'overText': 'C# Framework',
-		'category': ['Framework'],
-		'link': '/docs/Tracing/csharp'
-	},
-	{
-		'src': '/img/integration/integration_list/dot-net.svg',
-		'label': '.NET',
-		'overText': 'C# Framework',
-		'category': ['Framework'],
-		'link': '/docs/Tracing/csharp'
-	},
-	{
-		'src': '/img/integration/integration_list/flask.svg',
-		'label': 'Flask',
-		'overText': 'Python Framework',
-		'category': ['Framework'],
-		'link': '/docs/Tracing/python/overview'
-	},
-	{
 		'src': '/img/java.svg',
 		'label': 'Java Profiler',
 		'overText': 'Java Profiler',
