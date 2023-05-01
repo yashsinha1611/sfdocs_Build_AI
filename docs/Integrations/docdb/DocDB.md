@@ -1,4 +1,4 @@
-# DocumentDB
+# Monitor Document Database
 
 ## Overview
 
@@ -85,9 +85,9 @@ A monitoring support for AWS DocuemntDB Cluster, collects all the cluster level 
 |  TransactionsCommitted |  	The number of transactions committed on an instance in a one-minute period. |  
 |  TransactionsAborted |  	The number of transactions aborted on an instance in a one-minute period. |  
 |  TTLDeletedDocuments |  	The number of documents deleted by a TTLMonitor in a one-minute period. |  
- 
+
 ### Throughput Stats:
- 
+
 | Metric | Description |
 | ------ | ------ |
 | NetworkReceiveThroughput | 	The amount of network throughput, in bytes per second, received from clients by each instance in the cluster. | 
@@ -99,9 +99,9 @@ A monitoring support for AWS DocuemntDB Cluster, collects all the cluster level 
 | VolumeWriteIOPs | 	The average number of billed write I/O operations from a cluster volume, reported at 5-minute intervals. Billed write operations are calculated at the cluster volume level, aggregated from all instances in the cluster. | 
 | WriteIOPS | 	The average number of disk write I/O operations per second. | 
 | WriteThroughput | 	The average number of bytes written to disk per second. | 
-   
+
 ### System Stats:
- 
+
 | Metric | Description |
 | ------ | ------ |
 | BufferCacheHitRatio	 | The percentage of requests that are served by the buffer cache. | 
@@ -110,7 +110,7 @@ A monitoring support for AWS DocuemntDB Cluster, collects all the cluster level 
 | IndexBufferCacheHitRatio | 	The percentage of index requests that are served by the buffer cache. | 
 
 ###  Latency Stats:
- 
+
 | Metric | Description |
 | ------ | ------ |
 | DBClusterReplicaLagMaximum | 	The maximum amount of lag, in milliseconds, between the primary instance and each Amazon DocumentDB instance in the cluster. | 
