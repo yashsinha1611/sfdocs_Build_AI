@@ -262,4 +262,41 @@ We can unsnooze multiple snoozed alert from snoozed alerts tab using unsnooze bu
 
 <img src="/img/snooze_alert/unsnooze_multiple.png"/>
 
+## System Alert
+
+System Alerts are pre-configured alerts that are triggered when the sfagent is unable to reach an instance or application and unable to monitor a plugin within an instance or application. The users have access to temporarily snooze the system alert, but it is not possible to fully disable the system alerts.
+
+**Severity Level**: By default, the severity level of a system alert is **1**.
+
+**Frequency**: System alerts will be notified at regular intervals of **30 min**.
+
+### Use Cases
+
+System alert is generated only during the below-mentioned use cases.
+
+**Case 1**: Monitoring of an instance or application is stopped. This implies that the sfagent couldn't gather data from any of the plugins present within the instance or application. The reason for this could be that the monitored instance or application has been stopped.
+
+In this use case, the message column contains:
+
+- **Alert type** - System Alert
+- **Alert statement** - Instance or Application Monitoring
+- **Project Name**, **Application Name**, **Instance Name**
+
+- **Alert Message** - Monitoring is stopped. Please check whether the instance is running
+
+<img src="/img/Notifications/alerts/image_1.png" />
+
+**Case 2**: The sfagent is unable to monitor a particular plugin within the instance or application.
+
+In this use case, the message column contains:
+
+- **Alert type** - System Alert
+- **Alert statement** - Unable to monitor
+- **Project Name**, **Application Name**, **Service Name**, **Plugin Name**
+
+- **Alert Message** - A detailed error message will be given.
+
+<img src="/img/Notifications/alerts/image_2.png" />
+
+
 
