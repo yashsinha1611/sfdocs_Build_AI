@@ -17,7 +17,7 @@ npm install --save sf-apm-rum
 ## **Step 2: Create a project and application in Snappyflow portal**
 
 :::note  
-If a project and application is already created or discovered on the snappyflow portal, this step can be skipped and the same can be used in the [sf-apm-rum agent configuration](#step-4-configure-the-sf-apm-rum-agent).
+If a project and application is already created or discovered on the snappyflow portal, this step can be skipped and the same can be used in the [sf-apm-rum agent configuration](#step-5-configure-the-sf-apm-rum-agent).
 :::
 
 ### Create a project in snappyflow portal
@@ -48,12 +48,21 @@ iii. The application will be created.
 ![image](../images/create-app-3.png)
   
 
-Use the above project name and application name in the [sf-apm-rum agent configuration](#step-4-configure-the-sf-apm-rum-agent).
+Use the above project name and application name in the [sf-apm-rum agent configuration](#step-5-configure-the-sf-apm-rum-agent).
 
 
+## **Step 3: Add typescript definition file**
 
+:::note  
+This step is required only if you are using typescript in your project.
+:::
 
-## **Step 3: Import the sf-apm-rum package**
+Create a new file `sf-apm-rum.d.ts` at same level where `package.json` exists add the following code.
+```js
+declare module 'sf-apm-rum'
+```
+
+## **Step 4: Import the sf-apm-rum package**
 
 :::note
 
@@ -73,7 +82,7 @@ usually in pages/_app.js or pages/index.js or _app.tsx if you are using typescri
 }, [])
 ```
 
-## **Step 4: Configure the sf-apm-rum agent**
+## **Step 5: Configure the sf-apm-rum agent**
 
 Add the following code in the applications root component,
 usually in pages/_app.js or pages/index.js or _app.tsx if you are using typescript
@@ -91,14 +100,14 @@ const apmData = {
 apmRum.init(apmData);
 ```
 
-## **Step 5: Verify the setup**
+## **Step 6: Verify the setup**
 
-Once the above mentioned steps are completed, **restart the development server** using `npm run dev` command and check for the RUM data in the Snappyflow APM server.
+Once the above mentioned steps are completed, **start the development server** using `npm run dev` command and check for the RUM data in the Snappyflow APM server.
 
 Click on View dashboard for the given application -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane.
 
 
-## **Step 6: Debugging (In case of No Data in RUM Dashboard)**
+## **Step 7: Debugging (In case of No Data in RUM Dashboard)**
 
 ##### i. **Check if data is available on the Snappyflow server**  
 Navigate to the application dashboard -> Click on Browse Data -> Change the Index to "Real User Monitoring". Check if the data is available. If the data is available, it will be visible on the RUM Dashboard within few seconds.  
@@ -107,5 +116,5 @@ Navigate to the application dashboard -> Click on Browse Data -> Change the Inde
 Open the Developer tools for the configured web application on the browser -> Click on the Network Tab -> Trigger some actions in the application. Check if there is a `intake/v2/rum/events` call fired from the configured application side. If this call is made, it means that the data is being sent to the snappyflow server.   
 
 ##### iii. **Check if the configurations are correct**  
-Check if the projectName and appName provided in the [Step 4](#step-4-configure-the-sf-apm-rum-agent) are matching the project name and application name in the snappyflow server.  
+Check if the projectName and appName provided in the [Step 5](#step-5-configure-the-sf-apm-rum-agent) are matching the project name and application name in the snappyflow server.  
   
