@@ -14,9 +14,9 @@ sidebar_position: 3
 
 ### Prerequisite
 
-To enable tracing for an application that is developed by the **Django** framework, **`sf-elastic-apm`** and **`sf-apm-lib` **must be available in your environment. These libraries can be installed by the following methods:
+In order to enable tracing for a **Django** framework-based application, the presence of **`sf-elastic-apm`** and **`sf-apm-lib`** in the environment is necessary. These libraries can be installed using the following methods:
 
-Add the below-mentioned entries in the `requirements.txt` file.
+To install the libraries, add the following entries in the `requirements.txt` file.
 
 ```
 sf-elastic-apm==6.7.2
@@ -24,7 +24,7 @@ sf-apm-lib==0.1.1
 ```
 **OR**
 
-Install the libraries using CLI.
+To install the libraries, input the following entries into the CLI.
 
 ```
 pip install sf-elastic-apm==6.7.2 
@@ -82,7 +82,7 @@ In this case, the trace agent picks up the `profileKey`, `projectName`, and `app
 
 :::note
 
-if your app is in debug mode (eg: `settings.Debug = true`), then the agent won’t send any tracing data to the SnappyFlow server. You can override it by adding **`'Debug':True`**  configuration in the `ELASTIC_APM` block.
+When the application is in debug mode (e.g. `settings.Debug = true`), the sfAPM agent will not transmit any tracing data to the SnappyFlow server. However, it is possible to override this behavior by including the **`'Debug':True`** configuration in the `ELASTIC_APM` block.
 
 :::
 
@@ -152,7 +152,7 @@ In this case, follow the below steps to enable tracing.
 
 :::note
 
-if your app is in debug mode (eg: `settings.Debug = true`), then the agent won’t send any tracing data to the SnappyFlow server. You can override it by adding  **`'Debug':True`** configuration in the `ELASTIC_APM` block.
+When the application is in debug mode (e.g. `settings.Debug = true`), the sfAPM agent will not transmit any tracing data to the SnappyFlow server. However, it is possible to override this behavior by including the **`'Debug':True`** configuration in the `ELASTIC_APM` block.
 
 :::
 
@@ -243,7 +243,7 @@ from sf_apm_lib.snappyflow import Snappyflow
 ```
 :::note
 
-if your app is in debug mode (eg: `app.Debug = true`), then the agent won’t send any tracing data to the SnappyFlow server. You can override it by adding **`'Debug':True`** configuration in the `ELASTIC_APM` block.
+When the application is in debug mode (e.g. `app.Debug = true`), the sfAPM agent will not transmit any tracing data to the SnappyFlow server. However, it is possible to override this behavior by including the **`'Debug':True`** configuration in the `ELASTIC_APM` block.
 
 :::
 
@@ -298,7 +298,7 @@ In this case, follow the below steps to enable tracing.
 
 :::note
 
-if your app is in debug mode (eg: `app.Debug = true`), then the agent won’t send any tracing data to the SnappyFlow server. You can override it by adding  **`'Debug':True`** configuration in the `ELASTIC_APM` block.
+When the application is in debug mode (e.g. `app.Debug = true`), the sfAPM agent will not transmit any tracing data to the SnappyFlow server. However, it is possible to override this behavior by including the **`'Debug':True`** configuration in the `ELASTIC_APM` block.
 
 :::
 
@@ -417,12 +417,12 @@ Follow the below steps to verify and view the trace data.
 
 ## Celery
 :::note
-  The Celery configuration explained below is based on the redis broker.
+  The following Celery configuration is designed to use with a Redis broker.
 :::  
 
 ### Prerequisite
 
-To enable tracing for an application that is developed by Celery,  **`sf-elastic-apm`**, **`redis`** and **`sf-apm-lib` **must be available in your environment. 
+In order to enable tracing for a **Celery** framework-based application, the presence of **`sf-elastic-apm`** and **`sf-apm-lib`** in the environment is necessary.
 
 Install the following requirements.
 ```
@@ -433,7 +433,7 @@ pip install sf-apm-lib==0.1.1
 
 ### Configuration
 
-Add following code at start of the file where celery app is initialized to setup elastic apm client.
+Add the following code at the start of the file where celery app is initialized to setup elastic apm client.
 
    ```
 from sf_apm_lib.snappyflow import Snappyflow 
