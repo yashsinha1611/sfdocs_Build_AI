@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ## Overview
 
-The Python tracing feature automatically instruments APIs, frameworks, and application servers for the applications built using python. The sfAPM python agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server and you can view the tracing data in SnappyFlow's dashboard.
+The Python tracing feature has the capability to automatically instrument APIs, frameworks, and application servers for Python-based applications. With the help of the sfAPM Python agent, the tracing metrics and correlated application logs are gathered and transmitted to the SnappyFlow server, where the tracing data can be viewed via the SnappyFlow dashboard.
 
 <div class="blue_textbox">
 	<b><u>Supported Python versions</u></b> 
@@ -27,15 +27,15 @@ The Python tracing feature automatically instruments APIs, frameworks, and appli
 
 
 
-## Supported Trace Features 
+## Additional Trace Features 
 
-**Distributed Tracing** | **Transaction Mapping** | **Log Correlation** | **Capture Request Body** | **Service Map**
+**[Log Correlation](/docs/Tracing/python/log_correlation)** | **[Capture Request Body](/docs/Tracing/python/capture_request_body_from_trace)**
 
 <br/>
 
 :::note
 
-**Log Correlation** and **Capture Request Body** are not default trace features. Based on the requirement you can enable them by adding additional configurations.
+Additional configurations are required to enable **Log Correlation** and **Capture Request Body** features. 
 
 :::
 

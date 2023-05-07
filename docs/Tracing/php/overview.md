@@ -16,31 +16,18 @@ The PHP tracing feature automatically instruments APIs, frameworks, and applicat
 		<b>Laravel</b> [6 - 9]
 	</p>
     <p>
-        Frameless PHP Application
+        <b>Frameless PHP Application</b>
     </p>
 </div>
 
 
 
+
 ## Supported Platforms
-
-
 
  **[Instance](/docs/Tracing/php/instance)** | **[Docker](/docs/Tracing/php/docker)** | **[ECS](/docs/Tracing/php/ECS)**
 
 
 
-## Supported Trace Features 
 
-
-
-**Distributed Tracing** | **Transaction Mapping** | **Log Correlation** | **Capture Request Body** | **Service Map**
-
-<br/>
-
-:::note
-
-**Log Correlation** and **Capture Request Body** are not default trace features. Based on the requirement you can enable them by adding additional configurations.
-
-:::
 
