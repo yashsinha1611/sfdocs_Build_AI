@@ -21,8 +21,8 @@ const FeatureList = [
         url: '/docs/Integrations/kubernetes/kubernetes_monitoring_with_sfPod'
       },
       {
-        label: "Setup SnappyFlow in your own environment",
-        url: '/docs/category/setup-snappyflow-self-hosted'
+        label: "More...",
+        url: '/docs/Quick_Start/getting_started'
       },
     ]
   },
@@ -44,9 +44,9 @@ const FeatureList = [
         url: '/docs/sfPoller/vcenter_setup'
       },
       {
-        label: "Setup in Azure",
-        url: '/docs/sfPoller/azure_setup'
-      }
+        label: "More...",
+        url: '/docs/sfPoller/overview'
+      },
     ]
   },
   {
@@ -70,6 +70,10 @@ const FeatureList = [
         url: '/docs/Integrations/apache/overview',
         label: 'Apache',
       },
+      {
+        url: '/docs/Integrations/aws_lambda',
+        label: 'AWS Lambda',
+      }, 
       {
         label: "More....",
         url: '/docs/Integrations/overview'
@@ -110,13 +114,9 @@ const FeatureList = [
         url: '/docs/Tracing/ruby'
       },
       {
-        label: "NodeJS",
-        url: '/docs/Tracing/nodejs'
-      },
-      {
-        label: "C#",
-        url: '/docs/Tracing/csharp'
-      }
+        label: "More...",
+        url: '/docs/category/tracing'
+      } 
     ]
   },
   {
@@ -152,8 +152,8 @@ const FeatureList = [
         url: '/docs/Log_management/log_signatures'
       },
       {
-        label: "ETL Jobs",
-        url: '/docs/Log_management/etl_jobs'
+        label: "More...",
+        url: '/docs/Log_management/log_overview'
       }
     ]
   },
@@ -190,8 +190,8 @@ const FeatureList = [
         url: '/docs/RUM/RUM_Metrics'
       },
       {
-        label: "Glossary",
-        url: '/docs/RUM/RUM_Glossary'
+        label: "More...",
+        url: '/docs/RUM/RUM_documentation'
       }
     ]
   },
@@ -207,7 +207,7 @@ const FeatureList = [
     ]
   },
   {
-    title: 'Security Information and Event Management',
+    title: 'SIEM',
     Png: require('../../static/img/tracing-icon.png').default,
     Path: '/docs/SIEM/SIEM_documentation',
     list: [
