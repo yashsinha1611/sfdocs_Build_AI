@@ -268,13 +268,13 @@ System Alerts are pre-configured alerts that are triggered when the sfagent is u
 
 **Severity Level**: By default, the severity level of a system alert is **1**.
 
-**Frequency**: System alerts will be notified at regular intervals of **30 min**.
-
 ### Use Cases
 
 System alert is generated only during the below-mentioned use cases.
 
 **Case 1**: Monitoring of an instance or application is stopped. This implies that the sfagent couldn't gather data from any of the plugins present within the instance or application. The reason for this could be that the monitored instance or application has been stopped.
+
+**Frequency**: System alerts for this case will be notified  **3 times with a interval period of 60 mins**.
 
 In this use case, the message column contains:
 
@@ -287,6 +287,8 @@ In this use case, the message column contains:
 <img src="/img/Notifications/alerts/image_1.png" />
 
 **Case 2**: The sfagent is unable to monitor a particular plugin within the instance or application.
+
+**Frequency**: System alerts for this case will be notified at a regular interval of **30 mins**.
 
 In this use case, the message column contains:
 
