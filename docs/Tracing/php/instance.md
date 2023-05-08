@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ## Prerequisite
 
-1. Install [sfagent](/docs/Integrations/os/linux/sfagent_linux) to integrate your application with SnappyFlow.
+1. Install [sfagent](/docs/Quick_Start/getting_started#sfagent) to integrate your application with SnappyFlow.
 
 2. Make sure that the project and application are created in the SnappyFlow server. If not, [click here](https://stage-docs.snappyflow.io/docs/RUM/agent_installation/others#create-a-project-in-snappyflow-portal) to create a project and an application in SnappyFlow.
 
@@ -19,12 +19,12 @@ sidebar_position: 3
 
 2. Use the below-given command to assign executable permission.
    ```
-   chmod +x install_sf_php_agent.sh
+   chmod +x install_elastic_apm.sh
    ```
 
 3. Run the script with **sudo** and provide the tracing service name as the first argument to the script.
 
-   **Example**: `sudo ./install_sf_php_agent.sh <service_name>`
+   **Example**: `sudo ./install_elastic_apm.sh <service_name>`
 
 :::note
 
@@ -48,6 +48,8 @@ Follow the below steps to view the trace data.
 
    <img src="/img/tracing/image_1.png" />
 
+   <br/>
+   
    <img src="/img/tracing/image_3.png" />
 
 ## Steps to Uninstall PHP Agent
