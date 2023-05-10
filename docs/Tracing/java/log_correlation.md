@@ -7,7 +7,7 @@ By enabling log correlation, you can link log events from different sources, app
 
 **Example:**
 
-when an error occurs in your application, SnappyFlow's trace agent captures the error stack trace and links it to the relevant transaction or span. This provides context around the error and helps developers understand which part of the application was responsible for the error.
+In the event of an error in your application, SnappyFlow's trace agent captures the stack trace of the error and associates it with the corresponding transaction or span. This contextualizes the error and assists developers in identifying the specific area of the application that caused the error.
 
 ## Enable Log Correlation
 
@@ -52,9 +52,9 @@ when an error occurs in your application, SnappyFlow's trace agent captures the 
 
 ### Add Properties to the Application
 
-##### Application Packaged as a Jar File
+##### Application Packaged as a jar File
 
-Add the `elastic.apm.enable_log_correlation` property while running your application jar.
+Add the `elastic.apm.enable_log_correlation` property in the application jar.
 
 **Example**:
 
@@ -76,7 +76,7 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -jar <application jar>
 ```
 
-##### Application Packaged as a War File
+##### Application Packaged as a war File
 
 Add the `elastic.apm.enable_log_correlation` property in the `tomcat_setenv.sh` file.
 
@@ -86,7 +86,7 @@ Add the `elastic.apm.enable_log_correlation` property in the `tomcat_setenv.sh` 
 export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.enable_log_correlation=true"
 ```
 
-The Overall Configuration after enabling the tracing feature along with Capture request Body from Trace and Log Correlation:
+The overall Configuration after enabling the tracing feature along with **Capture request Body** and **Log Correlation**:
 
 ```sh
 export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar"
@@ -129,16 +129,14 @@ plugins:
          log_path: /var/log/spring-app.log
    ```
 
-#### Verification
-To view the logs:
+#### View Correlated Logs
 
-1. Login into SnappyFlow.
-2. Go to the **Application** tab.
-3. In the **Application** tab, navigate to your **Project** > **Application**.
-4. Click the **Application's Dashboard** icon.
-5. In the **Dashboard** window, go to the Logs section.
-6. Select the logType as `elasticApmTraceLog`.
-7. You can view the logs in the dashboard.
+Follow the below steps to view the logs correlated data.
+
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
+2. In the dashboard window, go to the **Logs Management** section.
+3. Select the **Log Type** as `elasticApmTraceLog`.
+4. You can view the logs in the dashboard.
 
 ### Kubernetes
 
@@ -248,15 +246,12 @@ Follow the below steps to send the correlated logs to SnappyFlow from the applic
          name: {{ include "<helm-chart name>.fullname" . }}-sfagent-config
    ```
 
-#### Verification
+#### View Correlated Logs
 
-To view the logs:
+Follow the below steps to view the logs correlated data.
 
-1. Login into SnappyFlow.
-2. Go to the **Application** tab.
-3. In the **Application** tab, navigate to your **Project** > **Application**.
-4. Click the **Application's Dashboard** icon.
-5. In the Dashboard window, go to the **Logs** section.
-6. Select the logType as **`elasticApmTraceLog`**.
-7. You can view the logs in the dashboard.
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
+2. In the dashboard window, go to the **Log Management** section.
+3. Select the **Log Type** as **`elasticApmTraceLog`**.
+4. You can view the logs in the dashboard.
 
