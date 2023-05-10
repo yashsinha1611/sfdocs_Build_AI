@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3 
 ---
-# Java Tracing
+# Tracing - Java Applications
 
 ## Overview
 
