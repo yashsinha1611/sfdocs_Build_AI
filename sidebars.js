@@ -740,17 +740,17 @@ module.exports = {
                         {
                             type: 'doc',
                             id: 'Integrations/postgres/postgres_instances',
-                            label: 'Postgres on Instances',
+                            label: 'postgres_instances',
                         },
                         {
                             type: 'doc',
                             id: 'Integrations/postgres/postgres_kubernetes',
-                            label: 'Postgres in Kubernetes',
+                            label: 'postgres_kubernetes',
                         },
                         {
                             type: 'doc',
                             id: 'Integrations/postgres/postgres_sfpoller',
-                            label: 'Postgres with sfPoller',
+                            label: 'postgres_sfpoller',
                         },
                     ],
                 },
@@ -1241,6 +1241,71 @@ module.exports = {
                 },
                 
             ],
+        },
+		{
+            type: 'category',
+            label: 'Release Notes',
+            link: {
+                type: 'doc',
+                id: 'release_note/overview'
+            },
+            collapsed: true,
+            items: [
+				{
+                    type: 'category',
+                    label: 'Database',
+					link: {
+						type: 'doc',
+						id: 'release_note/database/postgres',
+					},
+                    collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/database/postgres',
+							       label: 'Postgres',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/aurora',
+							       label: 'Aurora',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/docdb',
+							       label: 'DocumentDB',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/azureDB',
+							       label: 'AzureDB',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/redis',
+							       label: 'Redis',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/mysql',
+							       label: 'MySQL',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/mssql',
+							       label: 'MSSQL',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/clickhouse',
+							       label: 'Clickhouse',
+							   },
+							   
+							],
+					    
+				},
+                
+            ],   
         },
 
     ],
