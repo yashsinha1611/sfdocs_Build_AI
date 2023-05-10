@@ -60,6 +60,8 @@ To customize the Document Type and Index, perform the following steps within the
   SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
 ```
 
+<br/>
+
 :::note
 
 The **Index Type** is set to `Log` by default, and the possible values that can be used for this field are **Logs** and **Metrics**.
@@ -71,6 +73,8 @@ The **Index Type** is set to `Log` by default, and the possible values that can 
 ```
 SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
 ```
+
+<br/>
 
 :::note
 
@@ -94,6 +98,22 @@ except Exception as error:
    print("Error while fetching snappyflow tracing configurations", error) 
 
   ```
+### View the Captured Request Body
+
+Follow the below steps to verify and view the trace data.
+
+1. Go to the **Application** tab in SnappyFlow and navigate  to your **Project** > **Application** > **Dashboard**.
+
+2. In the **Dashboard** window, go to the **Log Management** section.
+
+3. Select the **Source** and **Log Type** to view logs in the dashboard.
+
+4. To see the unprocessed data, go to the **Browse Data** section and select the following details:
+
+   - **Index**: `Metrics`
+   - **Plugin**: `trace_body`
+   - **Document Type**:  `user_input`
+
 ## FLASK
 
 ### Enable Capture Request Body 
@@ -112,6 +132,8 @@ Do the following steps in `app.py` file to enable the **Capture Request Body** f
 SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_redact_body=true'
 ```
 
+<br/>
+
 :::note
 
 By default, the value is 'true'.
@@ -128,6 +150,8 @@ To customize the Document Type and Index, perform the following steps within the
 SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_IndexType=log'
 ```
 
+<br/>
+
 :::note
 
 The **Index Type** is set to `Log` by default, and the possible values that can be used for this field are **Logs** and **Metrics**.
@@ -140,13 +164,15 @@ The **Index Type** is set to `Log` by default, and the possible values that can 
 SFTRACE_CONFIG['SFTRACE_GLOBAL_LABELS'] += ',_tag_documentType=user-input'
 ```
 
+<br/>
+
 :::note
 
 By default, the **Document Type** is set to `user-input`.
 
 :::
 
-
+<br/>
 
 **Complete Configuration**
 
@@ -159,3 +185,18 @@ app.config['ELASTIC_APM'] = {
 }
 ```
 
+### View the Captured Request Body
+
+Follow the below steps to verify and view the trace data.
+
+1. Go to the **Application** tab in SnappyFlow and navigate  to your **Project** > **Application** > **Dashboard**.
+
+2. In the **Dashboard** window, go to the **Log Management** section.
+
+3. Select the **Source** and **Log Type** to view logs in the dashboard.
+
+4. To see the unprocessed data, go to the **Browse Data** section and select the following details:
+
+   - **Index**: `Metrics`
+   - **Plugin**: `trace_body`
+   - **Document Type**:  `user_input`
