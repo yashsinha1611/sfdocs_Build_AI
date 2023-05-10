@@ -1,4 +1,4 @@
-# Monitor Postgres on Instances
+# Monitor Postgres on Instance
 
 ## Overview
 
@@ -38,13 +38,13 @@ grant SELECT ON pg_stat_database to <username>;
 
 :::note
 
-The root user has these permissions by default.
+By default, these permissions are granted to the root user
 
 :::
 
 ## Configuration
 
-Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/ directory` 
+Refer to [sfAgent](/docs/Quick_Start/getting_started#sfagent) section for steps to install and automatically generate plugin configurations. User can also manually add the configuration shown below to `config.yaml` under `/opt/sfagent/ directory`.
 
 ```yaml
 key: <profile_key> 
@@ -87,7 +87,7 @@ logging:
 
 ## Enable Logs
 ### Enable PostgreSQL general logs
-To enable PostgreSQL general logs, configure **PostgreSQL.conf** file. To locate the PostgreSQL.conf, execute the following command:
+It is required to configure **`PostgreSQL.conf`** file to enable PostgreSQL logs. To locate the **`PostgreSQL.conf`**, execute the following command:
 
 ```
 postgres=# show config_file; 
@@ -97,57 +97,54 @@ postgres=# show config_file;
 (1 row) 
 ```
 
-Update the **Postgresql.conf** file with the variables shown below:
+Update the **`Postgresql.conf`** file with the variables shown below:
 ```
 log_min_messages = warning  # set level as appropriate 
 log_line_prefix = '< %m > ' 
 ```
 
+**Example**:
+
+once the logs are enabled, PostgreSQL general logs will be generated in the below format.
+
+```
+< 2023-05-04 11:52:10.470 IST > LOG:  duration: 1006.577 ms  statement: select pg_sleep(1);
+```
+
+
+
 ### Enable PostgreSQL Slow Query logs
 
-To enable PostgreSQL slow query logs, update the **PostgreSQL.conf** file with the variables shown below:
+To enable PostgreSQL slow query logs, update the **`PostgreSQL.conf`** file with the variables shown below:
 
 `log_min_duration_statement = 200` 
 
-## View Metrics and Logs
+## View Database Metrics and Logs
 
-1. Login into SnappyFlow.
-
-2. Navigate to the **Application** tab > **Project** > **Application** and click the **Dashboard** icon.
-
-3. Click the **tab menu** `...` icon on the **Metric** tab.
-
-4. Select the **Import from template** option.
-
-5. In the **Import to Metrics Panes** window, select **Filter By**: `Standard`, **Template Name**: `PostgreSQL`.
-
-6. Click the `Save` button.
-
-
-#### General logs 
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
+2. In the dashboard window, click the **tab menu** `...` icon on the **Metric** section.
+3. Select the **Import from template** option.
+4. In the **Import to Metrics Panes** window, select **Filter By**: `Standard`, **Template Name**: `PostgreSQL`.
+5. Click the `Save` button.
+6. Database metrics are displayed in the **Metrics** section of the dashboard.
 
 <img src="/img/integration/mysql/image_2.png" />
 
-To view general logs, navigate to your ***Application's dashboard*** > ***Log management*** > ***Primary storage***. In the **Primary Storage** window, set the **log filter** to a general log as per the requirement.
+8. To view general logs, navigate to **Log management** > **Primary storage**. 
 
-#### Slow query logs
+9. In the **Primary Storage** window, set the **log filter** to a general log as per the requirement.
 
 <img src="/img/integration/mysql/image_3.png" />
 
-To view slow query logs, navigate to ***Application's dashboard*** > ***Metrics*** > ***Slow Queries***.
+10. To view slow query logs, navigate to **Metrics** > **Slow Queries**.
 
-#### Metrics
+11. To access the unprocessed data gathered from the plugins, navigate to the **Browse data** section and  select the following data:
 
-1. To view database metrics, navigate to ***Application's dashboard*** > ***Browse Data***.
-2. In the **Browse Data** window, set the following filters:
-
-  - **Index**: Metrics
-  - **Instance**: Select an instance
-  - **Plugin**: postgres
-  - **Document type**: `serverDetails`, `databaseDetails`, `tableDetails`, `queryDetails`, `postgres-general`, `postgres-slowquery`
-## Metric List
-
-Choose a metric ([Server Details](/docs/Integrations/postgres/postgres_instances#####Server_Details), [Database Details](/docs/Integrations/postgres/postgres_instances#####Database_Details), [Table Details](/docs/Integrations/postgres/postgres_instances#####Table_Details), [Index Details](/docs/Integrations/postgres/postgres_instances#####Index_Details), [Query Details](/docs/Integrations/postgres/postgres_instances#####Query_Details )) to learn more about the data collected from your PostgreSQL database.
+   - **Index**: `Metrics`
+   - **Instance**: Select an `instance`
+   - **Plugin**: `postgres`
+   - **Document type**: `serverDetails`, `databaseDetails`, `tableDetails`, `queryDetails`, `postgres-general`, `postgres-slowquery`
+#### Metric List
 
 ##### Server Details
 

@@ -1,23 +1,83 @@
-# Monitoring Postgres databases running on cloud services (Amazon RDS) using sfPoller
+# Monitor Postgres in AWS RDS
 
 ## Overview
 
-sfPoller includes all necessary plugins to connect to Public cloud APIs, Cloudwatch and Azure Monitor and enables easy monitoring of databases running on cloud services such as Amazon RDS and Azure.
+The metrics of Postgres DB running in AWS are gathered by sfPoller and displayed within the dashboard of SnappyFlow.
 
-The video below explains the steps involved in setting up sfPoller to monitor a Postgres database running on AWS.
+<img src="/img/postgres/image-10.png" />
 
-<iframe title="sfPoller Setup" width="570" height="321" src="https://www.youtube.com/embed/vTs7JVLND1I" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="allowFullScreen"
-        mozallowfullscreen="mozallowfullscreen" 
-        msallowfullscreen="msallowfullscreen" 
-        oallowfullscreen="oallowfullscreen" 
-        webkitallowfullscreen="webkitallowfullscreen"></iframe>
+## Prerequisites
 
+To collect metrics of Postgres DB hosted on AWS, it is necessary to have a sfpoller set up within your AWS environment.
 
-## PostgreSQL in Cloud Services
+[Click here](https://docs.snappyflow.io/docs/sfPoller/aws_setup) to learn more about setting up sfpoller in your AWS environment.
 
-PostgreSQL is a powerful, open source object-relational database system that has earned it a strong reputation for reliability, feature robustness, and performance.
+## Configure sfPoller
 
-### Metrics list
+Ensure that both the project and application are created within sfPoller. If they have not been created yet, you can [click here](https://docs.snappyflow.io/docs/sfPoller/aws_setup#configure-sfpoller) to learn how to create a project and application in sfPoller.
+
+Follow the below step to add endpoints and plugins:
+
+1. In the **Application** tab of sfPoller, navigate to your **Project** > **Application**.
+
+2. Click on the **Application**, it will take you to the `Endpoint` page.
+
+3. Click the `Add Endpoint` button, add the following data, and save.
+
+   - **Account Type**: Select account type as AWS
+   - **Account Name**: Name of the AWS account
+   - **Endpoint Type**: Postgres
+   - **Name**: Give a meaningful name to the endpoint
+
+   - **IP**: Add the application IP address
+
+4. In the **Plugins** window, click the `+Add` button.
+
+5. In the **Add Plugin** window, select the below details and save.
+
+   - **Plugin Type**: `Metric`
+   - **Plugin**: `Postgres`
+   - **Interval**: Choose an interval value. The minimum value for the interval is 300
+
+6. Click the global `Save` button in the window's top right corner to save all the changes made so far.
+
+## Replication
+
+PostgreSQL includes built-in binary replication based on shipping the changes write ahead logs(WAL) to replica nodes asynchronously, with the ability to run read-only queries against these replicated nodes. This allows splitting read traffic among multiple nodes efficiently.
+
+PostgreSQL includes built-in synchronous replication that ensures that, for each write transaction, the master waits until at least one replica node has written the data to its transaction log.  This can be useful for workloads that do not require such guarantees, and may not be wanted for all data as it slows down performance due to the requirement of the confirmation of the transaction reaching the synchronous standby.
+
+:::note
+
+**Replication is supported only on AWS RDS PostgreSQL versions between 10 and 13.**
+
+**User with root access is required to collect replication metrics from PostgreSQL.**
+
+:::
+
+## View Database Metrics
+
+Follow the below steps to view the metrics collected from Postgres DB.
+
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
+
+2. You can view the database metrics in the **Metrics** section.
+
+   :::note
+
+   Once plugins are added to sfPoller, they will be automatically detected within the Metrics section. However, if the plugins are not detected, you can import templates to view the corresponding metrics.
+
+   :::
+
+4. To access the unprocessed data gathered from the plugins, navigate to the **Browse data** section and choose the `Index: Metric`, `Instance: Endpoint`, `Plugin,` and `Document Type`.
+
+#### Template Details
+| **Template**| Plugins | Document Type |
+| -------------|----------|--------------|
+| PostgreSQL | postgres |serverDetails, databaseDetails, tableDetails, indexDetails, queryDetails|
+| PostgreSQL_Replication | postgres |masterReplicationDetails, replicationSlotDetails, slaveReplicationDetails|
+
+#### Metrics list
 
 ##### Server Details
 
@@ -51,7 +111,7 @@ PostgreSQL is a powerful, open source object-relational database system that has
 | **numDatabases**        | Number of Databases.                                         |
 | **version**             | PostgreSQL version of the server.                            |
 
-### Database Details
+##### Database Details
 
 | **Metric**          | **Description**                                              |
 | ------------------- | ------------------------------------------------------------ |
@@ -80,7 +140,7 @@ PostgreSQL is a powerful, open source object-relational database system that has
 | **indexHitRatio**   | Percentage of indexHit of this table.                        |
 | **numTables**       | Number of tables in this database.                           |
 
-### Table Details
+##### Table Details
 
 | **Metric**         | **Description**                                              |
 | ------------------ | ------------------------------------------------------------ |
@@ -106,7 +166,7 @@ PostgreSQL is a powerful, open source object-relational database system that has
 | **_schemaName**    | Name of the schema of this table.                            |
 | **indexHitRatio**  | Percentage of indexHit of this table.                        |
 
-### Index Details
+##### Index Details
 
 | **Metric**      | **Description**                                              |
 | --------------- | ------------------------------------------------------------ |
@@ -121,7 +181,7 @@ PostgreSQL is a powerful, open source object-relational database system that has
 | **host**        | The host address of the instance.                            |
 | **numReturn**   | Number of index entries returned by scans on this index.     |
 
-### Query Details
+##### Query Details
 
 | **Metric**     | **Description**                                              |
 | -------------- | ------------------------------------------------------------ |
@@ -133,15 +193,7 @@ PostgreSQL is a powerful, open source object-relational database system that has
 | **state**      | Current overall state of this backend. Possible values are:**active, idle, idle in transaction, idle in transaction (aborted), fastpath function call, disabled.** |
 | **_queryName** | If **state** is **active** this field shows the currently executing query. In all other states, it shows the last query that was executed. |
 
-## Replication
-
-PostgreSQL includes built-in binary replication based on shipping the changes write ahead logs(WAL) to replica nodes asynchronously, with the ability to run read-only queries against these replicated nodes. This allows splitting read traffic among multiple nodes efficiently.
-
-PostgreSQL includes built-in synchronous replication that ensures that, for each write transaction, the master waits until at least one replica node has written the data to its transaction log.  This can be useful for workloads that do not require such guarantees, and may not be wanted for all data as it slows down performance due to the requirement of the confirmation of the transaction reaching the synchronous standby.
-
- ### Metrics list
-
-### Master Replication Details
+##### Master Replication Details
 
 | **Metric**          | **Description**                                              |
 | ------------------- | ------------------------------------------------------------ |
@@ -162,9 +214,7 @@ PostgreSQL includes built-in synchronous replication that ensures that, for each
 | **userName**        | Name of the user logged into this WAL sender process.        |
 | **backendStart**    | Time when this process was started, i.e., when the client connected to this WAL sender. |
 
-
-
-  ### Replication Slot Details
+  ##### Replication Slot Details
 
 | **Metric**              | **Description**                                              |
 | ----------------------- | ------------------------------------------------------------ |
@@ -179,9 +229,7 @@ PostgreSQL includes built-in synchronous replication that ensures that, for each
 | **host**                | The host address of the instance.                            |
 | **restart_lsn**         | The address (**LSN**) of oldest WAL which still might be required by the consumer of this slot and thus won't be automatically removed during checkpoints unless this LSN gets behind more than max_slot_wal_keep_size from the current LSN. **NULL** if the  **LSN** of this slot has never been reserved. |
 
-
-
-  ### Slave Replication Details
+  ##### Slave Replication Details
 
 | **Metric**             | **Description**                                              |
 | ---------------------- | ------------------------------------------------------------ |
@@ -201,52 +249,3 @@ PostgreSQL includes built-in synchronous replication that ensures that, for each
 | **receiveStartLSN**    | First write-ahead log location used when WAL receiver is started. |
 | **status**             | Activity status of the WAL receiver process.                 |
 
-
-
-:::**Note**:
-
-**Replication is supported only on AWS RDS PostgreSQL versions between 10 and 13.**
-
-**User with root access is required to collect replication metrics from PostgreSQL**
-
-:::
-
-### sfPoller Configuration
-
-- Click on Add Application and select Discover to discover the endpoints using cloud account. 
-
-<img src="/img/postgres/image-1.png" />
-
-
-
-- Create a Tag based rule and discover the endpoints for monitoring.
-
-<img src="/img/postgres/image-3.png" />
-
-- Select the endpoint to monitor and click on save button.
-- Configure the Postgres plugin to add masterReplication, slaveReplication and replicationSlot details in document type.
-
-<img src="/img/postgres/image-4.png" />
-
-<br/><br/>
-<img src="/img/postgres/image-5.png" />
-
-- Click on **Save** button in **Edit Plugin** configuration to save the plugin configuration changes.
-- Apply the changes to SFPoller by clicking on **Save** button and click **Cancel** to discard the changes.
-
-## Viewing data and dashboards
-
-Data collected by plugins can be viewed in SnappyFlow’s browse data section      
-
-- Plugin = `postgres` 
-
-- documentType = `serverDetails, databaseDetails, tableDetails, indexDetails, queryDetails, masterReplicationDetails, slaveReplicationDetails, replicationSlotDetails ` 
-
-- Dashboard template: `PostgreSQL, PostgreSQL_Replication`
-
-   
-
-<img src="/img/postgres/image-6.png" /> 
-
-<br/><br/>
-<img src="/img/postgres/image-7.png" />

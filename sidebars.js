@@ -740,17 +740,17 @@ module.exports = {
                         {
                             type: 'doc',
                             id: 'Integrations/postgres/postgres_instances',
-                            label: 'postgres_instances',
+                            label: 'Instances',
                         },
                         {
                             type: 'doc',
                             id: 'Integrations/postgres/postgres_kubernetes',
-                            label: 'postgres_kubernetes',
+                            label: 'Kubernetes',
                         },
                         {
                             type: 'doc',
                             id: 'Integrations/postgres/postgres_sfpoller',
-                            label: 'postgres_sfpoller',
+                            label: 'AWS RDS',
                         },
                     ],
                 },

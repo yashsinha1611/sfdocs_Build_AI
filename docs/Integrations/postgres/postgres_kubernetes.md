@@ -42,13 +42,13 @@ grant SELECT ON pg_stat_database to <username>;
 
 :::note
 
-The root user has these permissions by default.
+By default, these permissions are granted to the root user.
 
 :::
 
 ## PostgreSQL monitoring with sfKubeAgent
 
-sfKubeAgent run as a sidecar with the configMap shown below. The config map initiates plugins for metrics, general logs, and slow queries. 
+sfKubeAgent run as a sidecar with the `configMap` shown below. The `configmap` initiates plugins for metrics, general logs, and slow queries. 
 
  
 
@@ -93,7 +93,7 @@ data:
           log_path: /var/log/postgres/*.log 
 ```
 
-An example of PostgreSQL pod with Postgres and sfKubeAgent containers is shown below.
+**Example**: PostgreSQL pod that contains both Postgres and sfKubeAgent containers.
 
 ```yaml
 kind: Pod 
@@ -271,42 +271,30 @@ spec:
       emptyDir: {}
 ```
 
-## View Metrics and Logs
+## View Database Metrics and Logs
 
-1. Login into SnappyFlow.
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
 
-2. Navigate to the **Application** tab > **Project** > **Application** and click the **Dashboard** icon.
+2. In the dashboard window, click the **tab menu** `...` icon on the **Metric** section.
 
-3. Click the **tab menu** `...` icon on the **Metric** tab.
+3. Select the **Import from template** option.
 
-4. Select the **Import from template** option.
+4. In the **Import to Metrics Panes** window, select **Filter By**: `Standard`, **Template Name**: `PostgreSQL_Prom` (For PostgreSQL with Prometheus).
 
-5. In the **Import to Metrics Panes** window, select **Filter By**: `Standard`, **Template Name**: `PostgreSQL_Prom` (For PostgreSQL with Prometheus).
+5. Click the `Save` button.
 
-6. Click the `Save` button.
+6. Database metrics are displayed in the **Metrics** section.
 
+7. To view general logs, navigate to  **Log management** > **Primary storage**. In the **Primary Storage** window, set the **log filter** to a general log as per the requirement.
+8. To view slow query logs, navigate to **Metrics** > **Slow Queries**.
+9. To access the unprocessed data gathered from the plugins, navigate to the **Browse data** section and select the following data:
 
-#### General logs 
+   - **Index**: Metrics
+   - **Instance**: Select an instance
+   - **Plugin**: `PostgreSQL`, `kube-prom-postgres` (For PostgreSQL with Prometheus)
+   - **Document type**: `serverDetails`, `databaseDetails`, `tableDetails`, `queryDetails`, `postgres-general`, `postgres-slowquery`
 
-To view general logs, navigate to your ***Application's dashboard*** > ***Log management*** > ***Primary storage***. In the **Primary Storage** window, set the **log filter** to a general log as per the requirement.
-
-#### Slow query logs
-
-To view slow query logs, navigate to ***Application's dashboard*** > ***Metrics*** > ***Slow Queries***.
-
-#### Metrics
-
-1. To view database metrics, navigate to ***Application's dashboard*** > ***Browse Data***.
-2. In the **Browse Data** window, set the following filters:
-
-  - **Index**: Metrics
-  - **Instance**: Select an instance
-  - **Plugin**: `PostgreSQL`, `kube-prom-postgres` (For PostgreSQL with Prometheus)
-  - **Document type**: `serverDetails`, `databaseDetails`, `tableDetails`, `queryDetails`, `postgres-general`, `postgres-slowquery`
-
-## Metric List
-
-Choose a metric ([Server Details](/docs/Integrations/postgres/postgres_kubernetes#####Server_Details), [Database Details](/docs/Integrations/postgres/postgres_kubernetes#####Database_Details), [Table Details](/docs/Integrations/postgres/postgres_kubernetes#####Table_Details), [Index Details](/docs/Integrations/postgres/postgres_kubernetes#####Index_Details), [Query Details](/docs/Integrations/postgres/postgres_kubernetes#####Query_Details )) to learn more about the data collected from your PostgreSQL database.
+#### Metric List
 
 ##### Server Details
 
