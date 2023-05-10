@@ -14,9 +14,9 @@ Request bodies usually contain sensitive data like passwords and credit card num
 
 :::
 
-## Enable Capture Request Body
+## Application Packaged as  jar File
 
-### Application packaged as  jar file.
+### Enable Capture Request Body
 
 Add the below properties in the `jar` file to enable the **Capture Request Body** feature.
 
@@ -65,7 +65,25 @@ By default, the **Document Type** is set to `custom-document`.
 java -Delastic.apm.capture_body=all -Delastic.apm.global_labels="_tag_redact_body=true,_tag_IndexType=log,_tag_documentType=custom-document" -jar (application jar name)
 ```
 
-### Application packaged as war file.
+### View the Captured Request Body
+
+Follow the below steps to verify and view the trace data.
+
+1. Go to the **Application** tab in SnappyFlow and navigate  to your **Project** > **Application** > **Dashboard**.
+
+2. In the **Dashboard** window, go to the **Log Management** section.
+
+3. Select the **Source** and **Log Type** to view logs in the dashboard.
+
+4. To see the unprocessed data, go to the **Browse Data** section and select the following details:
+
+   - **Index**: `Metrics`
+   - **Plugin**: `trace_body`
+   - **Document Type**:  `user_input`
+
+## Application Packaged as war File
+
+### Enable Capture Request Body
 
 Add the following properties in the `tomcat_setenv.sh` file to enable the **Capture Request Body** feature.
 
@@ -113,13 +131,11 @@ export CATALINA_OPTS="$CATALINA_OPTS - Delastic.apm.global_labels='_tag_redact_b
 ```
 
 
-## View the Captured Request Body
+### View the Captured Request Body
 
 Follow the below steps to verify and view the trace data.
 
 1. Go to the **Application** tab in SnappyFlow and navigate  to your **Project** > **Application** > **Dashboard**.
-
-   <img src="/img/tracing/image_2.png" />
 
 2. In the **Dashboard** window, go to the **Log Management** section.
 
