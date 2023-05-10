@@ -2,13 +2,15 @@
 sidebar_position: 3 
 ---
 
-# Java Application on Instances
+# Monitor Java Application on Instances
 
-## Application Packed in a JAR file
+## Application Packed in a jar File
+
+Follow the below steps to start tracings for an application packed and built using a `jar` file.
 
 ### Prerequisite
 
-Install [sfAgent](/docs/Quick_Start/getting_started#sfagent).
+Install [sfAgent](/docs/Quick_Start/getting_started#sfagent) to monitor Java application running on instance.
 
 ### Configuration
 
@@ -34,8 +36,11 @@ By default, transaction names of unsupported Servlet API based frameworks are in
 
 #### Normalizing Transaction URL
 
-If your URL contains path parameters like `/user/$userId`, it can lead to an explosion of transaction types. To avoid this use URL groups.
-**For example**, if the application supports URLs like: 
+Using path parameters like `/user/$userId` in your URL can result in a significant increase in the number of transaction types, which can become difficult to manage. To prevent this, it is recommended to use URL groups.
+
+**Example for URL groups:**
+
+if the application supports URLs as show below: 
 
 ```
 /owners, /owners/<owner_id>, /owners/<owner_id>/edit, /owners/<owner_id>/pets, 
@@ -60,23 +65,17 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
 
-### Verification
+### View Trace Data
 
-Follow the below steps to verify whether SnappyFlow has started to collect the trace data.
+Follow the below steps to view the trace data.
 
-1. Login into SnappyFlow.
-
-2. Go to the **Application** tab.
-
-3. In the **Application** tab, navigate to your **Project** > **Application**.
-
-4. Click the **Application's Dashboard** icon.
+1. Go to the **Application** tab in SnappyFlow and navigate  to your **Project** > **Application** > **Dashboard**.
 
    <img src="/img/tracing/image_2.png" />
 
-5. Navigate to the **Tracing** section and click the `View Transactions` button.
+2. In the dashboard window, navigate to the **Tracing** section and click the `View Transactions` button.
 
-6. You can view the traces in the **Aggregate** and the **Real Time** tabs.
+3. You can view the traces in the **Aggregate** and the **Real Time** tabs.
 
    <img src="/img/tracing/image_1.png" />
 
@@ -84,9 +83,11 @@ Follow the below steps to verify whether SnappyFlow has started to collect the t
 
 ## Apache Tomcat
 
+Follow the below steps to start tracings for an application built using **Apache Tomcat**.
+
 ### Prerequisite
 
-Install [sfAgent](/docs/Quick_Start/getting_started#sfagent).
+Install [sfAgent](/docs/Quick_Start/getting_started#sfagent) to monitor Java application running on instance.
 
 ### Configuration
 
@@ -110,20 +111,23 @@ By default, transaction names of unsupported Servlet API based frameworks are in
 
 #### Normalizing Transaction URL
 
-If your URL contains path parameters like `/user/$userId`, it can lead to an explosion of transaction types. To avoid this use URL groups.
-For example, if the application supports URLs like: 
+Using path parameters like `/user/$userId` in your URL can result in a significant increase in the number of transaction types, which can become difficult to manage. To prevent this, it is recommended to use URL groups.
+
+**Example for URL groups:**
+
+If the application supports URLs as shown below: 
 
 ```
 /owners, /owners/<owner_id>, /owners/<owner_id>/edit, /owners/<owner_id>/pets, 
 ```
 
-then URL groups would be configured as: 
+then URL groups would be configured as below:
 
 ```
 url_groups=/owners/*,/owner/*/edit,/owners/*/pets 
 ```
 
-#### Example 
+#### Example Configuration
 
 Below given configuration is an example of a Java application executed via command line using the parameters given in the previous sections.
 
@@ -136,23 +140,17 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 -Delastic.apm.url_groups=/owners/*,/owner/*/edit,/owners/*/pets -jar <application jar> 
 ```
 
-### Verification
+### View Trace Data
 
-Follow the below steps to verify whether SnappyFlow has started to collect the trace data.
+Follow the below steps to view the trace data.
 
-1. Login into SnappyFlow.
-
-2. Go to the **Application** tab.
-
-3. In the **Application** tab, navigate to your **Project** > **Application**.
-
-4. Click the **Application's Dashboard** icon.
+1. Go to the **Application** tab in SnappyFlow and navigate  to your **Project** > **Application** > **Dashboard**.
 
    <img src="/img/tracing/image_2.png" />
 
-5. Navigate to the **Tracing** section and click the `View Transactions` button.
+2. In the dashboard window, navigate to the **Tracing** section and click the `View Transactions` button.
 
-6. You can view the traces in the **Aggregate** and the **Real Time** tabs.
+3. You can view the traces in the **Aggregate** and the **Real Time** tabs.
 
    <img src="/img/tracing/image_1.png" />
 
@@ -160,15 +158,17 @@ Follow the below steps to verify whether SnappyFlow has started to collect the t
 
 ## JBOSS EAP
 
+Follow the below steps to start tracings for an application built using **JBoss EAP**.
+
 ### Prerequisite
 
-Install [sfAgent](/docs/Quick_Start/getting_started#sfagent).
+Install [sfAgent](/docs/Quick_Start/getting_started#sfagent) to monitor Java application running on instance.
 
 ### Configuration
 
 #### Standalone Mode 
 
-Copy the configuration from the `SFTRACE-CONFIG` section and add the trace agent configuration in the `standalone.conf` file and start the server. Refer to  [JBOSS_standalone.conf](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_standalone.conf)  for tracing specific configurations. 
+Copy the configuration from the `SFTRACE-CONFIG` section of the [JBOSS_standalone.conf](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_standalone.conf) file and add the trace agent configuration in the `standalone.conf` file and start the server.
 
 #### Domain Mode
 Copy the configuration from the `SFTRACE-CONFIG` section and add the trace agent configuration in `domain.xml` and start the server. Refer to [JBOSS_domain.xml](https://github.com/snappyflow/website-artefacts/blob/master/sfTracing/java/JBOSS_domain.xml)  for tracing specific configurations. 
@@ -182,18 +182,21 @@ By default, transaction names of unsupported Servlet API based frameworks are in
 -Delastic.apm.use_path_as_transaction_name=true 
 ```
 #### Normalizing Transaction URLs
-If your URLs contain path parameters like `/user/$userId`, it can lead to an explosion of transaction types. To avoid this you can use URL groups.
-**For example**, if the application supports URLs like: 
+Using path parameters like `/user/$userId` in your URL can result in a significant increase in the number of transaction types, which can become difficult to manage. To prevent this, it is recommended to use URL groups.
+
+**Example for URL groups**
+
+if the application supports URL as shown below:
 
 ```
 /owners, /owners/<owner_id>, /owners/<owner_id>/edit, /owners/<owner_id>/pets, 
 ```
-then URL groups would be configured as: 
+Then URL groups would be configured as: 
 
 ```
 url_groups=/owners/*,/owner/*/edit,/owners/*/pets 
 ```
-#### Example 
+#### Example Configuration 
 
 Below given configuration is an example of a Java application executed via command line using the parameters given in the previous sections.
 
@@ -208,23 +211,17 @@ java -javaagent:/opt/sfagent/sftrace/java/sftrace-java-agent.jar
 
 
 
-### Verification
+### View Trace Data
 
-Follow the below steps to verify whether SnappyFlow has started to collect the trace data.
+Follow the below steps to view the trace data.
 
-1. Login into SnappyFlow.
-
-2. Go to the **Application** tab.
-
-3. In the **Application** tab, navigate to your **Project** > **Application**.
-
-4. Click the **Application's Dashboard** icon.
+1. Go to the **Application** tab in SnappyFlow and navigate  to your **Project** > **Application** > **Dashboard**.
 
    <img src="/img/tracing/image_2.png" />
 
-5. Navigate to the **Tracing** section and click the `View Transactions` button.
+2. In the dashboard window, navigate to the **Tracing** section and click the `View Transactions` button.
 
-6. You can view the traces in the **Aggregate** and the **Real Time** tabs.
+3. You can view the traces in the **Aggregate** and the **Real Time** tabs.
 
    <img src="/img/tracing/image_1.png" />
 

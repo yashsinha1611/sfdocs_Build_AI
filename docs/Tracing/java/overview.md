@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ## Overview
 
-The Java tracing feature automatically instruments APIs, frameworks, and application servers for the applications built using Java. The sfAPM Java agent collects and sends the tracing metrics and the correlated application logs to the SnappyFlow server and you can view the tracing data in SnappyFlow's dashboard.
+The Java tracing feature has the capability to automatically instrument APIs, frameworks, and application servers for Java-based applications. With the help of the SnappyFlow Java trace agent, the tracing metrics and correlated application logs are gathered and transmitted to the SnappyFlow server, where the trace data can be viewed via the SnappyFlow dashboard.
 
 <div class="blue_textbox">
 	<b><u>Supported Java versions</u></b> 
@@ -47,17 +47,17 @@ The Java tracing feature automatically instruments APIs, frameworks, and applica
 
 **[Instances](/docs/Tracing/java/instance)** | **[Docker](/docs/Tracing/java/docker)**  |  **[ECS](/docs/Tracing/java/ecs)**  | **[Kubernetes](/docs/Tracing/java/kubernetes)**
 
+ 
 
+## Additional Trace Features 
 
-## Supported Trace Features 
-
-**Distributed Tracing** | **Transaction Mapping** | **Log Correlation** | **Capture Request Body** | **Service Map**
-
-<br/>
+**[Capture Request Body](/docs/Tracing/java/capture_request_body)** | **[Log Correlation](/docs/Tracing/java/log_correlation)** 
 
 :::note
 
-**Log Correlation** and **Capture Request Body** are not default trace features. Based on the requirement you can enable them by adding additional configurations.
+Additional configurations are required to enable **Log Correlation** and **Capture Request Body** features. 
 
 :::
+
+
 
