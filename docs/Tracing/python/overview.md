@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3 
 ---
-# Python Tracing
+# Tracing - Python Applications
 
 ## Overview
 
