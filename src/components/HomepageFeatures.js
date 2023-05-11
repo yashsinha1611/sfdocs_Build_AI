@@ -103,7 +103,7 @@ const FeatureList = [
     list: [
       {
         label: "Java",
-        url: '/docs/Tracing/java'
+        url: '/docs/Tracing/java/overview'
       },
       {
         label: "Python",

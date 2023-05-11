@@ -110,12 +110,7 @@ module.exports = {
                 description: 'SnappyFlow supports distributed tracing compliant with Opentracing standard. Tracing allows users to visualize the sequence of steps a transaction (whether API or non-API such as a Celery job) takes during its execution. This analysis is extremely powerful and allows pinpointing the source of problems such as abnormal time being spent on an execution step or identifying point of failure in a transaction. SnappyFlow refers to distributed tracing as sfTrace.',
             },
             collapsed: true,
-            items: [
-                {
-                    type: 'doc',
-                    id: 'Tracing/java',
-                    label: 'Java'
-                },
+            items: [ 
 				{
                     type: 'category',
                     label: 'Java',
