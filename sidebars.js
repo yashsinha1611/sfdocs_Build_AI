@@ -945,6 +945,11 @@ module.exports = {
                     id: 'Log_management/custom_log',
                     label: 'Custom Log Overview',
                 },
+				{
+                    type: 'doc',
+                    id: 'Log_management/custom_log_parser',
+                    label: 'Custom Log Parser',
+                },
             ],
         },
         {
@@ -1295,12 +1300,28 @@ module.exports = {
                                    id: 'release_note/database/clickhouse',
 							       label: 'Clickhouse',
 							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/aws_rds',
+							       label: 'AWS RDS',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/mongodB',
+							       label: 'MongoDB',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/database/oracle_ash',
+							       label: 'Oracle ASH',
+							   },
 							   
 							],
+							
 					    
 				},
                 
-            ],   
+            ],			
         },
 
     ],
