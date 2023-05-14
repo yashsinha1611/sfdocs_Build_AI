@@ -1,13 +1,13 @@
 ---
 sidebar_position: 3 
 ---
-# Release Note - Redis 
+# Release Note - Tomcat
 
 ## New Feature
 
-Integration feature to enable monitoring for Redis.
+An integration feature to monitor Tomcat.
 
-[Documentation Reference](/docs/Integrations/redis/overview)
+[Documentation Reference](/docs/Integrations/tomcat/overview)
 
 Kindly reach out to [support@snappyflow.io](mailto:support@snappyflow.io) for more info.
 

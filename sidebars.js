@@ -1325,7 +1325,384 @@ module.exports = {
 							
 					    
 				},
-                
+				{
+                    type: 'category',
+                    label: 'Tracing',
+					link: {
+						type: 'doc',
+						id: 'release_note/tracing/java',
+					},
+                    collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/tracing/java',
+							       label: 'Java',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/tracing/python',
+							       label: 'Python',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/tracing/csharp',
+							       label: 'C#',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/tracing/nodejs',
+							       label: 'Nodejs',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/tracing/php',
+							       label: 'PHP',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/tracing/ruby',
+							       label: 'Ruby',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/tracing/go',
+							       label: 'GO',
+							   },
+							   
+							],
+							
+					    
+				},
+				{
+                    type: 'category',
+                    label: 'Real User Monitoring',
+					link: {
+						type: 'doc',
+						id: 'release_note/real_user_monitoring/angular',
+					},
+                    collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/real_user_monitoring/angular',
+							       label: 'Angular',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/real_user_monitoring/react',
+							       label: 'React',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/real_user_monitoring/nextjs',
+							       label: 'nextjs',
+							   },
+							   
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Alerts & Notifications',
+					link: {
+						type: 'doc',
+						id: 'release_note/alerts_&_notification/alerts',
+					},
+                    collapsed: true,  
+                          items: [
+						        {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/alerts',
+							       label: 'Alerts',
+							   },
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/email',
+							       label: 'Email',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/zenduty',
+							       label: 'Zenduty',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/slack',
+							       label: 'Slack',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/pagerduty',
+							       label: 'PagerDuty',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/webhook',
+							       label: 'Webhook',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/opsgenie',
+							       label: 'Opsgenie',
+							   },
+							   
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Cloud Services',
+					link: {
+						type: 'doc',
+						id: 'release_note/cloud_services/aws_lambda',
+					},
+                    collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/cloud_services/aws_lambda',
+							       label: 'AWS Lambda',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/cloud_services/azure_blob',
+							       label: 'Azure Blob',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/cloud_services/cloudwatch',
+							       label: 'CloudWatch',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/cloud_services/elastic_load_balancer',
+							       label: 'Elastic Load Balancer',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/cloud_services/elasticache',
+							       label: 'ElastiCache',
+							   },
+							   
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Synthetic Monitoring',
+					link: {
+						type: 'doc',
+						id: 'release_note/synthetic_monitoring/synthetic_monitoring',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/synthetic_monitoring/synthetic_monitoring',
+							       label: 'Synthetic Monitoring',
+							   },
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Operating System',
+					link: {
+						type: 'doc',
+						id: 'release_note/operating_system/linux',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/operating_system/linux',
+							       label: 'Linux',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/operating_system/windows',
+							       label: 'Windows',
+							   },
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Platform',
+					link: {
+						type: 'doc',
+						id: 'release_note/platform/docker',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/platform/docker',
+							       label: 'Docker',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/platform/kubernetes',
+							       label: 'Kubernetes',
+							   },
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Infrastucture',
+					link: {
+						type: 'doc',
+						id: 'release_note/infrastucture/aws',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/infrastucture/aws',
+							       label: 'Azure',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/infrastucture/azure',
+							       label: 'Azure',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/infrastucture/vcenter',
+							       label: 'Vcenter',
+							   },
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Profiling',
+					link: {
+						type: 'doc',
+						id: 'release_note/profiler/go',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/profiler/go',
+							       label: 'Go',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/profiler/java',
+							       label: 'Java',
+							   },
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Services',
+					link: {
+						type: 'doc',
+						id: 'release_note/services/activemq',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/services/activemq',
+							       label: 'ActiveMq',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/apache',
+							       label: 'Apache',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/azure_log',
+							       label: 'Azure Log',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/haproxy',
+							       label: 'HAProxy',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/jboss',
+							       label: 'Jboss',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/nginx',
+							       label: 'Ngnix',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/nodejs',
+							       label: 'Nodejs',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/pgbouncer',
+							       label: 'Pgbouncer',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/rabbitmq',
+							       label: 'RabbitMQ',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/tomcat',
+							       label: 'Tomcat',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/kafka',
+							       label: 'Kafka',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/zookeeper',
+							       label: 'Zookeeper',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/trip_wire',
+							       label: 'Trip Wire',
+							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/services/statsd',
+							       label: 'StatsD',
+							   },
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'Dashboard',
+					link: {
+						type: 'doc',
+						id: 'release_note/dashboard/dashboard',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/dashboard/dashboard',
+							       label: 'Dashboard',
+							   },
+							],
+				},
+				{
+                    type: 'category',
+                    label: 'SIEM',
+					link: {
+						type: 'doc',
+						id: 'release_note/siem/siem',
+					},
+					collapsed: true,  
+                          items: [
+						       {
+                                   type: 'doc',
+                                   id: 'release_note/siem/siem',
+							       label: 'SIEM',
+							   },
+							],
+				},
             ],			
         },
 
