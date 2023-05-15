@@ -322,9 +322,30 @@ module.exports = {
                     label: 'AWS RDS',
                 },
 				{
-                    type: 'doc',
-                    id: 'Integrations/plugin/auroraDB',
+                    type: 'category',
                     label: 'AuroraDB',
+                    link: {
+                        type: 'doc',
+                        id: 'Integrations/auroraDB/overview',
+                    },
+                    collapsed: true,
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'Integrations/auroraDB/mysql',
+                            label: 'MySQL',
+                        },
+						{
+                            type: 'doc',
+                            id: 'Integrations/auroraDB/postgresql',
+                            label: 'PostgreSQL',
+                        },
+                    ],
+                },
+				{
+                    //type: 'doc',
+                    //id: 'Integrations/plugin/auroraDB',
+                    //label: 'AuroraDB',
                 },
                 {
                     type: 'doc',
