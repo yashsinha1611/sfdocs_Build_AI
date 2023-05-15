@@ -1,23 +1,17 @@
 ---
 sidebar_position: 3 
 ---
-# Aurora Release Note
+# Release Note - Aurora Database
 
-## Release Version 1
+## New Feature
 
-#### Release Overview
-
-**Release Date**:
-
-**Description**: New feature.
-
-#### Release Enhancement
-
-A newly developed integration feature enables the monitoring of Aurora databases.
+Integration feature to enable monitoring for Aurora database.
 
 [Documentation Reference](/docs/Integrations/plugin/auroraDB)
 
-please reach out to [support@snappyflow.io](mailto:support@snappyflow.io) for more info.
+Kindly reach out to [support@snappyflow.io](mailto:support@snappyflow.io) for more info.
+
+
 
 
 

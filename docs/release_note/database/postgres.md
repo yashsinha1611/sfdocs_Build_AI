@@ -1,31 +1,15 @@
 ---
 sidebar_position: 3 
 ---
-# Postgres Release Note
+# Release Note - PostgreSQL Database
 
-## Release Version 1
+## New Feature
 
-#### Release Overview
+Integration feature to enable monitoring for PostgreSQL database.
 
-**Release Date**: 04.05.2023
+[Documentation Reference](/docs/Integrations/postgres/overview)
 
-**Description**: This release is focused on the **slow query log duration** for Postgres DB running on **instance**.
-
-####  Release Enhancement
-
-None at this time.
-
-#### Bug Fixes
-
-Fixed the slow query log duration.
-
-[Documentation Reference](/docs/Integrations/postgres/postgres_instances#enable-postgresql-slow-query-logs)
-
-please reach out to [support@snappyflow.io](mailto:support@snappyflow.io) for more info.
-
-## Release Version 2
-
-#### Release Overview
+Kindly reach out to [support@snappyflow.io](mailto:support@snappyflow.io) for more info.
 
 
 
