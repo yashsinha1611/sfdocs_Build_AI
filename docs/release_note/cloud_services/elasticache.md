@@ -1,6 +1,12 @@
 ---
 sidebar_position: 3 
 ---
------------------------------------------    #RELEASE NOTE------------------------------------------------------------------
-## 
+# Release Note - ElastiCache
+## New Feature
+
+An integration feature that enables the monitoring of ElastiCache.
+
+[Documentation Reference](/docs/Integrations/elasticache/)
+
+Kindly reach out to [support@snappyflow.io](mailto:support@snappyflow.io) for more info.
 

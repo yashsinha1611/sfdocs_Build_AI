@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ## New Feature
 
-An integration feature to monitor Apache server.
+An integration feature to monitor JBoss server.
 
 [Documentation Reference](/docs/Integrations/jboss)
 

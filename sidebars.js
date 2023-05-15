@@ -1464,6 +1464,11 @@ module.exports = {
 							   },
 							   {
                                    type: 'doc',
+                                   id: 'release_note/cloud_services/azure_log',
+							       label: 'Azure Log',
+							   },
+							   {
+                                   type: 'doc',
                                    id: 'release_note/cloud_services/cloudwatch',
 							       label: 'CloudWatch',
 							   },
@@ -1550,7 +1555,7 @@ module.exports = {
 						       {
                                    type: 'doc',
                                    id: 'release_note/infrastucture/aws',
-							       label: 'Azure',
+							       label: 'AWS',
 							   },
 							   {
                                    type: 'doc',
@@ -1560,7 +1565,7 @@ module.exports = {
 							   {
                                    type: 'doc',
                                    id: 'release_note/infrastucture/vcenter',
-							       label: 'Vcenter',
+							       label: 'vCenter',
 							   },
 							],
 				},
@@ -1603,11 +1608,6 @@ module.exports = {
                                    type: 'doc',
                                    id: 'release_note/services/apache',
 							       label: 'Apache',
-							   },
-							   {
-                                   type: 'doc',
-                                   id: 'release_note/services/azure_log',
-							       label: 'Azure Log',
 							   },
 							   {
                                    type: 'doc',
