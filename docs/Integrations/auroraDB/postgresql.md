@@ -99,7 +99,7 @@ Follow the below step to add endpoints and plugins:
 
 4. In the **Plugins** window, click the `+Add` button.
 
-   <img src="/img/integration/auroradb/image_13.png" />
+   <img src="/img/integration/auroradb/image_14.png" />
 
 5. In the **Add Plugin** window, select the below details and save.
 
@@ -107,7 +107,7 @@ Follow the below step to add endpoints and plugins:
 
    - **Plugin**: `cloudwatch_log_rds`
 
-   - **Engine**: `generic`
+   - **Engine**: `postgresql`
 
    - **Interval**: Choose an interval value. The minimum value for the interval is 300
 
@@ -172,7 +172,7 @@ Once plugins are added to sfPoller, they will be automatically detected within t
 | RDSToAuroraPostgreSQLReplicaLag  | TThe lag when replicating updates from the primary RDS PostgreSQL instance to other nodes in the cluster |
 | DiskQueueDepth                   | The number of outstanding read/write requests waiting to access the disk. |
 
-##### cloudwatch-aurorapostgresinsights:
+##### cloudwatch-aurorapostgresinsights
 
 
 | Metric                                 | Description                                                  |
