@@ -1,4 +1,3 @@
-# Monitor Elastic Load Balancer
 
 ## Overview
 

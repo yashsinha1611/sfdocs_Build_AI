@@ -411,11 +411,32 @@ const AGENTS = [
 		'link': '/docs/Integrations/docdb'
 	},
 	{
-		'src': '/img/integration/integration_list/hashicorp.svg',
+		'src': '/img/integration/integration_list/hashicorp-consul.svg',
 		'label': 'HCP Consul',
 		'overText': 'Monitor DocumentDB',
 		'category': [''],
 		'link': '/docs/Integrations/hcp_consul'
+	},
+	{
+		'src': '/img/integration/integration_list/pgbouncer.svg',
+		'label': 'PgBouncer',
+		'overText': 'Load balancer for PostgreSQL',
+		'category': ['Web Tier'],
+		'link': '/docs/Integrations/pgBouncer/pgBouncer_on_instance'
+	},
+	{
+		'src': '/img/integration/integration_list/jboss.svg',
+		'label': 'Jboss',
+		'overText': 'Jboss Metric plugin monitors Jboss server by collecting multiple types of metrics ',
+		'category': ['Web Tier'],
+		'link': '/docs/Integrations/jboss'
+	},
+	{
+		'src': '/img/integration/integration_list/azure-log-analytics.svg',
+		'label': 'Azure Log',
+		'overText': 'Plugin relays the log events stored in event hub to snappyflow APM ',
+		'category': ['Web Tier'],
+		'link': '/docs/Integrations/plugin/azurelog'
 	},
 	
 	

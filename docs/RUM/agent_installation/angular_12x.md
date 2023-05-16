@@ -13,24 +13,13 @@ npm install --save sf-apm-rum
 ```
 
 
-## **Step 2: Import the sf-apm-rum package**
+## **Step 2: Add typescript defintion file**
 
-Add following path in angular.json
+Create a new file `sf-apm-rum.d.ts` at same level where `package.json` exists add the following code.
+
 ```js
-"node_modules/sf-apm-rum/dist/sf-apm-rum.js"
+declare module 'sf-apm-rum'
 ```
-Eg:
-```json
-"architect": {
-   "build": {
-      "options": {
-         "scripts": ["node_modules/sf-apm-rum/dist/sf-apm-rum.js"]
-      }
-   }
-}
-
-```
-
 
 ## **Step 3: Configure the error handler**
 
@@ -39,7 +28,7 @@ Create a new file `apm-error.handler.ts` at the root level where `app.module.ts`
 
 ```js
 import { ErrorHandler, Injectable } from "@angular/core";
-declare const sfApm: any;
+import * as sfApm from 'sf-apm-rum';
 
 @Injectable()
 export class ApmErrorHandler extends ErrorHandler {
@@ -68,8 +57,8 @@ providers: [
 	{provide: ErrorHandler, useClass: ApmErrorHandler}
 ]
 ```
-Verify the configuration below,
-![image](../images/error-handler.png)
+<!-- Verify the configuration below,
+![image](../images/error-handler.png) -->
 
 ## **Step 4: Create a project and application in Snappyflow portal**
 
@@ -115,11 +104,7 @@ Add the following code in the applications root component,
 usually in app.component.ts
 
 ```js
-declare const sfApm: any; // add it before @Component decorator
-```
-
-```js
-// add below code in ngOnInit method
+import * as sfApm from 'sf-apm-rum';
 let apmRum = new sfApm.ApmRum(); // initialize the library
 
 const apmData = {
@@ -131,12 +116,12 @@ const apmData = {
 };
 apmRum.init(apmData);
 ```
-Verify the configuration below,
-![image](../images/configure-rum.png)
+<!-- Verify the configuration below,
+![image](../images/configure-rum.png) -->
 
 ## **Step 6: Verify the setup**
 
-Once the above mentioned steps are completed, **restart the development server** using `npm start` command and check for the RUM data in the Snappyflow APM server. 
+Once the above mentioned steps are completed, **start the development server** using `npm start` command and check for the RUM data in the Snappyflow APM server. 
 
 Click on View dashboard for the given application -> Click on Real User Monitoring Tab on left side bar -> Go to Real Time Pane.
 
