@@ -1,4 +1,4 @@
-# Monitoring Nginx on Instances
+# Monitor Nginx on Instances
 
 ## Overview
 

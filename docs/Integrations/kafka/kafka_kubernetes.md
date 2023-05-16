@@ -1,4 +1,4 @@
-# Monitoring Kafka Clusters running in Kubernetes
+# Monitor Kafka Clusters in Kubernetes
 
 # Overview
 

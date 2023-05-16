@@ -1,4 +1,4 @@
-# Monitor Postgres in Kubernetes
+# Monitor Postgres DB in Kubernetes
 
 ## Overview 
 

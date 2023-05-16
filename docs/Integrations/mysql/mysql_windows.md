@@ -1,4 +1,4 @@
-# Monitoring MySQL databases running on Windows
+# Monitor MySQL DB on Windows
 
 ## Overview
 

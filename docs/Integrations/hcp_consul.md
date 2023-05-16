@@ -1,4 +1,4 @@
-# Monitoring HCP Consul and Envoy Metrics on SnappyFlow
+# Monitor HCP Consul 
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Overview
+# Monitor Java Applications
 
 JAVA monitoring on SnappyFlow is available for the following platforms
 

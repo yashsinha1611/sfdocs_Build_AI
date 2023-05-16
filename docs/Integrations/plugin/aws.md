@@ -1,5 +1,5 @@
-# AWS
- 
+# AWS Integration
+
 ## Description
 
 AWS Metric plugin provide information related to billing and inventory for the account and it is displayed in sfAPM dashboard. 
@@ -10,7 +10,7 @@ AWS Metric plugin provide information related to billing and inventory for the a
 
    AWS Billing reports can be generated following simple steps given at AWS official documentation.
 It involves two steps:
-   
+
    1. Setting up an Amazon S3 bucket for Cost and Usage Reports . ([related aws documentation](https://docs.aws.amazon.com/cur/latest/userguide/cur-s3.html))
    2. Creating Cost and Usage Reports . ([related aws documentation](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html))
 

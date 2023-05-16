@@ -1,4 +1,4 @@
-# Monitoring Apache Server on Instances
+# Monitor Apache Server
 
 ## Overview
 
@@ -6,8 +6,15 @@ Apache Server’s monitoring involves monitoring of the following elements:
 
 - Apache Access Logs 
 - Apache Error Logs 
-
 - Apache Server Health 
+
+:::note
+
+The configurations given below apply only to the Apache server running on an instance.
+
+:::
+
+
 
 ## Pre-requisites
 

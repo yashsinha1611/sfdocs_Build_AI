@@ -1,4 +1,4 @@
-# sfAgent Installation on Linux
+# Install sfAgent on Linux
 
 ## Overview
 

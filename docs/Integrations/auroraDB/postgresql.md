@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3 
 ---
-# Monitor Aurora-PostgreSQL Database
+# Monitor Aurora-PostgreSQL DB
 
 ## Prerequisites
 

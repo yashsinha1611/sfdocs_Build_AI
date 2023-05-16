@@ -1,6 +1,4 @@
-# Monitoring File Stats using fileStats Plugin
-
-# 
+# Monitor File Stats
 
 The fileStats Metric plugin is an agent-based plugin that collects the following data
 

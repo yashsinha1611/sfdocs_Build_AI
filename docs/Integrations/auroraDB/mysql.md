@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3 
 ---
-# Monitor Aurora-MySQL Database
+# Monitor Aurora-MySQL DB
 
 ## Prerequisites
 

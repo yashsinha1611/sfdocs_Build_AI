@@ -1,4 +1,4 @@
-# Blaze Meter
+# Monitor Blaze Meter Platform
 
 ## Description
 

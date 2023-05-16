@@ -1,8 +1,14 @@
-#  Configuration Update Feature (Linux & Windows) 
+#  Configuration Update Feature 
 
 ## Overview
 
 Agent Configuration update feature is used to update the configuration in multiple instances at a time without login into each instance. From UI, users can update the config file. 
+
+:::note
+
+The configurations given below apply only to the Linux and Windows operating systems.
+
+:::
 
 ### Prerequisite
 
@@ -84,7 +90,7 @@ In Tag update again contain three options.
     - Click on add new bundle option. 
     - Upload the bundle which you downloaded from the inventory page and provide the name and description. 
     - Click on apply. 
- 
+
 4. **To Apply the added bundle**
 
     Config bundle apply can be done in two ways 
@@ -102,7 +108,7 @@ In Tag update again contain three options.
        <img src="/img/fail_status.png" /> 
 
     **b. From agent configuration dialogue box.**
-      
+    
       Using this user can apply a bundle for multiple instances under a single application.
 
     **Steps:** 

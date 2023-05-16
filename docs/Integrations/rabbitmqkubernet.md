@@ -1,6 +1,4 @@
-# RabbitMQ in Kubernetes
-
-## Monitoring RabbitMQ Message Broker running on Kubernetes
+# Monitor RabbitMQ in Kubernetes
 
 RabbitMQ running in Kubernetes can be monitored in SnappyFlow using:
 
@@ -45,7 +43,7 @@ data:
 ```
 
 ### RabbitMQ YAML(Statefulset)
- 
+
  ```yaml
 apiVersion: apps/v1
 kind: StatefulSet
@@ -91,7 +89,7 @@ spec:
           name: rabbitmq-sfagent-config
         name: sfagent
 
-```
+ ```
 
 ### Parameters required in metrics plugin
 

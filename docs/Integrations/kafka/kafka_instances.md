@@ -1,4 +1,4 @@
-# Monitoring Kafka Clusters running on Instances
+# Monitor Kafka Clusters on Instances
 
 ## Overview
 

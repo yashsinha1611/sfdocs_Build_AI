@@ -1,4 +1,4 @@
-# Monitoring MySQL databases running on cloud services (Amazon RDS) using sfPoller
+# Monitor MySQL DB in AWS RDS
 
 ## Overview
 

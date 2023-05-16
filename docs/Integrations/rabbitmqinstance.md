@@ -1,15 +1,11 @@
-# RabbitMQ on Instances
-
-## Monitoring RabbitMQ Message Broker running on Instances
+# Monitor RabbitMQ on Instance
 
 ### Overview
 
 Rabbitmq [sfAgent](/docs/Quick_Start/getting_started#sfagent) plugin provides metrics related to RabbitMQ message broker.  
 
-Metrics collected by the plugin are organized across the following categories
+Metrics collected by the plugin are organized across the following categories.
 
-
- 
 - clusterDetails
 - nodeStats
 - connectionStats
@@ -29,7 +25,7 @@ Metrics collected by the plugin are organized across the following categories
 ## Metrics 
 
 ### plugins  
- 
+
 
 ```yaml
       name: rabbitmq
@@ -51,9 +47,9 @@ Metrics collected by the plugin are organized across the following categories
         username: <username>
 
 ```
- 
 
- 
+
+
 ### Parameters required in metrics plugin   
 
 - Username: username of the RabbitMQ user

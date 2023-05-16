@@ -1,4 +1,4 @@
-# ELB Logs
+# Monitor Elastic Load Balancer Logs
 
 ## Description :
 

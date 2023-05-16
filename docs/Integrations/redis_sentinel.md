@@ -1,4 +1,4 @@
-# Monitoring Redis Sentinel setup on Instances
+# Monitor Redis Sentinel
 
 ## Overview
 
@@ -6,7 +6,13 @@ Redis Sentinel on Instances is monitored using [sfAgent](/docs/Quick_Start/getti
 
 Redis sentinel plugin was tested with 6.2.6 and 5.0.7 sentinel versions with ubuntu 20.04.4 LTS.
 
- 
+:::note
+
+The configurations given below apply only to the Redis Sentinel setup on an instance.
+
+:::
+
+
 ### Metrics plugin
 
  Collects metric data organized in following  `documentType` under metrics index:  

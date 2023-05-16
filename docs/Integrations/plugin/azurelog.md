@@ -1,8 +1,8 @@
-# AzureLog
+# Monitor Azure Log
 
 ## Description
 
-Plugin relays the log events stored in event hub to snappyflow APM
+Plugin relays the log events stored in event hub to snappyflow APM.
 
 ### Prerequisites
 
@@ -47,7 +47,7 @@ Plugin to be configured through sfpoller
   leave the field empty. 
   Unique identifier for each log kind is its *category*. Refer [Available Categories](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).
   Each log category has its own schema of metrics [Schema Per Category](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-schema#service-specific-schemas).
- 
+
   A log Specification includes a *category* and following set of defined *options* which applies to that category,
   *Resources*: Comma Separated azure resources those are intended to be monitored
   *Target*: Specify whether data to be rendered in metric or log dashboard. Available values to be set, metric and log

@@ -1,11 +1,9 @@
 
-# Redis in Kubernetes
+# Monitor Redis DB in Kubernetes
 
-## Overview
+## Overview 
 
- 
-
-Redis running in kubernetes can be monitored in SnappyFlow using following steps
+Redis running in kubernetes can be monitored in SnappyFlow using following steps.
 
 
 ## Redis monitoring with sfKubeAgent

@@ -1,8 +1,14 @@
-# Monitoring Apache ZooKeeper running on Instances
+# Monitor Apache ZooKeeper 
 
 ## Overview
 
 Zookeeper afAgent Metric plugin helps in analyzing the efficiency of zookeeper infrastructure by providing key metrics like node count, packet count, latency, watch count etc.
+
+:::note
+
+The configurations given below apply only to the Apache Zookeeper running on an instance.
+
+:::
 
 ## Prerequisites
 

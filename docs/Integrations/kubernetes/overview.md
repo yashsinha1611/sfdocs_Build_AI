@@ -1,4 +1,4 @@
-# Overview
+# Monitor Kubernetes Platform
 
 SnappyFlow provides various approaches to monitor Kubernetes applications. Choose one to continue
 

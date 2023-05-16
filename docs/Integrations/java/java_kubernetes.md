@@ -1,4 +1,4 @@
-# Monitoring JAVA applications running in Kubernetes
+# Monitor Java Application in Kubernetes
 
 ## Overview
 

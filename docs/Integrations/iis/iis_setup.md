@@ -1,8 +1,8 @@
  
 
-# IIS Web Server and Access Logging Setup
+# Setup for IIS Server and Access Logging
 
-### IIS Server Setup
+## IIS Web Server Setup
 
 1.  Open Server Manager from Start menu.
 
@@ -72,7 +72,7 @@
 
 <img src="\img\iis\iis_14.png" />
 
-### Starting Performance Counters
+## Starting Performance Counters
 
 1. Click on IIS. Your server will be listed under "SERVERS".
 
@@ -83,7 +83,7 @@
 
 <img src="\img\iis\iis_16.png" />
 
-### IIS Access Logging Setup
+## IIS Access Logging Setup
 
 1. Right click on your server, and select "Internet Information Services(IIS)".
 

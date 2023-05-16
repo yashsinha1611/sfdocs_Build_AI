@@ -1,4 +1,4 @@
-# Jboss plugin
+# Monitor JBoss Server
 
 ## Overview
 

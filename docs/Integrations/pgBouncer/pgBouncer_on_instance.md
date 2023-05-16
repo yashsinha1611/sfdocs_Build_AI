@@ -1,10 +1,16 @@
-# PgBouncer Integration
+# Monitor PgBouncer 
 
 **PgBouncer** acts as a connection pool mechanism for **PostgreSQL**. PgBouncer creates a connection pool and enables the application to use the existing connections in the pool to interact with the database. 
 
 The number of PostgreSQL backend processes can be reduced by this mechanism. PgBouncer reduces the resource (memory, backend, fork, etc..) consumption of the PostgreSQL. It also decreases the response time between the client application and the database.
 
 By integrating PgBouncer with SnappyFlow, you enable SnappyFlow to collect the connection metrics from PgBouncer and visualize them in SnappyFlow's dashboard.
+
+:::note
+
+The configurations given below apply only to the PgBouncer running on an instance.
+
+:::
 
 ##  PgBouncer Monitoring
 

@@ -1,10 +1,8 @@
-# Monitoring Linux OS
+# Configuration to Enable Linux Monitoring
 
 ## Overview
 
 OS monitoring is the most commonly needed and most important aspect of monitoring. SnappyFlow provides a comprehensive monitoring of Linux OS through multiple plugins. 
-
- 
 
 - Linux base metric plugin provides following data: 
   - CPU Static and Dynamic Metrics 
@@ -75,8 +73,6 @@ logging:
  
 
 ## See Also
-
- 
 
 - [LSOF](/docs/integrations/os/linux/lsof) 
 - [PSUTIL](/docs/integrations/os/linux/psutil) 

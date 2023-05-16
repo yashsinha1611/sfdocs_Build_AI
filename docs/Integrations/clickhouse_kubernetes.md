@@ -1,6 +1,12 @@
-# Clickhouse on Kubernetes
+# Monitor Clickhouse Database
 
-Clickhouse running in Kubernetes can be monitored in SnappyFlow using Prometheus exporter.
+Clickhouse database can be monitored in SnappyFlow using Prometheus exporter.
+
+:::note
+
+The configurations given below apply only to the Clickhouse running on an instance.
+
+:::
 
 ## Clickhouse monitoring with Prometheus
 

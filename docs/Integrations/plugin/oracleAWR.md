@@ -1,8 +1,8 @@
-# Oracle AWR
+# Monitor Oracle AWR
 
 ## Description
 
-OracleAWR plugin fetch and parse the oracle AWR report from AWS-RDS.
+OracleAWR plugin fetch and parse the oracle Automatic Workload Repository (AWR) report from AWS-RDS.
 
 ### Prerequisites
 

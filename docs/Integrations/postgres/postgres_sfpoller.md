@@ -1,4 +1,4 @@
-# Monitor Postgres in AWS RDS
+# Monitor Postgres DB in AWS RDS
 
 ## Overview
 

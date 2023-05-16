@@ -1,4 +1,4 @@
-# Monitoring CPU load using cpuLoadStats Plugin
+# Monitor CPU Loads
 
 cpuLoadStats Metric plugin is an agent-based plugin that collects the following CPU data
 

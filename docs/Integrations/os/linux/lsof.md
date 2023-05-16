@@ -1,4 +1,4 @@
-# LSOF (List of Open Files)
+# Monitor List of Open Files (LSOF)
 
 ## Overview
 

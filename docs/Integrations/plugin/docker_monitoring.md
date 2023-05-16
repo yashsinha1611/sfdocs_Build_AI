@@ -1,4 +1,4 @@
-# Docker
+# Monitor Docker Platform
 
 Docker is an open platform for developing, shipping, and running applications. Docker provides the ability to package and run an application in a loosely isolated environment called a container. The container becomes the unit for distributing and testing your application.
 
@@ -142,7 +142,7 @@ A HEATHCHECK instruction determines the state of a Docker Container. It determin
 - --retries=: If it reaches the specified number of retries, the state is unhealthy. The default number of retries is 3. 
 
 Add the health check instruction with options and a command or a blank health check in the **Docker File** , refer the given example.
-   
+
    ```
    HEALTHCHECK --interval=35s --timeout=4s CMD curl -f <protocol>://<IP>/ || exit 1
    EXPOSE <port>
@@ -151,33 +151,33 @@ Add the health check instruction with options and a command or a blank health ch
    	  EXPOSE 80
    ```
 
-   
+
    OR 
- 
+
  ```
    HEALTHCHECK NONE
  ```
-   
+
    Re-build of docker is **required** after adding healthcheck in the docker file. Use the following command to build the docker.
-   
+
    ```
    docker build
    ```
+
    
-   
-   
+
   ### Docker Swarm 
-   
+
    Docker Swarm is an orchestration management tool that runs on Docker applications. It helps end-users in creating and deploying a cluster of Docker nodes. Each node of a Docker Swarm is a Docker daemon, and all Docker daemons interact using the Docker API. Docker Swarm can reschedule containers on node failures. Swarm node has a backup folder which we can use to restore the data onto a new Swarm. 
-   
+
    **There are two types of nodes in Docker Swarm:**
-   
+
    1. Manager node-Maintains cluster management tasks 
    
    2. Worker node-Receives and executes tasks from the manager node
-   
+
 **Steps to be followed to add swarm**
-   
+
    1. Run the command 
    
       ```
@@ -199,7 +199,7 @@ Add the health check instruction with options and a command or a blank health ch
       docker service create --name <service name> -p 80:80 httpd
       ```
 
-    
+​    
 
 
 ## Viewing data and dashboards

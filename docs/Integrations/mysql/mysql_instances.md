@@ -1,4 +1,4 @@
-# Monitor MySQL Database on Instances
+# Monitor MySQL DB on Instance
 
 ## Overview
 

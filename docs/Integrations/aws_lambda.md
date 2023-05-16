@@ -1,4 +1,4 @@
-# Forwarding AWS Lambda logs to SnappyFlow
+#  AWS Lambda Integration
 
 ## Overview
 

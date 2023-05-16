@@ -1,4 +1,4 @@
-# Monitoring Redis on instances
+# Monitor Redis DB on Instances
 
 ## Overview
 

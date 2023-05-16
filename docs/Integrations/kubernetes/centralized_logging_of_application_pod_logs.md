@@ -1,7 +1,5 @@
 # Centralized Logging of Application Pod Logs
 
-
-
 ## Overview
 
 SnappyFlow can collect & parse application logs from pods in 2 ways: 

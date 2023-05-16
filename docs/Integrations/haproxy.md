@@ -1,4 +1,4 @@
-# Monitoring HAProxy on Instances
+# Monitor HAProxy Server
 
 ## Overview[](https://docs.snappyflow.io/docs/Integrations/haproxy#overview)
 
@@ -7,6 +7,12 @@ HAProxy is a free, very fast and reliable solution offering high availabilit
 - HAProxy Access Logs
 - HAProxy Logs
 - HAProxy Metrics
+
+:::note
+
+The configurations given below apply only to the HAProxy server running on an instance.
+
+:::
 
 ## Prerequisites[](https://docs.snappyflow.io/docs/Integrations/haproxy#prerequisites)
 
@@ -24,10 +30,10 @@ HAProxy is a free, very fast and reliable solution offering high availabilit
    Global   
     log /dev/log  local0 
     stats socket /run/haproxy/admin.sock mode 660 level admin 
-
+   
    ```
 
-   ​
+   
 
 
 1. Configure the HAProxy in following manner to enable server logs.
@@ -41,7 +47,7 @@ HAProxy is a free, very fast and reliable solution offering high availabilit
      Capture request header User-Agent len 128. 
      
      log-format %ci:%cp\ [%tr]\ %ft\ %b/%s\ %TR/%Tw/%Tc/%Tr/%Ta\ %ST\ %B\ %CC\ %CS\ %tsc\ %ac/%fc/%bc/%sc/%rc\ %sq/%bq\ %hr\ %hs\ %{+Q}r
-
+   
    ```
 
    - Under defaults section add below lines to capture access logs
@@ -50,7 +56,7 @@ HAProxy is a free, very fast and reliable solution offering high availabilit
        log-format %ci:%cp\ [%tr]\ %ft\ %b/%s\ %TR/%Tw/%Tc/%Tr/%Ta\ %ST\ %B\ %CC\ %CS\ %tsc\ %ac/%fc/%bc/%sc/%rc\ %sq/%bq\ %hr\ %hs\ %{+Q}r
      ```
 
-     ​
+     
 
 
    - Add below line to frontend configuration to capture requests:

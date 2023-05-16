@@ -1,4 +1,4 @@
-# Monitor Postgres on Instance
+# Monitor Postgres DB on Instance
 
 ## Overview
 

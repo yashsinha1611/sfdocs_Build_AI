@@ -1,4 +1,4 @@
-﻿# ElastiCache
+﻿# Monitor ElastiCache
 
 ## Overview
 ElastiCache is the distributed in memory cache environments in the AWS cloud. Amazon ElastiCache supports the Memcached and Redis cache engines.
@@ -190,7 +190,6 @@ All CloudWatch metrics are collected and tagged based on their ElastiaCache type
 <img src="/img/elasticache_dashboard1.png" /><br/><br/>
 
 <img src="/img/elasticache_dashboard2.png" />
-
 
 
 

@@ -1,4 +1,4 @@
-# MS SQL
+# Monitor MSSQL DB in Kubernetes
 
 ## Description
 

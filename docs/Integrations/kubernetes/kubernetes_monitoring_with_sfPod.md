@@ -1,4 +1,4 @@
-# Kubernetes Monitoring with sfPod 
+# Monitor Kubernetes with sfPod 
 
 ## sfPod overview
 

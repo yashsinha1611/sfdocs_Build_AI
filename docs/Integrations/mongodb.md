@@ -1,4 +1,4 @@
-# Monitoring MongoDB
+# Monitoring Mongo Database
 
 ## Overview
 
