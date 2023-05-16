@@ -1,4 +1,4 @@
-# Monitor MySQL on Instances
+# Monitor MySQL Database on Instances
 
 ## Overview
 
@@ -33,7 +33,7 @@ Use the username and password created in this section while setting access permi
 Use the below code to set access permission. 
 
 ```sql
-grant select on performance_schema.* to 'username';
+grant select on performance_schema.* to 'username'@'%';
 ```
 
 :::note
@@ -115,6 +115,16 @@ SET GLOBAL general_log = 'ON'; 
 SET GLOBAL general_log_file= '/path/filename';  
 ```
 
+**Example**:
+
+once the logs are enabled, My SQL general logs will be generated in the below format.
+
+```text
+2023-05-04 11:52:10.470 IST > LOG:  duration: 1006.577 ms  statement: select pg_sleep(1);
+```
+
+
+
 ### Enable Slow Query Logs
 
 In `mysqld.cnf` file, uncomment and configure the variables shown below: 
@@ -131,6 +141,18 @@ SET GLOBAL slow_query_log = 'ON'; 
 SET GLOBAL long_query_time = 100;  
 SET GLOBAL slow_query_log_file = '/path/filename';  
 ```
+
+Example of slow query log format:
+
+```
+# Time: 2023-05-04T06:47:52.143598Z
+# User@Host: petclinic[petclinic] @ localhost []  Id:    12
+# Query_time: 20.023072  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 1
+SET timestamp=1683182852;
+select sleep(20);
+```
+
+
 
 :::note
 
