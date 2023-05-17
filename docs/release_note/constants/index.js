@@ -171,7 +171,7 @@ const AGENTS = [
 		'label':'Teams',
 		'overText': 'Teams Notification Channel',
 		'category': ['Alerts & Notifications'],
-		'link': '/docs/Alerts_notifications/Notifications/Create_Notification_Channel/teams'
+		'link': '/docs/release_note/alerts_&_notification/teams'
 	},
 	{
 		'src':'/img/integration/integration_list/zenduty.svg',
@@ -204,8 +204,10 @@ const AGENTS = [
 	{
 		'src': '/img/aws_lambda.svg',
 		'label': 'AWS Lambda',
-		'overText': '/docs/release_note/cloud_services/aws_lambda',
-		'category': ['Cloud Services']
+		'category': ['Cloud Services'],
+		//'overText': '',
+		
+		'link': '/docs/release_note/cloud_services/aws_lambda'
 	},
 	{
 		'src': '/img/azure_blob.svg',
@@ -338,49 +340,42 @@ const AGENTS = [
 		'label': 'Zookeper',
 		'overText': 'Ldap Infrastructure platform is built for enterprises',
 		'category': ['Services'],
-		'link': '/docs/integrations/zookeeper'
-	},
-	{
-		'src': '/img/kubernetes-clusters.svg',
-		'label': 'Kubernetes',
-		'overText': 'Kubernetes clusters Infrastructure platform is built for enterprises',
-		'category': ['Platform'],
-		'link': '/docs/Integrations/kubernetes/overview'
+		'link': '/docs/release_note/services/zookeeper'
 	},
 	{
 		'src': '/img/nginx.svg',
 		'label': 'Nginx',
 		'overText': 'Nginx Infrastructure platform is built for enterprises',
 		'category': ['Services'],
-		'link': '/docs/Integrations/nginx/overview'
+		'link': '/docs/release_note/services/nginx'
 	}, 
 	{
 		'src':'/img/tomcat.svg',
 		'label':'Tomcat',
 		'overText': 'Opsgenie Infrastructure platform is built for enterprises',
 		'category': ['Services'],
-		'link': '/docs/integrations/tomcat/tomcat_windows'
+		'link': '/docs/release_note/services/tomcat'
 	},
 	{
 		'src': '/img/rabbitmq.svg',
 		'label': 'RabbitMQ',
 		'overText': 'Monitoring RabbitMQ Message Broker running on Instances',
 		'category': ['Services'],
-		'link': '/docs/Integrations/rabbitmqinstance'
+		'link': '/docs/release_note/services/rabbitmq'
 	},
 	{
 		'src': '/img/tripwire.png',
 		'label': 'TripWire',
 		'overText': 'Tripwire Metric Plugin Parses reports Generates By Tripwire',
 		'category': ['Services'],
-		'link': '/docs/Integrations/tripwire'
+		'link': '/docs/release_note/services/trip_wire'
 	},  
 	{
 		'src': '/img/custom-metrics-using-statsd.svg',
 		'label': 'StatsD',
 		'overText': 'Custom Metrics Infrastructure platform is built for enterprises',
 		'category': ['Services'],
-		'link': '/docs/integrations/statsd/custom_monitoring'
+		'link': '/docs/release_note/services/statsd'
 	},  
 	{
 		'src':'/img/iis-server.svg',
@@ -389,34 +384,6 @@ const AGENTS = [
 		'category': [''],
 		'link': '/docs/IntCloud Servicesegrations/iis/iis_windows'
 	}, 
-	{
-		'src': '/img/integration/integration_list/django.svg',
-		'label': 'Django',
-		'overText': 'Python Framework',
-		'category': ['Services'],
-		//'link': '/docs/Integrations/os/linux/overview'
-	},
-	{
-		'src': '/img/integration/integration_list/asp-dot-net.svg',
-		'label': 'ASP.NET',
-		'overText': 'C# framework',
-		'category': ['Services'],
-		'link': '/docs/Tracing/aspdotnetcore'
-	},
-	{
-		'src': '/img/integration/integration_list/dot-net.svg',
-		'label': '.Net',
-		'overText': 'C# framework',
-		'category': ['Services'],
-		'link': '/docs/Tracing/dotnetframework'
-	},
-	{
-		'src': '/img/integration/integration_list/flask.svg',
-		'label': 'Flask',
-		'overText': 'Python Framework',
-		'category': ['Services'],
-		//'link': '/docs/Tracing/dotnetframework'
-	},
 	{
 		'src': '/img/golang.svg',
 		'label': 'Go',
@@ -444,6 +411,27 @@ const AGENTS = [
 		'overText': 'Monitor DocumentDB',
 		'category': [''],
 		'link': '/docs/Integrations/hcp_consul'
+	},
+	{
+		'src': '/img/integration/integration_list/dashboard.svg',
+		'label': 'Dashboard',
+		'overText': 'Dashboard',
+		'category': ['Dashboard'],
+		'link': '/docs/release_note/dashboard'
+	},
+	{
+		'src': '/img/integration/integration_list/siem.svg',
+		'label': 'SIEM',
+		'overText': 'SnappyFlow siem feature',
+		'category': ['SIEM'],
+		'link': '/docs/release_note/siem'
+	},
+	{
+		'src': '/img/integration/integration_list/synthetic.svg',
+		'label': 'SM',
+		'overText': 'SnappyFlow Synthetic Monitoring feature',
+		'category': ['Synthetic Monitoring'],
+		'link': '/docs/release_note/synthetic_monitoring'
 	},
 	
 	
@@ -486,6 +474,16 @@ const buttonLists = [
 	{
 		'label': 'RUM'
 	},
+	{
+		'label': 'Dashboard'
+	},
+	{
+		'label': 'SIEM'
+	},
+	{
+		'label': 'Synthetic Monitoring'
+	},
+	
 	
 	
 	
