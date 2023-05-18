@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3 
 ---
-# RELEASE NOTE - SIEM
+# Release Note - SIEM
 
 ## New Feature
 

@@ -279,8 +279,6 @@ module.exports = {
                     ],
                 },				
             ],
-
-
         },
         {
             type: 'category',
@@ -770,7 +768,6 @@ module.exports = {
                         },
                     ],
                 },
-                
                 {
                     type: 'category',
                     label: 'RabbitMQ',
@@ -863,12 +860,6 @@ module.exports = {
                     id: 'Integrations/zookeeper',
                     label: 'ZooKeeper',
                 },
-				
-
-
-
-
-
             ],
         },
         {
@@ -1461,6 +1452,11 @@ module.exports = {
                                    id: 'release_note/alerts_&_notification/opsgenie',
 							       label: 'Opsgenie',
 							   },
+							   {
+                                   type: 'doc',
+                                   id: 'release_note/alerts_&_notification/teams',
+							       label: 'Teams',
+							   },
 							   
 							],
 				},
@@ -1504,22 +1500,6 @@ module.exports = {
 							       label: 'ElastiCache',
 							   },
 							   
-							],
-				},
-				{
-                    type: 'category',
-                    label: 'Synthetic Monitoring',
-					link: {
-						type: 'doc',
-						id: 'release_note/synthetic_monitoring/synthetic_monitoring',
-					},
-					collapsed: true,  
-                          items: [
-						       {
-                                   type: 'doc',
-                                   id: 'release_note/synthetic_monitoring/synthetic_monitoring',
-							       label: 'Synthetic Monitoring',
-							   },
 							],
 				},
 				{
@@ -1704,20 +1684,14 @@ module.exports = {
 							],
 				},
 				{
-                    type: 'category',
-                    label: 'SIEM',
-					link: {
-						type: 'doc',
-						id: 'release_note/siem/siem',
-					},
-					collapsed: true,  
-                          items: [
-						       {
-                                   type: 'doc',
-                                   id: 'release_note/siem/siem',
-							       label: 'SIEM',
-							   },
-							],
+                    type: 'doc',
+                    id: 'release_note/synthetic_monitoring/synthetic_monitoring',
+					label: 'Synthetic Monitoring',
+				},
+				{
+                    type: 'doc',
+                    id: 'release_note/siem/siem',
+				    label: 'SIEM',
 				},
             ],			
         },
