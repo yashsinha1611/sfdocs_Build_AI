@@ -1,21 +1,21 @@
 # Monitor MySQL DB in Kubernetes
 
-MySQL running in Kubernetes can be monitored in SnappyFlow using two approaches:
+MySQL database  running in Kubernetes can be monitored using two approaches:
 
-- [sfKubeAgent](/docs/Integrations/kubernetes/sfkubeagent_installation) as a sidecar container.
+- [sfKubeAgent](/docs/Integrations/kubernetes/sfkubeagent_installation) as a sidecar container
 - [Prometheus exporter](/docs/Integrations/kubernetes/prometheus_exporter)
 
 ## Get Started
 
 ### Create a new user
 
-For MySQL 5.6 or MySQL 5.7, create a user with the following command:
+For MySQL versions 5.6 and 5.7, create username and password using the following command:
 
 ```sql
  create user 'username'@'%' identified by 'uniquepassword';
 ```
 
-For MySQL 8.0 or greater, create a user with the following command:
+For MySQL versions 8.0 and greater, create username and password with the following command:
 
 ```sql
 create user 'username'@'%' identified with mysql_native_password by 'uniquepassword';
@@ -29,7 +29,7 @@ Use the username and password created in this section while setting access permi
 
 ### Set Access Permissions
 
-Use the below code to set access permission. 
+Use the following command to set access permission. 
 
 ```sql
   grant select on performance_schema.* to 'username';
@@ -37,15 +37,19 @@ Use the below code to set access permission. 
 
 :::note
 
-The root user has these permissions by default 
+By default, the root user has the above mentioned permission.
 
 :::
 
 ## Monitor MySQL with sfKubeAgent
 
-In this approach, sfKubeAgent runs as a side-car inside MySQL pod. The example below shows the config map for the sfKubeAgent container.
+### Configurations
 
-### Configuration Map for MySQL
+In this approach, sfKubeAgent runs as a side-car inside the MySQL pod. 
+
+The example given below shows the config map of the `sfKubeAgent` container.
+
+#### Configuration Map for MySQL
 
 ```yaml
 apiVersion: v1  
@@ -65,7 +69,7 @@ data: 
     slow_query_log_file = /var/log/mysql/mysql-slow.log  
 ```
 
-### Configuration Map for MySQL sfKubeAgent
+#### Configuration Map for MySQL sfKubeAgent
 
 ```yaml
 apiVersion: v1
@@ -110,7 +114,7 @@ data:
 
 
 
-### Configure MySQL Pod  Using YAML
+#### Configure MySQL Pod Using YAML
 
 ```yaml
 kind: Pod
@@ -167,52 +171,42 @@ spec:
       emptyDir: {}
 ```
 
-### View Metrics and Logs
+### View Database Metrics and Logs
 
-1. Login into SnappyFlow.
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
 
-2. Navigate to the **Application** tab > **Project** > **Application** and click the **Dashboard** icon.
+:::note
 
-3. Click the **tab menu** `...` icon on the **Metric** tab.
+Once the MySQL configuration settings are done, the MySQL plugin will be automatically detected within the Metrics section. However, if the plugin is not detected, you can import **template** = `MySQL` to view the corresponding metrics.
 
-4. Select the **Import from template** option.
+:::<br/>
 
-   <img src="/img/integration/mysql/image_5.png" />
+2. MySQL database **Metrics** and **Slow Query Logs** are displayed in the **Metrics** section of the dashboard.
 
-5. In the **Import to Metrics Panes** window, select **Filter By**: *`Standard`*, **Template Name**: *`MySQL`*
+   
 
-6. Click the `Save` button.
+3. MySQL database **General Logs** are displayed in the **Log Management** section of the dashboard.
 
-#### General logs 
+   
 
-<img src="/img/integration/mysql/image_2.png" />
+4. To access the unprocessed data gathered from the plugins, navigate to the **Browse data** section and select the following data: `Index`, `Instance`, `Plugin`, and `Document Type`.
 
-To view general logs, navigate to your ***Application's dashboard*** > ***Log management*** > ***Primary storage***. In the **Primary Storage** window, set the **Log Type** to a general log as per the requirement.
+#### Template Details
 
-#### Slow query logs
+| **Template** | **Plugin**      | **Document Type**                                |
+| ------------ | --------------- | ------------------------------------------------ |
+| MySQL        | mysql           | databaseDetails, serverDetails, and tableDetails |
+| MySQL        | mysql-slowquery | SlowQueryLogs, serverDetails, and tableDetails   |
 
-<img src="/img/integration/mysql/image_3.png" />
-
-To view slow query logs, navigate to ***Application's dashboard*** > ***Metrics*** > ***Slow Queries***.
-
-#### Metrics
-
-1. To view database metrics, navigate to ***Application's dashboard*** > ***Browse Data***.
-2. In the **Browse Data** window, set the following filters:
-   - **Index**: Metrics
-   - **Instance**: Select your instance
-   - **Plugin**: MySQL, mysql-slowquery (For slow query logs)
-   - **Document type**: serverDetails, databaseDetails, tableDetails, SlowQueryLogs (For slow query logs)
-
-## MySQL monitoring with Prometheus
-
-Refer to [Prometheus Exporter](/docs/Integrations/kubernetes/prometheus_exporter) overview to understand how SnappyFlow monitors using Prometheus exporters.
+## Monitor MySQL with Prometheus
 
 ### Prerequisites
 
-Prometheus exporter is deployed as a side-car in the application container and the exporter port will be accessible to the sfPod.
+Prometheus exporter has to be deployed as a side-car in the application container and the exporter port has to be accessible to the sfPod. Refer to [Prometheus Exporter](/docs/Integrations/kubernetes/prometheus_exporter) overview to understand how SnappyFlow monitors using Prometheus exporters.
 
-### Configure MySQL Service Using YAML
+### Configurations
+
+#### Configure MySQL Service Using YAML
 
 ```yaml
 apiVersion: v1 
@@ -239,7 +233,7 @@ spec:
   type: ClusterIP 
 ```
 
-### Configure MySQL Pod Using YAML
+#### Configure MySQL Pod Using YAML
 
 ```yaml
 kind: Pod 
@@ -290,37 +284,30 @@ spec:
    emptyDir: {} 
 ```
 
-### View Metrics and Logs
+### View Database Metrics and Logs
 
-1. Navigate to the **Application** tab > **Project** > **Application** and click the **Dashboard** icon.
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**.
 
-2. Click the **tab menu** `...` icon on the **Metric** tab.
+:::note
 
-3. Select the **Import from template** option.
+Once the MySQL configuration settings are done, the MySQL plugin will be automatically detected within the Metrics section. However, if the plugin is not detected, you can import **template** = `MySQL` or  to view the corresponding metrics.
 
-   <img src="/img/integration/mysql/image_6.png" />
+::: <br/>
 
-4. In the **Import to Metrics Panes** window, select **Filter By**: *`Standard`*, **Template Name**: *`MySQL_Kube_Prom`*.
+2. MySQL database **Metrics** and **Slow Query Logs** are displayed in the **Metrics** section of the dashboard.
 
-5. Click the `Save` button.
+   
 
-#### General logs 
+3. MySQL database **General Logs** are displayed in the **Log Management** section of the dashboard.
 
-<img src="/img/integration/mysql/image_2.png" />
+   
 
-To view general logs, navigate to your ***Application's dashboard*** > ***Log management*** > ***Primary storage***. In the **Primary Storage** window, set the **Log Type** to a general log as per the requirement.
+4. To access the unprocessed data gathered from the plugins, navigate to the **Browse data** section and select the following data: `Index`, `Instance`, `Plugin`, and `Document Type`.
 
-#### Slow query logs
+#### Template Details
 
-<img src="/img/integration/mysql/image_3.png" />
+| **Template**         | **Plugin**      | **Document Type**                                |
+| -------------------- | --------------- | ------------------------------------------------ |
+| MySQL_Kube_Prom | kube-prom-mysql | databaseDetails, serverDetails, and tableDetails |
+| MySQL | mysql-slowquery | SlowQueryLogs, serverDetails, and tableDetails |
 
-To view slow query logs, navigate to ***Application's dashboard*** > ***Metrics*** > ***Slow Queries***.
-
-#### Metrics
-
-1. To view database metrics, navigate to ***Application's dashboard*** > ***Browse Data***.
-2. In the **Browse Data** window, set the following filters:
-   - **Index**: Metrics
-   - **Instance**: Select your instance
-   - **Plugin**: kube-prom-mysql, mysql-slowquery (For slow query logs)
-   - **Document type**: serverDetails, tableDetails, SlowQueryLogs (For slow query logs)

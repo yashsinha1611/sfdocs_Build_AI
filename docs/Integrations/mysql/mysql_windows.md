@@ -1,31 +1,36 @@
 # Monitor MySQL DB on Windows
 
-## Overview
-
-The MYSQL Metric plugin collects metrics for number of user connections and more.
-
-### Metrics plugin
-
-Collects metric data organized in following `documentType` under metrics index: 
-
-- serverDetails
-- databaseDetails
-- tableDetails
-- masterReplicationDetails
-- slaveReplicationDetails
-
 ## Prerequisites
 
-- MySQL 5.6 or above
+Install [sfAgent](/docs/Quick_Start/getting_started#sfagent)  to start monitoring MySQL database running on windows using MySQL plugin.
 
+:::note
 
-### Logger plugin
+The configurations given below apply only to the MySQL databases versions 5.6 and above.
 
-collects general logs and slow query logs. General logs are sent to log index whereas slow queries are sent to metrics index under `documentType:mysqlSlowQueryLogs` 
+:::
+
+## Get Started
+
+To get started with MySQL database monitoring, create a user and grant permissions to collect data from the MySQL database.
+
+### Create New User
+
+Create username and password using the following command:
+
+```sql
+create user <username> with password '<password>';
+```
+
+:::note
+
+Use the username and password created in this section while setting access permission and configuration.
+
+:::
 
 ### Set access permissions
 
-Username used for DB access should have appropriate permissions 
+Use the following command to set access permission. 
 
 ```sql
 grant select on information_schema.* to 'username' identified by 'password';  
@@ -34,56 +39,105 @@ grant select on performance_schema.* to 'username' identified by 'password';�
 
 :::note
 
-Root user has these permissions by default 
+By default, the root user has the permissions mentioned above.
 
 :::
 
-### Enable Replication(optional)
+## Configuration
 
-To collect the replication details replication has to be enabled.
+Add the below-mentioned configuration to the  `config.yaml` file which is located at the following path `C:\Program Files (x86)\Sfagent\`.
 
-Execute the following queries on the slave using the login of the user provided in the config.yaml file:
+```yaml
+tags:
+ Name: WINDOWSTEST
+ appName: WINDOWSMYSQLAPP
+ projectName: WINDOWSMYSQLPROJECT
+metrics:
+  plugins:
+  - name: windows
+    enabled: false
+    interval: 20
+  - name: mysql
+    enabled: true
+    interval: 20
+    config:
+      port: 3306
+      host: 127.0.0.1
+      user: root
+      password: root@123
+      documentsTypes:
+        - serverDetails
 
-1)"show slave status"
+        - databaseDetails
 
-2)"select * from replication_connection_status"
+        - tableDetails
 
-If the user is able to execute these queries then the replication details can be collected.
+        - masterReplicationDetails #optional use for MySQL replication details
 
-Commands to create a replication user if you want to enable replication:
+        - slaveReplicationDetails  #optional use for MySQL replication details
+logging:
+  plugins:
+ - name: mysql-slowquery
+   enabled: true
+ - name: mysql-general
+   enabled: true
+ - name: mysql-error
+   enabled: true
+```
 
-the commands to be executed on the source or master,
+## Enable Replication (optional)
+
+### Prerequisites
+
+1. Make sure that the replication is enabled on the database. 
+2. Execute the following queries on the slave using username provided in the `config.yaml` file to check the replication status.
+
+   ```
+   "show slave status"
+   ```
+
+   ```
+   "select * from replication_connection_status"
+   ```
+
+:::note
+
+If the user is able to execute the above queries then the replication details can be collected.
+
+:::
+
+### Create New User and Set Access Permission
+
+To enable the replication, create a replication user using the following commands. The below given commands should be executed on the master.
+
 ```shell
 CREATE USER 'replica_user'@'slave_server_ip' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
+
 ```shell
 GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'replica_user'@'slave_server_ip';
 ```
 
-## Configuration Settings
+## View Database Metrics and Logs
 
-Add the plugin configuration in `config.yaml` file under `C:\Program Files (x86)\Sfagent\` directory as follows to enable this plugin
+1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application** > **Dashboard**<br/>
 
-```
-- name: mysql
-  enabled: true
-  interval: 300
-  config:
-     port: 3306
-     host: 127.0.0.1
-     user: xxxx
-     password: xxxx
-     documentsTypes:
-       - databaseDetails 
-       - serverDetails 
-       - tableDetails
-       - masterReplicationDetails #optional to be enabled when replication is setup
-       - slaveReplicationDetails  #optional to be enabled when replication is setup 
-```
+:::note
+Once the MySQL configuration settings are done, the MySQL plugin will be automatically detected within the Metrics section. However, if the plugin is not detected, you can import **template** = `MySQL` or `MySQL_Replication` to view the corresponding metrics.
+::: <br/>
 
-For help with plugins, please reach out to [support@snappyflow.io](mailto:support@snappyflow.io)
+2. MySQL database **Metrics** are displayed in the **Metrics** section of the dashboard.
 
-**Viewing data and dashboards**   
+   
 
-- Data generated by plugin can be viewed in`browse data` page inside the respective application under`plugin=mysql`  and `documentType= serverDetails`
-- Dashboard for this data can be instantiated by Importing dashboard template`MySQL` to the application dashboard
+4. To access the unprocessed data gathered from the plugins, navigate to the **Browse data** section and select the following data: `Index`, `Instance`, `Plugin`, and  `Document Type`.<br/>
+
+   
+
+#### Template Details
+
+| **Template**| **Plugin**  |   **Document Type**  |
+| ------------ | -------------|-------------------- |
+| MySQL | mysql |databaseDetails, serverDetails, and tableDetails|
+| MySQL_Replication | mysql |databaseDetails, serverDetails, tableDetails, masterReplicationDetails, and slaveReplicationDetails|
+

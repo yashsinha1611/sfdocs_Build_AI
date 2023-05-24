@@ -1,12 +1,14 @@
 # Monitor MySQL Database
 
-MySQL monitoring on SnappyFlow is available for the following platforms
+## Overview
 
-##### [Instances](/docs/integrations/mysql/mysql_instances)
+SnappyFlow enhances MySQL database monitoring by effortlessly collecting metrics and logs, offering real-time insights to optimize performance and ensure seamless operations.
 
-##### [Kubernetes](/docs/integrations/mysql/mysql_kubernetes)
+<img src="/img/integration/mysql/image_8.png" />
 
-##### [Cloud services (with sfpoller plugin)](/docs/integrations/mysql/mysql_sfpoller)
 
-##### [Windows](/docs/integrations/mysql/mysql_windows)
+
+## Supported Platform
+
+[**Instances**](/docs/integrations/mysql/mysql_instances) | [**Kubernetes**](/docs/integrations/mysql/mysql_kubernetes) | [**Windows**](/docs/integrations/mysql/mysql_windows) | [**AWS RDS**](/docs/integrations/mysql/mysql_sfpoller) 
 
