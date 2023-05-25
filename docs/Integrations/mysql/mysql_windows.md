@@ -19,7 +19,7 @@ To get started with MySQL database monitoring, create a user and grant permissio
 Create username and password using the following command:
 
 ```sql
-create user <username> with password '<password>';
+create user 'username'@'%' identified by 'uniquepassword';
 ```
 
 :::note
@@ -33,8 +33,7 @@ Use the username and password created in this section while setting access permi
 Use the following command to set access permission. 
 
 ```sql
-grant select on information_schema.* to 'username' identified by 'password';  
-grant select on performance_schema.* to 'username' identified by 'password';  
+grant select on performance_schema.* to 'username'@'%'; 
 ```
 
 :::note
@@ -46,6 +45,12 @@ By default, the root user has the permissions mentioned above.
 ## Configuration
 
 Add the below-mentioned configuration to the  `config.yaml` file which is located at the following path `C:\Program Files (x86)\Sfagent\`.
+
+:::note
+
+Root user access is required to enable database replication.
+
+:::
 
 ```yaml
 tags:
@@ -63,17 +68,13 @@ metrics:
     config:
       port: 3306
       host: 127.0.0.1
-      user: root
-      password: root@123
+      user: <username>
+      password: <password>
       documentsTypes:
         - serverDetails
-
         - databaseDetails
-
         - tableDetails
-
         - masterReplicationDetails #optional use for MySQL replication details
-
         - slaveReplicationDetails  #optional use for MySQL replication details
 logging:
   plugins:

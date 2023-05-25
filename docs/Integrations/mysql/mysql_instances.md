@@ -51,6 +51,14 @@ By default, the root user has the above mentioned permission.
 
 Add the below-mentioned configuration to the `config.yaml` which is located at the following path `/opt/sfagent/ directory` .
 
+:::note
+
+Root user access is required to enable database replication.
+
+:::
+
+
+
 ```yaml
 metrics:  
   plugins:  
@@ -65,9 +73,9 @@ metrics: 
           - masterReplicationDetails  #optional to be enabled when replication is setup
           - slaveReplicationDetails  #optional to be enabled when replication is setup
         host: 127.0.0.1  
-        password: USERad@123$  
+        password: <password>
         port: 3306  
-        user: root  
+        user: <username>
 logging:  
   plugins:  
     - name: mysql-error  
