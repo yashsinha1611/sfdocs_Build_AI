@@ -614,22 +614,22 @@ module.exports = {
                         {
                             type: 'doc',
                             id: 'Integrations/mysql/mysql_instances',
-                            label: 'MySQL on Instances',
+                            label: 'Instances',
                         },
                         {
                             type: 'doc',
                             id: 'Integrations/mysql/mysql_kubernetes',
-                            label: 'MySQL in Kubernetes',
+                            label: 'Kubernetes',
                         },
                         {
                             type: 'doc',
                             id: 'Integrations/mysql/mysql_windows',
-                            label: 'MySQL on Windows',
+                            label: 'Windows',
                         },
                         {
                             type: 'doc',
                             id: 'Integrations/mysql/mysql_sfpoller',
-                            label: 'MySQL with sfPoller',
+                            label: 'AWS RDS',
                         },
                     ],
                 }, 
