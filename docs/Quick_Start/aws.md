@@ -158,17 +158,19 @@ These templates are pre-loaded with the required stack information such as serve
 
 ### Uploading the template ###
 
-Sign into your AWS console. Search for `Cloudformation` using the search bar on top and select the `CloudFormation` service.
+1. Sign into your AWS console. Search for `Cloudformation` using the search bar on top and select the `CloudFormation` service.
 
-<img src="/img/snappyflow_self_hosted/cloudformation.png" />
+   <img src="/img/snappyflow_self_hosted/cloudformation.png" />
 
-Click on `Create Stack` and select `With new resources` option.
+<br/>
 
-<img src="/img/snappyflow_self_hosted/aws_create_stack.png" />
+2. Click on `Create Stack` and select `With new resources` option.
 
-Select `Template is ready` and upload the template provided by SnappyFlow sizing tool and click `Next`.
+   <img src="/img/snappyflow_self_hosted/aws_create_stack.png" />
 
-<img src="/img/snappyflow_self_hosted/aws_create_stack_2.png" />
+3. Select `Template is ready` and upload the template provided by SnappyFlow sizing tool and click `Next`.
+
+   <img src="/img/snappyflow_self_hosted/aws_create_stack_2.png" />
 
 
 
@@ -182,11 +184,11 @@ In this page, provide a stack name and configure subnets and IAM Roles required 
 
 **Deployment**
 
-Choose Recommended
+Choose Recommended.
 
 **Database Type**
 
-If a backup for SnappyFlow account is required, choose 'RDS'. Else select 'Local'
+If a backup for SnappyFlow account is required, choose 'RDS'. Else select 'Local'.
 
 **Private Subnet**
 
@@ -204,135 +206,41 @@ For example: If a private subnet with availability zone "a" is selected, a publi
 
 **Allowed IP**
 
-Provide a list of IP addresses which can access SnappyFlow server
+Provide a list of IP addresses which can access SnappyFlow server.
 
 **KeyName**
 
-Provide an existing key for SSH access to SnappyFlow instances
+Provide an existing key for SSH access to SnappyFlow instances.
 
 **IAMRole**
 
 Provide an existing IAM Role with appropriate permissions. This is required to discover end points and create a S3 storage required for logs and metric backup.
 
-Click on `Next` to continue.
+1. Click on `Next` to continue.
 
-In the `Configure stack options` screen, provide tags and verify all permissions and other stack creation options.
+2. In the `Configure stack options` screen, provide tags and verify all permissions and other stack creation options.
 
-Click on `Next` to continue.
+3. Click on `Next` to continue.
 
-Review all configuration settings and click on `Create Stack' to create SnappyFlow stack.
+4. Review all configuration settings and click on `Create Stack' to create SnappyFlow stack.
 
 <img src="/img/snappyflow_self_hosted/aws_stack_review.png" />
 
-Once the stack is successfully created, it should appear under the list of stacks in CloudFormation service.
+5. Once the stack is successfully created, it should appear under the list of stacks in CloudFormation service.
 
 <img src="/img/snappyflow_self_hosted/aws_stack_complete.png" />
 
 ### Accessing SnappyFlow server ###
 
-
-Click on the stack and select `Outputs` tab
-
-<img src="/img/snappyflow_self_hosted/aws_stack_output.png" />
-
-SnappyFLow portal can be accessed using the server URL provided here. The default username is  admin and password is the instance id.
-
-<img src="/img/snappyflow_self_hosted/aws_stack_url.png" />
-
-SnappyFlow will complete the installation automatically. This process takes upto 30 minutes.
-
-<img src="/img/snappyflow_self_hosted/portal.png" />
-
-## Create SnappyFlow stack on AWS
-
-### Pre-Requisites ###
-
-- AWS account
-- Pre-configured IAM roles with appropriate access levels
-
-### Uploading the template ###
-
-Sign into your AWS console. Search for `Cloudformation` using the search bar on top and select the `CloudFormation` service.
-
-<img src="/img/snappyflow_self_hosted/cloudformation.png" />
-
-Click on `Create Stack` and select `With new resources` option.
-
-<img src="/img/snappyflow_self_hosted/aws_create_stack.png" />
-
-Select `Template is ready` and upload the template provided by SnappyFlow sizing tool and click `Next`.
-
-<img src="/img/snappyflow_self_hosted/aws_create_stack_2.png" />
-
-
-
-### Configuration ###
-
-In this page, provide a stack name and configure subnets and IAM Roles required for the stack.
-
-<img src="/img/snappyflow_self_hosted/aws_stack_configuration.png" />
-
-
-
-**Deployment**
-
-Choose Recommended
-
-**Database Type**
-
-If a backup for SnappyFlow account is required, choose 'RDS'. Else select 'Local'
-
-**Private Subnet**
-
-APM and Opensearch instances will be created under selected Subnets. If RDS is selected as DatabaseType, add two subnets with same VPC and different availability zones, as RDS creation needs to cover all availability zones in the region. APM and Opensearch instances will be created with first subnet(first selection in checkbox) !!!
-
-:::note
-If DatabaseType is chosen as RDS, provide two Private Subnets. Without two separate subnets, stack creation will fail.
-:::
-
-**Public Subnet**
-
-Loadbalancer and bastion will be created under this Subnet. Select public subnet of availibility zone same as first PrivateSubnetIds (first selection in checkbox) of same VPC. 
-
-For example: If a private subnet with availability zone "a" is selected, a public subnet of availability zone "a" should be added under same VPC, so that the Loadbalancer can forward request to target group of instances.
-
-**Allowed IP**
-
-Provide a list of IP addresses which can access SnappyFlow server
-
-**KeyName**
-
-Provide an existing key for SSH access to SnappyFlow instances
-
-**IAMRole**
-
-Provide an existing IAM Role with appropriate permissions. This is required to discover end points and create a S3 storage required for logs and metric backup.
-
-Click on `Next` to continue.
-
-In the `Configure stack options` screen, provide tags and verify all permissions and other stack creation options.
-
-Click on `Next` to continue.
-
-Review all configuration settings and click on `Create Stack' to create SnappyFlow stack.
-
-<img src="/img/snappyflow_self_hosted/aws_stack_review.png" />
-
-Once the stack is successfully created, it should appear under the list of stacks in CloudFormation service.
-
-<img src="/img/snappyflow_self_hosted/aws_stack_complete.png" />
-
-### Accessing SnappyFlow server ###
-
-
-Click on the stack and select `Outputs` tab
+1. Click on the stack and select `Outputs` tab
 
 <img src="/img/snappyflow_self_hosted/aws_stack_output.png" />
 
-SnappyFLow portal can be accessed using the server URL provided here. The default username is  admin and password is the instance id.
+2. SnappyFLow portal can be accessed using the server URL provided here. The default username is  admin and password is the instance id.
 
 <img src="/img/snappyflow_self_hosted/aws_stack_url.png" />
 
-SnappyFlow will complete the installation automatically. This process takes upto 30 minutes.
+3. SnappyFlow will complete the installation automatically. This process takes upto 30 minutes.
 
 <img src="/img/snappyflow_self_hosted/portal.png" />
+
