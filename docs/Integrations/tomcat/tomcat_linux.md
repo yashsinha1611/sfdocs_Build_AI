@@ -69,13 +69,13 @@ logging:
 
 ```
 
-Tomcat access log options:
+#### Tomcat Access Log Options
 
   1. Geo-IP: Useful to find geographical location of the client using the IP address. To enable, set the option "geo_info" to true in the above configuration.
   2. User-Agent Analysis: To get the host machine details like browser, Operating system and device by analysis the user-agent. To enable, set the option "ua_parser" to true in the above configuration. If enabled, by default it runs on port 8586.
   3. URL Normalizer (not supported in container deployment): Normalize incoming URL paths. To enable, set the option "url_normalizer" to true in the above configuration. If enabled, by default it runs on port 8587. 
 
-Normalization specific configuration is available in /opt/sfagent/normalization/config.yaml which resonate the following,
+Normalization specific configuration is available in `/opt/sfagent/normalization/config.yaml` which resonate the following,
 
 ```yaml
 interval: 300
@@ -88,15 +88,15 @@ rules: []
 
 #### Config Field Description
 
-*interval*: Normalization algorithm runtime interval.
+**interval**: Normalization algorithm runtime interval.
 
-*enabled*: Rely on normalization feature for rule generation.
+**enabled**: Rely on normalization feature for rule generation.
 
-*rules_length_limit*: Limit over size of generated rules. set the value to -1  for specifying no limit.
+**rules_length_limit**: Limit over size of generated rules. set the value to -1  for specifying no limit.
 
-*log_volume*: Limit over number of logs processed. set the value to -1  for specifying no limit.
+**log_volume**: Limit over number of logs processed. set the value to -1  for specifying no limit.
 
-*rules*: Rules Generated.
+**rules**: Rules Generated.
 
 Recommended approach is to run sfagent with *dynamic_rule_generation* enabled over a period of time. Observe whether rules generated reflect all the web app requests intended to be normalized and if its a true reflection, set *enabled* flag to *false* , indicating no further rules will be generated
 
@@ -109,9 +109,17 @@ agent:
 ```
 
 :::note
-1. Latitude and Longitude are often near the center of population. These values are not precise and should not be used to identify a particular address or household.
-2. User-agent parsing requires high computation power. Recommended to enable only if needed and system have enough CPU resource available.
+ 1. Latitude and Longitude are often near the center of population. These values are not precise and should not be used to identify a particular address or household.
+
+ 2. User-agent parsing requires high computation power. Recommended to enable only if needed and system have enough CPU resource available.
+
 :::
+
+#### Enhance URL Normalization
+
+Refer the following document for comprehensive instructions and guidelines for setting up and developing rules to enhance URL normalization.
+
+[Rule Development Guide and Setup Instructions](https://docs.google.com/document/d/1c1FWXYoAiXJa8ET9Uvq5N--nNQcwVjMGWyPbz38z0a4/edit) 
 
 ## View Data and Dashboard
 

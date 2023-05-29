@@ -116,9 +116,15 @@ Keep username and password same as jolokia role updated in tomcat-users.xml.
 
 #### Tomcat Access Logger Options
 
-  1. Geo-IP: Useful to find geographical location of the client using the IP address. To enable, set the option "geo_info" to true in the above configuration.
-  2. User-Agent Analysis: To get the host machine details like browser, Operating system and device by analysis the user-agent. To enable, set the option "ua_parser" to true in the above configuration. If enabled, by default it runs on port 8586.
-  3. URL Normalizer (not supported in container deployment): Normalize incoming URL paths. To enable, set the option "url_normalizer" to true in the above configuration. If enabled, by default it runs on port 8587. 
+    1. Geo-IP: Useful to find geographical location of the client using the IP address. To enable, set the option "geo_info" to true in the above configuration.
+    2. User-Agent Analysis: To get the host machine details like browser, Operating system and device by analysis the user-agent. To enable, set the option "ua_parser" to true in the above configuration. If enabled, by default it runs on port 8586.
+    3. URL Normalizer (not supported in container deployment): Normalize incoming URL paths. To enable, set the option "url_normalizer" to true in the above configuration. If enabled, by default it runs on port 8587. 
+
+#### Enhance URL Normalization
+
+Refer the following document for comprehensive instructions and guidelines for setting up and developing rules to enhance URL normalization.
+
+[Rule Development Guide and Setup Instructions](https://docs.google.com/document/d/1c1FWXYoAiXJa8ET9Uvq5N--nNQcwVjMGWyPbz38z0a4/edit) 
 
 ## Viewing data and dashboards
 
