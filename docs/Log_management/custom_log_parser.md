@@ -5,9 +5,9 @@ sidebar_position: 3
 
 ## What is Custom Parser?
 
-A custom parser enables you to customize the input format of the logs which are used monitoring. This is useful for handling unique data formats or specialized parsing needs in certain scenarios.
+SnappyFlow's custom parser feature enables the collection and monitoring of logs in custom format. It proves useful for handling distinct data formats or specialized parsing needs in specific scenarios.
 
-The SnappyFlow parser plugin is built using Fluent Bit constructs and  SnappyFlow support representation of these components in  YAML. To learn more about the representations of core components, please refer to the link provided below.
+The SnappyFlow parser plugin is built using Fluent Bit constructs and SnappyFlow is supporting the representation of Fluent Bit components in YAML. To learn more about the representations of core components, please refer to the link provided below.
 
 [Fluentbit Component Representation in SnappyFlow](https://docs.google.com/document/d/1YyRuqISYqYMqvoV80-a2ka9ouExDvgHGociLXEeubiE/edit?usp=sharing)
 
@@ -55,7 +55,7 @@ Utilize the format specified below to configure a plugin for logs.
 ```
 logging:
   plugins:
-    - name: user-input
+    - name: <-pluginName-> #give the Plugin name in the parser plugin format
       enabled: true
       config:
         log_path: log path seperated by comma
@@ -75,7 +75,7 @@ logging:
 
    <img src="/img/log_management/custom_parser/image-3.png" />
 
-3. Select the **Configuration** tab and click the **Download configurations** option to download the existing configuration.
+3. Select the **Configuration** tab and click the `Download configurations` option to download the existing configuration.
 
 4. Downloaded collection will contain the below given files with pre-configured data.
     - `config.yaml` file
@@ -111,7 +111,7 @@ Do not modify any existing contents. Add the parser configuration to the existin
 
 9. In the **Agent Configuration** window, click the `+ Add New Bundle` button.
 
-<img src="/img/log_management/custom_parser/image-7.png" /> 
+<img src="/img/log_management/custom_parser/image-8.png" /> 
 
 <br/>
 
@@ -119,15 +119,27 @@ Do not modify any existing contents. Add the parser configuration to the existin
 11. Give a Name to the bundle and add a description.
 12. Click the ` Upload` button.
 
-## Apply the Custom Parser
+## Apply the Custom Parser 
 
 Follow the below steps to apply the custom parser configuration to an application.
 
+<img src="/img/log_management/custom_parser/image-1.png" />
+
 1. Go to the **Application** tab in SnappyFlow and navigate to your **Project** > **Application**.
+
 2. Click the application, it will take you to the inventory page.
+
 3. Go to the **Configurations** tab.
-4. Select the new sfagent configuration bundle and click the `Apply` option.
-5. In the **Configuration Operation** pop-up window, select `Plugin Config Update` and click `Ok`.
+
+4. Click the `Apply Configuration` option.
+
+   <img src="/img/log_management/custom_parser/image-9.png" /> 
+
+5. Click the `Apply` option of the new bundle.
+
+   <img src="/img/log_management/custom_parser/image-11.png" /> 
+
+6. In the **Configuration Operation** pop-up window, select the  `Plugin Config Update` option and click `Ok`.
 
 
 
