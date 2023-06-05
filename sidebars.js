@@ -98,7 +98,7 @@ module.exports = {
                     type: 'doc',
                     id: 'sfPoller/azure_setup',
                     label: 'Setup in Azure',
-                }
+                },
             ],
         },
         {
@@ -203,7 +203,7 @@ module.exports = {
                             id: 'Tracing/advanced/trace_history',
                             label: 'Trace History',
                         }
-                    ]
+                    ],
                 },
 				{
                     type: 'category',
@@ -371,7 +371,7 @@ module.exports = {
                             id: 'Integrations/clickhouse_kubernetes',
                             label: 'Clickhouse on Kubernetes',
                         },
-                    ]
+                    ],
                 },
 				{
                     type: 'doc',
@@ -1223,6 +1223,11 @@ module.exports = {
                     type: 'doc',
                     label: 'Overview',
                     id: 'Synthetic/overview',
+                },
+				{
+                    type: 'doc',
+                    label: 'Content Check',
+                    id: 'Synthetic/content_check',
                 }
 
             ],
