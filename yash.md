@@ -8,3 +8,4 @@ yash is studying in manipal institue of technolgy.
 he is activily looking for jobs in data science domain
 
 
+he is working in marketing department
